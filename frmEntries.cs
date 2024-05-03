@@ -149,7 +149,9 @@ namespace h24
                                     {
                                         cat_name = record.kat,
                                         cat_start_time = DateTime.ParseExact(start_time, "yyyy-MM-dd HH:mm:ss.fff", null),
-                                        cat_time_limit = int.Parse(time_limit)
+                                        cat_time_limit = int.Parse(time_limit),
+                                        as_of_date = DateTime.Now,
+                                        valid = true
                                     };
 
                                     db.categories.Add(newCategory);
@@ -169,7 +171,7 @@ namespace h24
                                 comp1.rented_chip = record.rented1;
                                 comp1.rank_order = 1;
                                 comp1.comp_country = record.country1;
-                                comp1.comp_birthday = DateTime.ParseExact(record.nar1, "d.M.yyyy", null);
+                                comp1.comp_birthday = DateTime.ParseExact(record.nar1, "yyyy", null);
                                 comp1.comp_valid_flag = true;
                                 comp1.as_of_date = DateTime.Now;
                                 Competitor.Add(comp1);
@@ -182,25 +184,28 @@ namespace h24
                                 comp2.rank_order = 2;
                                 comp2.comp_country = record.country2;
                                 if (!String.IsNullOrEmpty(record.nar2))
-                                    comp2.comp_birthday = DateTime.ParseExact(record.nar2, "d.M.yyyy", null);
+                                    comp2.comp_birthday = DateTime.ParseExact(record.nar2, "yyyy", null);
                                 comp2.comp_valid_flag = true;
                                 comp2.as_of_date = DateTime.Now;
                                 Competitor.Add(comp2);
 
-                                competitors comp3 = new competitors();
-                                comp3.bib = record.id.ToString() + "C";
-                                comp3.comp_name = record.jmeno3 + " " + record.prijmeni3;
-                                comp3.comp_chip_id = record.chip3;
-                                comp3.rented_chip = record.rented3;
-                                comp3.rank_order = 3;
-                                comp3.comp_country = record.country3;
-                                if (!String.IsNullOrEmpty(record.nar3))
-                                    comp3.comp_birthday = DateTime.ParseExact(record.nar3, "d.M.yyyy", null);
-                                comp3.comp_valid_flag = true;
-                                comp3.as_of_date = DateTime.Now;
-                                Competitor.Add(comp3);
+                                if (record.prijmeni3.Length > 0)
+                                {
+                                    competitors comp3 = new competitors();
+                                    comp3.bib = record.id.ToString() + "C";
+                                    comp3.comp_name = record.jmeno3 + " " + record.prijmeni3;
+                                    comp3.comp_chip_id = record.chip3;
+                                    comp3.rented_chip = record.rented3;
+                                    comp3.rank_order = 3;
+                                    comp3.comp_country = record.country3;
+                                    if (!String.IsNullOrEmpty(record.nar3))
+                                        comp3.comp_birthday = DateTime.ParseExact(record.nar3, "yyyy", null);
+                                    comp3.comp_valid_flag = true;
+                                    comp3.as_of_date = DateTime.Now;
+                                    Competitor.Add(comp3);
+                                }
 
-                                if (record.prijmeni4 != "0")
+                                if (record.prijmeni4.Length > 0)
                                 {
                                     competitors comp4 = new competitors();
                                     comp4.bib = record.id.ToString() + "D";
@@ -210,13 +215,13 @@ namespace h24
                                     comp4.rank_order = 4;
                                     comp4.comp_country = record.country4;
                                     if (!String.IsNullOrEmpty(record.nar4))
-                                        comp4.comp_birthday = DateTime.ParseExact(record.nar4, "d.M.yyyy", null);
+                                        comp4.comp_birthday = DateTime.ParseExact(record.nar4, "yyyy", null);
                                     comp4.comp_valid_flag = true;
                                     comp4.as_of_date = DateTime.Now;
                                     Competitor.Add(comp4);
                                 }
 
-                                if (record.prijmeni5 != "0")
+                                if (record.prijmeni5.Length > 0)
                                 {
                                     competitors comp5 = new competitors();
                                     comp5.bib = record.id.ToString() + "E";
@@ -225,13 +230,13 @@ namespace h24
                                     comp5.rented_chip = record.rented5;
                                     comp5.rank_order = 5;
                                     comp5.comp_country = record.country5;
-                                    comp5.comp_birthday = DateTime.ParseExact(record.nar5, "d.M.yyyy", null);
+                                    comp5.comp_birthday = DateTime.ParseExact(record.nar5, "yyyy", null);
                                     comp5.comp_valid_flag = true;
                                     comp5.as_of_date = DateTime.Now;
                                     Competitor.Add(comp5);
                                 }
 
-                                if (record.prijmeni6 != "0")
+                                if (record.prijmeni6.Length > 0)
                                 {
                                     competitors comp6 = new competitors();
                                     comp6.bib = record.id.ToString() + "F";
@@ -240,7 +245,7 @@ namespace h24
                                     comp6.rented_chip = record.rented6;
                                     comp6.rank_order = 6;
                                     comp6.comp_country = record.country6;
-                                    comp6.comp_birthday = DateTime.ParseExact(record.nar6, "d.M.yyyy", null);
+                                    comp6.comp_birthday = DateTime.ParseExact(record.nar6, "yyyy", null);
                                     comp6.comp_valid_flag = true;
                                     comp6.as_of_date = DateTime.Now;
                                     Competitor.Add(comp6);
