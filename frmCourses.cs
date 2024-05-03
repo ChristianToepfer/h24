@@ -70,12 +70,14 @@ namespace h24
 
             if (File.Exists(textFile))
             {
-                // Read a text file line by line.  
+                // Read a text file line by line parsing:
+                // SFa	5,1	20	S2-32-38-43-46-34-33-164-167-176-158-153-39-33-103-106-83-85-92-200-100-Z1
+                // remove header before! courseName, courseLength, courseCount (not used), control-list
                 string[] lines = File.ReadAllLines(textFile);
 
                 foreach (string line in lines)
                 {
-                    string[] controls = line.Split(new string[] { ";" }, StringSplitOptions.None);
+                    string[] controls = line.Split(new string[] { "\t","-" }, StringSplitOptions.None);
 
                     int i = 0;
                     int k = 0;
@@ -92,17 +94,15 @@ namespace h24
                             course_codes cCode = new course_codes();
                             controls Cnt = new controls();
 
-                            if (i == 1)
+                            if (i == 0)
                             {
                                 courseName = control;
                             }
-                            else if (i == 2 && control != "0")
-                                courseName += control;
-                            else if (i == 3)
+                            else if (i == 1)
                             {
                                 courseLength = float.Parse(control, CultureInfo.InvariantCulture.NumberFormat) * 1000;
                             }
-                            else if ((i > 4) && (i % 2 == 1))
+                            else if (i > 2)
                             {
                                 cCode.control_id = control;
                                 cCode.position = k;
@@ -110,7 +110,7 @@ namespace h24
                                 controlCodes.Add(cCode);
 
                                 Cnt.control_id = control;
-                                if (control == "F1")
+                                if (control == "Z1")
                                     Cnt.control_code = "F";
                                 else
                                     Cnt.control_code = control;
