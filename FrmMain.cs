@@ -140,7 +140,7 @@ namespace h24
             }
             catch (Exception e)
             {
-                MessageBox.Show($"Neodchycená vyjimka:\n{e.Message}\n{e.StackTrace}");
+                MessageBox.Show($"Not caught exceptions:\n{e.Message}\n{e.StackTrace}");
             }
         }
 
@@ -679,7 +679,7 @@ namespace h24
             }
             catch (Exception e)
             {
-                MessageBox.Show($"Neodchycená vyjimka:\n{e.Message}\n{e.StackTrace}");
+                MessageBox.Show($"Not caught exceptions:\n{e.Message}\n{e.StackTrace}");
             }
         }
 
