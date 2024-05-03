@@ -627,11 +627,11 @@ namespace h24
                         check_datetime = card.CheckPunch.PunchDateTime < DateTime.Parse("01/01/1900") ? DateTime.Parse("01/01/1900") : card.CheckPunch.PunchDateTime,
                         start_datetime = card.StartPunch.PunchDateTime < DateTime.Parse("01/01/1900") ? DateTime.Parse("01/01/1900") : card.StartPunch.PunchDateTime,
                         finish_datetime = card.FinishPunch.IsMissingOrEmpty == true ? card.ReadoutDateTime : card.FinishPunch.PunchDateTime,
-                        finish_missing = card.FinishPunch.IsMissingOrEmpty == true ? true : false,
+                        finish_missing = false, //card.FinishPunch.IsMissingOrEmpty == true ? true : false,
                         as_of_date = DateTime.Now,
                         si_stamps = Stamps
                     };
-
+                   
                     try
                     {
                         db.si_readout.Add(newReadout);
