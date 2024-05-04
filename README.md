@@ -20,10 +20,6 @@
 * OCAD 8
 
 ## TODO
- 
-* Visual Studio 2022 -> Designer 17.0.0.0 (mit 2019 kommt 16.0)
-  * ? Der Design erzeugt auch Fehlermeldung, dann in Deutsch... liegt das nur an der VS-Version? (slip.Designer.cs)
-
 * Windows XP Nutzbar?
 * geht es auch ohne ODBC?
 
@@ -93,10 +89,9 @@
  * h24.csproj: nur settings die automatsisch korrigiert werden.
  * Properties\Settings.settings: extra sportident user/passwort?
                                  -> and auch in Settings.Designer.cs
-* Braucht man man die *.Designer.cs gar nicht einchecken?
-  * frmApiQueue.Designer.cs: viele Änderugnen
-  * frmEntries.Designer.cs: wie kommt es zu dieser einen Veränderung?
-  * FrmMain.Designer.cs: echt viele Änderungen!
+ * frmApiQueue.Designer.cs: viele Änderugnen
+ * frmEntries.Designer.cs: wie kommt es zu dieser einen Veränderung?
+ * FrmMain.Designer.cs: echt viele Änderungen!
 
 
 ## Datenbank abgleich   
