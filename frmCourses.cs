@@ -100,7 +100,7 @@ namespace h24
                             }
                             else if (i == 1)
                             {
-                                courseLength = float.Parse(control, CultureInfo.InvariantCulture.NumberFormat) * 1000;
+                                courseLength = float.Parse(control) * 1000;
                             }
                             else if (i > 2)
                             {
@@ -158,7 +158,8 @@ namespace h24
 
             courses newCourse = new courses
             {
-                course_name = "WDRN"
+                course_name = "WDRN",
+                as_of_date = DateTime.Now
             };
 
             try

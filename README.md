@@ -26,7 +26,6 @@
 * Encoding der Meldung nach UTF8 Konvertieren
 
 * TODO: Import phone_number from csv Meldung -> Spaltenummer an Anke senden.
-* FIXME: add WNDN Bahn, with course import
 * TODO: Hauptanzeige: die automatisch zugeordnete Bahn anzeigen
 
 * TODO: Startbahn-Zuorder, über eine Vorauswahl oder Nachprüfung und neu Zuordnung wie "Change Course"
