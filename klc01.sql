@@ -832,6 +832,45 @@ CREATE TABLE [dbo].[si_stamps](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+
+GO
+SET IDENTITY_INSERT [dbo].[settings] ON
+
+INSERT [dbo].[settings] ([s_id], [config_name], [config_value], [as_of_date]) VALUES (1, N'event_id', N'1', CAST(N'2021-04-17T18:06:48.577' AS DateTime))
+INSERT [dbo].[settings] ([s_id], [config_name], [config_value], [as_of_date]) VALUES (3, N'start_time', N'2023-04-08 19:30:00.000', CAST(N'2021-04-17T18:06:48.577' AS DateTime))
+INSERT [dbo].[settings] ([s_id], [config_name], [config_value], [as_of_date]) VALUES (4, N'slip_printer', N'Microsoft Print to PDF', CAST(N'2022-04-26T08:06:41.077' AS DateTime))
+INSERT [dbo].[settings] ([s_id], [config_name], [config_value], [as_of_date]) VALUES (5, N'default_time_limit', N'20', CAST(N'2022-05-06T09:16:47.600' AS DateTime))
+INSERT [dbo].[settings] ([s_id], [config_name], [config_value], [as_of_date]) VALUES (6, N'dsk_penalty_min', N'30', CAST(N'2022-07-11T21:56:38.630' AS DateTime))
+INSERT [dbo].[settings] ([s_id], [config_name], [config_value], [as_of_date]) VALUES (7, N'live_entries', N'/entries', CAST(N'2022-07-25T07:46:12.630' AS DateTime))
+INSERT [dbo].[settings] ([s_id], [config_name], [config_value], [as_of_date]) VALUES (8, N'live_slips', N'/legs', CAST(N'2022-07-25T07:46:40.237' AS DateTime))
+INSERT [dbo].[settings] ([s_id], [config_name], [config_value], [as_of_date]) VALUES (9, N'live_entries_truncate', N'/entries_truncate', CAST(N'2022-10-29T19:38:02.107' AS DateTime))
+INSERT [dbo].[settings] ([s_id], [config_name], [config_value], [as_of_date]) VALUES (10, N'live_password', N'heslo', CAST(N'2022-10-29T19:39:07.673' AS DateTime))
+INSERT [dbo].[settings] ([s_id], [config_name], [config_value], [as_of_date]) VALUES (11, N'live_user', N'client1', CAST(N'2022-11-09T08:33:48.700' AS DateTime))
+INSERT [dbo].[settings] ([s_id], [config_name], [config_value], [as_of_date]) VALUES (12, N'live_url1', N'http://knitsch01.local:3000', CAST(N'2022-11-09T08:59:54.323' AS DateTime))
+INSERT [dbo].[settings] ([s_id], [config_name], [config_value], [as_of_date]) VALUES (1009, N'live_token', N'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRfaWQiOiJzRlE0R3h3QWVZRlh5eDlUSiIsImNsaWVudF9uYW1lIjoiY2xpZW50MSIsImlhdCI6MTY2ODM2MTUxMywiZXhwIjoxNjY4MzY4NzEzfQ.UAlbHPNwoLqp7Uc2Gr86CGK5sPX9MBMvcINbY0HpAaw', CAST(N'2022-11-13T19:09:21.120' AS DateTime))
+INSERT [dbo].[settings] ([s_id], [config_name], [config_value], [as_of_date]) VALUES (1010, N'oris_entries', N'https://oris.orientacnisporty.cz/ExportIOF30?agenda=entries&comp=7634', CAST(N'2023-03-19T11:56:19.310' AS DateTime))
+INSERT [dbo].[settings] ([s_id], [config_name], [config_value], [as_of_date]) VALUES (1012, N'stop_roc_service', N'/stop_roc', CAST(N'2023-04-08T11:04:57.640' AS DateTime))
+INSERT [dbo].[settings] ([s_id], [config_name], [config_value], [as_of_date]) VALUES (1013, N'start_roc_service', N'/start_roc', CAST(N'2023-04-08T11:05:53.580' AS DateTime))
+INSERT [dbo].[settings] ([s_id], [config_name], [config_value], [as_of_date]) VALUES (1014, N'live_legs_truncate', N'/legs_truncate', CAST(N'2023-04-08T20:23:43.760' AS DateTime))
+INSERT [dbo].[settings] ([s_id], [config_name], [config_value], [as_of_date]) VALUES (1015, N'live_url', N'http://knitsch01.local:3000;https://24ol.eu.meteorapp.com', CAST(N'2022-11-09T08:59:54.323' AS DateTime))
+INSERT [dbo].[settings] ([s_id], [config_name], [config_value], [as_of_date]) VALUES (1016, N'wdrn_course', N'WDRN', CAST(N'2023-04-28T20:51:21.293' AS DateTime))
+INSERT [dbo].[settings] ([s_id], [config_name], [config_value], [as_of_date]) VALUES (1017, N'live_competitors', N'/competitors', CAST(N'2023-06-01T14:27:56.163' AS DateTime))
+INSERT [dbo].[settings] ([s_id], [config_name], [config_value], [as_of_date]) VALUES (1018, N'live_competitors_truncate', N'/competitors_truncate', CAST(N'2023-06-01T15:40:44.973' AS DateTime))
+INSERT [dbo].[settings] ([s_id], [config_name], [config_value], [as_of_date]) VALUES (1019, N'live_url2', N'https://24ol.eu.meteorapp.com', CAST(N'2023-06-01T16:06:56.050' AS DateTime))
+INSERT [dbo].[settings] ([s_id], [config_name], [config_value], [as_of_date]) VALUES (1020, N'api_queue_timer', N'200', CAST(N'2023-11-22T17:51:04.277' AS DateTime))
+INSERT [dbo].[settings] ([s_id], [config_name], [config_value], [as_of_date]) VALUES (1021, N'q_status_new', N'New', CAST(N'2023-11-22T20:17:36.247' AS DateTime))
+INSERT [dbo].[settings] ([s_id], [config_name], [config_value], [as_of_date]) VALUES (1022, N'api_queue_timeout', N'60', CAST(N'2023-11-22T20:18:58.160' AS DateTime))
+INSERT [dbo].[settings] ([s_id], [config_name], [config_value], [as_of_date]) VALUES (1023, N'q_status_completed', N'Completed', CAST(N'2023-11-22T20:19:24.597' AS DateTime))
+INSERT [dbo].[settings] ([s_id], [config_name], [config_value], [as_of_date]) VALUES (1024, N'q_status_in_progress', N'InProgress', CAST(N'2023-11-25T17:38:36.643' AS DateTime))
+INSERT [dbo].[settings] ([s_id], [config_name], [config_value], [as_of_date]) VALUES (1025, N'q_status_sent', N'Sent', CAST(N'2023-11-25T17:39:00.503' AS DateTime))
+INSERT [dbo].[settings] ([s_id], [config_name], [config_value], [as_of_date]) VALUES (1026, N'q_status_failed', N'Failed', CAST(N'2023-11-25T17:39:35.453' AS DateTime))
+INSERT [dbo].[settings] ([s_id], [config_name], [config_value], [as_of_date]) VALUES (1027, N'live_roc', N'/roc', CAST(N'2023-12-07T08:33:32.043' AS DateTime))
+INSERT [dbo].[settings] ([s_id], [config_name], [config_value], [as_of_date]) VALUES (1028, N'sms_url1', N'https://rest.spryngsms.com/v1/messages', CAST(N'2023-12-25T14:41:42.163' AS DateTime))
+INSERT [dbo].[settings] ([s_id], [config_name], [config_value], [as_of_date]) VALUES (1029, N'sms_token1', N'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiMjUxMzUyYzhkMDI2OGY5NDc0ZmRjMDI0MmQ0NjNiNTI0M2ViNDdiNDM1N2E4N2MwNjg5MWJkYTIzM2JjYzgyZTZlNzVkZDI2ODBkNTY4MmYiLCJpYXQiOiIxNzAzNTM0NTUyLjA3ODYwNSIsIm5iZiI6IjE3MDM1MzQ1NTIuMDc4NjA3IiwiZXhwIjoiNDg1OTIwODE1Mi4wNzUwMjAiLCJzdWIiOiIxMDY5ODciLCJzY29wZXMiOltdfQ.Waew-LUK29NcgQuCUmdrgiMJg2_TyB-FnuHSA0OeT3X28kulbOlyywv_SI05xHG6vZFoQdILtQhyXg9vEM2beKHxLuINu4il-ijgVhBQgzf8eu_01S7WcmTWZ449XgXV6YjtUL6gKfvofvljVMxs_uoToKXcQvemMwA7-SlXEVPm4g0xUJh86aMiaFx1fHRU3Ysj6zGtk1r_0887sR8vgjVe60WEV9Pm4dLQYjuQ1CrXvXJWGToGB7a8kt9idFDSKCWrK_L0j_0Y0SVqWF-2fDYhlTmfCQo8lHviNkCP2qAzYqFyuI3Ed_HmuW1aZNPzEiT3DV9h3pehz3TcqQ6VC5DV7ZKPEVobrwsq3Vy46ZAgku_hwW0gkd-jT9sPxu1QHiHgeza3x9lqebfSn4lpxdUxZC8QBcnPTFKwWkOshMLg-UsaZKiM2hGJKOcHSXzOU9zX5Re46aS2mgUzWkoIHPgxhWTssdPXlxszr_k0M5ecbEzHIdlPM54FfozkUk16fnyChEh9VQ-stONwhjmPEEUhxv5ftbwyMSmyNqCkhk7-zs-qi3hpY4llex5ZS2ygC6aoCuvLNc0bb9QkUE-FhaKH-aFUbcSOIrmVAOyugZpFaxtzFH4nRnJyaOZmWEMwXhSfnKmNX7jwpjnPwhB-hWFnRJu8pBfaR8PaMH2qqKk', CAST(N'2023-12-25T14:41:59.860' AS DateTime))
+INSERT [dbo].[settings] ([s_id], [config_name], [config_value], [as_of_date]) VALUES (1030, N'sms_url', N'https://gatewayapi.com/rest/mtsms', CAST(N'2023-12-29T21:24:01.847' AS DateTime))
+SET IDENTITY_INSERT [dbo].[settings] OFF
+GO
+
 SET ANSI_PADDING ON
 GO
 /****** Object:  Index [IX_course_codes]    Script Date: 30.04.2024 17:45:49 ******/
