@@ -176,18 +176,21 @@ namespace h24
                                 comp1.as_of_date = DateTime.Now;
                                 Competitor.Add(comp1);
 
-                                competitors comp2 = new competitors();
-                                comp2.bib = record.id.ToString() + "B";
-                                comp2.comp_name = record.jmeno2 + " " + record.prijmeni2;
-                                comp2.comp_chip_id = record.chip2;
-                                comp2.rented_chip = record.rented2;
-                                comp2.rank_order = 2;
-                                comp2.comp_country = record.country2;
-                                if (!String.IsNullOrEmpty(record.nar2))
-                                    comp2.comp_birthday = DateTime.ParseExact(record.nar2, "yyyy", null);
-                                comp2.comp_valid_flag = true;
-                                comp2.as_of_date = DateTime.Now;
-                                Competitor.Add(comp2);
+                                if (record.prijmeni2.Length > 0)
+                                {
+                                    competitors comp2 = new competitors();
+                                    comp2.bib = record.id.ToString() + "B";
+                                    comp2.comp_name = record.jmeno2 + " " + record.prijmeni2;
+                                    comp2.comp_chip_id = record.chip2;
+                                    comp2.rented_chip = record.rented2;
+                                    comp2.rank_order = 2;
+                                    comp2.comp_country = record.country2;
+                                    if (!String.IsNullOrEmpty(record.nar2))
+                                        comp2.comp_birthday = DateTime.ParseExact(record.nar2, "yyyy", null);
+                                    comp2.comp_valid_flag = true;
+                                    comp2.as_of_date = DateTime.Now;
+                                    Competitor.Add(comp2);
+                                }
 
                                 if (record.prijmeni3.Length > 0)
                                 {
@@ -255,6 +258,7 @@ namespace h24
                                 {
                                     team_nr = record.id,
                                     team_name = record.team,
+                                    phone_number = record.phone,
                                     team_did_start = true,
                                     cat_id = cat_id,
                                     competitors = Competitor,

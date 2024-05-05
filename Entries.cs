@@ -6,6 +6,7 @@ namespace h24
     {
         public int id { get; set; }
         public string team { get; set; }
+        public string phone { get; set; }
         public string reg { get; set; }
         public string kat { get; set; }
         public string prijmeni1 { get; set; }
