@@ -1,6 +1,6 @@
 ﻿USE [master]
 GO
-/****** Object:  Database [klc01]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  Database [klc01]    Script Date: 05.05.2024 21:24:12 ******/
 CREATE DATABASE [klc01]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -80,12 +80,12 @@ ALTER DATABASE [klc01] SET QUERY_STORE = OFF
 GO
 USE [klc01]
 GO
-/****** Object:  User [sportident]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  User [sportident]    Script Date: 05.05.2024 21:24:12 ******/
 CREATE USER [sportident] FOR LOGIN [sportident] WITH DEFAULT_SCHEMA=[dbo]
 GO
 ALTER ROLE [db_owner] ADD MEMBER [sportident]
 GO
-/****** Object:  UserDefinedFunction [dbo].[time_from_start]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  UserDefinedFunction [dbo].[time_from_start]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -134,7 +134,7 @@ BEGIN
     RETURN @time_from_start
 END
 GO
-/****** Object:  Table [dbo].[slips]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  Table [dbo].[slips]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -184,7 +184,7 @@ CREATE TABLE [dbo].[slips](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  View [dbo].[v_teams_results]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  View [dbo].[v_teams_results]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -238,7 +238,7 @@ GROUP BY
 	legs_count,
 	race_time
 GO
-/****** Object:  Table [dbo].[teams]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  Table [dbo].[teams]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -261,7 +261,7 @@ CREATE TABLE [dbo].[teams](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[categories]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  Table [dbo].[categories]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -281,7 +281,7 @@ CREATE TABLE [dbo].[categories](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  View [dbo].[v_xml_resutls]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  View [dbo].[v_xml_resutls]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -343,7 +343,7 @@ CREATE TABLE [dbo].[competitors](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[legs]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  Table [dbo].[legs]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -369,7 +369,7 @@ CREATE TABLE [dbo].[legs](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[si_readout]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  Table [dbo].[si_readout]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -391,7 +391,7 @@ CREATE TABLE [dbo].[si_readout](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  View [dbo].[v_readout_legs]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  View [dbo].[v_readout_legs]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -435,7 +435,7 @@ left outer join (
 	) as s on r.readout_id = s.readout_id
 
 GO
-/****** Object:  View [dbo].[v_teams_results_legs]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  View [dbo].[v_teams_results_legs]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -473,7 +473,7 @@ AS
 		team_race_end
 order by cat_name, legs_count desc, race_time, finish_dtime
 GO
-/****** Object:  Table [dbo].[roc_punches]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  Table [dbo].[roc_punches]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -491,7 +491,7 @@ CREATE TABLE [dbo].[roc_punches](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  View [dbo].[v_new_roc_punches]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  View [dbo].[v_new_roc_punches]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -515,7 +515,7 @@ inner join teams as t on c.team_id = t.team_id
 inner join categories as ca on t.cat_id = ca.cat_id
 where p.status is null
 GO
-/****** Object:  View [dbo].[v_comp_teams]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  View [dbo].[v_comp_teams]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -554,7 +554,7 @@ INNER JOIN competitors AS c
 INNER JOIN categories AS ca
 	ON t.cat_id = ca.cat_id
 GO
-/****** Object:  Table [dbo].[api_queue]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  Table [dbo].[api_queue]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -574,7 +574,7 @@ CREATE TABLE [dbo].[api_queue](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[api_queue_link]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  Table [dbo].[api_queue_link]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -590,7 +590,7 @@ CREATE TABLE [dbo].[api_queue_link](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[calendar]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  Table [dbo].[calendar]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -616,7 +616,7 @@ CREATE TABLE [dbo].[calendar](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[controls]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  Table [dbo].[controls]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -636,7 +636,7 @@ CREATE TABLE [dbo].[controls](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[course_codes]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  Table [dbo].[course_codes]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -654,7 +654,7 @@ CREATE TABLE [dbo].[course_codes](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[courses]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  Table [dbo].[courses]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -673,7 +673,7 @@ CREATE TABLE [dbo].[courses](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[entry_competitors]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  Table [dbo].[entry_competitors]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -694,7 +694,7 @@ CREATE TABLE [dbo].[entry_competitors](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[entry_file]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  Table [dbo].[entry_file]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -705,7 +705,7 @@ CREATE TABLE [dbo].[entry_file](
 	[entry2] [xml] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[entry_teams]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  Table [dbo].[entry_teams]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -723,7 +723,7 @@ CREATE TABLE [dbo].[entry_teams](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[entry_xml]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  Table [dbo].[entry_xml]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -750,7 +750,25 @@ CREATE TABLE [dbo].[entry_xml](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[logs]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  Table [dbo].[leg_exceptions]    Script Date: 05.05.2024 21:24:12 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[leg_exceptions](
+	[ex_id] [int] IDENTITY(1,1) NOT NULL,
+	[leg_id] [int] NOT NULL,
+	[ex_leg_status] [nvarchar](10) NOT NULL,
+	[ex_valid_flag] [bit] NOT NULL,
+	[ex_dsk_penalty] [time](7) NOT NULL,
+	[as_of_date] [datetime] NOT NULL,
+ CONSTRAINT [PK_leg_exceptions] PRIMARY KEY CLUSTERED 
+(
+	[ex_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[logs]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -767,7 +785,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[results]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  Table [dbo].[results]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -795,7 +813,7 @@ CREATE TABLE [dbo].[results](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[settings]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  Table [dbo].[settings]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -811,7 +829,7 @@ CREATE TABLE [dbo].[settings](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[si_stamps]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  Table [dbo].[si_stamps]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -871,40 +889,3693 @@ INSERT [dbo].[settings] ([s_id], [config_name], [config_value], [as_of_date]) VA
 SET IDENTITY_INSERT [dbo].[settings] OFF
 GO
 
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-01-01' AS Date), CAST(N'2023-01-01T00:00:00.000' AS DateTime), 1, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-01-02' AS Date), CAST(N'2023-01-02T00:00:00.000' AS DateTime), 2, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-01-03' AS Date), CAST(N'2023-01-03T00:00:00.000' AS DateTime), 3, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-01-04' AS Date), CAST(N'2023-01-04T00:00:00.000' AS DateTime), 4, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-01-05' AS Date), CAST(N'2023-01-05T00:00:00.000' AS DateTime), 5, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-01-06' AS Date), CAST(N'2023-01-06T00:00:00.000' AS DateTime), 6, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-01-07' AS Date), CAST(N'2023-01-07T00:00:00.000' AS DateTime), 7, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-01-08' AS Date), CAST(N'2023-01-08T00:00:00.000' AS DateTime), 8, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-01-09' AS Date), CAST(N'2023-01-09T00:00:00.000' AS DateTime), 9, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-01-10' AS Date), CAST(N'2023-01-10T00:00:00.000' AS DateTime), 10, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-01-11' AS Date), CAST(N'2023-01-11T00:00:00.000' AS DateTime), 11, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-01-12' AS Date), CAST(N'2023-01-12T00:00:00.000' AS DateTime), 12, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-01-13' AS Date), CAST(N'2023-01-13T00:00:00.000' AS DateTime), 13, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-01-14' AS Date), CAST(N'2023-01-14T00:00:00.000' AS DateTime), 14, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-01-15' AS Date), CAST(N'2023-01-15T00:00:00.000' AS DateTime), 15, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-01-16' AS Date), CAST(N'2023-01-16T00:00:00.000' AS DateTime), 16, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-01-17' AS Date), CAST(N'2023-01-17T00:00:00.000' AS DateTime), 17, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-01-18' AS Date), CAST(N'2023-01-18T00:00:00.000' AS DateTime), 18, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-01-19' AS Date), CAST(N'2023-01-19T00:00:00.000' AS DateTime), 19, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-01-20' AS Date), CAST(N'2023-01-20T00:00:00.000' AS DateTime), 20, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-01-21' AS Date), CAST(N'2023-01-21T00:00:00.000' AS DateTime), 21, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-01-22' AS Date), CAST(N'2023-01-22T00:00:00.000' AS DateTime), 22, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-01-23' AS Date), CAST(N'2023-01-23T00:00:00.000' AS DateTime), 23, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-01-24' AS Date), CAST(N'2023-01-24T00:00:00.000' AS DateTime), 24, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-01-25' AS Date), CAST(N'2023-01-25T00:00:00.000' AS DateTime), 25, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-01-26' AS Date), CAST(N'2023-01-26T00:00:00.000' AS DateTime), 26, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-01-27' AS Date), CAST(N'2023-01-27T00:00:00.000' AS DateTime), 27, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-01-28' AS Date), CAST(N'2023-01-28T00:00:00.000' AS DateTime), 28, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-01-29' AS Date), CAST(N'2023-01-29T00:00:00.000' AS DateTime), 29, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-01-30' AS Date), CAST(N'2023-01-30T00:00:00.000' AS DateTime), 30, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-01-31' AS Date), CAST(N'2023-01-31T00:00:00.000' AS DateTime), 31, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-02-01' AS Date), CAST(N'2023-02-01T00:00:00.000' AS DateTime), 1, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-02-02' AS Date), CAST(N'2023-02-02T00:00:00.000' AS DateTime), 2, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-02-03' AS Date), CAST(N'2023-02-03T00:00:00.000' AS DateTime), 3, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-02-04' AS Date), CAST(N'2023-02-04T00:00:00.000' AS DateTime), 4, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-02-05' AS Date), CAST(N'2023-02-05T00:00:00.000' AS DateTime), 5, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-02-06' AS Date), CAST(N'2023-02-06T00:00:00.000' AS DateTime), 6, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-02-07' AS Date), CAST(N'2023-02-07T00:00:00.000' AS DateTime), 7, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-02-08' AS Date), CAST(N'2023-02-08T00:00:00.000' AS DateTime), 8, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-02-09' AS Date), CAST(N'2023-02-09T00:00:00.000' AS DateTime), 9, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-02-10' AS Date), CAST(N'2023-02-10T00:00:00.000' AS DateTime), 10, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-02-11' AS Date), CAST(N'2023-02-11T00:00:00.000' AS DateTime), 11, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-02-12' AS Date), CAST(N'2023-02-12T00:00:00.000' AS DateTime), 12, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-02-13' AS Date), CAST(N'2023-02-13T00:00:00.000' AS DateTime), 13, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-02-14' AS Date), CAST(N'2023-02-14T00:00:00.000' AS DateTime), 14, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-02-15' AS Date), CAST(N'2023-02-15T00:00:00.000' AS DateTime), 15, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-02-16' AS Date), CAST(N'2023-02-16T00:00:00.000' AS DateTime), 16, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-02-17' AS Date), CAST(N'2023-02-17T00:00:00.000' AS DateTime), 17, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-02-18' AS Date), CAST(N'2023-02-18T00:00:00.000' AS DateTime), 18, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-02-19' AS Date), CAST(N'2023-02-19T00:00:00.000' AS DateTime), 19, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-02-20' AS Date), CAST(N'2023-02-20T00:00:00.000' AS DateTime), 20, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-02-21' AS Date), CAST(N'2023-02-21T00:00:00.000' AS DateTime), 21, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-02-22' AS Date), CAST(N'2023-02-22T00:00:00.000' AS DateTime), 22, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-02-23' AS Date), CAST(N'2023-02-23T00:00:00.000' AS DateTime), 23, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-02-24' AS Date), CAST(N'2023-02-24T00:00:00.000' AS DateTime), 24, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-02-25' AS Date), CAST(N'2023-02-25T00:00:00.000' AS DateTime), 25, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-02-26' AS Date), CAST(N'2023-02-26T00:00:00.000' AS DateTime), 26, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-02-27' AS Date), CAST(N'2023-02-27T00:00:00.000' AS DateTime), 27, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-02-28' AS Date), CAST(N'2023-02-28T00:00:00.000' AS DateTime), 28, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-03-01' AS Date), CAST(N'2023-03-01T00:00:00.000' AS DateTime), 1, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-03-02' AS Date), CAST(N'2023-03-02T00:00:00.000' AS DateTime), 2, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-03-03' AS Date), CAST(N'2023-03-03T00:00:00.000' AS DateTime), 3, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-03-04' AS Date), CAST(N'2023-03-04T00:00:00.000' AS DateTime), 4, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-03-05' AS Date), CAST(N'2023-03-05T00:00:00.000' AS DateTime), 5, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-03-06' AS Date), CAST(N'2023-03-06T00:00:00.000' AS DateTime), 6, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-03-07' AS Date), CAST(N'2023-03-07T00:00:00.000' AS DateTime), 7, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-03-08' AS Date), CAST(N'2023-03-08T00:00:00.000' AS DateTime), 8, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-03-09' AS Date), CAST(N'2023-03-09T00:00:00.000' AS DateTime), 9, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-03-10' AS Date), CAST(N'2023-03-10T00:00:00.000' AS DateTime), 10, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-03-11' AS Date), CAST(N'2023-03-11T00:00:00.000' AS DateTime), 11, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-03-12' AS Date), CAST(N'2023-03-12T00:00:00.000' AS DateTime), 12, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-03-13' AS Date), CAST(N'2023-03-13T00:00:00.000' AS DateTime), 13, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-03-14' AS Date), CAST(N'2023-03-14T00:00:00.000' AS DateTime), 14, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-03-15' AS Date), CAST(N'2023-03-15T00:00:00.000' AS DateTime), 15, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-03-16' AS Date), CAST(N'2023-03-16T00:00:00.000' AS DateTime), 16, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-03-17' AS Date), CAST(N'2023-03-17T00:00:00.000' AS DateTime), 17, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-03-18' AS Date), CAST(N'2023-03-18T00:00:00.000' AS DateTime), 18, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-03-19' AS Date), CAST(N'2023-03-19T00:00:00.000' AS DateTime), 19, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-03-20' AS Date), CAST(N'2023-03-20T00:00:00.000' AS DateTime), 20, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-03-21' AS Date), CAST(N'2023-03-21T00:00:00.000' AS DateTime), 21, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-03-22' AS Date), CAST(N'2023-03-22T00:00:00.000' AS DateTime), 22, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-03-23' AS Date), CAST(N'2023-03-23T00:00:00.000' AS DateTime), 23, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-03-24' AS Date), CAST(N'2023-03-24T00:00:00.000' AS DateTime), 24, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-03-25' AS Date), CAST(N'2023-03-25T00:00:00.000' AS DateTime), 25, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-03-26' AS Date), CAST(N'2023-03-26T00:00:00.000' AS DateTime), 26, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-03-27' AS Date), CAST(N'2023-03-27T00:00:00.000' AS DateTime), 27, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-03-28' AS Date), CAST(N'2023-03-28T00:00:00.000' AS DateTime), 28, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-03-29' AS Date), CAST(N'2023-03-29T00:00:00.000' AS DateTime), 29, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-03-30' AS Date), CAST(N'2023-03-30T00:00:00.000' AS DateTime), 30, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-03-31' AS Date), CAST(N'2023-03-31T00:00:00.000' AS DateTime), 31, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-04-01' AS Date), CAST(N'2023-04-01T00:00:00.000' AS DateTime), 1, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-04-02' AS Date), CAST(N'2023-04-02T00:00:00.000' AS DateTime), 2, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-04-03' AS Date), CAST(N'2023-04-03T00:00:00.000' AS DateTime), 3, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-04-04' AS Date), CAST(N'2023-04-04T00:00:00.000' AS DateTime), 4, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-04-05' AS Date), CAST(N'2023-04-05T00:00:00.000' AS DateTime), 5, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-04-06' AS Date), CAST(N'2023-04-06T00:00:00.000' AS DateTime), 6, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-04-07' AS Date), CAST(N'2023-04-07T00:00:00.000' AS DateTime), 7, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-04-08' AS Date), CAST(N'2023-04-08T00:00:00.000' AS DateTime), 8, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-04-09' AS Date), CAST(N'2023-04-09T00:00:00.000' AS DateTime), 9, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-04-10' AS Date), CAST(N'2023-04-10T00:00:00.000' AS DateTime), 10, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-04-11' AS Date), CAST(N'2023-04-11T00:00:00.000' AS DateTime), 11, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-04-12' AS Date), CAST(N'2023-04-12T00:00:00.000' AS DateTime), 12, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-04-13' AS Date), CAST(N'2023-04-13T00:00:00.000' AS DateTime), 13, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-04-14' AS Date), CAST(N'2023-04-14T00:00:00.000' AS DateTime), 14, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-04-15' AS Date), CAST(N'2023-04-15T00:00:00.000' AS DateTime), 15, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-04-16' AS Date), CAST(N'2023-04-16T00:00:00.000' AS DateTime), 16, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-04-17' AS Date), CAST(N'2023-04-17T00:00:00.000' AS DateTime), 17, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-04-18' AS Date), CAST(N'2023-04-18T00:00:00.000' AS DateTime), 18, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-04-19' AS Date), CAST(N'2023-04-19T00:00:00.000' AS DateTime), 19, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-04-20' AS Date), CAST(N'2023-04-20T00:00:00.000' AS DateTime), 20, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-04-21' AS Date), CAST(N'2023-04-21T00:00:00.000' AS DateTime), 21, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-04-22' AS Date), CAST(N'2023-04-22T00:00:00.000' AS DateTime), 22, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-04-23' AS Date), CAST(N'2023-04-23T00:00:00.000' AS DateTime), 23, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-04-24' AS Date), CAST(N'2023-04-24T00:00:00.000' AS DateTime), 24, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-04-25' AS Date), CAST(N'2023-04-25T00:00:00.000' AS DateTime), 25, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-04-26' AS Date), CAST(N'2023-04-26T00:00:00.000' AS DateTime), 26, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-04-27' AS Date), CAST(N'2023-04-27T00:00:00.000' AS DateTime), 27, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-04-28' AS Date), CAST(N'2023-04-28T00:00:00.000' AS DateTime), 28, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-04-29' AS Date), CAST(N'2023-04-29T00:00:00.000' AS DateTime), 29, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-04-30' AS Date), CAST(N'2023-04-30T00:00:00.000' AS DateTime), 30, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-05-01' AS Date), CAST(N'2023-05-01T00:00:00.000' AS DateTime), 1, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-05-02' AS Date), CAST(N'2023-05-02T00:00:00.000' AS DateTime), 2, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-05-03' AS Date), CAST(N'2023-05-03T00:00:00.000' AS DateTime), 3, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-05-04' AS Date), CAST(N'2023-05-04T00:00:00.000' AS DateTime), 4, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-05-05' AS Date), CAST(N'2023-05-05T00:00:00.000' AS DateTime), 5, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-05-06' AS Date), CAST(N'2023-05-06T00:00:00.000' AS DateTime), 6, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-05-07' AS Date), CAST(N'2023-05-07T00:00:00.000' AS DateTime), 7, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-05-08' AS Date), CAST(N'2023-05-08T00:00:00.000' AS DateTime), 8, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-05-09' AS Date), CAST(N'2023-05-09T00:00:00.000' AS DateTime), 9, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-05-10' AS Date), CAST(N'2023-05-10T00:00:00.000' AS DateTime), 10, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-05-11' AS Date), CAST(N'2023-05-11T00:00:00.000' AS DateTime), 11, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-05-12' AS Date), CAST(N'2023-05-12T00:00:00.000' AS DateTime), 12, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-05-13' AS Date), CAST(N'2023-05-13T00:00:00.000' AS DateTime), 13, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-05-14' AS Date), CAST(N'2023-05-14T00:00:00.000' AS DateTime), 14, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-05-15' AS Date), CAST(N'2023-05-15T00:00:00.000' AS DateTime), 15, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-05-16' AS Date), CAST(N'2023-05-16T00:00:00.000' AS DateTime), 16, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-05-17' AS Date), CAST(N'2023-05-17T00:00:00.000' AS DateTime), 17, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-05-18' AS Date), CAST(N'2023-05-18T00:00:00.000' AS DateTime), 18, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-05-19' AS Date), CAST(N'2023-05-19T00:00:00.000' AS DateTime), 19, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-05-20' AS Date), CAST(N'2023-05-20T00:00:00.000' AS DateTime), 20, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-05-21' AS Date), CAST(N'2023-05-21T00:00:00.000' AS DateTime), 21, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-05-22' AS Date), CAST(N'2023-05-22T00:00:00.000' AS DateTime), 22, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-05-23' AS Date), CAST(N'2023-05-23T00:00:00.000' AS DateTime), 23, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-05-24' AS Date), CAST(N'2023-05-24T00:00:00.000' AS DateTime), 24, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-05-25' AS Date), CAST(N'2023-05-25T00:00:00.000' AS DateTime), 25, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-05-26' AS Date), CAST(N'2023-05-26T00:00:00.000' AS DateTime), 26, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-05-27' AS Date), CAST(N'2023-05-27T00:00:00.000' AS DateTime), 27, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-05-28' AS Date), CAST(N'2023-05-28T00:00:00.000' AS DateTime), 28, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-05-29' AS Date), CAST(N'2023-05-29T00:00:00.000' AS DateTime), 29, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-05-30' AS Date), CAST(N'2023-05-30T00:00:00.000' AS DateTime), 30, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-05-31' AS Date), CAST(N'2023-05-31T00:00:00.000' AS DateTime), 31, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-06-01' AS Date), CAST(N'2023-06-01T00:00:00.000' AS DateTime), 1, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-06-02' AS Date), CAST(N'2023-06-02T00:00:00.000' AS DateTime), 2, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-06-03' AS Date), CAST(N'2023-06-03T00:00:00.000' AS DateTime), 3, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-06-04' AS Date), CAST(N'2023-06-04T00:00:00.000' AS DateTime), 4, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-06-05' AS Date), CAST(N'2023-06-05T00:00:00.000' AS DateTime), 5, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-06-06' AS Date), CAST(N'2023-06-06T00:00:00.000' AS DateTime), 6, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-06-07' AS Date), CAST(N'2023-06-07T00:00:00.000' AS DateTime), 7, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-06-08' AS Date), CAST(N'2023-06-08T00:00:00.000' AS DateTime), 8, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-06-09' AS Date), CAST(N'2023-06-09T00:00:00.000' AS DateTime), 9, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-06-10' AS Date), CAST(N'2023-06-10T00:00:00.000' AS DateTime), 10, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-06-11' AS Date), CAST(N'2023-06-11T00:00:00.000' AS DateTime), 11, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-06-12' AS Date), CAST(N'2023-06-12T00:00:00.000' AS DateTime), 12, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-06-13' AS Date), CAST(N'2023-06-13T00:00:00.000' AS DateTime), 13, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-06-14' AS Date), CAST(N'2023-06-14T00:00:00.000' AS DateTime), 14, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-06-15' AS Date), CAST(N'2023-06-15T00:00:00.000' AS DateTime), 15, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-06-16' AS Date), CAST(N'2023-06-16T00:00:00.000' AS DateTime), 16, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-06-17' AS Date), CAST(N'2023-06-17T00:00:00.000' AS DateTime), 17, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-06-18' AS Date), CAST(N'2023-06-18T00:00:00.000' AS DateTime), 18, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-06-19' AS Date), CAST(N'2023-06-19T00:00:00.000' AS DateTime), 19, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-06-20' AS Date), CAST(N'2023-06-20T00:00:00.000' AS DateTime), 20, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-06-21' AS Date), CAST(N'2023-06-21T00:00:00.000' AS DateTime), 21, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-06-22' AS Date), CAST(N'2023-06-22T00:00:00.000' AS DateTime), 22, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-06-23' AS Date), CAST(N'2023-06-23T00:00:00.000' AS DateTime), 23, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-06-24' AS Date), CAST(N'2023-06-24T00:00:00.000' AS DateTime), 24, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-06-25' AS Date), CAST(N'2023-06-25T00:00:00.000' AS DateTime), 25, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-06-26' AS Date), CAST(N'2023-06-26T00:00:00.000' AS DateTime), 26, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-06-27' AS Date), CAST(N'2023-06-27T00:00:00.000' AS DateTime), 27, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-06-28' AS Date), CAST(N'2023-06-28T00:00:00.000' AS DateTime), 28, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-06-29' AS Date), CAST(N'2023-06-29T00:00:00.000' AS DateTime), 29, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-06-30' AS Date), CAST(N'2023-06-30T00:00:00.000' AS DateTime), 30, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-07-01' AS Date), CAST(N'2023-07-01T00:00:00.000' AS DateTime), 1, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-07-02' AS Date), CAST(N'2023-07-02T00:00:00.000' AS DateTime), 2, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-07-03' AS Date), CAST(N'2023-07-03T00:00:00.000' AS DateTime), 3, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-07-04' AS Date), CAST(N'2023-07-04T00:00:00.000' AS DateTime), 4, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-07-05' AS Date), CAST(N'2023-07-05T00:00:00.000' AS DateTime), 5, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-07-06' AS Date), CAST(N'2023-07-06T00:00:00.000' AS DateTime), 6, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-07-07' AS Date), CAST(N'2023-07-07T00:00:00.000' AS DateTime), 7, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-07-08' AS Date), CAST(N'2023-07-08T00:00:00.000' AS DateTime), 8, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-07-09' AS Date), CAST(N'2023-07-09T00:00:00.000' AS DateTime), 9, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-07-10' AS Date), CAST(N'2023-07-10T00:00:00.000' AS DateTime), 10, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-07-11' AS Date), CAST(N'2023-07-11T00:00:00.000' AS DateTime), 11, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-07-12' AS Date), CAST(N'2023-07-12T00:00:00.000' AS DateTime), 12, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-07-13' AS Date), CAST(N'2023-07-13T00:00:00.000' AS DateTime), 13, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-07-14' AS Date), CAST(N'2023-07-14T00:00:00.000' AS DateTime), 14, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-07-15' AS Date), CAST(N'2023-07-15T00:00:00.000' AS DateTime), 15, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-07-16' AS Date), CAST(N'2023-07-16T00:00:00.000' AS DateTime), 16, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-07-17' AS Date), CAST(N'2023-07-17T00:00:00.000' AS DateTime), 17, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-07-18' AS Date), CAST(N'2023-07-18T00:00:00.000' AS DateTime), 18, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-07-19' AS Date), CAST(N'2023-07-19T00:00:00.000' AS DateTime), 19, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-07-20' AS Date), CAST(N'2023-07-20T00:00:00.000' AS DateTime), 20, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-07-21' AS Date), CAST(N'2023-07-21T00:00:00.000' AS DateTime), 21, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-07-22' AS Date), CAST(N'2023-07-22T00:00:00.000' AS DateTime), 22, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-07-23' AS Date), CAST(N'2023-07-23T00:00:00.000' AS DateTime), 23, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-07-24' AS Date), CAST(N'2023-07-24T00:00:00.000' AS DateTime), 24, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-07-25' AS Date), CAST(N'2023-07-25T00:00:00.000' AS DateTime), 25, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-07-26' AS Date), CAST(N'2023-07-26T00:00:00.000' AS DateTime), 26, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-07-27' AS Date), CAST(N'2023-07-27T00:00:00.000' AS DateTime), 27, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-07-28' AS Date), CAST(N'2023-07-28T00:00:00.000' AS DateTime), 28, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-07-29' AS Date), CAST(N'2023-07-29T00:00:00.000' AS DateTime), 29, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-07-30' AS Date), CAST(N'2023-07-30T00:00:00.000' AS DateTime), 30, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-07-31' AS Date), CAST(N'2023-07-31T00:00:00.000' AS DateTime), 31, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-08-01' AS Date), CAST(N'2023-08-01T00:00:00.000' AS DateTime), 1, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-08-02' AS Date), CAST(N'2023-08-02T00:00:00.000' AS DateTime), 2, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-08-03' AS Date), CAST(N'2023-08-03T00:00:00.000' AS DateTime), 3, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-08-04' AS Date), CAST(N'2023-08-04T00:00:00.000' AS DateTime), 4, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-08-05' AS Date), CAST(N'2023-08-05T00:00:00.000' AS DateTime), 5, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-08-06' AS Date), CAST(N'2023-08-06T00:00:00.000' AS DateTime), 6, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-08-07' AS Date), CAST(N'2023-08-07T00:00:00.000' AS DateTime), 7, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-08-08' AS Date), CAST(N'2023-08-08T00:00:00.000' AS DateTime), 8, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-08-09' AS Date), CAST(N'2023-08-09T00:00:00.000' AS DateTime), 9, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-08-10' AS Date), CAST(N'2023-08-10T00:00:00.000' AS DateTime), 10, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-08-11' AS Date), CAST(N'2023-08-11T00:00:00.000' AS DateTime), 11, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-08-12' AS Date), CAST(N'2023-08-12T00:00:00.000' AS DateTime), 12, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-08-13' AS Date), CAST(N'2023-08-13T00:00:00.000' AS DateTime), 13, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-08-14' AS Date), CAST(N'2023-08-14T00:00:00.000' AS DateTime), 14, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-08-15' AS Date), CAST(N'2023-08-15T00:00:00.000' AS DateTime), 15, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-08-16' AS Date), CAST(N'2023-08-16T00:00:00.000' AS DateTime), 16, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-08-17' AS Date), CAST(N'2023-08-17T00:00:00.000' AS DateTime), 17, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-08-18' AS Date), CAST(N'2023-08-18T00:00:00.000' AS DateTime), 18, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-08-19' AS Date), CAST(N'2023-08-19T00:00:00.000' AS DateTime), 19, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-08-20' AS Date), CAST(N'2023-08-20T00:00:00.000' AS DateTime), 20, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-08-21' AS Date), CAST(N'2023-08-21T00:00:00.000' AS DateTime), 21, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-08-22' AS Date), CAST(N'2023-08-22T00:00:00.000' AS DateTime), 22, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-08-23' AS Date), CAST(N'2023-08-23T00:00:00.000' AS DateTime), 23, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-08-24' AS Date), CAST(N'2023-08-24T00:00:00.000' AS DateTime), 24, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-08-25' AS Date), CAST(N'2023-08-25T00:00:00.000' AS DateTime), 25, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-08-26' AS Date), CAST(N'2023-08-26T00:00:00.000' AS DateTime), 26, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-08-27' AS Date), CAST(N'2023-08-27T00:00:00.000' AS DateTime), 27, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-08-28' AS Date), CAST(N'2023-08-28T00:00:00.000' AS DateTime), 28, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-08-29' AS Date), CAST(N'2023-08-29T00:00:00.000' AS DateTime), 29, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-08-30' AS Date), CAST(N'2023-08-30T00:00:00.000' AS DateTime), 30, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-08-31' AS Date), CAST(N'2023-08-31T00:00:00.000' AS DateTime), 31, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-09-01' AS Date), CAST(N'2023-09-01T00:00:00.000' AS DateTime), 1, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-09-02' AS Date), CAST(N'2023-09-02T00:00:00.000' AS DateTime), 2, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-09-03' AS Date), CAST(N'2023-09-03T00:00:00.000' AS DateTime), 3, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-09-04' AS Date), CAST(N'2023-09-04T00:00:00.000' AS DateTime), 4, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-09-05' AS Date), CAST(N'2023-09-05T00:00:00.000' AS DateTime), 5, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-09-06' AS Date), CAST(N'2023-09-06T00:00:00.000' AS DateTime), 6, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-09-07' AS Date), CAST(N'2023-09-07T00:00:00.000' AS DateTime), 7, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-09-08' AS Date), CAST(N'2023-09-08T00:00:00.000' AS DateTime), 8, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-09-09' AS Date), CAST(N'2023-09-09T00:00:00.000' AS DateTime), 9, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-09-10' AS Date), CAST(N'2023-09-10T00:00:00.000' AS DateTime), 10, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-09-11' AS Date), CAST(N'2023-09-11T00:00:00.000' AS DateTime), 11, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-09-12' AS Date), CAST(N'2023-09-12T00:00:00.000' AS DateTime), 12, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-09-13' AS Date), CAST(N'2023-09-13T00:00:00.000' AS DateTime), 13, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-09-14' AS Date), CAST(N'2023-09-14T00:00:00.000' AS DateTime), 14, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-09-15' AS Date), CAST(N'2023-09-15T00:00:00.000' AS DateTime), 15, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-09-16' AS Date), CAST(N'2023-09-16T00:00:00.000' AS DateTime), 16, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-09-17' AS Date), CAST(N'2023-09-17T00:00:00.000' AS DateTime), 17, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-09-18' AS Date), CAST(N'2023-09-18T00:00:00.000' AS DateTime), 18, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-09-19' AS Date), CAST(N'2023-09-19T00:00:00.000' AS DateTime), 19, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-09-20' AS Date), CAST(N'2023-09-20T00:00:00.000' AS DateTime), 20, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-09-21' AS Date), CAST(N'2023-09-21T00:00:00.000' AS DateTime), 21, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-09-22' AS Date), CAST(N'2023-09-22T00:00:00.000' AS DateTime), 22, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-09-23' AS Date), CAST(N'2023-09-23T00:00:00.000' AS DateTime), 23, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-09-24' AS Date), CAST(N'2023-09-24T00:00:00.000' AS DateTime), 24, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-09-25' AS Date), CAST(N'2023-09-25T00:00:00.000' AS DateTime), 25, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-09-26' AS Date), CAST(N'2023-09-26T00:00:00.000' AS DateTime), 26, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-09-27' AS Date), CAST(N'2023-09-27T00:00:00.000' AS DateTime), 27, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-09-28' AS Date), CAST(N'2023-09-28T00:00:00.000' AS DateTime), 28, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-09-29' AS Date), CAST(N'2023-09-29T00:00:00.000' AS DateTime), 29, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-09-30' AS Date), CAST(N'2023-09-30T00:00:00.000' AS DateTime), 30, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-10-01' AS Date), CAST(N'2023-10-01T00:00:00.000' AS DateTime), 1, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-10-02' AS Date), CAST(N'2023-10-02T00:00:00.000' AS DateTime), 2, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-10-03' AS Date), CAST(N'2023-10-03T00:00:00.000' AS DateTime), 3, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-10-04' AS Date), CAST(N'2023-10-04T00:00:00.000' AS DateTime), 4, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-10-05' AS Date), CAST(N'2023-10-05T00:00:00.000' AS DateTime), 5, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-10-06' AS Date), CAST(N'2023-10-06T00:00:00.000' AS DateTime), 6, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-10-07' AS Date), CAST(N'2023-10-07T00:00:00.000' AS DateTime), 7, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-10-08' AS Date), CAST(N'2023-10-08T00:00:00.000' AS DateTime), 8, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-10-09' AS Date), CAST(N'2023-10-09T00:00:00.000' AS DateTime), 9, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-10-10' AS Date), CAST(N'2023-10-10T00:00:00.000' AS DateTime), 10, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-10-11' AS Date), CAST(N'2023-10-11T00:00:00.000' AS DateTime), 11, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-10-12' AS Date), CAST(N'2023-10-12T00:00:00.000' AS DateTime), 12, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-10-13' AS Date), CAST(N'2023-10-13T00:00:00.000' AS DateTime), 13, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-10-14' AS Date), CAST(N'2023-10-14T00:00:00.000' AS DateTime), 14, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-10-15' AS Date), CAST(N'2023-10-15T00:00:00.000' AS DateTime), 15, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-10-16' AS Date), CAST(N'2023-10-16T00:00:00.000' AS DateTime), 16, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-10-17' AS Date), CAST(N'2023-10-17T00:00:00.000' AS DateTime), 17, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-10-18' AS Date), CAST(N'2023-10-18T00:00:00.000' AS DateTime), 18, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-10-19' AS Date), CAST(N'2023-10-19T00:00:00.000' AS DateTime), 19, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-10-20' AS Date), CAST(N'2023-10-20T00:00:00.000' AS DateTime), 20, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-10-21' AS Date), CAST(N'2023-10-21T00:00:00.000' AS DateTime), 21, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-10-22' AS Date), CAST(N'2023-10-22T00:00:00.000' AS DateTime), 22, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-10-23' AS Date), CAST(N'2023-10-23T00:00:00.000' AS DateTime), 23, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-10-24' AS Date), CAST(N'2023-10-24T00:00:00.000' AS DateTime), 24, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-10-25' AS Date), CAST(N'2023-10-25T00:00:00.000' AS DateTime), 25, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-10-26' AS Date), CAST(N'2023-10-26T00:00:00.000' AS DateTime), 26, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-10-27' AS Date), CAST(N'2023-10-27T00:00:00.000' AS DateTime), 27, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-10-28' AS Date), CAST(N'2023-10-28T00:00:00.000' AS DateTime), 28, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-10-29' AS Date), CAST(N'2023-10-29T00:00:00.000' AS DateTime), 29, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-10-30' AS Date), CAST(N'2023-10-30T00:00:00.000' AS DateTime), 30, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-10-31' AS Date), CAST(N'2023-10-31T00:00:00.000' AS DateTime), 31, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-11-01' AS Date), CAST(N'2023-11-01T00:00:00.000' AS DateTime), 1, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-11-02' AS Date), CAST(N'2023-11-02T00:00:00.000' AS DateTime), 2, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-11-03' AS Date), CAST(N'2023-11-03T00:00:00.000' AS DateTime), 3, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-11-04' AS Date), CAST(N'2023-11-04T00:00:00.000' AS DateTime), 4, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-11-05' AS Date), CAST(N'2023-11-05T00:00:00.000' AS DateTime), 5, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-11-06' AS Date), CAST(N'2023-11-06T00:00:00.000' AS DateTime), 6, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-11-07' AS Date), CAST(N'2023-11-07T00:00:00.000' AS DateTime), 7, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-11-08' AS Date), CAST(N'2023-11-08T00:00:00.000' AS DateTime), 8, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-11-09' AS Date), CAST(N'2023-11-09T00:00:00.000' AS DateTime), 9, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-11-10' AS Date), CAST(N'2023-11-10T00:00:00.000' AS DateTime), 10, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-11-11' AS Date), CAST(N'2023-11-11T00:00:00.000' AS DateTime), 11, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-11-12' AS Date), CAST(N'2023-11-12T00:00:00.000' AS DateTime), 12, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-11-13' AS Date), CAST(N'2023-11-13T00:00:00.000' AS DateTime), 13, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-11-14' AS Date), CAST(N'2023-11-14T00:00:00.000' AS DateTime), 14, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-11-15' AS Date), CAST(N'2023-11-15T00:00:00.000' AS DateTime), 15, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-11-16' AS Date), CAST(N'2023-11-16T00:00:00.000' AS DateTime), 16, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-11-17' AS Date), CAST(N'2023-11-17T00:00:00.000' AS DateTime), 17, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-11-18' AS Date), CAST(N'2023-11-18T00:00:00.000' AS DateTime), 18, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-11-19' AS Date), CAST(N'2023-11-19T00:00:00.000' AS DateTime), 19, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-11-20' AS Date), CAST(N'2023-11-20T00:00:00.000' AS DateTime), 20, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-11-21' AS Date), CAST(N'2023-11-21T00:00:00.000' AS DateTime), 21, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-11-22' AS Date), CAST(N'2023-11-22T00:00:00.000' AS DateTime), 22, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-11-23' AS Date), CAST(N'2023-11-23T00:00:00.000' AS DateTime), 23, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-11-24' AS Date), CAST(N'2023-11-24T00:00:00.000' AS DateTime), 24, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-11-25' AS Date), CAST(N'2023-11-25T00:00:00.000' AS DateTime), 25, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-11-26' AS Date), CAST(N'2023-11-26T00:00:00.000' AS DateTime), 26, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-11-27' AS Date), CAST(N'2023-11-27T00:00:00.000' AS DateTime), 27, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-11-28' AS Date), CAST(N'2023-11-28T00:00:00.000' AS DateTime), 28, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-11-29' AS Date), CAST(N'2023-11-29T00:00:00.000' AS DateTime), 29, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-11-30' AS Date), CAST(N'2023-11-30T00:00:00.000' AS DateTime), 30, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-12-01' AS Date), CAST(N'2023-12-01T00:00:00.000' AS DateTime), 1, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-12-02' AS Date), CAST(N'2023-12-02T00:00:00.000' AS DateTime), 2, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-12-03' AS Date), CAST(N'2023-12-03T00:00:00.000' AS DateTime), 3, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-12-04' AS Date), CAST(N'2023-12-04T00:00:00.000' AS DateTime), 4, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-12-05' AS Date), CAST(N'2023-12-05T00:00:00.000' AS DateTime), 5, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-12-06' AS Date), CAST(N'2023-12-06T00:00:00.000' AS DateTime), 6, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-12-07' AS Date), CAST(N'2023-12-07T00:00:00.000' AS DateTime), 7, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-12-08' AS Date), CAST(N'2023-12-08T00:00:00.000' AS DateTime), 8, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-12-09' AS Date), CAST(N'2023-12-09T00:00:00.000' AS DateTime), 9, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-12-10' AS Date), CAST(N'2023-12-10T00:00:00.000' AS DateTime), 10, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-12-11' AS Date), CAST(N'2023-12-11T00:00:00.000' AS DateTime), 11, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-12-12' AS Date), CAST(N'2023-12-12T00:00:00.000' AS DateTime), 12, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-12-13' AS Date), CAST(N'2023-12-13T00:00:00.000' AS DateTime), 13, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-12-14' AS Date), CAST(N'2023-12-14T00:00:00.000' AS DateTime), 14, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-12-15' AS Date), CAST(N'2023-12-15T00:00:00.000' AS DateTime), 15, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-12-16' AS Date), CAST(N'2023-12-16T00:00:00.000' AS DateTime), 16, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-12-17' AS Date), CAST(N'2023-12-17T00:00:00.000' AS DateTime), 17, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-12-18' AS Date), CAST(N'2023-12-18T00:00:00.000' AS DateTime), 18, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-12-19' AS Date), CAST(N'2023-12-19T00:00:00.000' AS DateTime), 19, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-12-20' AS Date), CAST(N'2023-12-20T00:00:00.000' AS DateTime), 20, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-12-21' AS Date), CAST(N'2023-12-21T00:00:00.000' AS DateTime), 21, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-12-22' AS Date), CAST(N'2023-12-22T00:00:00.000' AS DateTime), 22, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-12-23' AS Date), CAST(N'2023-12-23T00:00:00.000' AS DateTime), 23, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-12-24' AS Date), CAST(N'2023-12-24T00:00:00.000' AS DateTime), 24, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-12-25' AS Date), CAST(N'2023-12-25T00:00:00.000' AS DateTime), 25, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-12-26' AS Date), CAST(N'2023-12-26T00:00:00.000' AS DateTime), 26, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-12-27' AS Date), CAST(N'2023-12-27T00:00:00.000' AS DateTime), 27, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-12-28' AS Date), CAST(N'2023-12-28T00:00:00.000' AS DateTime), 28, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-12-29' AS Date), CAST(N'2023-12-29T00:00:00.000' AS DateTime), 29, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-12-30' AS Date), CAST(N'2023-12-30T00:00:00.000' AS DateTime), 30, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2023-12-31' AS Date), CAST(N'2023-12-31T00:00:00.000' AS DateTime), 31, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-01-01' AS Date), CAST(N'2024-01-01T00:00:00.000' AS DateTime), 1, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-01-02' AS Date), CAST(N'2024-01-02T00:00:00.000' AS DateTime), 2, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-01-03' AS Date), CAST(N'2024-01-03T00:00:00.000' AS DateTime), 3, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-01-04' AS Date), CAST(N'2024-01-04T00:00:00.000' AS DateTime), 4, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-01-05' AS Date), CAST(N'2024-01-05T00:00:00.000' AS DateTime), 5, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-01-06' AS Date), CAST(N'2024-01-06T00:00:00.000' AS DateTime), 6, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-01-07' AS Date), CAST(N'2024-01-07T00:00:00.000' AS DateTime), 7, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-01-08' AS Date), CAST(N'2024-01-08T00:00:00.000' AS DateTime), 8, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-01-09' AS Date), CAST(N'2024-01-09T00:00:00.000' AS DateTime), 9, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-01-10' AS Date), CAST(N'2024-01-10T00:00:00.000' AS DateTime), 10, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-01-11' AS Date), CAST(N'2024-01-11T00:00:00.000' AS DateTime), 11, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-01-12' AS Date), CAST(N'2024-01-12T00:00:00.000' AS DateTime), 12, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-01-13' AS Date), CAST(N'2024-01-13T00:00:00.000' AS DateTime), 13, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-01-14' AS Date), CAST(N'2024-01-14T00:00:00.000' AS DateTime), 14, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-01-15' AS Date), CAST(N'2024-01-15T00:00:00.000' AS DateTime), 15, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-01-16' AS Date), CAST(N'2024-01-16T00:00:00.000' AS DateTime), 16, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-01-17' AS Date), CAST(N'2024-01-17T00:00:00.000' AS DateTime), 17, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-01-18' AS Date), CAST(N'2024-01-18T00:00:00.000' AS DateTime), 18, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-01-19' AS Date), CAST(N'2024-01-19T00:00:00.000' AS DateTime), 19, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-01-20' AS Date), CAST(N'2024-01-20T00:00:00.000' AS DateTime), 20, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-01-21' AS Date), CAST(N'2024-01-21T00:00:00.000' AS DateTime), 21, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-01-22' AS Date), CAST(N'2024-01-22T00:00:00.000' AS DateTime), 22, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-01-23' AS Date), CAST(N'2024-01-23T00:00:00.000' AS DateTime), 23, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-01-24' AS Date), CAST(N'2024-01-24T00:00:00.000' AS DateTime), 24, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-01-25' AS Date), CAST(N'2024-01-25T00:00:00.000' AS DateTime), 25, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-01-26' AS Date), CAST(N'2024-01-26T00:00:00.000' AS DateTime), 26, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-01-27' AS Date), CAST(N'2024-01-27T00:00:00.000' AS DateTime), 27, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-01-28' AS Date), CAST(N'2024-01-28T00:00:00.000' AS DateTime), 28, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-01-29' AS Date), CAST(N'2024-01-29T00:00:00.000' AS DateTime), 29, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-01-30' AS Date), CAST(N'2024-01-30T00:00:00.000' AS DateTime), 30, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-01-31' AS Date), CAST(N'2024-01-31T00:00:00.000' AS DateTime), 31, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-02-01' AS Date), CAST(N'2024-02-01T00:00:00.000' AS DateTime), 1, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-02-02' AS Date), CAST(N'2024-02-02T00:00:00.000' AS DateTime), 2, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-02-03' AS Date), CAST(N'2024-02-03T00:00:00.000' AS DateTime), 3, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-02-04' AS Date), CAST(N'2024-02-04T00:00:00.000' AS DateTime), 4, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-02-05' AS Date), CAST(N'2024-02-05T00:00:00.000' AS DateTime), 5, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-02-06' AS Date), CAST(N'2024-02-06T00:00:00.000' AS DateTime), 6, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-02-07' AS Date), CAST(N'2024-02-07T00:00:00.000' AS DateTime), 7, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-02-08' AS Date), CAST(N'2024-02-08T00:00:00.000' AS DateTime), 8, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-02-09' AS Date), CAST(N'2024-02-09T00:00:00.000' AS DateTime), 9, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-02-10' AS Date), CAST(N'2024-02-10T00:00:00.000' AS DateTime), 10, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-02-11' AS Date), CAST(N'2024-02-11T00:00:00.000' AS DateTime), 11, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-02-12' AS Date), CAST(N'2024-02-12T00:00:00.000' AS DateTime), 12, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-02-13' AS Date), CAST(N'2024-02-13T00:00:00.000' AS DateTime), 13, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-02-14' AS Date), CAST(N'2024-02-14T00:00:00.000' AS DateTime), 14, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-02-15' AS Date), CAST(N'2024-02-15T00:00:00.000' AS DateTime), 15, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-02-16' AS Date), CAST(N'2024-02-16T00:00:00.000' AS DateTime), 16, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-02-17' AS Date), CAST(N'2024-02-17T00:00:00.000' AS DateTime), 17, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-02-18' AS Date), CAST(N'2024-02-18T00:00:00.000' AS DateTime), 18, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-02-19' AS Date), CAST(N'2024-02-19T00:00:00.000' AS DateTime), 19, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-02-20' AS Date), CAST(N'2024-02-20T00:00:00.000' AS DateTime), 20, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-02-21' AS Date), CAST(N'2024-02-21T00:00:00.000' AS DateTime), 21, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-02-22' AS Date), CAST(N'2024-02-22T00:00:00.000' AS DateTime), 22, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-02-23' AS Date), CAST(N'2024-02-23T00:00:00.000' AS DateTime), 23, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-02-24' AS Date), CAST(N'2024-02-24T00:00:00.000' AS DateTime), 24, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-02-25' AS Date), CAST(N'2024-02-25T00:00:00.000' AS DateTime), 25, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-02-26' AS Date), CAST(N'2024-02-26T00:00:00.000' AS DateTime), 26, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-02-27' AS Date), CAST(N'2024-02-27T00:00:00.000' AS DateTime), 27, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-02-28' AS Date), CAST(N'2024-02-28T00:00:00.000' AS DateTime), 28, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-02-29' AS Date), CAST(N'2024-02-29T00:00:00.000' AS DateTime), 29, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-03-01' AS Date), CAST(N'2024-03-01T00:00:00.000' AS DateTime), 1, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-03-02' AS Date), CAST(N'2024-03-02T00:00:00.000' AS DateTime), 2, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-03-03' AS Date), CAST(N'2024-03-03T00:00:00.000' AS DateTime), 3, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-03-04' AS Date), CAST(N'2024-03-04T00:00:00.000' AS DateTime), 4, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-03-05' AS Date), CAST(N'2024-03-05T00:00:00.000' AS DateTime), 5, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-03-06' AS Date), CAST(N'2024-03-06T00:00:00.000' AS DateTime), 6, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-03-07' AS Date), CAST(N'2024-03-07T00:00:00.000' AS DateTime), 7, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-03-08' AS Date), CAST(N'2024-03-08T00:00:00.000' AS DateTime), 8, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-03-09' AS Date), CAST(N'2024-03-09T00:00:00.000' AS DateTime), 9, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-03-10' AS Date), CAST(N'2024-03-10T00:00:00.000' AS DateTime), 10, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-03-11' AS Date), CAST(N'2024-03-11T00:00:00.000' AS DateTime), 11, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-03-12' AS Date), CAST(N'2024-03-12T00:00:00.000' AS DateTime), 12, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-03-13' AS Date), CAST(N'2024-03-13T00:00:00.000' AS DateTime), 13, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-03-14' AS Date), CAST(N'2024-03-14T00:00:00.000' AS DateTime), 14, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-03-15' AS Date), CAST(N'2024-03-15T00:00:00.000' AS DateTime), 15, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-03-16' AS Date), CAST(N'2024-03-16T00:00:00.000' AS DateTime), 16, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-03-17' AS Date), CAST(N'2024-03-17T00:00:00.000' AS DateTime), 17, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-03-18' AS Date), CAST(N'2024-03-18T00:00:00.000' AS DateTime), 18, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-03-19' AS Date), CAST(N'2024-03-19T00:00:00.000' AS DateTime), 19, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-03-20' AS Date), CAST(N'2024-03-20T00:00:00.000' AS DateTime), 20, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-03-21' AS Date), CAST(N'2024-03-21T00:00:00.000' AS DateTime), 21, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-03-22' AS Date), CAST(N'2024-03-22T00:00:00.000' AS DateTime), 22, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-03-23' AS Date), CAST(N'2024-03-23T00:00:00.000' AS DateTime), 23, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-03-24' AS Date), CAST(N'2024-03-24T00:00:00.000' AS DateTime), 24, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-03-25' AS Date), CAST(N'2024-03-25T00:00:00.000' AS DateTime), 25, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-03-26' AS Date), CAST(N'2024-03-26T00:00:00.000' AS DateTime), 26, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-03-27' AS Date), CAST(N'2024-03-27T00:00:00.000' AS DateTime), 27, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-03-28' AS Date), CAST(N'2024-03-28T00:00:00.000' AS DateTime), 28, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-03-29' AS Date), CAST(N'2024-03-29T00:00:00.000' AS DateTime), 29, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-03-30' AS Date), CAST(N'2024-03-30T00:00:00.000' AS DateTime), 30, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-03-31' AS Date), CAST(N'2024-03-31T00:00:00.000' AS DateTime), 31, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-04-01' AS Date), CAST(N'2024-04-01T00:00:00.000' AS DateTime), 1, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-04-02' AS Date), CAST(N'2024-04-02T00:00:00.000' AS DateTime), 2, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-04-03' AS Date), CAST(N'2024-04-03T00:00:00.000' AS DateTime), 3, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-04-04' AS Date), CAST(N'2024-04-04T00:00:00.000' AS DateTime), 4, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-04-05' AS Date), CAST(N'2024-04-05T00:00:00.000' AS DateTime), 5, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-04-06' AS Date), CAST(N'2024-04-06T00:00:00.000' AS DateTime), 6, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-04-07' AS Date), CAST(N'2024-04-07T00:00:00.000' AS DateTime), 7, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-04-08' AS Date), CAST(N'2024-04-08T00:00:00.000' AS DateTime), 8, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-04-09' AS Date), CAST(N'2024-04-09T00:00:00.000' AS DateTime), 9, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-04-10' AS Date), CAST(N'2024-04-10T00:00:00.000' AS DateTime), 10, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-04-11' AS Date), CAST(N'2024-04-11T00:00:00.000' AS DateTime), 11, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-04-12' AS Date), CAST(N'2024-04-12T00:00:00.000' AS DateTime), 12, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-04-13' AS Date), CAST(N'2024-04-13T00:00:00.000' AS DateTime), 13, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-04-14' AS Date), CAST(N'2024-04-14T00:00:00.000' AS DateTime), 14, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-04-15' AS Date), CAST(N'2024-04-15T00:00:00.000' AS DateTime), 15, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-04-16' AS Date), CAST(N'2024-04-16T00:00:00.000' AS DateTime), 16, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-04-17' AS Date), CAST(N'2024-04-17T00:00:00.000' AS DateTime), 17, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-04-18' AS Date), CAST(N'2024-04-18T00:00:00.000' AS DateTime), 18, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-04-19' AS Date), CAST(N'2024-04-19T00:00:00.000' AS DateTime), 19, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-04-20' AS Date), CAST(N'2024-04-20T00:00:00.000' AS DateTime), 20, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-04-21' AS Date), CAST(N'2024-04-21T00:00:00.000' AS DateTime), 21, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-04-22' AS Date), CAST(N'2024-04-22T00:00:00.000' AS DateTime), 22, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-04-23' AS Date), CAST(N'2024-04-23T00:00:00.000' AS DateTime), 23, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-04-24' AS Date), CAST(N'2024-04-24T00:00:00.000' AS DateTime), 24, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-04-25' AS Date), CAST(N'2024-04-25T00:00:00.000' AS DateTime), 25, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-04-26' AS Date), CAST(N'2024-04-26T00:00:00.000' AS DateTime), 26, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-04-27' AS Date), CAST(N'2024-04-27T00:00:00.000' AS DateTime), 27, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-04-28' AS Date), CAST(N'2024-04-28T00:00:00.000' AS DateTime), 28, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-04-29' AS Date), CAST(N'2024-04-29T00:00:00.000' AS DateTime), 29, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-04-30' AS Date), CAST(N'2024-04-30T00:00:00.000' AS DateTime), 30, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-05-01' AS Date), CAST(N'2024-05-01T00:00:00.000' AS DateTime), 1, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-05-02' AS Date), CAST(N'2024-05-02T00:00:00.000' AS DateTime), 2, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-05-03' AS Date), CAST(N'2024-05-03T00:00:00.000' AS DateTime), 3, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-05-04' AS Date), CAST(N'2024-05-04T00:00:00.000' AS DateTime), 4, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-05-05' AS Date), CAST(N'2024-05-05T00:00:00.000' AS DateTime), 5, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-05-06' AS Date), CAST(N'2024-05-06T00:00:00.000' AS DateTime), 6, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-05-07' AS Date), CAST(N'2024-05-07T00:00:00.000' AS DateTime), 7, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-05-08' AS Date), CAST(N'2024-05-08T00:00:00.000' AS DateTime), 8, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-05-09' AS Date), CAST(N'2024-05-09T00:00:00.000' AS DateTime), 9, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-05-10' AS Date), CAST(N'2024-05-10T00:00:00.000' AS DateTime), 10, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-05-11' AS Date), CAST(N'2024-05-11T00:00:00.000' AS DateTime), 11, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-05-12' AS Date), CAST(N'2024-05-12T00:00:00.000' AS DateTime), 12, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-05-13' AS Date), CAST(N'2024-05-13T00:00:00.000' AS DateTime), 13, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-05-14' AS Date), CAST(N'2024-05-14T00:00:00.000' AS DateTime), 14, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-05-15' AS Date), CAST(N'2024-05-15T00:00:00.000' AS DateTime), 15, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-05-16' AS Date), CAST(N'2024-05-16T00:00:00.000' AS DateTime), 16, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-05-17' AS Date), CAST(N'2024-05-17T00:00:00.000' AS DateTime), 17, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-05-18' AS Date), CAST(N'2024-05-18T00:00:00.000' AS DateTime), 18, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-05-19' AS Date), CAST(N'2024-05-19T00:00:00.000' AS DateTime), 19, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-05-20' AS Date), CAST(N'2024-05-20T00:00:00.000' AS DateTime), 20, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-05-21' AS Date), CAST(N'2024-05-21T00:00:00.000' AS DateTime), 21, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-05-22' AS Date), CAST(N'2024-05-22T00:00:00.000' AS DateTime), 22, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-05-23' AS Date), CAST(N'2024-05-23T00:00:00.000' AS DateTime), 23, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-05-24' AS Date), CAST(N'2024-05-24T00:00:00.000' AS DateTime), 24, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-05-25' AS Date), CAST(N'2024-05-25T00:00:00.000' AS DateTime), 25, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-05-26' AS Date), CAST(N'2024-05-26T00:00:00.000' AS DateTime), 26, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-05-27' AS Date), CAST(N'2024-05-27T00:00:00.000' AS DateTime), 27, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-05-28' AS Date), CAST(N'2024-05-28T00:00:00.000' AS DateTime), 28, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-05-29' AS Date), CAST(N'2024-05-29T00:00:00.000' AS DateTime), 29, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-05-30' AS Date), CAST(N'2024-05-30T00:00:00.000' AS DateTime), 30, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-05-31' AS Date), CAST(N'2024-05-31T00:00:00.000' AS DateTime), 31, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-06-01' AS Date), CAST(N'2024-06-01T00:00:00.000' AS DateTime), 1, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-06-02' AS Date), CAST(N'2024-06-02T00:00:00.000' AS DateTime), 2, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-06-03' AS Date), CAST(N'2024-06-03T00:00:00.000' AS DateTime), 3, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-06-04' AS Date), CAST(N'2024-06-04T00:00:00.000' AS DateTime), 4, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-06-05' AS Date), CAST(N'2024-06-05T00:00:00.000' AS DateTime), 5, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-06-06' AS Date), CAST(N'2024-06-06T00:00:00.000' AS DateTime), 6, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-06-07' AS Date), CAST(N'2024-06-07T00:00:00.000' AS DateTime), 7, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-06-08' AS Date), CAST(N'2024-06-08T00:00:00.000' AS DateTime), 8, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-06-09' AS Date), CAST(N'2024-06-09T00:00:00.000' AS DateTime), 9, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-06-10' AS Date), CAST(N'2024-06-10T00:00:00.000' AS DateTime), 10, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-06-11' AS Date), CAST(N'2024-06-11T00:00:00.000' AS DateTime), 11, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-06-12' AS Date), CAST(N'2024-06-12T00:00:00.000' AS DateTime), 12, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-06-13' AS Date), CAST(N'2024-06-13T00:00:00.000' AS DateTime), 13, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-06-14' AS Date), CAST(N'2024-06-14T00:00:00.000' AS DateTime), 14, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-06-15' AS Date), CAST(N'2024-06-15T00:00:00.000' AS DateTime), 15, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-06-16' AS Date), CAST(N'2024-06-16T00:00:00.000' AS DateTime), 16, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-06-17' AS Date), CAST(N'2024-06-17T00:00:00.000' AS DateTime), 17, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-06-18' AS Date), CAST(N'2024-06-18T00:00:00.000' AS DateTime), 18, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-06-19' AS Date), CAST(N'2024-06-19T00:00:00.000' AS DateTime), 19, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-06-20' AS Date), CAST(N'2024-06-20T00:00:00.000' AS DateTime), 20, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-06-21' AS Date), CAST(N'2024-06-21T00:00:00.000' AS DateTime), 21, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-06-22' AS Date), CAST(N'2024-06-22T00:00:00.000' AS DateTime), 22, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-06-23' AS Date), CAST(N'2024-06-23T00:00:00.000' AS DateTime), 23, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-06-24' AS Date), CAST(N'2024-06-24T00:00:00.000' AS DateTime), 24, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-06-25' AS Date), CAST(N'2024-06-25T00:00:00.000' AS DateTime), 25, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-06-26' AS Date), CAST(N'2024-06-26T00:00:00.000' AS DateTime), 26, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-06-27' AS Date), CAST(N'2024-06-27T00:00:00.000' AS DateTime), 27, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-06-28' AS Date), CAST(N'2024-06-28T00:00:00.000' AS DateTime), 28, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-06-29' AS Date), CAST(N'2024-06-29T00:00:00.000' AS DateTime), 29, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-06-30' AS Date), CAST(N'2024-06-30T00:00:00.000' AS DateTime), 30, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-07-01' AS Date), CAST(N'2024-07-01T00:00:00.000' AS DateTime), 1, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-07-02' AS Date), CAST(N'2024-07-02T00:00:00.000' AS DateTime), 2, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-07-03' AS Date), CAST(N'2024-07-03T00:00:00.000' AS DateTime), 3, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-07-04' AS Date), CAST(N'2024-07-04T00:00:00.000' AS DateTime), 4, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-07-05' AS Date), CAST(N'2024-07-05T00:00:00.000' AS DateTime), 5, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-07-06' AS Date), CAST(N'2024-07-06T00:00:00.000' AS DateTime), 6, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-07-07' AS Date), CAST(N'2024-07-07T00:00:00.000' AS DateTime), 7, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-07-08' AS Date), CAST(N'2024-07-08T00:00:00.000' AS DateTime), 8, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-07-09' AS Date), CAST(N'2024-07-09T00:00:00.000' AS DateTime), 9, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-07-10' AS Date), CAST(N'2024-07-10T00:00:00.000' AS DateTime), 10, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-07-11' AS Date), CAST(N'2024-07-11T00:00:00.000' AS DateTime), 11, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-07-12' AS Date), CAST(N'2024-07-12T00:00:00.000' AS DateTime), 12, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-07-13' AS Date), CAST(N'2024-07-13T00:00:00.000' AS DateTime), 13, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-07-14' AS Date), CAST(N'2024-07-14T00:00:00.000' AS DateTime), 14, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-07-15' AS Date), CAST(N'2024-07-15T00:00:00.000' AS DateTime), 15, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-07-16' AS Date), CAST(N'2024-07-16T00:00:00.000' AS DateTime), 16, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-07-17' AS Date), CAST(N'2024-07-17T00:00:00.000' AS DateTime), 17, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-07-18' AS Date), CAST(N'2024-07-18T00:00:00.000' AS DateTime), 18, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-07-19' AS Date), CAST(N'2024-07-19T00:00:00.000' AS DateTime), 19, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-07-20' AS Date), CAST(N'2024-07-20T00:00:00.000' AS DateTime), 20, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-07-21' AS Date), CAST(N'2024-07-21T00:00:00.000' AS DateTime), 21, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-07-22' AS Date), CAST(N'2024-07-22T00:00:00.000' AS DateTime), 22, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-07-23' AS Date), CAST(N'2024-07-23T00:00:00.000' AS DateTime), 23, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-07-24' AS Date), CAST(N'2024-07-24T00:00:00.000' AS DateTime), 24, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-07-25' AS Date), CAST(N'2024-07-25T00:00:00.000' AS DateTime), 25, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-07-26' AS Date), CAST(N'2024-07-26T00:00:00.000' AS DateTime), 26, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-07-27' AS Date), CAST(N'2024-07-27T00:00:00.000' AS DateTime), 27, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-07-28' AS Date), CAST(N'2024-07-28T00:00:00.000' AS DateTime), 28, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-07-29' AS Date), CAST(N'2024-07-29T00:00:00.000' AS DateTime), 29, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-07-30' AS Date), CAST(N'2024-07-30T00:00:00.000' AS DateTime), 30, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-07-31' AS Date), CAST(N'2024-07-31T00:00:00.000' AS DateTime), 31, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-08-01' AS Date), CAST(N'2024-08-01T00:00:00.000' AS DateTime), 1, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-08-02' AS Date), CAST(N'2024-08-02T00:00:00.000' AS DateTime), 2, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-08-03' AS Date), CAST(N'2024-08-03T00:00:00.000' AS DateTime), 3, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-08-04' AS Date), CAST(N'2024-08-04T00:00:00.000' AS DateTime), 4, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-08-05' AS Date), CAST(N'2024-08-05T00:00:00.000' AS DateTime), 5, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-08-06' AS Date), CAST(N'2024-08-06T00:00:00.000' AS DateTime), 6, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-08-07' AS Date), CAST(N'2024-08-07T00:00:00.000' AS DateTime), 7, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-08-08' AS Date), CAST(N'2024-08-08T00:00:00.000' AS DateTime), 8, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-08-09' AS Date), CAST(N'2024-08-09T00:00:00.000' AS DateTime), 9, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-08-10' AS Date), CAST(N'2024-08-10T00:00:00.000' AS DateTime), 10, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-08-11' AS Date), CAST(N'2024-08-11T00:00:00.000' AS DateTime), 11, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-08-12' AS Date), CAST(N'2024-08-12T00:00:00.000' AS DateTime), 12, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-08-13' AS Date), CAST(N'2024-08-13T00:00:00.000' AS DateTime), 13, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-08-14' AS Date), CAST(N'2024-08-14T00:00:00.000' AS DateTime), 14, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-08-15' AS Date), CAST(N'2024-08-15T00:00:00.000' AS DateTime), 15, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-08-16' AS Date), CAST(N'2024-08-16T00:00:00.000' AS DateTime), 16, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-08-17' AS Date), CAST(N'2024-08-17T00:00:00.000' AS DateTime), 17, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-08-18' AS Date), CAST(N'2024-08-18T00:00:00.000' AS DateTime), 18, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-08-19' AS Date), CAST(N'2024-08-19T00:00:00.000' AS DateTime), 19, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-08-20' AS Date), CAST(N'2024-08-20T00:00:00.000' AS DateTime), 20, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-08-21' AS Date), CAST(N'2024-08-21T00:00:00.000' AS DateTime), 21, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-08-22' AS Date), CAST(N'2024-08-22T00:00:00.000' AS DateTime), 22, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-08-23' AS Date), CAST(N'2024-08-23T00:00:00.000' AS DateTime), 23, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-08-24' AS Date), CAST(N'2024-08-24T00:00:00.000' AS DateTime), 24, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-08-25' AS Date), CAST(N'2024-08-25T00:00:00.000' AS DateTime), 25, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-08-26' AS Date), CAST(N'2024-08-26T00:00:00.000' AS DateTime), 26, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-08-27' AS Date), CAST(N'2024-08-27T00:00:00.000' AS DateTime), 27, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-08-28' AS Date), CAST(N'2024-08-28T00:00:00.000' AS DateTime), 28, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-08-29' AS Date), CAST(N'2024-08-29T00:00:00.000' AS DateTime), 29, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-08-30' AS Date), CAST(N'2024-08-30T00:00:00.000' AS DateTime), 30, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-08-31' AS Date), CAST(N'2024-08-31T00:00:00.000' AS DateTime), 31, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-09-01' AS Date), CAST(N'2024-09-01T00:00:00.000' AS DateTime), 1, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-09-02' AS Date), CAST(N'2024-09-02T00:00:00.000' AS DateTime), 2, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-09-03' AS Date), CAST(N'2024-09-03T00:00:00.000' AS DateTime), 3, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-09-04' AS Date), CAST(N'2024-09-04T00:00:00.000' AS DateTime), 4, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-09-05' AS Date), CAST(N'2024-09-05T00:00:00.000' AS DateTime), 5, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-09-06' AS Date), CAST(N'2024-09-06T00:00:00.000' AS DateTime), 6, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-09-07' AS Date), CAST(N'2024-09-07T00:00:00.000' AS DateTime), 7, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-09-08' AS Date), CAST(N'2024-09-08T00:00:00.000' AS DateTime), 8, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-09-09' AS Date), CAST(N'2024-09-09T00:00:00.000' AS DateTime), 9, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-09-10' AS Date), CAST(N'2024-09-10T00:00:00.000' AS DateTime), 10, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-09-11' AS Date), CAST(N'2024-09-11T00:00:00.000' AS DateTime), 11, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-09-12' AS Date), CAST(N'2024-09-12T00:00:00.000' AS DateTime), 12, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-09-13' AS Date), CAST(N'2024-09-13T00:00:00.000' AS DateTime), 13, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-09-14' AS Date), CAST(N'2024-09-14T00:00:00.000' AS DateTime), 14, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-09-15' AS Date), CAST(N'2024-09-15T00:00:00.000' AS DateTime), 15, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-09-16' AS Date), CAST(N'2024-09-16T00:00:00.000' AS DateTime), 16, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-09-17' AS Date), CAST(N'2024-09-17T00:00:00.000' AS DateTime), 17, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-09-18' AS Date), CAST(N'2024-09-18T00:00:00.000' AS DateTime), 18, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-09-19' AS Date), CAST(N'2024-09-19T00:00:00.000' AS DateTime), 19, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-09-20' AS Date), CAST(N'2024-09-20T00:00:00.000' AS DateTime), 20, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-09-21' AS Date), CAST(N'2024-09-21T00:00:00.000' AS DateTime), 21, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-09-22' AS Date), CAST(N'2024-09-22T00:00:00.000' AS DateTime), 22, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-09-23' AS Date), CAST(N'2024-09-23T00:00:00.000' AS DateTime), 23, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-09-24' AS Date), CAST(N'2024-09-24T00:00:00.000' AS DateTime), 24, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-09-25' AS Date), CAST(N'2024-09-25T00:00:00.000' AS DateTime), 25, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-09-26' AS Date), CAST(N'2024-09-26T00:00:00.000' AS DateTime), 26, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-09-27' AS Date), CAST(N'2024-09-27T00:00:00.000' AS DateTime), 27, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-09-28' AS Date), CAST(N'2024-09-28T00:00:00.000' AS DateTime), 28, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-09-29' AS Date), CAST(N'2024-09-29T00:00:00.000' AS DateTime), 29, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-09-30' AS Date), CAST(N'2024-09-30T00:00:00.000' AS DateTime), 30, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-10-01' AS Date), CAST(N'2024-10-01T00:00:00.000' AS DateTime), 1, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-10-02' AS Date), CAST(N'2024-10-02T00:00:00.000' AS DateTime), 2, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-10-03' AS Date), CAST(N'2024-10-03T00:00:00.000' AS DateTime), 3, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-10-04' AS Date), CAST(N'2024-10-04T00:00:00.000' AS DateTime), 4, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-10-05' AS Date), CAST(N'2024-10-05T00:00:00.000' AS DateTime), 5, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-10-06' AS Date), CAST(N'2024-10-06T00:00:00.000' AS DateTime), 6, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-10-07' AS Date), CAST(N'2024-10-07T00:00:00.000' AS DateTime), 7, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-10-08' AS Date), CAST(N'2024-10-08T00:00:00.000' AS DateTime), 8, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-10-09' AS Date), CAST(N'2024-10-09T00:00:00.000' AS DateTime), 9, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-10-10' AS Date), CAST(N'2024-10-10T00:00:00.000' AS DateTime), 10, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-10-11' AS Date), CAST(N'2024-10-11T00:00:00.000' AS DateTime), 11, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-10-12' AS Date), CAST(N'2024-10-12T00:00:00.000' AS DateTime), 12, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-10-13' AS Date), CAST(N'2024-10-13T00:00:00.000' AS DateTime), 13, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-10-14' AS Date), CAST(N'2024-10-14T00:00:00.000' AS DateTime), 14, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-10-15' AS Date), CAST(N'2024-10-15T00:00:00.000' AS DateTime), 15, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-10-16' AS Date), CAST(N'2024-10-16T00:00:00.000' AS DateTime), 16, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-10-17' AS Date), CAST(N'2024-10-17T00:00:00.000' AS DateTime), 17, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-10-18' AS Date), CAST(N'2024-10-18T00:00:00.000' AS DateTime), 18, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-10-19' AS Date), CAST(N'2024-10-19T00:00:00.000' AS DateTime), 19, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-10-20' AS Date), CAST(N'2024-10-20T00:00:00.000' AS DateTime), 20, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-10-21' AS Date), CAST(N'2024-10-21T00:00:00.000' AS DateTime), 21, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-10-22' AS Date), CAST(N'2024-10-22T00:00:00.000' AS DateTime), 22, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-10-23' AS Date), CAST(N'2024-10-23T00:00:00.000' AS DateTime), 23, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-10-24' AS Date), CAST(N'2024-10-24T00:00:00.000' AS DateTime), 24, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-10-25' AS Date), CAST(N'2024-10-25T00:00:00.000' AS DateTime), 25, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-10-26' AS Date), CAST(N'2024-10-26T00:00:00.000' AS DateTime), 26, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-10-27' AS Date), CAST(N'2024-10-27T00:00:00.000' AS DateTime), 27, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-10-28' AS Date), CAST(N'2024-10-28T00:00:00.000' AS DateTime), 28, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-10-29' AS Date), CAST(N'2024-10-29T00:00:00.000' AS DateTime), 29, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-10-30' AS Date), CAST(N'2024-10-30T00:00:00.000' AS DateTime), 30, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-10-31' AS Date), CAST(N'2024-10-31T00:00:00.000' AS DateTime), 31, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-11-01' AS Date), CAST(N'2024-11-01T00:00:00.000' AS DateTime), 1, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-11-02' AS Date), CAST(N'2024-11-02T00:00:00.000' AS DateTime), 2, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-11-03' AS Date), CAST(N'2024-11-03T00:00:00.000' AS DateTime), 3, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-11-04' AS Date), CAST(N'2024-11-04T00:00:00.000' AS DateTime), 4, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-11-05' AS Date), CAST(N'2024-11-05T00:00:00.000' AS DateTime), 5, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-11-06' AS Date), CAST(N'2024-11-06T00:00:00.000' AS DateTime), 6, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-11-07' AS Date), CAST(N'2024-11-07T00:00:00.000' AS DateTime), 7, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-11-08' AS Date), CAST(N'2024-11-08T00:00:00.000' AS DateTime), 8, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-11-09' AS Date), CAST(N'2024-11-09T00:00:00.000' AS DateTime), 9, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-11-10' AS Date), CAST(N'2024-11-10T00:00:00.000' AS DateTime), 10, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-11-11' AS Date), CAST(N'2024-11-11T00:00:00.000' AS DateTime), 11, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-11-12' AS Date), CAST(N'2024-11-12T00:00:00.000' AS DateTime), 12, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-11-13' AS Date), CAST(N'2024-11-13T00:00:00.000' AS DateTime), 13, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-11-14' AS Date), CAST(N'2024-11-14T00:00:00.000' AS DateTime), 14, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-11-15' AS Date), CAST(N'2024-11-15T00:00:00.000' AS DateTime), 15, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-11-16' AS Date), CAST(N'2024-11-16T00:00:00.000' AS DateTime), 16, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-11-17' AS Date), CAST(N'2024-11-17T00:00:00.000' AS DateTime), 17, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-11-18' AS Date), CAST(N'2024-11-18T00:00:00.000' AS DateTime), 18, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-11-19' AS Date), CAST(N'2024-11-19T00:00:00.000' AS DateTime), 19, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-11-20' AS Date), CAST(N'2024-11-20T00:00:00.000' AS DateTime), 20, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-11-21' AS Date), CAST(N'2024-11-21T00:00:00.000' AS DateTime), 21, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-11-22' AS Date), CAST(N'2024-11-22T00:00:00.000' AS DateTime), 22, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-11-23' AS Date), CAST(N'2024-11-23T00:00:00.000' AS DateTime), 23, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-11-24' AS Date), CAST(N'2024-11-24T00:00:00.000' AS DateTime), 24, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-11-25' AS Date), CAST(N'2024-11-25T00:00:00.000' AS DateTime), 25, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-11-26' AS Date), CAST(N'2024-11-26T00:00:00.000' AS DateTime), 26, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-11-27' AS Date), CAST(N'2024-11-27T00:00:00.000' AS DateTime), 27, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-11-28' AS Date), CAST(N'2024-11-28T00:00:00.000' AS DateTime), 28, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-11-29' AS Date), CAST(N'2024-11-29T00:00:00.000' AS DateTime), 29, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-11-30' AS Date), CAST(N'2024-11-30T00:00:00.000' AS DateTime), 30, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-12-01' AS Date), CAST(N'2024-12-01T00:00:00.000' AS DateTime), 1, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-12-02' AS Date), CAST(N'2024-12-02T00:00:00.000' AS DateTime), 2, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-12-03' AS Date), CAST(N'2024-12-03T00:00:00.000' AS DateTime), 3, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-12-04' AS Date), CAST(N'2024-12-04T00:00:00.000' AS DateTime), 4, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-12-05' AS Date), CAST(N'2024-12-05T00:00:00.000' AS DateTime), 5, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-12-06' AS Date), CAST(N'2024-12-06T00:00:00.000' AS DateTime), 6, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-12-07' AS Date), CAST(N'2024-12-07T00:00:00.000' AS DateTime), 7, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-12-08' AS Date), CAST(N'2024-12-08T00:00:00.000' AS DateTime), 8, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-12-09' AS Date), CAST(N'2024-12-09T00:00:00.000' AS DateTime), 9, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-12-10' AS Date), CAST(N'2024-12-10T00:00:00.000' AS DateTime), 10, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-12-11' AS Date), CAST(N'2024-12-11T00:00:00.000' AS DateTime), 11, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-12-12' AS Date), CAST(N'2024-12-12T00:00:00.000' AS DateTime), 12, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-12-13' AS Date), CAST(N'2024-12-13T00:00:00.000' AS DateTime), 13, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-12-14' AS Date), CAST(N'2024-12-14T00:00:00.000' AS DateTime), 14, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-12-15' AS Date), CAST(N'2024-12-15T00:00:00.000' AS DateTime), 15, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-12-16' AS Date), CAST(N'2024-12-16T00:00:00.000' AS DateTime), 16, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-12-17' AS Date), CAST(N'2024-12-17T00:00:00.000' AS DateTime), 17, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-12-18' AS Date), CAST(N'2024-12-18T00:00:00.000' AS DateTime), 18, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-12-19' AS Date), CAST(N'2024-12-19T00:00:00.000' AS DateTime), 19, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-12-20' AS Date), CAST(N'2024-12-20T00:00:00.000' AS DateTime), 20, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-12-21' AS Date), CAST(N'2024-12-21T00:00:00.000' AS DateTime), 21, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-12-22' AS Date), CAST(N'2024-12-22T00:00:00.000' AS DateTime), 22, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-12-23' AS Date), CAST(N'2024-12-23T00:00:00.000' AS DateTime), 23, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-12-24' AS Date), CAST(N'2024-12-24T00:00:00.000' AS DateTime), 24, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-12-25' AS Date), CAST(N'2024-12-25T00:00:00.000' AS DateTime), 25, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-12-26' AS Date), CAST(N'2024-12-26T00:00:00.000' AS DateTime), 26, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-12-27' AS Date), CAST(N'2024-12-27T00:00:00.000' AS DateTime), 27, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-12-28' AS Date), CAST(N'2024-12-28T00:00:00.000' AS DateTime), 28, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-12-29' AS Date), CAST(N'2024-12-29T00:00:00.000' AS DateTime), 29, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-12-30' AS Date), CAST(N'2024-12-30T00:00:00.000' AS DateTime), 30, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2024-12-31' AS Date), CAST(N'2024-12-31T00:00:00.000' AS DateTime), 31, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-01-01' AS Date), CAST(N'2025-01-01T00:00:00.000' AS DateTime), 1, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-01-02' AS Date), CAST(N'2025-01-02T00:00:00.000' AS DateTime), 2, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-01-03' AS Date), CAST(N'2025-01-03T00:00:00.000' AS DateTime), 3, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-01-04' AS Date), CAST(N'2025-01-04T00:00:00.000' AS DateTime), 4, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-01-05' AS Date), CAST(N'2025-01-05T00:00:00.000' AS DateTime), 5, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-01-06' AS Date), CAST(N'2025-01-06T00:00:00.000' AS DateTime), 6, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-01-07' AS Date), CAST(N'2025-01-07T00:00:00.000' AS DateTime), 7, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-01-08' AS Date), CAST(N'2025-01-08T00:00:00.000' AS DateTime), 8, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-01-09' AS Date), CAST(N'2025-01-09T00:00:00.000' AS DateTime), 9, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-01-10' AS Date), CAST(N'2025-01-10T00:00:00.000' AS DateTime), 10, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-01-11' AS Date), CAST(N'2025-01-11T00:00:00.000' AS DateTime), 11, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-01-12' AS Date), CAST(N'2025-01-12T00:00:00.000' AS DateTime), 12, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-01-13' AS Date), CAST(N'2025-01-13T00:00:00.000' AS DateTime), 13, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-01-14' AS Date), CAST(N'2025-01-14T00:00:00.000' AS DateTime), 14, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-01-15' AS Date), CAST(N'2025-01-15T00:00:00.000' AS DateTime), 15, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-01-16' AS Date), CAST(N'2025-01-16T00:00:00.000' AS DateTime), 16, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-01-17' AS Date), CAST(N'2025-01-17T00:00:00.000' AS DateTime), 17, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-01-18' AS Date), CAST(N'2025-01-18T00:00:00.000' AS DateTime), 18, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-01-19' AS Date), CAST(N'2025-01-19T00:00:00.000' AS DateTime), 19, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-01-20' AS Date), CAST(N'2025-01-20T00:00:00.000' AS DateTime), 20, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-01-21' AS Date), CAST(N'2025-01-21T00:00:00.000' AS DateTime), 21, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-01-22' AS Date), CAST(N'2025-01-22T00:00:00.000' AS DateTime), 22, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-01-23' AS Date), CAST(N'2025-01-23T00:00:00.000' AS DateTime), 23, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-01-24' AS Date), CAST(N'2025-01-24T00:00:00.000' AS DateTime), 24, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-01-25' AS Date), CAST(N'2025-01-25T00:00:00.000' AS DateTime), 25, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-01-26' AS Date), CAST(N'2025-01-26T00:00:00.000' AS DateTime), 26, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-01-27' AS Date), CAST(N'2025-01-27T00:00:00.000' AS DateTime), 27, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-01-28' AS Date), CAST(N'2025-01-28T00:00:00.000' AS DateTime), 28, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-01-29' AS Date), CAST(N'2025-01-29T00:00:00.000' AS DateTime), 29, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-01-30' AS Date), CAST(N'2025-01-30T00:00:00.000' AS DateTime), 30, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-01-31' AS Date), CAST(N'2025-01-31T00:00:00.000' AS DateTime), 31, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-02-01' AS Date), CAST(N'2025-02-01T00:00:00.000' AS DateTime), 1, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-02-02' AS Date), CAST(N'2025-02-02T00:00:00.000' AS DateTime), 2, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-02-03' AS Date), CAST(N'2025-02-03T00:00:00.000' AS DateTime), 3, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-02-04' AS Date), CAST(N'2025-02-04T00:00:00.000' AS DateTime), 4, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-02-05' AS Date), CAST(N'2025-02-05T00:00:00.000' AS DateTime), 5, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-02-06' AS Date), CAST(N'2025-02-06T00:00:00.000' AS DateTime), 6, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-02-07' AS Date), CAST(N'2025-02-07T00:00:00.000' AS DateTime), 7, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-02-08' AS Date), CAST(N'2025-02-08T00:00:00.000' AS DateTime), 8, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-02-09' AS Date), CAST(N'2025-02-09T00:00:00.000' AS DateTime), 9, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-02-10' AS Date), CAST(N'2025-02-10T00:00:00.000' AS DateTime), 10, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-02-11' AS Date), CAST(N'2025-02-11T00:00:00.000' AS DateTime), 11, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-02-12' AS Date), CAST(N'2025-02-12T00:00:00.000' AS DateTime), 12, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-02-13' AS Date), CAST(N'2025-02-13T00:00:00.000' AS DateTime), 13, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-02-14' AS Date), CAST(N'2025-02-14T00:00:00.000' AS DateTime), 14, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-02-15' AS Date), CAST(N'2025-02-15T00:00:00.000' AS DateTime), 15, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-02-16' AS Date), CAST(N'2025-02-16T00:00:00.000' AS DateTime), 16, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-02-17' AS Date), CAST(N'2025-02-17T00:00:00.000' AS DateTime), 17, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-02-18' AS Date), CAST(N'2025-02-18T00:00:00.000' AS DateTime), 18, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-02-19' AS Date), CAST(N'2025-02-19T00:00:00.000' AS DateTime), 19, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-02-20' AS Date), CAST(N'2025-02-20T00:00:00.000' AS DateTime), 20, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-02-21' AS Date), CAST(N'2025-02-21T00:00:00.000' AS DateTime), 21, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-02-22' AS Date), CAST(N'2025-02-22T00:00:00.000' AS DateTime), 22, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-02-23' AS Date), CAST(N'2025-02-23T00:00:00.000' AS DateTime), 23, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-02-24' AS Date), CAST(N'2025-02-24T00:00:00.000' AS DateTime), 24, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-02-25' AS Date), CAST(N'2025-02-25T00:00:00.000' AS DateTime), 25, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-02-26' AS Date), CAST(N'2025-02-26T00:00:00.000' AS DateTime), 26, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-02-27' AS Date), CAST(N'2025-02-27T00:00:00.000' AS DateTime), 27, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-02-28' AS Date), CAST(N'2025-02-28T00:00:00.000' AS DateTime), 28, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-03-01' AS Date), CAST(N'2025-03-01T00:00:00.000' AS DateTime), 1, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-03-02' AS Date), CAST(N'2025-03-02T00:00:00.000' AS DateTime), 2, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-03-03' AS Date), CAST(N'2025-03-03T00:00:00.000' AS DateTime), 3, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-03-04' AS Date), CAST(N'2025-03-04T00:00:00.000' AS DateTime), 4, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-03-05' AS Date), CAST(N'2025-03-05T00:00:00.000' AS DateTime), 5, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-03-06' AS Date), CAST(N'2025-03-06T00:00:00.000' AS DateTime), 6, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-03-07' AS Date), CAST(N'2025-03-07T00:00:00.000' AS DateTime), 7, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-03-08' AS Date), CAST(N'2025-03-08T00:00:00.000' AS DateTime), 8, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-03-09' AS Date), CAST(N'2025-03-09T00:00:00.000' AS DateTime), 9, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-03-10' AS Date), CAST(N'2025-03-10T00:00:00.000' AS DateTime), 10, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-03-11' AS Date), CAST(N'2025-03-11T00:00:00.000' AS DateTime), 11, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-03-12' AS Date), CAST(N'2025-03-12T00:00:00.000' AS DateTime), 12, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-03-13' AS Date), CAST(N'2025-03-13T00:00:00.000' AS DateTime), 13, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-03-14' AS Date), CAST(N'2025-03-14T00:00:00.000' AS DateTime), 14, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-03-15' AS Date), CAST(N'2025-03-15T00:00:00.000' AS DateTime), 15, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-03-16' AS Date), CAST(N'2025-03-16T00:00:00.000' AS DateTime), 16, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-03-17' AS Date), CAST(N'2025-03-17T00:00:00.000' AS DateTime), 17, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-03-18' AS Date), CAST(N'2025-03-18T00:00:00.000' AS DateTime), 18, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-03-19' AS Date), CAST(N'2025-03-19T00:00:00.000' AS DateTime), 19, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-03-20' AS Date), CAST(N'2025-03-20T00:00:00.000' AS DateTime), 20, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-03-21' AS Date), CAST(N'2025-03-21T00:00:00.000' AS DateTime), 21, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-03-22' AS Date), CAST(N'2025-03-22T00:00:00.000' AS DateTime), 22, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-03-23' AS Date), CAST(N'2025-03-23T00:00:00.000' AS DateTime), 23, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-03-24' AS Date), CAST(N'2025-03-24T00:00:00.000' AS DateTime), 24, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-03-25' AS Date), CAST(N'2025-03-25T00:00:00.000' AS DateTime), 25, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-03-26' AS Date), CAST(N'2025-03-26T00:00:00.000' AS DateTime), 26, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-03-27' AS Date), CAST(N'2025-03-27T00:00:00.000' AS DateTime), 27, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-03-28' AS Date), CAST(N'2025-03-28T00:00:00.000' AS DateTime), 28, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-03-29' AS Date), CAST(N'2025-03-29T00:00:00.000' AS DateTime), 29, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-03-30' AS Date), CAST(N'2025-03-30T00:00:00.000' AS DateTime), 30, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-03-31' AS Date), CAST(N'2025-03-31T00:00:00.000' AS DateTime), 31, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-04-01' AS Date), CAST(N'2025-04-01T00:00:00.000' AS DateTime), 1, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-04-02' AS Date), CAST(N'2025-04-02T00:00:00.000' AS DateTime), 2, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-04-03' AS Date), CAST(N'2025-04-03T00:00:00.000' AS DateTime), 3, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-04-04' AS Date), CAST(N'2025-04-04T00:00:00.000' AS DateTime), 4, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-04-05' AS Date), CAST(N'2025-04-05T00:00:00.000' AS DateTime), 5, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-04-06' AS Date), CAST(N'2025-04-06T00:00:00.000' AS DateTime), 6, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-04-07' AS Date), CAST(N'2025-04-07T00:00:00.000' AS DateTime), 7, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-04-08' AS Date), CAST(N'2025-04-08T00:00:00.000' AS DateTime), 8, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-04-09' AS Date), CAST(N'2025-04-09T00:00:00.000' AS DateTime), 9, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-04-10' AS Date), CAST(N'2025-04-10T00:00:00.000' AS DateTime), 10, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-04-11' AS Date), CAST(N'2025-04-11T00:00:00.000' AS DateTime), 11, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-04-12' AS Date), CAST(N'2025-04-12T00:00:00.000' AS DateTime), 12, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-04-13' AS Date), CAST(N'2025-04-13T00:00:00.000' AS DateTime), 13, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-04-14' AS Date), CAST(N'2025-04-14T00:00:00.000' AS DateTime), 14, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-04-15' AS Date), CAST(N'2025-04-15T00:00:00.000' AS DateTime), 15, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-04-16' AS Date), CAST(N'2025-04-16T00:00:00.000' AS DateTime), 16, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-04-17' AS Date), CAST(N'2025-04-17T00:00:00.000' AS DateTime), 17, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-04-18' AS Date), CAST(N'2025-04-18T00:00:00.000' AS DateTime), 18, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-04-19' AS Date), CAST(N'2025-04-19T00:00:00.000' AS DateTime), 19, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-04-20' AS Date), CAST(N'2025-04-20T00:00:00.000' AS DateTime), 20, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-04-21' AS Date), CAST(N'2025-04-21T00:00:00.000' AS DateTime), 21, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-04-22' AS Date), CAST(N'2025-04-22T00:00:00.000' AS DateTime), 22, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-04-23' AS Date), CAST(N'2025-04-23T00:00:00.000' AS DateTime), 23, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-04-24' AS Date), CAST(N'2025-04-24T00:00:00.000' AS DateTime), 24, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-04-25' AS Date), CAST(N'2025-04-25T00:00:00.000' AS DateTime), 25, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-04-26' AS Date), CAST(N'2025-04-26T00:00:00.000' AS DateTime), 26, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-04-27' AS Date), CAST(N'2025-04-27T00:00:00.000' AS DateTime), 27, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-04-28' AS Date), CAST(N'2025-04-28T00:00:00.000' AS DateTime), 28, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-04-29' AS Date), CAST(N'2025-04-29T00:00:00.000' AS DateTime), 29, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-04-30' AS Date), CAST(N'2025-04-30T00:00:00.000' AS DateTime), 30, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-05-01' AS Date), CAST(N'2025-05-01T00:00:00.000' AS DateTime), 1, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-05-02' AS Date), CAST(N'2025-05-02T00:00:00.000' AS DateTime), 2, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-05-03' AS Date), CAST(N'2025-05-03T00:00:00.000' AS DateTime), 3, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-05-04' AS Date), CAST(N'2025-05-04T00:00:00.000' AS DateTime), 4, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-05-05' AS Date), CAST(N'2025-05-05T00:00:00.000' AS DateTime), 5, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-05-06' AS Date), CAST(N'2025-05-06T00:00:00.000' AS DateTime), 6, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-05-07' AS Date), CAST(N'2025-05-07T00:00:00.000' AS DateTime), 7, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-05-08' AS Date), CAST(N'2025-05-08T00:00:00.000' AS DateTime), 8, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-05-09' AS Date), CAST(N'2025-05-09T00:00:00.000' AS DateTime), 9, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-05-10' AS Date), CAST(N'2025-05-10T00:00:00.000' AS DateTime), 10, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-05-11' AS Date), CAST(N'2025-05-11T00:00:00.000' AS DateTime), 11, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-05-12' AS Date), CAST(N'2025-05-12T00:00:00.000' AS DateTime), 12, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-05-13' AS Date), CAST(N'2025-05-13T00:00:00.000' AS DateTime), 13, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-05-14' AS Date), CAST(N'2025-05-14T00:00:00.000' AS DateTime), 14, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-05-15' AS Date), CAST(N'2025-05-15T00:00:00.000' AS DateTime), 15, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-05-16' AS Date), CAST(N'2025-05-16T00:00:00.000' AS DateTime), 16, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-05-17' AS Date), CAST(N'2025-05-17T00:00:00.000' AS DateTime), 17, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-05-18' AS Date), CAST(N'2025-05-18T00:00:00.000' AS DateTime), 18, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-05-19' AS Date), CAST(N'2025-05-19T00:00:00.000' AS DateTime), 19, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-05-20' AS Date), CAST(N'2025-05-20T00:00:00.000' AS DateTime), 20, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-05-21' AS Date), CAST(N'2025-05-21T00:00:00.000' AS DateTime), 21, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-05-22' AS Date), CAST(N'2025-05-22T00:00:00.000' AS DateTime), 22, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-05-23' AS Date), CAST(N'2025-05-23T00:00:00.000' AS DateTime), 23, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-05-24' AS Date), CAST(N'2025-05-24T00:00:00.000' AS DateTime), 24, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-05-25' AS Date), CAST(N'2025-05-25T00:00:00.000' AS DateTime), 25, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-05-26' AS Date), CAST(N'2025-05-26T00:00:00.000' AS DateTime), 26, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-05-27' AS Date), CAST(N'2025-05-27T00:00:00.000' AS DateTime), 27, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-05-28' AS Date), CAST(N'2025-05-28T00:00:00.000' AS DateTime), 28, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-05-29' AS Date), CAST(N'2025-05-29T00:00:00.000' AS DateTime), 29, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-05-30' AS Date), CAST(N'2025-05-30T00:00:00.000' AS DateTime), 30, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-05-31' AS Date), CAST(N'2025-05-31T00:00:00.000' AS DateTime), 31, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-06-01' AS Date), CAST(N'2025-06-01T00:00:00.000' AS DateTime), 1, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-06-02' AS Date), CAST(N'2025-06-02T00:00:00.000' AS DateTime), 2, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-06-03' AS Date), CAST(N'2025-06-03T00:00:00.000' AS DateTime), 3, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-06-04' AS Date), CAST(N'2025-06-04T00:00:00.000' AS DateTime), 4, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-06-05' AS Date), CAST(N'2025-06-05T00:00:00.000' AS DateTime), 5, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-06-06' AS Date), CAST(N'2025-06-06T00:00:00.000' AS DateTime), 6, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-06-07' AS Date), CAST(N'2025-06-07T00:00:00.000' AS DateTime), 7, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-06-08' AS Date), CAST(N'2025-06-08T00:00:00.000' AS DateTime), 8, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-06-09' AS Date), CAST(N'2025-06-09T00:00:00.000' AS DateTime), 9, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-06-10' AS Date), CAST(N'2025-06-10T00:00:00.000' AS DateTime), 10, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-06-11' AS Date), CAST(N'2025-06-11T00:00:00.000' AS DateTime), 11, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-06-12' AS Date), CAST(N'2025-06-12T00:00:00.000' AS DateTime), 12, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-06-13' AS Date), CAST(N'2025-06-13T00:00:00.000' AS DateTime), 13, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-06-14' AS Date), CAST(N'2025-06-14T00:00:00.000' AS DateTime), 14, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-06-15' AS Date), CAST(N'2025-06-15T00:00:00.000' AS DateTime), 15, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-06-16' AS Date), CAST(N'2025-06-16T00:00:00.000' AS DateTime), 16, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-06-17' AS Date), CAST(N'2025-06-17T00:00:00.000' AS DateTime), 17, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-06-18' AS Date), CAST(N'2025-06-18T00:00:00.000' AS DateTime), 18, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-06-19' AS Date), CAST(N'2025-06-19T00:00:00.000' AS DateTime), 19, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-06-20' AS Date), CAST(N'2025-06-20T00:00:00.000' AS DateTime), 20, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-06-21' AS Date), CAST(N'2025-06-21T00:00:00.000' AS DateTime), 21, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-06-22' AS Date), CAST(N'2025-06-22T00:00:00.000' AS DateTime), 22, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-06-23' AS Date), CAST(N'2025-06-23T00:00:00.000' AS DateTime), 23, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-06-24' AS Date), CAST(N'2025-06-24T00:00:00.000' AS DateTime), 24, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-06-25' AS Date), CAST(N'2025-06-25T00:00:00.000' AS DateTime), 25, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-06-26' AS Date), CAST(N'2025-06-26T00:00:00.000' AS DateTime), 26, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-06-27' AS Date), CAST(N'2025-06-27T00:00:00.000' AS DateTime), 27, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-06-28' AS Date), CAST(N'2025-06-28T00:00:00.000' AS DateTime), 28, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-06-29' AS Date), CAST(N'2025-06-29T00:00:00.000' AS DateTime), 29, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-06-30' AS Date), CAST(N'2025-06-30T00:00:00.000' AS DateTime), 30, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-07-01' AS Date), CAST(N'2025-07-01T00:00:00.000' AS DateTime), 1, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-07-02' AS Date), CAST(N'2025-07-02T00:00:00.000' AS DateTime), 2, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-07-03' AS Date), CAST(N'2025-07-03T00:00:00.000' AS DateTime), 3, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-07-04' AS Date), CAST(N'2025-07-04T00:00:00.000' AS DateTime), 4, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-07-05' AS Date), CAST(N'2025-07-05T00:00:00.000' AS DateTime), 5, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-07-06' AS Date), CAST(N'2025-07-06T00:00:00.000' AS DateTime), 6, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-07-07' AS Date), CAST(N'2025-07-07T00:00:00.000' AS DateTime), 7, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-07-08' AS Date), CAST(N'2025-07-08T00:00:00.000' AS DateTime), 8, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-07-09' AS Date), CAST(N'2025-07-09T00:00:00.000' AS DateTime), 9, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-07-10' AS Date), CAST(N'2025-07-10T00:00:00.000' AS DateTime), 10, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-07-11' AS Date), CAST(N'2025-07-11T00:00:00.000' AS DateTime), 11, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-07-12' AS Date), CAST(N'2025-07-12T00:00:00.000' AS DateTime), 12, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-07-13' AS Date), CAST(N'2025-07-13T00:00:00.000' AS DateTime), 13, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-07-14' AS Date), CAST(N'2025-07-14T00:00:00.000' AS DateTime), 14, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-07-15' AS Date), CAST(N'2025-07-15T00:00:00.000' AS DateTime), 15, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-07-16' AS Date), CAST(N'2025-07-16T00:00:00.000' AS DateTime), 16, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-07-17' AS Date), CAST(N'2025-07-17T00:00:00.000' AS DateTime), 17, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-07-18' AS Date), CAST(N'2025-07-18T00:00:00.000' AS DateTime), 18, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-07-19' AS Date), CAST(N'2025-07-19T00:00:00.000' AS DateTime), 19, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-07-20' AS Date), CAST(N'2025-07-20T00:00:00.000' AS DateTime), 20, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-07-21' AS Date), CAST(N'2025-07-21T00:00:00.000' AS DateTime), 21, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-07-22' AS Date), CAST(N'2025-07-22T00:00:00.000' AS DateTime), 22, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-07-23' AS Date), CAST(N'2025-07-23T00:00:00.000' AS DateTime), 23, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-07-24' AS Date), CAST(N'2025-07-24T00:00:00.000' AS DateTime), 24, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-07-25' AS Date), CAST(N'2025-07-25T00:00:00.000' AS DateTime), 25, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-07-26' AS Date), CAST(N'2025-07-26T00:00:00.000' AS DateTime), 26, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-07-27' AS Date), CAST(N'2025-07-27T00:00:00.000' AS DateTime), 27, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-07-28' AS Date), CAST(N'2025-07-28T00:00:00.000' AS DateTime), 28, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-07-29' AS Date), CAST(N'2025-07-29T00:00:00.000' AS DateTime), 29, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-07-30' AS Date), CAST(N'2025-07-30T00:00:00.000' AS DateTime), 30, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-07-31' AS Date), CAST(N'2025-07-31T00:00:00.000' AS DateTime), 31, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-08-01' AS Date), CAST(N'2025-08-01T00:00:00.000' AS DateTime), 1, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-08-02' AS Date), CAST(N'2025-08-02T00:00:00.000' AS DateTime), 2, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-08-03' AS Date), CAST(N'2025-08-03T00:00:00.000' AS DateTime), 3, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-08-04' AS Date), CAST(N'2025-08-04T00:00:00.000' AS DateTime), 4, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-08-05' AS Date), CAST(N'2025-08-05T00:00:00.000' AS DateTime), 5, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-08-06' AS Date), CAST(N'2025-08-06T00:00:00.000' AS DateTime), 6, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-08-07' AS Date), CAST(N'2025-08-07T00:00:00.000' AS DateTime), 7, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-08-08' AS Date), CAST(N'2025-08-08T00:00:00.000' AS DateTime), 8, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-08-09' AS Date), CAST(N'2025-08-09T00:00:00.000' AS DateTime), 9, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-08-10' AS Date), CAST(N'2025-08-10T00:00:00.000' AS DateTime), 10, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-08-11' AS Date), CAST(N'2025-08-11T00:00:00.000' AS DateTime), 11, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-08-12' AS Date), CAST(N'2025-08-12T00:00:00.000' AS DateTime), 12, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-08-13' AS Date), CAST(N'2025-08-13T00:00:00.000' AS DateTime), 13, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-08-14' AS Date), CAST(N'2025-08-14T00:00:00.000' AS DateTime), 14, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-08-15' AS Date), CAST(N'2025-08-15T00:00:00.000' AS DateTime), 15, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-08-16' AS Date), CAST(N'2025-08-16T00:00:00.000' AS DateTime), 16, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-08-17' AS Date), CAST(N'2025-08-17T00:00:00.000' AS DateTime), 17, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-08-18' AS Date), CAST(N'2025-08-18T00:00:00.000' AS DateTime), 18, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-08-19' AS Date), CAST(N'2025-08-19T00:00:00.000' AS DateTime), 19, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-08-20' AS Date), CAST(N'2025-08-20T00:00:00.000' AS DateTime), 20, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-08-21' AS Date), CAST(N'2025-08-21T00:00:00.000' AS DateTime), 21, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-08-22' AS Date), CAST(N'2025-08-22T00:00:00.000' AS DateTime), 22, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-08-23' AS Date), CAST(N'2025-08-23T00:00:00.000' AS DateTime), 23, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-08-24' AS Date), CAST(N'2025-08-24T00:00:00.000' AS DateTime), 24, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-08-25' AS Date), CAST(N'2025-08-25T00:00:00.000' AS DateTime), 25, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-08-26' AS Date), CAST(N'2025-08-26T00:00:00.000' AS DateTime), 26, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-08-27' AS Date), CAST(N'2025-08-27T00:00:00.000' AS DateTime), 27, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-08-28' AS Date), CAST(N'2025-08-28T00:00:00.000' AS DateTime), 28, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-08-29' AS Date), CAST(N'2025-08-29T00:00:00.000' AS DateTime), 29, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-08-30' AS Date), CAST(N'2025-08-30T00:00:00.000' AS DateTime), 30, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-08-31' AS Date), CAST(N'2025-08-31T00:00:00.000' AS DateTime), 31, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-09-01' AS Date), CAST(N'2025-09-01T00:00:00.000' AS DateTime), 1, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-09-02' AS Date), CAST(N'2025-09-02T00:00:00.000' AS DateTime), 2, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-09-03' AS Date), CAST(N'2025-09-03T00:00:00.000' AS DateTime), 3, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-09-04' AS Date), CAST(N'2025-09-04T00:00:00.000' AS DateTime), 4, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-09-05' AS Date), CAST(N'2025-09-05T00:00:00.000' AS DateTime), 5, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-09-06' AS Date), CAST(N'2025-09-06T00:00:00.000' AS DateTime), 6, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-09-07' AS Date), CAST(N'2025-09-07T00:00:00.000' AS DateTime), 7, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-09-08' AS Date), CAST(N'2025-09-08T00:00:00.000' AS DateTime), 8, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-09-09' AS Date), CAST(N'2025-09-09T00:00:00.000' AS DateTime), 9, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-09-10' AS Date), CAST(N'2025-09-10T00:00:00.000' AS DateTime), 10, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-09-11' AS Date), CAST(N'2025-09-11T00:00:00.000' AS DateTime), 11, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-09-12' AS Date), CAST(N'2025-09-12T00:00:00.000' AS DateTime), 12, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-09-13' AS Date), CAST(N'2025-09-13T00:00:00.000' AS DateTime), 13, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-09-14' AS Date), CAST(N'2025-09-14T00:00:00.000' AS DateTime), 14, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-09-15' AS Date), CAST(N'2025-09-15T00:00:00.000' AS DateTime), 15, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-09-16' AS Date), CAST(N'2025-09-16T00:00:00.000' AS DateTime), 16, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-09-17' AS Date), CAST(N'2025-09-17T00:00:00.000' AS DateTime), 17, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-09-18' AS Date), CAST(N'2025-09-18T00:00:00.000' AS DateTime), 18, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-09-19' AS Date), CAST(N'2025-09-19T00:00:00.000' AS DateTime), 19, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-09-20' AS Date), CAST(N'2025-09-20T00:00:00.000' AS DateTime), 20, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-09-21' AS Date), CAST(N'2025-09-21T00:00:00.000' AS DateTime), 21, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-09-22' AS Date), CAST(N'2025-09-22T00:00:00.000' AS DateTime), 22, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-09-23' AS Date), CAST(N'2025-09-23T00:00:00.000' AS DateTime), 23, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-09-24' AS Date), CAST(N'2025-09-24T00:00:00.000' AS DateTime), 24, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-09-25' AS Date), CAST(N'2025-09-25T00:00:00.000' AS DateTime), 25, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-09-26' AS Date), CAST(N'2025-09-26T00:00:00.000' AS DateTime), 26, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-09-27' AS Date), CAST(N'2025-09-27T00:00:00.000' AS DateTime), 27, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-09-28' AS Date), CAST(N'2025-09-28T00:00:00.000' AS DateTime), 28, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-09-29' AS Date), CAST(N'2025-09-29T00:00:00.000' AS DateTime), 29, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-09-30' AS Date), CAST(N'2025-09-30T00:00:00.000' AS DateTime), 30, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-10-01' AS Date), CAST(N'2025-10-01T00:00:00.000' AS DateTime), 1, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-10-02' AS Date), CAST(N'2025-10-02T00:00:00.000' AS DateTime), 2, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-10-03' AS Date), CAST(N'2025-10-03T00:00:00.000' AS DateTime), 3, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-10-04' AS Date), CAST(N'2025-10-04T00:00:00.000' AS DateTime), 4, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-10-05' AS Date), CAST(N'2025-10-05T00:00:00.000' AS DateTime), 5, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-10-06' AS Date), CAST(N'2025-10-06T00:00:00.000' AS DateTime), 6, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-10-07' AS Date), CAST(N'2025-10-07T00:00:00.000' AS DateTime), 7, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-10-08' AS Date), CAST(N'2025-10-08T00:00:00.000' AS DateTime), 8, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-10-09' AS Date), CAST(N'2025-10-09T00:00:00.000' AS DateTime), 9, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-10-10' AS Date), CAST(N'2025-10-10T00:00:00.000' AS DateTime), 10, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-10-11' AS Date), CAST(N'2025-10-11T00:00:00.000' AS DateTime), 11, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-10-12' AS Date), CAST(N'2025-10-12T00:00:00.000' AS DateTime), 12, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-10-13' AS Date), CAST(N'2025-10-13T00:00:00.000' AS DateTime), 13, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-10-14' AS Date), CAST(N'2025-10-14T00:00:00.000' AS DateTime), 14, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-10-15' AS Date), CAST(N'2025-10-15T00:00:00.000' AS DateTime), 15, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-10-16' AS Date), CAST(N'2025-10-16T00:00:00.000' AS DateTime), 16, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-10-17' AS Date), CAST(N'2025-10-17T00:00:00.000' AS DateTime), 17, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-10-18' AS Date), CAST(N'2025-10-18T00:00:00.000' AS DateTime), 18, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-10-19' AS Date), CAST(N'2025-10-19T00:00:00.000' AS DateTime), 19, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-10-20' AS Date), CAST(N'2025-10-20T00:00:00.000' AS DateTime), 20, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-10-21' AS Date), CAST(N'2025-10-21T00:00:00.000' AS DateTime), 21, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-10-22' AS Date), CAST(N'2025-10-22T00:00:00.000' AS DateTime), 22, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-10-23' AS Date), CAST(N'2025-10-23T00:00:00.000' AS DateTime), 23, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-10-24' AS Date), CAST(N'2025-10-24T00:00:00.000' AS DateTime), 24, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-10-25' AS Date), CAST(N'2025-10-25T00:00:00.000' AS DateTime), 25, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-10-26' AS Date), CAST(N'2025-10-26T00:00:00.000' AS DateTime), 26, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-10-27' AS Date), CAST(N'2025-10-27T00:00:00.000' AS DateTime), 27, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-10-28' AS Date), CAST(N'2025-10-28T00:00:00.000' AS DateTime), 28, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-10-29' AS Date), CAST(N'2025-10-29T00:00:00.000' AS DateTime), 29, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-10-30' AS Date), CAST(N'2025-10-30T00:00:00.000' AS DateTime), 30, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-10-31' AS Date), CAST(N'2025-10-31T00:00:00.000' AS DateTime), 31, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-11-01' AS Date), CAST(N'2025-11-01T00:00:00.000' AS DateTime), 1, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-11-02' AS Date), CAST(N'2025-11-02T00:00:00.000' AS DateTime), 2, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-11-03' AS Date), CAST(N'2025-11-03T00:00:00.000' AS DateTime), 3, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-11-04' AS Date), CAST(N'2025-11-04T00:00:00.000' AS DateTime), 4, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-11-05' AS Date), CAST(N'2025-11-05T00:00:00.000' AS DateTime), 5, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-11-06' AS Date), CAST(N'2025-11-06T00:00:00.000' AS DateTime), 6, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-11-07' AS Date), CAST(N'2025-11-07T00:00:00.000' AS DateTime), 7, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-11-08' AS Date), CAST(N'2025-11-08T00:00:00.000' AS DateTime), 8, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-11-09' AS Date), CAST(N'2025-11-09T00:00:00.000' AS DateTime), 9, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-11-10' AS Date), CAST(N'2025-11-10T00:00:00.000' AS DateTime), 10, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-11-11' AS Date), CAST(N'2025-11-11T00:00:00.000' AS DateTime), 11, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-11-12' AS Date), CAST(N'2025-11-12T00:00:00.000' AS DateTime), 12, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-11-13' AS Date), CAST(N'2025-11-13T00:00:00.000' AS DateTime), 13, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-11-14' AS Date), CAST(N'2025-11-14T00:00:00.000' AS DateTime), 14, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-11-15' AS Date), CAST(N'2025-11-15T00:00:00.000' AS DateTime), 15, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-11-16' AS Date), CAST(N'2025-11-16T00:00:00.000' AS DateTime), 16, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-11-17' AS Date), CAST(N'2025-11-17T00:00:00.000' AS DateTime), 17, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-11-18' AS Date), CAST(N'2025-11-18T00:00:00.000' AS DateTime), 18, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-11-19' AS Date), CAST(N'2025-11-19T00:00:00.000' AS DateTime), 19, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-11-20' AS Date), CAST(N'2025-11-20T00:00:00.000' AS DateTime), 20, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-11-21' AS Date), CAST(N'2025-11-21T00:00:00.000' AS DateTime), 21, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-11-22' AS Date), CAST(N'2025-11-22T00:00:00.000' AS DateTime), 22, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-11-23' AS Date), CAST(N'2025-11-23T00:00:00.000' AS DateTime), 23, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-11-24' AS Date), CAST(N'2025-11-24T00:00:00.000' AS DateTime), 24, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-11-25' AS Date), CAST(N'2025-11-25T00:00:00.000' AS DateTime), 25, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-11-26' AS Date), CAST(N'2025-11-26T00:00:00.000' AS DateTime), 26, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-11-27' AS Date), CAST(N'2025-11-27T00:00:00.000' AS DateTime), 27, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-11-28' AS Date), CAST(N'2025-11-28T00:00:00.000' AS DateTime), 28, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-11-29' AS Date), CAST(N'2025-11-29T00:00:00.000' AS DateTime), 29, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-11-30' AS Date), CAST(N'2025-11-30T00:00:00.000' AS DateTime), 30, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-12-01' AS Date), CAST(N'2025-12-01T00:00:00.000' AS DateTime), 1, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-12-02' AS Date), CAST(N'2025-12-02T00:00:00.000' AS DateTime), 2, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-12-03' AS Date), CAST(N'2025-12-03T00:00:00.000' AS DateTime), 3, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-12-04' AS Date), CAST(N'2025-12-04T00:00:00.000' AS DateTime), 4, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-12-05' AS Date), CAST(N'2025-12-05T00:00:00.000' AS DateTime), 5, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-12-06' AS Date), CAST(N'2025-12-06T00:00:00.000' AS DateTime), 6, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-12-07' AS Date), CAST(N'2025-12-07T00:00:00.000' AS DateTime), 7, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-12-08' AS Date), CAST(N'2025-12-08T00:00:00.000' AS DateTime), 8, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-12-09' AS Date), CAST(N'2025-12-09T00:00:00.000' AS DateTime), 9, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-12-10' AS Date), CAST(N'2025-12-10T00:00:00.000' AS DateTime), 10, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-12-11' AS Date), CAST(N'2025-12-11T00:00:00.000' AS DateTime), 11, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-12-12' AS Date), CAST(N'2025-12-12T00:00:00.000' AS DateTime), 12, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-12-13' AS Date), CAST(N'2025-12-13T00:00:00.000' AS DateTime), 13, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-12-14' AS Date), CAST(N'2025-12-14T00:00:00.000' AS DateTime), 14, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-12-15' AS Date), CAST(N'2025-12-15T00:00:00.000' AS DateTime), 15, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-12-16' AS Date), CAST(N'2025-12-16T00:00:00.000' AS DateTime), 16, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-12-17' AS Date), CAST(N'2025-12-17T00:00:00.000' AS DateTime), 17, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-12-18' AS Date), CAST(N'2025-12-18T00:00:00.000' AS DateTime), 18, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-12-19' AS Date), CAST(N'2025-12-19T00:00:00.000' AS DateTime), 19, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-12-20' AS Date), CAST(N'2025-12-20T00:00:00.000' AS DateTime), 20, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-12-21' AS Date), CAST(N'2025-12-21T00:00:00.000' AS DateTime), 21, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-12-22' AS Date), CAST(N'2025-12-22T00:00:00.000' AS DateTime), 22, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-12-23' AS Date), CAST(N'2025-12-23T00:00:00.000' AS DateTime), 23, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-12-24' AS Date), CAST(N'2025-12-24T00:00:00.000' AS DateTime), 24, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-12-25' AS Date), CAST(N'2025-12-25T00:00:00.000' AS DateTime), 25, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-12-26' AS Date), CAST(N'2025-12-26T00:00:00.000' AS DateTime), 26, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-12-27' AS Date), CAST(N'2025-12-27T00:00:00.000' AS DateTime), 27, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-12-28' AS Date), CAST(N'2025-12-28T00:00:00.000' AS DateTime), 28, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-12-29' AS Date), CAST(N'2025-12-29T00:00:00.000' AS DateTime), 29, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-12-30' AS Date), CAST(N'2025-12-30T00:00:00.000' AS DateTime), 30, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2025-12-31' AS Date), CAST(N'2025-12-31T00:00:00.000' AS DateTime), 31, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-01-01' AS Date), CAST(N'2026-01-01T00:00:00.000' AS DateTime), 1, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-01-02' AS Date), CAST(N'2026-01-02T00:00:00.000' AS DateTime), 2, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-01-03' AS Date), CAST(N'2026-01-03T00:00:00.000' AS DateTime), 3, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-01-04' AS Date), CAST(N'2026-01-04T00:00:00.000' AS DateTime), 4, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-01-05' AS Date), CAST(N'2026-01-05T00:00:00.000' AS DateTime), 5, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-01-06' AS Date), CAST(N'2026-01-06T00:00:00.000' AS DateTime), 6, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-01-07' AS Date), CAST(N'2026-01-07T00:00:00.000' AS DateTime), 7, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-01-08' AS Date), CAST(N'2026-01-08T00:00:00.000' AS DateTime), 8, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-01-09' AS Date), CAST(N'2026-01-09T00:00:00.000' AS DateTime), 9, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-01-10' AS Date), CAST(N'2026-01-10T00:00:00.000' AS DateTime), 10, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-01-11' AS Date), CAST(N'2026-01-11T00:00:00.000' AS DateTime), 11, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-01-12' AS Date), CAST(N'2026-01-12T00:00:00.000' AS DateTime), 12, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-01-13' AS Date), CAST(N'2026-01-13T00:00:00.000' AS DateTime), 13, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-01-14' AS Date), CAST(N'2026-01-14T00:00:00.000' AS DateTime), 14, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-01-15' AS Date), CAST(N'2026-01-15T00:00:00.000' AS DateTime), 15, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-01-16' AS Date), CAST(N'2026-01-16T00:00:00.000' AS DateTime), 16, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-01-17' AS Date), CAST(N'2026-01-17T00:00:00.000' AS DateTime), 17, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-01-18' AS Date), CAST(N'2026-01-18T00:00:00.000' AS DateTime), 18, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-01-19' AS Date), CAST(N'2026-01-19T00:00:00.000' AS DateTime), 19, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-01-20' AS Date), CAST(N'2026-01-20T00:00:00.000' AS DateTime), 20, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-01-21' AS Date), CAST(N'2026-01-21T00:00:00.000' AS DateTime), 21, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-01-22' AS Date), CAST(N'2026-01-22T00:00:00.000' AS DateTime), 22, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-01-23' AS Date), CAST(N'2026-01-23T00:00:00.000' AS DateTime), 23, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-01-24' AS Date), CAST(N'2026-01-24T00:00:00.000' AS DateTime), 24, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-01-25' AS Date), CAST(N'2026-01-25T00:00:00.000' AS DateTime), 25, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-01-26' AS Date), CAST(N'2026-01-26T00:00:00.000' AS DateTime), 26, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-01-27' AS Date), CAST(N'2026-01-27T00:00:00.000' AS DateTime), 27, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-01-28' AS Date), CAST(N'2026-01-28T00:00:00.000' AS DateTime), 28, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-01-29' AS Date), CAST(N'2026-01-29T00:00:00.000' AS DateTime), 29, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-01-30' AS Date), CAST(N'2026-01-30T00:00:00.000' AS DateTime), 30, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-01-31' AS Date), CAST(N'2026-01-31T00:00:00.000' AS DateTime), 31, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-02-01' AS Date), CAST(N'2026-02-01T00:00:00.000' AS DateTime), 1, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-02-02' AS Date), CAST(N'2026-02-02T00:00:00.000' AS DateTime), 2, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-02-03' AS Date), CAST(N'2026-02-03T00:00:00.000' AS DateTime), 3, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-02-04' AS Date), CAST(N'2026-02-04T00:00:00.000' AS DateTime), 4, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-02-05' AS Date), CAST(N'2026-02-05T00:00:00.000' AS DateTime), 5, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-02-06' AS Date), CAST(N'2026-02-06T00:00:00.000' AS DateTime), 6, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-02-07' AS Date), CAST(N'2026-02-07T00:00:00.000' AS DateTime), 7, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-02-08' AS Date), CAST(N'2026-02-08T00:00:00.000' AS DateTime), 8, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-02-09' AS Date), CAST(N'2026-02-09T00:00:00.000' AS DateTime), 9, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-02-10' AS Date), CAST(N'2026-02-10T00:00:00.000' AS DateTime), 10, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-02-11' AS Date), CAST(N'2026-02-11T00:00:00.000' AS DateTime), 11, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-02-12' AS Date), CAST(N'2026-02-12T00:00:00.000' AS DateTime), 12, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-02-13' AS Date), CAST(N'2026-02-13T00:00:00.000' AS DateTime), 13, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-02-14' AS Date), CAST(N'2026-02-14T00:00:00.000' AS DateTime), 14, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-02-15' AS Date), CAST(N'2026-02-15T00:00:00.000' AS DateTime), 15, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-02-16' AS Date), CAST(N'2026-02-16T00:00:00.000' AS DateTime), 16, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-02-17' AS Date), CAST(N'2026-02-17T00:00:00.000' AS DateTime), 17, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-02-18' AS Date), CAST(N'2026-02-18T00:00:00.000' AS DateTime), 18, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-02-19' AS Date), CAST(N'2026-02-19T00:00:00.000' AS DateTime), 19, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-02-20' AS Date), CAST(N'2026-02-20T00:00:00.000' AS DateTime), 20, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-02-21' AS Date), CAST(N'2026-02-21T00:00:00.000' AS DateTime), 21, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-02-22' AS Date), CAST(N'2026-02-22T00:00:00.000' AS DateTime), 22, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-02-23' AS Date), CAST(N'2026-02-23T00:00:00.000' AS DateTime), 23, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-02-24' AS Date), CAST(N'2026-02-24T00:00:00.000' AS DateTime), 24, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-02-25' AS Date), CAST(N'2026-02-25T00:00:00.000' AS DateTime), 25, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-02-26' AS Date), CAST(N'2026-02-26T00:00:00.000' AS DateTime), 26, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-02-27' AS Date), CAST(N'2026-02-27T00:00:00.000' AS DateTime), 27, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-02-28' AS Date), CAST(N'2026-02-28T00:00:00.000' AS DateTime), 28, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-03-01' AS Date), CAST(N'2026-03-01T00:00:00.000' AS DateTime), 1, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-03-02' AS Date), CAST(N'2026-03-02T00:00:00.000' AS DateTime), 2, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-03-03' AS Date), CAST(N'2026-03-03T00:00:00.000' AS DateTime), 3, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-03-04' AS Date), CAST(N'2026-03-04T00:00:00.000' AS DateTime), 4, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-03-05' AS Date), CAST(N'2026-03-05T00:00:00.000' AS DateTime), 5, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-03-06' AS Date), CAST(N'2026-03-06T00:00:00.000' AS DateTime), 6, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-03-07' AS Date), CAST(N'2026-03-07T00:00:00.000' AS DateTime), 7, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-03-08' AS Date), CAST(N'2026-03-08T00:00:00.000' AS DateTime), 8, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-03-09' AS Date), CAST(N'2026-03-09T00:00:00.000' AS DateTime), 9, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-03-10' AS Date), CAST(N'2026-03-10T00:00:00.000' AS DateTime), 10, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-03-11' AS Date), CAST(N'2026-03-11T00:00:00.000' AS DateTime), 11, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-03-12' AS Date), CAST(N'2026-03-12T00:00:00.000' AS DateTime), 12, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-03-13' AS Date), CAST(N'2026-03-13T00:00:00.000' AS DateTime), 13, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-03-14' AS Date), CAST(N'2026-03-14T00:00:00.000' AS DateTime), 14, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-03-15' AS Date), CAST(N'2026-03-15T00:00:00.000' AS DateTime), 15, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-03-16' AS Date), CAST(N'2026-03-16T00:00:00.000' AS DateTime), 16, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-03-17' AS Date), CAST(N'2026-03-17T00:00:00.000' AS DateTime), 17, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-03-18' AS Date), CAST(N'2026-03-18T00:00:00.000' AS DateTime), 18, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-03-19' AS Date), CAST(N'2026-03-19T00:00:00.000' AS DateTime), 19, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-03-20' AS Date), CAST(N'2026-03-20T00:00:00.000' AS DateTime), 20, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-03-21' AS Date), CAST(N'2026-03-21T00:00:00.000' AS DateTime), 21, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-03-22' AS Date), CAST(N'2026-03-22T00:00:00.000' AS DateTime), 22, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-03-23' AS Date), CAST(N'2026-03-23T00:00:00.000' AS DateTime), 23, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-03-24' AS Date), CAST(N'2026-03-24T00:00:00.000' AS DateTime), 24, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-03-25' AS Date), CAST(N'2026-03-25T00:00:00.000' AS DateTime), 25, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-03-26' AS Date), CAST(N'2026-03-26T00:00:00.000' AS DateTime), 26, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-03-27' AS Date), CAST(N'2026-03-27T00:00:00.000' AS DateTime), 27, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-03-28' AS Date), CAST(N'2026-03-28T00:00:00.000' AS DateTime), 28, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-03-29' AS Date), CAST(N'2026-03-29T00:00:00.000' AS DateTime), 29, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-03-30' AS Date), CAST(N'2026-03-30T00:00:00.000' AS DateTime), 30, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-03-31' AS Date), CAST(N'2026-03-31T00:00:00.000' AS DateTime), 31, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-04-01' AS Date), CAST(N'2026-04-01T00:00:00.000' AS DateTime), 1, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-04-02' AS Date), CAST(N'2026-04-02T00:00:00.000' AS DateTime), 2, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-04-03' AS Date), CAST(N'2026-04-03T00:00:00.000' AS DateTime), 3, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-04-04' AS Date), CAST(N'2026-04-04T00:00:00.000' AS DateTime), 4, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-04-05' AS Date), CAST(N'2026-04-05T00:00:00.000' AS DateTime), 5, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-04-06' AS Date), CAST(N'2026-04-06T00:00:00.000' AS DateTime), 6, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-04-07' AS Date), CAST(N'2026-04-07T00:00:00.000' AS DateTime), 7, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-04-08' AS Date), CAST(N'2026-04-08T00:00:00.000' AS DateTime), 8, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-04-09' AS Date), CAST(N'2026-04-09T00:00:00.000' AS DateTime), 9, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-04-10' AS Date), CAST(N'2026-04-10T00:00:00.000' AS DateTime), 10, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-04-11' AS Date), CAST(N'2026-04-11T00:00:00.000' AS DateTime), 11, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-04-12' AS Date), CAST(N'2026-04-12T00:00:00.000' AS DateTime), 12, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-04-13' AS Date), CAST(N'2026-04-13T00:00:00.000' AS DateTime), 13, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-04-14' AS Date), CAST(N'2026-04-14T00:00:00.000' AS DateTime), 14, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-04-15' AS Date), CAST(N'2026-04-15T00:00:00.000' AS DateTime), 15, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-04-16' AS Date), CAST(N'2026-04-16T00:00:00.000' AS DateTime), 16, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-04-17' AS Date), CAST(N'2026-04-17T00:00:00.000' AS DateTime), 17, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-04-18' AS Date), CAST(N'2026-04-18T00:00:00.000' AS DateTime), 18, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-04-19' AS Date), CAST(N'2026-04-19T00:00:00.000' AS DateTime), 19, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-04-20' AS Date), CAST(N'2026-04-20T00:00:00.000' AS DateTime), 20, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-04-21' AS Date), CAST(N'2026-04-21T00:00:00.000' AS DateTime), 21, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-04-22' AS Date), CAST(N'2026-04-22T00:00:00.000' AS DateTime), 22, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-04-23' AS Date), CAST(N'2026-04-23T00:00:00.000' AS DateTime), 23, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-04-24' AS Date), CAST(N'2026-04-24T00:00:00.000' AS DateTime), 24, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-04-25' AS Date), CAST(N'2026-04-25T00:00:00.000' AS DateTime), 25, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-04-26' AS Date), CAST(N'2026-04-26T00:00:00.000' AS DateTime), 26, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-04-27' AS Date), CAST(N'2026-04-27T00:00:00.000' AS DateTime), 27, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-04-28' AS Date), CAST(N'2026-04-28T00:00:00.000' AS DateTime), 28, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-04-29' AS Date), CAST(N'2026-04-29T00:00:00.000' AS DateTime), 29, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-04-30' AS Date), CAST(N'2026-04-30T00:00:00.000' AS DateTime), 30, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-05-01' AS Date), CAST(N'2026-05-01T00:00:00.000' AS DateTime), 1, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-05-02' AS Date), CAST(N'2026-05-02T00:00:00.000' AS DateTime), 2, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-05-03' AS Date), CAST(N'2026-05-03T00:00:00.000' AS DateTime), 3, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-05-04' AS Date), CAST(N'2026-05-04T00:00:00.000' AS DateTime), 4, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-05-05' AS Date), CAST(N'2026-05-05T00:00:00.000' AS DateTime), 5, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-05-06' AS Date), CAST(N'2026-05-06T00:00:00.000' AS DateTime), 6, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-05-07' AS Date), CAST(N'2026-05-07T00:00:00.000' AS DateTime), 7, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-05-08' AS Date), CAST(N'2026-05-08T00:00:00.000' AS DateTime), 8, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-05-09' AS Date), CAST(N'2026-05-09T00:00:00.000' AS DateTime), 9, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-05-10' AS Date), CAST(N'2026-05-10T00:00:00.000' AS DateTime), 10, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-05-11' AS Date), CAST(N'2026-05-11T00:00:00.000' AS DateTime), 11, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-05-12' AS Date), CAST(N'2026-05-12T00:00:00.000' AS DateTime), 12, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-05-13' AS Date), CAST(N'2026-05-13T00:00:00.000' AS DateTime), 13, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-05-14' AS Date), CAST(N'2026-05-14T00:00:00.000' AS DateTime), 14, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-05-15' AS Date), CAST(N'2026-05-15T00:00:00.000' AS DateTime), 15, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-05-16' AS Date), CAST(N'2026-05-16T00:00:00.000' AS DateTime), 16, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-05-17' AS Date), CAST(N'2026-05-17T00:00:00.000' AS DateTime), 17, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-05-18' AS Date), CAST(N'2026-05-18T00:00:00.000' AS DateTime), 18, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-05-19' AS Date), CAST(N'2026-05-19T00:00:00.000' AS DateTime), 19, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-05-20' AS Date), CAST(N'2026-05-20T00:00:00.000' AS DateTime), 20, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-05-21' AS Date), CAST(N'2026-05-21T00:00:00.000' AS DateTime), 21, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-05-22' AS Date), CAST(N'2026-05-22T00:00:00.000' AS DateTime), 22, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-05-23' AS Date), CAST(N'2026-05-23T00:00:00.000' AS DateTime), 23, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-05-24' AS Date), CAST(N'2026-05-24T00:00:00.000' AS DateTime), 24, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-05-25' AS Date), CAST(N'2026-05-25T00:00:00.000' AS DateTime), 25, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-05-26' AS Date), CAST(N'2026-05-26T00:00:00.000' AS DateTime), 26, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-05-27' AS Date), CAST(N'2026-05-27T00:00:00.000' AS DateTime), 27, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-05-28' AS Date), CAST(N'2026-05-28T00:00:00.000' AS DateTime), 28, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-05-29' AS Date), CAST(N'2026-05-29T00:00:00.000' AS DateTime), 29, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-05-30' AS Date), CAST(N'2026-05-30T00:00:00.000' AS DateTime), 30, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-05-31' AS Date), CAST(N'2026-05-31T00:00:00.000' AS DateTime), 31, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-06-01' AS Date), CAST(N'2026-06-01T00:00:00.000' AS DateTime), 1, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-06-02' AS Date), CAST(N'2026-06-02T00:00:00.000' AS DateTime), 2, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-06-03' AS Date), CAST(N'2026-06-03T00:00:00.000' AS DateTime), 3, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-06-04' AS Date), CAST(N'2026-06-04T00:00:00.000' AS DateTime), 4, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-06-05' AS Date), CAST(N'2026-06-05T00:00:00.000' AS DateTime), 5, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-06-06' AS Date), CAST(N'2026-06-06T00:00:00.000' AS DateTime), 6, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-06-07' AS Date), CAST(N'2026-06-07T00:00:00.000' AS DateTime), 7, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-06-08' AS Date), CAST(N'2026-06-08T00:00:00.000' AS DateTime), 8, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-06-09' AS Date), CAST(N'2026-06-09T00:00:00.000' AS DateTime), 9, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-06-10' AS Date), CAST(N'2026-06-10T00:00:00.000' AS DateTime), 10, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-06-11' AS Date), CAST(N'2026-06-11T00:00:00.000' AS DateTime), 11, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-06-12' AS Date), CAST(N'2026-06-12T00:00:00.000' AS DateTime), 12, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-06-13' AS Date), CAST(N'2026-06-13T00:00:00.000' AS DateTime), 13, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-06-14' AS Date), CAST(N'2026-06-14T00:00:00.000' AS DateTime), 14, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-06-15' AS Date), CAST(N'2026-06-15T00:00:00.000' AS DateTime), 15, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-06-16' AS Date), CAST(N'2026-06-16T00:00:00.000' AS DateTime), 16, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-06-17' AS Date), CAST(N'2026-06-17T00:00:00.000' AS DateTime), 17, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-06-18' AS Date), CAST(N'2026-06-18T00:00:00.000' AS DateTime), 18, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-06-19' AS Date), CAST(N'2026-06-19T00:00:00.000' AS DateTime), 19, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-06-20' AS Date), CAST(N'2026-06-20T00:00:00.000' AS DateTime), 20, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-06-21' AS Date), CAST(N'2026-06-21T00:00:00.000' AS DateTime), 21, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-06-22' AS Date), CAST(N'2026-06-22T00:00:00.000' AS DateTime), 22, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-06-23' AS Date), CAST(N'2026-06-23T00:00:00.000' AS DateTime), 23, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-06-24' AS Date), CAST(N'2026-06-24T00:00:00.000' AS DateTime), 24, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-06-25' AS Date), CAST(N'2026-06-25T00:00:00.000' AS DateTime), 25, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-06-26' AS Date), CAST(N'2026-06-26T00:00:00.000' AS DateTime), 26, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-06-27' AS Date), CAST(N'2026-06-27T00:00:00.000' AS DateTime), 27, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-06-28' AS Date), CAST(N'2026-06-28T00:00:00.000' AS DateTime), 28, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-06-29' AS Date), CAST(N'2026-06-29T00:00:00.000' AS DateTime), 29, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-06-30' AS Date), CAST(N'2026-06-30T00:00:00.000' AS DateTime), 30, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-07-01' AS Date), CAST(N'2026-07-01T00:00:00.000' AS DateTime), 1, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-07-02' AS Date), CAST(N'2026-07-02T00:00:00.000' AS DateTime), 2, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-07-03' AS Date), CAST(N'2026-07-03T00:00:00.000' AS DateTime), 3, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-07-04' AS Date), CAST(N'2026-07-04T00:00:00.000' AS DateTime), 4, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-07-05' AS Date), CAST(N'2026-07-05T00:00:00.000' AS DateTime), 5, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-07-06' AS Date), CAST(N'2026-07-06T00:00:00.000' AS DateTime), 6, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-07-07' AS Date), CAST(N'2026-07-07T00:00:00.000' AS DateTime), 7, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-07-08' AS Date), CAST(N'2026-07-08T00:00:00.000' AS DateTime), 8, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-07-09' AS Date), CAST(N'2026-07-09T00:00:00.000' AS DateTime), 9, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-07-10' AS Date), CAST(N'2026-07-10T00:00:00.000' AS DateTime), 10, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-07-11' AS Date), CAST(N'2026-07-11T00:00:00.000' AS DateTime), 11, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-07-12' AS Date), CAST(N'2026-07-12T00:00:00.000' AS DateTime), 12, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-07-13' AS Date), CAST(N'2026-07-13T00:00:00.000' AS DateTime), 13, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-07-14' AS Date), CAST(N'2026-07-14T00:00:00.000' AS DateTime), 14, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-07-15' AS Date), CAST(N'2026-07-15T00:00:00.000' AS DateTime), 15, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-07-16' AS Date), CAST(N'2026-07-16T00:00:00.000' AS DateTime), 16, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-07-17' AS Date), CAST(N'2026-07-17T00:00:00.000' AS DateTime), 17, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-07-18' AS Date), CAST(N'2026-07-18T00:00:00.000' AS DateTime), 18, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-07-19' AS Date), CAST(N'2026-07-19T00:00:00.000' AS DateTime), 19, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-07-20' AS Date), CAST(N'2026-07-20T00:00:00.000' AS DateTime), 20, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-07-21' AS Date), CAST(N'2026-07-21T00:00:00.000' AS DateTime), 21, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-07-22' AS Date), CAST(N'2026-07-22T00:00:00.000' AS DateTime), 22, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-07-23' AS Date), CAST(N'2026-07-23T00:00:00.000' AS DateTime), 23, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-07-24' AS Date), CAST(N'2026-07-24T00:00:00.000' AS DateTime), 24, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-07-25' AS Date), CAST(N'2026-07-25T00:00:00.000' AS DateTime), 25, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-07-26' AS Date), CAST(N'2026-07-26T00:00:00.000' AS DateTime), 26, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-07-27' AS Date), CAST(N'2026-07-27T00:00:00.000' AS DateTime), 27, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-07-28' AS Date), CAST(N'2026-07-28T00:00:00.000' AS DateTime), 28, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-07-29' AS Date), CAST(N'2026-07-29T00:00:00.000' AS DateTime), 29, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-07-30' AS Date), CAST(N'2026-07-30T00:00:00.000' AS DateTime), 30, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-07-31' AS Date), CAST(N'2026-07-31T00:00:00.000' AS DateTime), 31, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-08-01' AS Date), CAST(N'2026-08-01T00:00:00.000' AS DateTime), 1, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-08-02' AS Date), CAST(N'2026-08-02T00:00:00.000' AS DateTime), 2, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-08-03' AS Date), CAST(N'2026-08-03T00:00:00.000' AS DateTime), 3, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-08-04' AS Date), CAST(N'2026-08-04T00:00:00.000' AS DateTime), 4, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-08-05' AS Date), CAST(N'2026-08-05T00:00:00.000' AS DateTime), 5, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-08-06' AS Date), CAST(N'2026-08-06T00:00:00.000' AS DateTime), 6, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-08-07' AS Date), CAST(N'2026-08-07T00:00:00.000' AS DateTime), 7, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-08-08' AS Date), CAST(N'2026-08-08T00:00:00.000' AS DateTime), 8, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-08-09' AS Date), CAST(N'2026-08-09T00:00:00.000' AS DateTime), 9, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-08-10' AS Date), CAST(N'2026-08-10T00:00:00.000' AS DateTime), 10, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-08-11' AS Date), CAST(N'2026-08-11T00:00:00.000' AS DateTime), 11, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-08-12' AS Date), CAST(N'2026-08-12T00:00:00.000' AS DateTime), 12, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-08-13' AS Date), CAST(N'2026-08-13T00:00:00.000' AS DateTime), 13, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-08-14' AS Date), CAST(N'2026-08-14T00:00:00.000' AS DateTime), 14, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-08-15' AS Date), CAST(N'2026-08-15T00:00:00.000' AS DateTime), 15, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-08-16' AS Date), CAST(N'2026-08-16T00:00:00.000' AS DateTime), 16, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-08-17' AS Date), CAST(N'2026-08-17T00:00:00.000' AS DateTime), 17, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-08-18' AS Date), CAST(N'2026-08-18T00:00:00.000' AS DateTime), 18, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-08-19' AS Date), CAST(N'2026-08-19T00:00:00.000' AS DateTime), 19, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-08-20' AS Date), CAST(N'2026-08-20T00:00:00.000' AS DateTime), 20, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-08-21' AS Date), CAST(N'2026-08-21T00:00:00.000' AS DateTime), 21, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-08-22' AS Date), CAST(N'2026-08-22T00:00:00.000' AS DateTime), 22, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-08-23' AS Date), CAST(N'2026-08-23T00:00:00.000' AS DateTime), 23, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-08-24' AS Date), CAST(N'2026-08-24T00:00:00.000' AS DateTime), 24, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-08-25' AS Date), CAST(N'2026-08-25T00:00:00.000' AS DateTime), 25, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-08-26' AS Date), CAST(N'2026-08-26T00:00:00.000' AS DateTime), 26, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-08-27' AS Date), CAST(N'2026-08-27T00:00:00.000' AS DateTime), 27, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-08-28' AS Date), CAST(N'2026-08-28T00:00:00.000' AS DateTime), 28, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-08-29' AS Date), CAST(N'2026-08-29T00:00:00.000' AS DateTime), 29, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-08-30' AS Date), CAST(N'2026-08-30T00:00:00.000' AS DateTime), 30, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-08-31' AS Date), CAST(N'2026-08-31T00:00:00.000' AS DateTime), 31, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-09-01' AS Date), CAST(N'2026-09-01T00:00:00.000' AS DateTime), 1, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-09-02' AS Date), CAST(N'2026-09-02T00:00:00.000' AS DateTime), 2, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-09-03' AS Date), CAST(N'2026-09-03T00:00:00.000' AS DateTime), 3, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-09-04' AS Date), CAST(N'2026-09-04T00:00:00.000' AS DateTime), 4, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-09-05' AS Date), CAST(N'2026-09-05T00:00:00.000' AS DateTime), 5, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-09-06' AS Date), CAST(N'2026-09-06T00:00:00.000' AS DateTime), 6, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-09-07' AS Date), CAST(N'2026-09-07T00:00:00.000' AS DateTime), 7, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-09-08' AS Date), CAST(N'2026-09-08T00:00:00.000' AS DateTime), 8, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-09-09' AS Date), CAST(N'2026-09-09T00:00:00.000' AS DateTime), 9, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-09-10' AS Date), CAST(N'2026-09-10T00:00:00.000' AS DateTime), 10, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-09-11' AS Date), CAST(N'2026-09-11T00:00:00.000' AS DateTime), 11, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-09-12' AS Date), CAST(N'2026-09-12T00:00:00.000' AS DateTime), 12, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-09-13' AS Date), CAST(N'2026-09-13T00:00:00.000' AS DateTime), 13, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-09-14' AS Date), CAST(N'2026-09-14T00:00:00.000' AS DateTime), 14, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-09-15' AS Date), CAST(N'2026-09-15T00:00:00.000' AS DateTime), 15, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-09-16' AS Date), CAST(N'2026-09-16T00:00:00.000' AS DateTime), 16, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-09-17' AS Date), CAST(N'2026-09-17T00:00:00.000' AS DateTime), 17, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-09-18' AS Date), CAST(N'2026-09-18T00:00:00.000' AS DateTime), 18, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-09-19' AS Date), CAST(N'2026-09-19T00:00:00.000' AS DateTime), 19, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-09-20' AS Date), CAST(N'2026-09-20T00:00:00.000' AS DateTime), 20, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-09-21' AS Date), CAST(N'2026-09-21T00:00:00.000' AS DateTime), 21, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-09-22' AS Date), CAST(N'2026-09-22T00:00:00.000' AS DateTime), 22, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-09-23' AS Date), CAST(N'2026-09-23T00:00:00.000' AS DateTime), 23, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-09-24' AS Date), CAST(N'2026-09-24T00:00:00.000' AS DateTime), 24, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-09-25' AS Date), CAST(N'2026-09-25T00:00:00.000' AS DateTime), 25, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-09-26' AS Date), CAST(N'2026-09-26T00:00:00.000' AS DateTime), 26, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-09-27' AS Date), CAST(N'2026-09-27T00:00:00.000' AS DateTime), 27, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-09-28' AS Date), CAST(N'2026-09-28T00:00:00.000' AS DateTime), 28, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-09-29' AS Date), CAST(N'2026-09-29T00:00:00.000' AS DateTime), 29, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-09-30' AS Date), CAST(N'2026-09-30T00:00:00.000' AS DateTime), 30, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-10-01' AS Date), CAST(N'2026-10-01T00:00:00.000' AS DateTime), 1, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-10-02' AS Date), CAST(N'2026-10-02T00:00:00.000' AS DateTime), 2, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-10-03' AS Date), CAST(N'2026-10-03T00:00:00.000' AS DateTime), 3, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-10-04' AS Date), CAST(N'2026-10-04T00:00:00.000' AS DateTime), 4, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-10-05' AS Date), CAST(N'2026-10-05T00:00:00.000' AS DateTime), 5, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-10-06' AS Date), CAST(N'2026-10-06T00:00:00.000' AS DateTime), 6, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-10-07' AS Date), CAST(N'2026-10-07T00:00:00.000' AS DateTime), 7, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-10-08' AS Date), CAST(N'2026-10-08T00:00:00.000' AS DateTime), 8, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-10-09' AS Date), CAST(N'2026-10-09T00:00:00.000' AS DateTime), 9, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-10-10' AS Date), CAST(N'2026-10-10T00:00:00.000' AS DateTime), 10, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-10-11' AS Date), CAST(N'2026-10-11T00:00:00.000' AS DateTime), 11, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-10-12' AS Date), CAST(N'2026-10-12T00:00:00.000' AS DateTime), 12, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-10-13' AS Date), CAST(N'2026-10-13T00:00:00.000' AS DateTime), 13, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-10-14' AS Date), CAST(N'2026-10-14T00:00:00.000' AS DateTime), 14, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-10-15' AS Date), CAST(N'2026-10-15T00:00:00.000' AS DateTime), 15, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-10-16' AS Date), CAST(N'2026-10-16T00:00:00.000' AS DateTime), 16, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-10-17' AS Date), CAST(N'2026-10-17T00:00:00.000' AS DateTime), 17, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-10-18' AS Date), CAST(N'2026-10-18T00:00:00.000' AS DateTime), 18, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-10-19' AS Date), CAST(N'2026-10-19T00:00:00.000' AS DateTime), 19, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-10-20' AS Date), CAST(N'2026-10-20T00:00:00.000' AS DateTime), 20, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-10-21' AS Date), CAST(N'2026-10-21T00:00:00.000' AS DateTime), 21, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-10-22' AS Date), CAST(N'2026-10-22T00:00:00.000' AS DateTime), 22, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-10-23' AS Date), CAST(N'2026-10-23T00:00:00.000' AS DateTime), 23, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-10-24' AS Date), CAST(N'2026-10-24T00:00:00.000' AS DateTime), 24, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-10-25' AS Date), CAST(N'2026-10-25T00:00:00.000' AS DateTime), 25, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-10-26' AS Date), CAST(N'2026-10-26T00:00:00.000' AS DateTime), 26, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-10-27' AS Date), CAST(N'2026-10-27T00:00:00.000' AS DateTime), 27, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-10-28' AS Date), CAST(N'2026-10-28T00:00:00.000' AS DateTime), 28, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-10-29' AS Date), CAST(N'2026-10-29T00:00:00.000' AS DateTime), 29, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-10-30' AS Date), CAST(N'2026-10-30T00:00:00.000' AS DateTime), 30, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-10-31' AS Date), CAST(N'2026-10-31T00:00:00.000' AS DateTime), 31, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-11-01' AS Date), CAST(N'2026-11-01T00:00:00.000' AS DateTime), 1, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-11-02' AS Date), CAST(N'2026-11-02T00:00:00.000' AS DateTime), 2, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-11-03' AS Date), CAST(N'2026-11-03T00:00:00.000' AS DateTime), 3, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-11-04' AS Date), CAST(N'2026-11-04T00:00:00.000' AS DateTime), 4, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-11-05' AS Date), CAST(N'2026-11-05T00:00:00.000' AS DateTime), 5, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-11-06' AS Date), CAST(N'2026-11-06T00:00:00.000' AS DateTime), 6, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-11-07' AS Date), CAST(N'2026-11-07T00:00:00.000' AS DateTime), 7, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-11-08' AS Date), CAST(N'2026-11-08T00:00:00.000' AS DateTime), 8, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-11-09' AS Date), CAST(N'2026-11-09T00:00:00.000' AS DateTime), 9, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-11-10' AS Date), CAST(N'2026-11-10T00:00:00.000' AS DateTime), 10, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-11-11' AS Date), CAST(N'2026-11-11T00:00:00.000' AS DateTime), 11, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-11-12' AS Date), CAST(N'2026-11-12T00:00:00.000' AS DateTime), 12, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-11-13' AS Date), CAST(N'2026-11-13T00:00:00.000' AS DateTime), 13, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-11-14' AS Date), CAST(N'2026-11-14T00:00:00.000' AS DateTime), 14, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-11-15' AS Date), CAST(N'2026-11-15T00:00:00.000' AS DateTime), 15, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-11-16' AS Date), CAST(N'2026-11-16T00:00:00.000' AS DateTime), 16, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-11-17' AS Date), CAST(N'2026-11-17T00:00:00.000' AS DateTime), 17, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-11-18' AS Date), CAST(N'2026-11-18T00:00:00.000' AS DateTime), 18, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-11-19' AS Date), CAST(N'2026-11-19T00:00:00.000' AS DateTime), 19, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-11-20' AS Date), CAST(N'2026-11-20T00:00:00.000' AS DateTime), 20, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-11-21' AS Date), CAST(N'2026-11-21T00:00:00.000' AS DateTime), 21, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-11-22' AS Date), CAST(N'2026-11-22T00:00:00.000' AS DateTime), 22, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-11-23' AS Date), CAST(N'2026-11-23T00:00:00.000' AS DateTime), 23, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-11-24' AS Date), CAST(N'2026-11-24T00:00:00.000' AS DateTime), 24, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-11-25' AS Date), CAST(N'2026-11-25T00:00:00.000' AS DateTime), 25, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-11-26' AS Date), CAST(N'2026-11-26T00:00:00.000' AS DateTime), 26, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-11-27' AS Date), CAST(N'2026-11-27T00:00:00.000' AS DateTime), 27, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-11-28' AS Date), CAST(N'2026-11-28T00:00:00.000' AS DateTime), 28, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-11-29' AS Date), CAST(N'2026-11-29T00:00:00.000' AS DateTime), 29, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-11-30' AS Date), CAST(N'2026-11-30T00:00:00.000' AS DateTime), 30, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-12-01' AS Date), CAST(N'2026-12-01T00:00:00.000' AS DateTime), 1, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-12-02' AS Date), CAST(N'2026-12-02T00:00:00.000' AS DateTime), 2, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-12-03' AS Date), CAST(N'2026-12-03T00:00:00.000' AS DateTime), 3, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-12-04' AS Date), CAST(N'2026-12-04T00:00:00.000' AS DateTime), 4, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-12-05' AS Date), CAST(N'2026-12-05T00:00:00.000' AS DateTime), 5, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-12-06' AS Date), CAST(N'2026-12-06T00:00:00.000' AS DateTime), 6, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-12-07' AS Date), CAST(N'2026-12-07T00:00:00.000' AS DateTime), 7, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-12-08' AS Date), CAST(N'2026-12-08T00:00:00.000' AS DateTime), 8, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-12-09' AS Date), CAST(N'2026-12-09T00:00:00.000' AS DateTime), 9, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-12-10' AS Date), CAST(N'2026-12-10T00:00:00.000' AS DateTime), 10, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-12-11' AS Date), CAST(N'2026-12-11T00:00:00.000' AS DateTime), 11, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-12-12' AS Date), CAST(N'2026-12-12T00:00:00.000' AS DateTime), 12, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-12-13' AS Date), CAST(N'2026-12-13T00:00:00.000' AS DateTime), 13, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-12-14' AS Date), CAST(N'2026-12-14T00:00:00.000' AS DateTime), 14, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-12-15' AS Date), CAST(N'2026-12-15T00:00:00.000' AS DateTime), 15, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-12-16' AS Date), CAST(N'2026-12-16T00:00:00.000' AS DateTime), 16, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-12-17' AS Date), CAST(N'2026-12-17T00:00:00.000' AS DateTime), 17, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-12-18' AS Date), CAST(N'2026-12-18T00:00:00.000' AS DateTime), 18, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-12-19' AS Date), CAST(N'2026-12-19T00:00:00.000' AS DateTime), 19, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-12-20' AS Date), CAST(N'2026-12-20T00:00:00.000' AS DateTime), 20, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-12-21' AS Date), CAST(N'2026-12-21T00:00:00.000' AS DateTime), 21, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-12-22' AS Date), CAST(N'2026-12-22T00:00:00.000' AS DateTime), 22, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-12-23' AS Date), CAST(N'2026-12-23T00:00:00.000' AS DateTime), 23, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-12-24' AS Date), CAST(N'2026-12-24T00:00:00.000' AS DateTime), 24, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-12-25' AS Date), CAST(N'2026-12-25T00:00:00.000' AS DateTime), 25, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-12-26' AS Date), CAST(N'2026-12-26T00:00:00.000' AS DateTime), 26, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-12-27' AS Date), CAST(N'2026-12-27T00:00:00.000' AS DateTime), 27, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-12-28' AS Date), CAST(N'2026-12-28T00:00:00.000' AS DateTime), 28, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-12-29' AS Date), CAST(N'2026-12-29T00:00:00.000' AS DateTime), 29, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-12-30' AS Date), CAST(N'2026-12-30T00:00:00.000' AS DateTime), 30, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2026-12-31' AS Date), CAST(N'2026-12-31T00:00:00.000' AS DateTime), 31, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-01-01' AS Date), CAST(N'2027-01-01T00:00:00.000' AS DateTime), 1, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-01-02' AS Date), CAST(N'2027-01-02T00:00:00.000' AS DateTime), 2, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-01-03' AS Date), CAST(N'2027-01-03T00:00:00.000' AS DateTime), 3, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-01-04' AS Date), CAST(N'2027-01-04T00:00:00.000' AS DateTime), 4, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-01-05' AS Date), CAST(N'2027-01-05T00:00:00.000' AS DateTime), 5, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-01-06' AS Date), CAST(N'2027-01-06T00:00:00.000' AS DateTime), 6, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-01-07' AS Date), CAST(N'2027-01-07T00:00:00.000' AS DateTime), 7, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-01-08' AS Date), CAST(N'2027-01-08T00:00:00.000' AS DateTime), 8, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-01-09' AS Date), CAST(N'2027-01-09T00:00:00.000' AS DateTime), 9, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-01-10' AS Date), CAST(N'2027-01-10T00:00:00.000' AS DateTime), 10, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-01-11' AS Date), CAST(N'2027-01-11T00:00:00.000' AS DateTime), 11, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-01-12' AS Date), CAST(N'2027-01-12T00:00:00.000' AS DateTime), 12, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-01-13' AS Date), CAST(N'2027-01-13T00:00:00.000' AS DateTime), 13, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-01-14' AS Date), CAST(N'2027-01-14T00:00:00.000' AS DateTime), 14, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-01-15' AS Date), CAST(N'2027-01-15T00:00:00.000' AS DateTime), 15, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-01-16' AS Date), CAST(N'2027-01-16T00:00:00.000' AS DateTime), 16, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-01-17' AS Date), CAST(N'2027-01-17T00:00:00.000' AS DateTime), 17, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-01-18' AS Date), CAST(N'2027-01-18T00:00:00.000' AS DateTime), 18, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-01-19' AS Date), CAST(N'2027-01-19T00:00:00.000' AS DateTime), 19, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-01-20' AS Date), CAST(N'2027-01-20T00:00:00.000' AS DateTime), 20, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-01-21' AS Date), CAST(N'2027-01-21T00:00:00.000' AS DateTime), 21, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-01-22' AS Date), CAST(N'2027-01-22T00:00:00.000' AS DateTime), 22, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-01-23' AS Date), CAST(N'2027-01-23T00:00:00.000' AS DateTime), 23, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-01-24' AS Date), CAST(N'2027-01-24T00:00:00.000' AS DateTime), 24, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-01-25' AS Date), CAST(N'2027-01-25T00:00:00.000' AS DateTime), 25, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-01-26' AS Date), CAST(N'2027-01-26T00:00:00.000' AS DateTime), 26, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-01-27' AS Date), CAST(N'2027-01-27T00:00:00.000' AS DateTime), 27, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-01-28' AS Date), CAST(N'2027-01-28T00:00:00.000' AS DateTime), 28, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-01-29' AS Date), CAST(N'2027-01-29T00:00:00.000' AS DateTime), 29, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-01-30' AS Date), CAST(N'2027-01-30T00:00:00.000' AS DateTime), 30, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-01-31' AS Date), CAST(N'2027-01-31T00:00:00.000' AS DateTime), 31, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-02-01' AS Date), CAST(N'2027-02-01T00:00:00.000' AS DateTime), 1, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-02-02' AS Date), CAST(N'2027-02-02T00:00:00.000' AS DateTime), 2, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-02-03' AS Date), CAST(N'2027-02-03T00:00:00.000' AS DateTime), 3, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-02-04' AS Date), CAST(N'2027-02-04T00:00:00.000' AS DateTime), 4, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-02-05' AS Date), CAST(N'2027-02-05T00:00:00.000' AS DateTime), 5, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-02-06' AS Date), CAST(N'2027-02-06T00:00:00.000' AS DateTime), 6, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-02-07' AS Date), CAST(N'2027-02-07T00:00:00.000' AS DateTime), 7, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-02-08' AS Date), CAST(N'2027-02-08T00:00:00.000' AS DateTime), 8, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-02-09' AS Date), CAST(N'2027-02-09T00:00:00.000' AS DateTime), 9, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-02-10' AS Date), CAST(N'2027-02-10T00:00:00.000' AS DateTime), 10, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-02-11' AS Date), CAST(N'2027-02-11T00:00:00.000' AS DateTime), 11, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-02-12' AS Date), CAST(N'2027-02-12T00:00:00.000' AS DateTime), 12, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-02-13' AS Date), CAST(N'2027-02-13T00:00:00.000' AS DateTime), 13, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-02-14' AS Date), CAST(N'2027-02-14T00:00:00.000' AS DateTime), 14, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-02-15' AS Date), CAST(N'2027-02-15T00:00:00.000' AS DateTime), 15, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-02-16' AS Date), CAST(N'2027-02-16T00:00:00.000' AS DateTime), 16, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-02-17' AS Date), CAST(N'2027-02-17T00:00:00.000' AS DateTime), 17, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-02-18' AS Date), CAST(N'2027-02-18T00:00:00.000' AS DateTime), 18, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-02-19' AS Date), CAST(N'2027-02-19T00:00:00.000' AS DateTime), 19, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-02-20' AS Date), CAST(N'2027-02-20T00:00:00.000' AS DateTime), 20, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-02-21' AS Date), CAST(N'2027-02-21T00:00:00.000' AS DateTime), 21, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-02-22' AS Date), CAST(N'2027-02-22T00:00:00.000' AS DateTime), 22, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-02-23' AS Date), CAST(N'2027-02-23T00:00:00.000' AS DateTime), 23, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-02-24' AS Date), CAST(N'2027-02-24T00:00:00.000' AS DateTime), 24, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-02-25' AS Date), CAST(N'2027-02-25T00:00:00.000' AS DateTime), 25, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-02-26' AS Date), CAST(N'2027-02-26T00:00:00.000' AS DateTime), 26, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-02-27' AS Date), CAST(N'2027-02-27T00:00:00.000' AS DateTime), 27, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-02-28' AS Date), CAST(N'2027-02-28T00:00:00.000' AS DateTime), 28, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-03-01' AS Date), CAST(N'2027-03-01T00:00:00.000' AS DateTime), 1, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-03-02' AS Date), CAST(N'2027-03-02T00:00:00.000' AS DateTime), 2, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-03-03' AS Date), CAST(N'2027-03-03T00:00:00.000' AS DateTime), 3, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-03-04' AS Date), CAST(N'2027-03-04T00:00:00.000' AS DateTime), 4, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-03-05' AS Date), CAST(N'2027-03-05T00:00:00.000' AS DateTime), 5, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-03-06' AS Date), CAST(N'2027-03-06T00:00:00.000' AS DateTime), 6, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-03-07' AS Date), CAST(N'2027-03-07T00:00:00.000' AS DateTime), 7, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-03-08' AS Date), CAST(N'2027-03-08T00:00:00.000' AS DateTime), 8, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-03-09' AS Date), CAST(N'2027-03-09T00:00:00.000' AS DateTime), 9, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-03-10' AS Date), CAST(N'2027-03-10T00:00:00.000' AS DateTime), 10, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-03-11' AS Date), CAST(N'2027-03-11T00:00:00.000' AS DateTime), 11, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-03-12' AS Date), CAST(N'2027-03-12T00:00:00.000' AS DateTime), 12, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-03-13' AS Date), CAST(N'2027-03-13T00:00:00.000' AS DateTime), 13, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-03-14' AS Date), CAST(N'2027-03-14T00:00:00.000' AS DateTime), 14, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-03-15' AS Date), CAST(N'2027-03-15T00:00:00.000' AS DateTime), 15, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-03-16' AS Date), CAST(N'2027-03-16T00:00:00.000' AS DateTime), 16, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-03-17' AS Date), CAST(N'2027-03-17T00:00:00.000' AS DateTime), 17, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-03-18' AS Date), CAST(N'2027-03-18T00:00:00.000' AS DateTime), 18, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-03-19' AS Date), CAST(N'2027-03-19T00:00:00.000' AS DateTime), 19, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-03-20' AS Date), CAST(N'2027-03-20T00:00:00.000' AS DateTime), 20, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-03-21' AS Date), CAST(N'2027-03-21T00:00:00.000' AS DateTime), 21, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-03-22' AS Date), CAST(N'2027-03-22T00:00:00.000' AS DateTime), 22, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-03-23' AS Date), CAST(N'2027-03-23T00:00:00.000' AS DateTime), 23, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-03-24' AS Date), CAST(N'2027-03-24T00:00:00.000' AS DateTime), 24, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-03-25' AS Date), CAST(N'2027-03-25T00:00:00.000' AS DateTime), 25, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-03-26' AS Date), CAST(N'2027-03-26T00:00:00.000' AS DateTime), 26, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-03-27' AS Date), CAST(N'2027-03-27T00:00:00.000' AS DateTime), 27, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-03-28' AS Date), CAST(N'2027-03-28T00:00:00.000' AS DateTime), 28, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-03-29' AS Date), CAST(N'2027-03-29T00:00:00.000' AS DateTime), 29, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-03-30' AS Date), CAST(N'2027-03-30T00:00:00.000' AS DateTime), 30, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-03-31' AS Date), CAST(N'2027-03-31T00:00:00.000' AS DateTime), 31, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-04-01' AS Date), CAST(N'2027-04-01T00:00:00.000' AS DateTime), 1, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-04-02' AS Date), CAST(N'2027-04-02T00:00:00.000' AS DateTime), 2, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-04-03' AS Date), CAST(N'2027-04-03T00:00:00.000' AS DateTime), 3, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-04-04' AS Date), CAST(N'2027-04-04T00:00:00.000' AS DateTime), 4, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-04-05' AS Date), CAST(N'2027-04-05T00:00:00.000' AS DateTime), 5, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-04-06' AS Date), CAST(N'2027-04-06T00:00:00.000' AS DateTime), 6, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-04-07' AS Date), CAST(N'2027-04-07T00:00:00.000' AS DateTime), 7, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-04-08' AS Date), CAST(N'2027-04-08T00:00:00.000' AS DateTime), 8, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-04-09' AS Date), CAST(N'2027-04-09T00:00:00.000' AS DateTime), 9, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-04-10' AS Date), CAST(N'2027-04-10T00:00:00.000' AS DateTime), 10, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-04-11' AS Date), CAST(N'2027-04-11T00:00:00.000' AS DateTime), 11, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-04-12' AS Date), CAST(N'2027-04-12T00:00:00.000' AS DateTime), 12, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-04-13' AS Date), CAST(N'2027-04-13T00:00:00.000' AS DateTime), 13, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-04-14' AS Date), CAST(N'2027-04-14T00:00:00.000' AS DateTime), 14, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-04-15' AS Date), CAST(N'2027-04-15T00:00:00.000' AS DateTime), 15, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-04-16' AS Date), CAST(N'2027-04-16T00:00:00.000' AS DateTime), 16, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-04-17' AS Date), CAST(N'2027-04-17T00:00:00.000' AS DateTime), 17, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-04-18' AS Date), CAST(N'2027-04-18T00:00:00.000' AS DateTime), 18, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-04-19' AS Date), CAST(N'2027-04-19T00:00:00.000' AS DateTime), 19, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-04-20' AS Date), CAST(N'2027-04-20T00:00:00.000' AS DateTime), 20, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-04-21' AS Date), CAST(N'2027-04-21T00:00:00.000' AS DateTime), 21, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-04-22' AS Date), CAST(N'2027-04-22T00:00:00.000' AS DateTime), 22, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-04-23' AS Date), CAST(N'2027-04-23T00:00:00.000' AS DateTime), 23, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-04-24' AS Date), CAST(N'2027-04-24T00:00:00.000' AS DateTime), 24, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-04-25' AS Date), CAST(N'2027-04-25T00:00:00.000' AS DateTime), 25, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-04-26' AS Date), CAST(N'2027-04-26T00:00:00.000' AS DateTime), 26, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-04-27' AS Date), CAST(N'2027-04-27T00:00:00.000' AS DateTime), 27, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-04-28' AS Date), CAST(N'2027-04-28T00:00:00.000' AS DateTime), 28, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-04-29' AS Date), CAST(N'2027-04-29T00:00:00.000' AS DateTime), 29, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-04-30' AS Date), CAST(N'2027-04-30T00:00:00.000' AS DateTime), 30, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-05-01' AS Date), CAST(N'2027-05-01T00:00:00.000' AS DateTime), 1, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-05-02' AS Date), CAST(N'2027-05-02T00:00:00.000' AS DateTime), 2, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-05-03' AS Date), CAST(N'2027-05-03T00:00:00.000' AS DateTime), 3, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-05-04' AS Date), CAST(N'2027-05-04T00:00:00.000' AS DateTime), 4, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-05-05' AS Date), CAST(N'2027-05-05T00:00:00.000' AS DateTime), 5, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-05-06' AS Date), CAST(N'2027-05-06T00:00:00.000' AS DateTime), 6, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-05-07' AS Date), CAST(N'2027-05-07T00:00:00.000' AS DateTime), 7, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-05-08' AS Date), CAST(N'2027-05-08T00:00:00.000' AS DateTime), 8, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-05-09' AS Date), CAST(N'2027-05-09T00:00:00.000' AS DateTime), 9, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-05-10' AS Date), CAST(N'2027-05-10T00:00:00.000' AS DateTime), 10, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-05-11' AS Date), CAST(N'2027-05-11T00:00:00.000' AS DateTime), 11, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-05-12' AS Date), CAST(N'2027-05-12T00:00:00.000' AS DateTime), 12, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-05-13' AS Date), CAST(N'2027-05-13T00:00:00.000' AS DateTime), 13, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-05-14' AS Date), CAST(N'2027-05-14T00:00:00.000' AS DateTime), 14, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-05-15' AS Date), CAST(N'2027-05-15T00:00:00.000' AS DateTime), 15, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-05-16' AS Date), CAST(N'2027-05-16T00:00:00.000' AS DateTime), 16, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-05-17' AS Date), CAST(N'2027-05-17T00:00:00.000' AS DateTime), 17, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-05-18' AS Date), CAST(N'2027-05-18T00:00:00.000' AS DateTime), 18, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-05-19' AS Date), CAST(N'2027-05-19T00:00:00.000' AS DateTime), 19, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-05-20' AS Date), CAST(N'2027-05-20T00:00:00.000' AS DateTime), 20, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-05-21' AS Date), CAST(N'2027-05-21T00:00:00.000' AS DateTime), 21, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-05-22' AS Date), CAST(N'2027-05-22T00:00:00.000' AS DateTime), 22, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-05-23' AS Date), CAST(N'2027-05-23T00:00:00.000' AS DateTime), 23, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-05-24' AS Date), CAST(N'2027-05-24T00:00:00.000' AS DateTime), 24, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-05-25' AS Date), CAST(N'2027-05-25T00:00:00.000' AS DateTime), 25, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-05-26' AS Date), CAST(N'2027-05-26T00:00:00.000' AS DateTime), 26, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-05-27' AS Date), CAST(N'2027-05-27T00:00:00.000' AS DateTime), 27, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-05-28' AS Date), CAST(N'2027-05-28T00:00:00.000' AS DateTime), 28, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-05-29' AS Date), CAST(N'2027-05-29T00:00:00.000' AS DateTime), 29, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-05-30' AS Date), CAST(N'2027-05-30T00:00:00.000' AS DateTime), 30, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-05-31' AS Date), CAST(N'2027-05-31T00:00:00.000' AS DateTime), 31, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-06-01' AS Date), CAST(N'2027-06-01T00:00:00.000' AS DateTime), 1, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-06-02' AS Date), CAST(N'2027-06-02T00:00:00.000' AS DateTime), 2, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-06-03' AS Date), CAST(N'2027-06-03T00:00:00.000' AS DateTime), 3, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-06-04' AS Date), CAST(N'2027-06-04T00:00:00.000' AS DateTime), 4, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-06-05' AS Date), CAST(N'2027-06-05T00:00:00.000' AS DateTime), 5, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-06-06' AS Date), CAST(N'2027-06-06T00:00:00.000' AS DateTime), 6, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-06-07' AS Date), CAST(N'2027-06-07T00:00:00.000' AS DateTime), 7, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-06-08' AS Date), CAST(N'2027-06-08T00:00:00.000' AS DateTime), 8, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-06-09' AS Date), CAST(N'2027-06-09T00:00:00.000' AS DateTime), 9, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-06-10' AS Date), CAST(N'2027-06-10T00:00:00.000' AS DateTime), 10, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-06-11' AS Date), CAST(N'2027-06-11T00:00:00.000' AS DateTime), 11, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-06-12' AS Date), CAST(N'2027-06-12T00:00:00.000' AS DateTime), 12, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-06-13' AS Date), CAST(N'2027-06-13T00:00:00.000' AS DateTime), 13, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-06-14' AS Date), CAST(N'2027-06-14T00:00:00.000' AS DateTime), 14, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-06-15' AS Date), CAST(N'2027-06-15T00:00:00.000' AS DateTime), 15, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-06-16' AS Date), CAST(N'2027-06-16T00:00:00.000' AS DateTime), 16, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-06-17' AS Date), CAST(N'2027-06-17T00:00:00.000' AS DateTime), 17, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-06-18' AS Date), CAST(N'2027-06-18T00:00:00.000' AS DateTime), 18, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-06-19' AS Date), CAST(N'2027-06-19T00:00:00.000' AS DateTime), 19, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-06-20' AS Date), CAST(N'2027-06-20T00:00:00.000' AS DateTime), 20, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-06-21' AS Date), CAST(N'2027-06-21T00:00:00.000' AS DateTime), 21, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-06-22' AS Date), CAST(N'2027-06-22T00:00:00.000' AS DateTime), 22, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-06-23' AS Date), CAST(N'2027-06-23T00:00:00.000' AS DateTime), 23, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-06-24' AS Date), CAST(N'2027-06-24T00:00:00.000' AS DateTime), 24, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-06-25' AS Date), CAST(N'2027-06-25T00:00:00.000' AS DateTime), 25, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-06-26' AS Date), CAST(N'2027-06-26T00:00:00.000' AS DateTime), 26, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-06-27' AS Date), CAST(N'2027-06-27T00:00:00.000' AS DateTime), 27, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-06-28' AS Date), CAST(N'2027-06-28T00:00:00.000' AS DateTime), 28, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-06-29' AS Date), CAST(N'2027-06-29T00:00:00.000' AS DateTime), 29, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-06-30' AS Date), CAST(N'2027-06-30T00:00:00.000' AS DateTime), 30, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-07-01' AS Date), CAST(N'2027-07-01T00:00:00.000' AS DateTime), 1, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-07-02' AS Date), CAST(N'2027-07-02T00:00:00.000' AS DateTime), 2, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-07-03' AS Date), CAST(N'2027-07-03T00:00:00.000' AS DateTime), 3, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-07-04' AS Date), CAST(N'2027-07-04T00:00:00.000' AS DateTime), 4, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-07-05' AS Date), CAST(N'2027-07-05T00:00:00.000' AS DateTime), 5, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-07-06' AS Date), CAST(N'2027-07-06T00:00:00.000' AS DateTime), 6, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-07-07' AS Date), CAST(N'2027-07-07T00:00:00.000' AS DateTime), 7, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-07-08' AS Date), CAST(N'2027-07-08T00:00:00.000' AS DateTime), 8, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-07-09' AS Date), CAST(N'2027-07-09T00:00:00.000' AS DateTime), 9, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-07-10' AS Date), CAST(N'2027-07-10T00:00:00.000' AS DateTime), 10, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-07-11' AS Date), CAST(N'2027-07-11T00:00:00.000' AS DateTime), 11, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-07-12' AS Date), CAST(N'2027-07-12T00:00:00.000' AS DateTime), 12, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-07-13' AS Date), CAST(N'2027-07-13T00:00:00.000' AS DateTime), 13, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-07-14' AS Date), CAST(N'2027-07-14T00:00:00.000' AS DateTime), 14, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-07-15' AS Date), CAST(N'2027-07-15T00:00:00.000' AS DateTime), 15, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-07-16' AS Date), CAST(N'2027-07-16T00:00:00.000' AS DateTime), 16, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-07-17' AS Date), CAST(N'2027-07-17T00:00:00.000' AS DateTime), 17, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-07-18' AS Date), CAST(N'2027-07-18T00:00:00.000' AS DateTime), 18, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-07-19' AS Date), CAST(N'2027-07-19T00:00:00.000' AS DateTime), 19, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-07-20' AS Date), CAST(N'2027-07-20T00:00:00.000' AS DateTime), 20, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-07-21' AS Date), CAST(N'2027-07-21T00:00:00.000' AS DateTime), 21, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-07-22' AS Date), CAST(N'2027-07-22T00:00:00.000' AS DateTime), 22, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-07-23' AS Date), CAST(N'2027-07-23T00:00:00.000' AS DateTime), 23, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-07-24' AS Date), CAST(N'2027-07-24T00:00:00.000' AS DateTime), 24, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-07-25' AS Date), CAST(N'2027-07-25T00:00:00.000' AS DateTime), 25, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-07-26' AS Date), CAST(N'2027-07-26T00:00:00.000' AS DateTime), 26, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-07-27' AS Date), CAST(N'2027-07-27T00:00:00.000' AS DateTime), 27, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-07-28' AS Date), CAST(N'2027-07-28T00:00:00.000' AS DateTime), 28, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-07-29' AS Date), CAST(N'2027-07-29T00:00:00.000' AS DateTime), 29, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-07-30' AS Date), CAST(N'2027-07-30T00:00:00.000' AS DateTime), 30, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-07-31' AS Date), CAST(N'2027-07-31T00:00:00.000' AS DateTime), 31, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-08-01' AS Date), CAST(N'2027-08-01T00:00:00.000' AS DateTime), 1, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-08-02' AS Date), CAST(N'2027-08-02T00:00:00.000' AS DateTime), 2, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-08-03' AS Date), CAST(N'2027-08-03T00:00:00.000' AS DateTime), 3, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-08-04' AS Date), CAST(N'2027-08-04T00:00:00.000' AS DateTime), 4, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-08-05' AS Date), CAST(N'2027-08-05T00:00:00.000' AS DateTime), 5, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-08-06' AS Date), CAST(N'2027-08-06T00:00:00.000' AS DateTime), 6, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-08-07' AS Date), CAST(N'2027-08-07T00:00:00.000' AS DateTime), 7, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-08-08' AS Date), CAST(N'2027-08-08T00:00:00.000' AS DateTime), 8, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-08-09' AS Date), CAST(N'2027-08-09T00:00:00.000' AS DateTime), 9, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-08-10' AS Date), CAST(N'2027-08-10T00:00:00.000' AS DateTime), 10, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-08-11' AS Date), CAST(N'2027-08-11T00:00:00.000' AS DateTime), 11, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-08-12' AS Date), CAST(N'2027-08-12T00:00:00.000' AS DateTime), 12, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-08-13' AS Date), CAST(N'2027-08-13T00:00:00.000' AS DateTime), 13, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-08-14' AS Date), CAST(N'2027-08-14T00:00:00.000' AS DateTime), 14, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-08-15' AS Date), CAST(N'2027-08-15T00:00:00.000' AS DateTime), 15, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-08-16' AS Date), CAST(N'2027-08-16T00:00:00.000' AS DateTime), 16, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-08-17' AS Date), CAST(N'2027-08-17T00:00:00.000' AS DateTime), 17, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-08-18' AS Date), CAST(N'2027-08-18T00:00:00.000' AS DateTime), 18, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-08-19' AS Date), CAST(N'2027-08-19T00:00:00.000' AS DateTime), 19, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-08-20' AS Date), CAST(N'2027-08-20T00:00:00.000' AS DateTime), 20, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-08-21' AS Date), CAST(N'2027-08-21T00:00:00.000' AS DateTime), 21, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-08-22' AS Date), CAST(N'2027-08-22T00:00:00.000' AS DateTime), 22, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-08-23' AS Date), CAST(N'2027-08-23T00:00:00.000' AS DateTime), 23, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-08-24' AS Date), CAST(N'2027-08-24T00:00:00.000' AS DateTime), 24, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-08-25' AS Date), CAST(N'2027-08-25T00:00:00.000' AS DateTime), 25, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-08-26' AS Date), CAST(N'2027-08-26T00:00:00.000' AS DateTime), 26, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-08-27' AS Date), CAST(N'2027-08-27T00:00:00.000' AS DateTime), 27, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-08-28' AS Date), CAST(N'2027-08-28T00:00:00.000' AS DateTime), 28, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-08-29' AS Date), CAST(N'2027-08-29T00:00:00.000' AS DateTime), 29, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-08-30' AS Date), CAST(N'2027-08-30T00:00:00.000' AS DateTime), 30, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-08-31' AS Date), CAST(N'2027-08-31T00:00:00.000' AS DateTime), 31, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-09-01' AS Date), CAST(N'2027-09-01T00:00:00.000' AS DateTime), 1, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-09-02' AS Date), CAST(N'2027-09-02T00:00:00.000' AS DateTime), 2, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-09-03' AS Date), CAST(N'2027-09-03T00:00:00.000' AS DateTime), 3, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-09-04' AS Date), CAST(N'2027-09-04T00:00:00.000' AS DateTime), 4, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-09-05' AS Date), CAST(N'2027-09-05T00:00:00.000' AS DateTime), 5, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-09-06' AS Date), CAST(N'2027-09-06T00:00:00.000' AS DateTime), 6, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-09-07' AS Date), CAST(N'2027-09-07T00:00:00.000' AS DateTime), 7, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-09-08' AS Date), CAST(N'2027-09-08T00:00:00.000' AS DateTime), 8, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-09-09' AS Date), CAST(N'2027-09-09T00:00:00.000' AS DateTime), 9, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-09-10' AS Date), CAST(N'2027-09-10T00:00:00.000' AS DateTime), 10, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-09-11' AS Date), CAST(N'2027-09-11T00:00:00.000' AS DateTime), 11, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-09-12' AS Date), CAST(N'2027-09-12T00:00:00.000' AS DateTime), 12, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-09-13' AS Date), CAST(N'2027-09-13T00:00:00.000' AS DateTime), 13, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-09-14' AS Date), CAST(N'2027-09-14T00:00:00.000' AS DateTime), 14, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-09-15' AS Date), CAST(N'2027-09-15T00:00:00.000' AS DateTime), 15, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-09-16' AS Date), CAST(N'2027-09-16T00:00:00.000' AS DateTime), 16, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-09-17' AS Date), CAST(N'2027-09-17T00:00:00.000' AS DateTime), 17, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-09-18' AS Date), CAST(N'2027-09-18T00:00:00.000' AS DateTime), 18, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-09-19' AS Date), CAST(N'2027-09-19T00:00:00.000' AS DateTime), 19, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-09-20' AS Date), CAST(N'2027-09-20T00:00:00.000' AS DateTime), 20, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-09-21' AS Date), CAST(N'2027-09-21T00:00:00.000' AS DateTime), 21, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-09-22' AS Date), CAST(N'2027-09-22T00:00:00.000' AS DateTime), 22, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-09-23' AS Date), CAST(N'2027-09-23T00:00:00.000' AS DateTime), 23, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-09-24' AS Date), CAST(N'2027-09-24T00:00:00.000' AS DateTime), 24, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-09-25' AS Date), CAST(N'2027-09-25T00:00:00.000' AS DateTime), 25, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-09-26' AS Date), CAST(N'2027-09-26T00:00:00.000' AS DateTime), 26, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-09-27' AS Date), CAST(N'2027-09-27T00:00:00.000' AS DateTime), 27, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-09-28' AS Date), CAST(N'2027-09-28T00:00:00.000' AS DateTime), 28, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-09-29' AS Date), CAST(N'2027-09-29T00:00:00.000' AS DateTime), 29, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-09-30' AS Date), CAST(N'2027-09-30T00:00:00.000' AS DateTime), 30, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-10-01' AS Date), CAST(N'2027-10-01T00:00:00.000' AS DateTime), 1, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-10-02' AS Date), CAST(N'2027-10-02T00:00:00.000' AS DateTime), 2, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-10-03' AS Date), CAST(N'2027-10-03T00:00:00.000' AS DateTime), 3, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-10-04' AS Date), CAST(N'2027-10-04T00:00:00.000' AS DateTime), 4, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-10-05' AS Date), CAST(N'2027-10-05T00:00:00.000' AS DateTime), 5, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-10-06' AS Date), CAST(N'2027-10-06T00:00:00.000' AS DateTime), 6, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-10-07' AS Date), CAST(N'2027-10-07T00:00:00.000' AS DateTime), 7, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-10-08' AS Date), CAST(N'2027-10-08T00:00:00.000' AS DateTime), 8, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-10-09' AS Date), CAST(N'2027-10-09T00:00:00.000' AS DateTime), 9, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-10-10' AS Date), CAST(N'2027-10-10T00:00:00.000' AS DateTime), 10, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-10-11' AS Date), CAST(N'2027-10-11T00:00:00.000' AS DateTime), 11, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-10-12' AS Date), CAST(N'2027-10-12T00:00:00.000' AS DateTime), 12, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-10-13' AS Date), CAST(N'2027-10-13T00:00:00.000' AS DateTime), 13, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-10-14' AS Date), CAST(N'2027-10-14T00:00:00.000' AS DateTime), 14, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-10-15' AS Date), CAST(N'2027-10-15T00:00:00.000' AS DateTime), 15, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-10-16' AS Date), CAST(N'2027-10-16T00:00:00.000' AS DateTime), 16, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-10-17' AS Date), CAST(N'2027-10-17T00:00:00.000' AS DateTime), 17, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-10-18' AS Date), CAST(N'2027-10-18T00:00:00.000' AS DateTime), 18, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-10-19' AS Date), CAST(N'2027-10-19T00:00:00.000' AS DateTime), 19, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-10-20' AS Date), CAST(N'2027-10-20T00:00:00.000' AS DateTime), 20, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-10-21' AS Date), CAST(N'2027-10-21T00:00:00.000' AS DateTime), 21, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-10-22' AS Date), CAST(N'2027-10-22T00:00:00.000' AS DateTime), 22, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-10-23' AS Date), CAST(N'2027-10-23T00:00:00.000' AS DateTime), 23, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-10-24' AS Date), CAST(N'2027-10-24T00:00:00.000' AS DateTime), 24, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-10-25' AS Date), CAST(N'2027-10-25T00:00:00.000' AS DateTime), 25, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-10-26' AS Date), CAST(N'2027-10-26T00:00:00.000' AS DateTime), 26, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-10-27' AS Date), CAST(N'2027-10-27T00:00:00.000' AS DateTime), 27, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-10-28' AS Date), CAST(N'2027-10-28T00:00:00.000' AS DateTime), 28, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-10-29' AS Date), CAST(N'2027-10-29T00:00:00.000' AS DateTime), 29, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-10-30' AS Date), CAST(N'2027-10-30T00:00:00.000' AS DateTime), 30, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-10-31' AS Date), CAST(N'2027-10-31T00:00:00.000' AS DateTime), 31, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-11-01' AS Date), CAST(N'2027-11-01T00:00:00.000' AS DateTime), 1, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-11-02' AS Date), CAST(N'2027-11-02T00:00:00.000' AS DateTime), 2, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-11-03' AS Date), CAST(N'2027-11-03T00:00:00.000' AS DateTime), 3, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-11-04' AS Date), CAST(N'2027-11-04T00:00:00.000' AS DateTime), 4, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-11-05' AS Date), CAST(N'2027-11-05T00:00:00.000' AS DateTime), 5, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-11-06' AS Date), CAST(N'2027-11-06T00:00:00.000' AS DateTime), 6, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-11-07' AS Date), CAST(N'2027-11-07T00:00:00.000' AS DateTime), 7, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-11-08' AS Date), CAST(N'2027-11-08T00:00:00.000' AS DateTime), 8, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-11-09' AS Date), CAST(N'2027-11-09T00:00:00.000' AS DateTime), 9, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-11-10' AS Date), CAST(N'2027-11-10T00:00:00.000' AS DateTime), 10, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-11-11' AS Date), CAST(N'2027-11-11T00:00:00.000' AS DateTime), 11, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-11-12' AS Date), CAST(N'2027-11-12T00:00:00.000' AS DateTime), 12, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-11-13' AS Date), CAST(N'2027-11-13T00:00:00.000' AS DateTime), 13, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-11-14' AS Date), CAST(N'2027-11-14T00:00:00.000' AS DateTime), 14, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-11-15' AS Date), CAST(N'2027-11-15T00:00:00.000' AS DateTime), 15, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-11-16' AS Date), CAST(N'2027-11-16T00:00:00.000' AS DateTime), 16, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-11-17' AS Date), CAST(N'2027-11-17T00:00:00.000' AS DateTime), 17, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-11-18' AS Date), CAST(N'2027-11-18T00:00:00.000' AS DateTime), 18, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-11-19' AS Date), CAST(N'2027-11-19T00:00:00.000' AS DateTime), 19, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-11-20' AS Date), CAST(N'2027-11-20T00:00:00.000' AS DateTime), 20, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-11-21' AS Date), CAST(N'2027-11-21T00:00:00.000' AS DateTime), 21, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-11-22' AS Date), CAST(N'2027-11-22T00:00:00.000' AS DateTime), 22, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-11-23' AS Date), CAST(N'2027-11-23T00:00:00.000' AS DateTime), 23, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-11-24' AS Date), CAST(N'2027-11-24T00:00:00.000' AS DateTime), 24, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-11-25' AS Date), CAST(N'2027-11-25T00:00:00.000' AS DateTime), 25, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-11-26' AS Date), CAST(N'2027-11-26T00:00:00.000' AS DateTime), 26, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-11-27' AS Date), CAST(N'2027-11-27T00:00:00.000' AS DateTime), 27, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-11-28' AS Date), CAST(N'2027-11-28T00:00:00.000' AS DateTime), 28, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-11-29' AS Date), CAST(N'2027-11-29T00:00:00.000' AS DateTime), 29, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-11-30' AS Date), CAST(N'2027-11-30T00:00:00.000' AS DateTime), 30, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-12-01' AS Date), CAST(N'2027-12-01T00:00:00.000' AS DateTime), 1, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-12-02' AS Date), CAST(N'2027-12-02T00:00:00.000' AS DateTime), 2, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-12-03' AS Date), CAST(N'2027-12-03T00:00:00.000' AS DateTime), 3, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-12-04' AS Date), CAST(N'2027-12-04T00:00:00.000' AS DateTime), 4, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-12-05' AS Date), CAST(N'2027-12-05T00:00:00.000' AS DateTime), 5, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-12-06' AS Date), CAST(N'2027-12-06T00:00:00.000' AS DateTime), 6, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-12-07' AS Date), CAST(N'2027-12-07T00:00:00.000' AS DateTime), 7, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-12-08' AS Date), CAST(N'2027-12-08T00:00:00.000' AS DateTime), 8, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-12-09' AS Date), CAST(N'2027-12-09T00:00:00.000' AS DateTime), 9, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-12-10' AS Date), CAST(N'2027-12-10T00:00:00.000' AS DateTime), 10, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-12-11' AS Date), CAST(N'2027-12-11T00:00:00.000' AS DateTime), 11, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-12-12' AS Date), CAST(N'2027-12-12T00:00:00.000' AS DateTime), 12, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-12-13' AS Date), CAST(N'2027-12-13T00:00:00.000' AS DateTime), 13, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-12-14' AS Date), CAST(N'2027-12-14T00:00:00.000' AS DateTime), 14, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-12-15' AS Date), CAST(N'2027-12-15T00:00:00.000' AS DateTime), 15, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-12-16' AS Date), CAST(N'2027-12-16T00:00:00.000' AS DateTime), 16, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-12-17' AS Date), CAST(N'2027-12-17T00:00:00.000' AS DateTime), 17, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-12-18' AS Date), CAST(N'2027-12-18T00:00:00.000' AS DateTime), 18, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-12-19' AS Date), CAST(N'2027-12-19T00:00:00.000' AS DateTime), 19, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-12-20' AS Date), CAST(N'2027-12-20T00:00:00.000' AS DateTime), 20, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-12-21' AS Date), CAST(N'2027-12-21T00:00:00.000' AS DateTime), 21, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-12-22' AS Date), CAST(N'2027-12-22T00:00:00.000' AS DateTime), 22, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-12-23' AS Date), CAST(N'2027-12-23T00:00:00.000' AS DateTime), 23, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-12-24' AS Date), CAST(N'2027-12-24T00:00:00.000' AS DateTime), 24, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-12-25' AS Date), CAST(N'2027-12-25T00:00:00.000' AS DateTime), 25, N'Saturday', NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-12-26' AS Date), CAST(N'2027-12-26T00:00:00.000' AS DateTime), 26, N'Sunday', NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-12-27' AS Date), CAST(N'2027-12-27T00:00:00.000' AS DateTime), 27, N'Monday', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-12-28' AS Date), CAST(N'2027-12-28T00:00:00.000' AS DateTime), 28, N'Tuesday', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-12-29' AS Date), CAST(N'2027-12-29T00:00:00.000' AS DateTime), 29, N'Wednesday', NULL, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-12-30' AS Date), CAST(N'2027-12-30T00:00:00.000' AS DateTime), 30, N'Thursday', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[calendar] ([TheDate], [TheDateTime], [TheDay], [TheDayName], [TheWeek], [TheISOWeek], [TheDayOfWeek], [TheMonth], [TheMonthName], [TheQuarter], [TheYear], [TheFirstOfMonth], [TheLastOfYear], [TheDayOfYear]) VALUES (CAST(N'2027-12-31' AS Date), CAST(N'2027-12-31T00:00:00.000' AS DateTime), 31, N'Friday', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+GO
+
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [IX_course_codes]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  Index [IX_course_codes]    Script Date: 05.05.2024 21:24:12 ******/
 CREATE NONCLUSTERED INDEX [IX_course_codes] ON [dbo].[course_codes]
 (
 	[control_id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
-/****** Object:  Index [IX_legs]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  Index [IX_legs]    Script Date: 05.05.2024 21:24:12 ******/
 CREATE NONCLUSTERED INDEX [IX_legs] ON [dbo].[legs]
 (
 	[comp_id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
-/****** Object:  Index [IX_legs_1]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  Index [IX_legs_1]    Script Date: 05.05.2024 21:24:12 ******/
 CREATE NONCLUSTERED INDEX [IX_legs_1] ON [dbo].[legs]
 (
 	[readout_id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
-/****** Object:  Index [IX_si_stamps_readout_id]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  Index [IX_si_stamps_readout_id]    Script Date: 05.05.2024 21:24:12 ******/
 CREATE NONCLUSTERED INDEX [IX_si_stamps_readout_id] ON [dbo].[si_stamps]
 (
 	[readout_id] ASC
 )
 INCLUDE([control_code],[punch_index]) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
-/****** Object:  Index [ix_slips_leg_id]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  Index [ix_slips_leg_id]    Script Date: 05.05.2024 21:24:12 ******/
 CREATE NONCLUSTERED INDEX [ix_slips_leg_id] ON [dbo].[slips]
 (
 	[leg_id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
-/****** Object:  Index [IX_slips_readout_id]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  Index [IX_slips_readout_id]    Script Date: 05.05.2024 21:24:12 ******/
 CREATE NONCLUSTERED INDEX [IX_slips_readout_id] ON [dbo].[slips]
 (
 	[readout_id] ASC
@@ -938,6 +4609,8 @@ GO
 ALTER TABLE [dbo].[entry_teams] ADD  CONSTRAINT [DF_entry_teams_as_of_date]  DEFAULT (getdate()) FOR [as_of_date]
 GO
 ALTER TABLE [dbo].[entry_xml] ADD  CONSTRAINT [DF__entry_xml__team___7B264821]  DEFAULT ((0)) FOR [team_bib]
+GO
+ALTER TABLE [dbo].[leg_exceptions] ADD  CONSTRAINT [DF_leg_exceptions_as_of_date]  DEFAULT (getdate()) FOR [as_of_date]
 GO
 ALTER TABLE [dbo].[legs] ADD  CONSTRAINT [DF__legs__as_of_date__7D439ABD]  DEFAULT (getdate()) FOR [as_of_date]
 GO
@@ -988,7 +4661,7 @@ REFERENCES [dbo].[categories] ([cat_id])
 GO
 ALTER TABLE [dbo].[teams] CHECK CONSTRAINT [FK_teams_categories]
 GO
-/****** Object:  StoredProcedure [dbo].[get_competitor]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  StoredProcedure [dbo].[get_competitor]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1014,7 +4687,7 @@ BEGIN
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[get_course_results_json]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  StoredProcedure [dbo].[get_course_results_json]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1193,7 +4866,7 @@ INSERT INTO #temp_legs
 	SELECT @ResultJson as course_results
 END
 GO
-/****** Object:  StoredProcedure [dbo].[get_one_competitor_json]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  StoredProcedure [dbo].[get_one_competitor_json]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1228,7 +4901,7 @@ BEGIN
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[get_one_entry_json]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  StoredProcedure [dbo].[get_one_entry_json]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1276,7 +4949,7 @@ BEGIN
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[get_results_json]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  StoredProcedure [dbo].[get_results_json]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1486,7 +5159,7 @@ INSERT INTO #temp_legs
 	SELECT @ResultJson
 END
 GO
-/****** Object:  StoredProcedure [dbo].[get_slip_json]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  StoredProcedure [dbo].[get_slip_json]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1562,7 +5235,7 @@ BEGIN
 	select @ResultJson
 END
 GO
-/****** Object:  StoredProcedure [dbo].[rpt_results]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  StoredProcedure [dbo].[rpt_results]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1637,7 +5310,7 @@ AS
 --        ) as a
     END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_check_courses]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_check_courses]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1753,7 +5426,7 @@ BEGIN
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_fill_calendar]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_fill_calendar]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1816,7 +5489,7 @@ BEGIN
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_fill_results]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_fill_results]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1895,7 +5568,7 @@ AS
 
     END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_generate_legs]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_generate_legs]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1930,7 +5603,7 @@ BEGIN
 	SELECT @@ROWCOUNT
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_guess_course]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_guess_course]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2018,7 +5691,7 @@ BEGIN
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_ins_xml_entries]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_ins_xml_entries]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2209,7 +5882,7 @@ BEGIN
 	select @@ROWCOUNT
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_insert_slips]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_insert_slips]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2539,7 +6212,7 @@ and l2.leg_status = 'OK'
 		SELECT o.ID FROM @OutputTbl AS o 
 	END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_inset_wdr_slip]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_inset_wdr_slip]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2622,7 +6295,44 @@ BEGIN
 		and co.course_name = @wd_course
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_search_competitors]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_legs_assign_first]    Script Date: 05.05.2024 21:24:12 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[sp_legs_assign_first]
+	@course_prefix varchar(5),
+	@category_id int
+AS
+/*
+Create date: 2024-05-04
+Description: creates records in legs for first legs - German version
+
+
+declare @course_prefix varchar(3) = 'SF'
+declare @category_id int = 16
+execute sp_legs_assign_first @course_prefix, @category_id
+*/
+BEGIN
+	SET NOCOUNT ON;
+
+	INSERT INTO legs(comp_id, course_id, valid_flag)
+	select
+	co.comp_id,
+	cr.course_id,
+	1
+	from teams as t
+	inner join categories as ca on t.cat_id = ca.cat_id
+	inner join competitors as co on t.team_id = co.team_id
+		INNER JOIN courses AS cr 
+			ON @course_prefix + char(97+(t.team_nr - ca.first_start_number) % 8) = cr.course_name
+	where co.rank_order = 1
+	and ca.cat_id = @category_id
+
+	SELECT @@ROWCOUNT
+END
+GO
+/****** Object:  StoredProcedure [dbo].[sp_search_competitors]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2652,7 +6362,7 @@ BEGIN
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_update_xml_entries_team_bib]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_update_xml_entries_team_bib]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2686,7 +6396,7 @@ BEGIN
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_upsert_legs]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  StoredProcedure [dbo].[sp_upsert_legs]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2971,7 +6681,7 @@ FROM start_finish AS sf
 		SELECT isnull(o.ID, 0) FROM @OutputTbl AS o 
 	END
 GO
-/****** Object:  StoredProcedure [dbo].[update_team_race_end]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  StoredProcedure [dbo].[update_team_race_end]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3024,7 +6734,7 @@ BEGIN
 	select @@ROWCOUNT
 END
 GO
-/****** Object:  StoredProcedure [dbo].[x_sp_fill_runs]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  StoredProcedure [dbo].[x_sp_fill_runs]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3059,7 +6769,7 @@ FROM
     ) AS n
 END
 GO
-/****** Object:  StoredProcedure [dbo].[x_sp_stamp2punches]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  StoredProcedure [dbo].[x_sp_stamp2punches]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3529,7 +7239,7 @@ SELECT top 10000 * FROM dbo.runs
     END
 END
 GO
-/****** Object:  StoredProcedure [dbo].[x_sp_stamp2punches2]    Script Date: 30.04.2024 17:45:49 ******/
+/****** Object:  StoredProcedure [dbo].[x_sp_stamp2punches2]    Script Date: 05.05.2024 21:24:12 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3597,128 +7307,6 @@ PRINT 'no chip known'
 
 
 END
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
-Begin DesignProperties = 
-   Begin PaneConfigurations = 
-      Begin PaneConfiguration = 0
-         NumPanes = 4
-         Configuration = "(H (1[30] 4[31] 2[20] 3) )"
-      End
-      Begin PaneConfiguration = 1
-         NumPanes = 3
-         Configuration = "(H (1 [50] 4 [25] 3))"
-      End
-      Begin PaneConfiguration = 2
-         NumPanes = 3
-         Configuration = "(H (1 [50] 2 [25] 3))"
-      End
-      Begin PaneConfiguration = 3
-         NumPanes = 3
-         Configuration = "(H (4 [30] 2 [40] 3))"
-      End
-      Begin PaneConfiguration = 4
-         NumPanes = 2
-         Configuration = "(H (1 [56] 3))"
-      End
-      Begin PaneConfiguration = 5
-         NumPanes = 2
-         Configuration = "(H (2 [66] 3))"
-      End
-      Begin PaneConfiguration = 6
-         NumPanes = 2
-         Configuration = "(H (4 [50] 3))"
-      End
-      Begin PaneConfiguration = 7
-         NumPanes = 1
-         Configuration = "(V (3))"
-      End
-      Begin PaneConfiguration = 8
-         NumPanes = 3
-         Configuration = "(H (1[56] 4[18] 2) )"
-      End
-      Begin PaneConfiguration = 9
-         NumPanes = 2
-         Configuration = "(H (1 [75] 4))"
-      End
-      Begin PaneConfiguration = 10
-         NumPanes = 2
-         Configuration = "(H (1[66] 2) )"
-      End
-      Begin PaneConfiguration = 11
-         NumPanes = 2
-         Configuration = "(H (4 [60] 2))"
-      End
-      Begin PaneConfiguration = 12
-         NumPanes = 1
-         Configuration = "(H (1) )"
-      End
-      Begin PaneConfiguration = 13
-         NumPanes = 1
-         Configuration = "(V (4))"
-      End
-      Begin PaneConfiguration = 14
-         NumPanes = 1
-         Configuration = "(V (2))"
-      End
-      ActivePaneConfig = 0
-   End
-   Begin DiagramPane = 
-      Begin Origin = 
-         Top = 0
-         Left = 0
-      End
-      Begin Tables = 
-         Begin Table = "a"
-            Begin Extent = 
-               Top = 9
-               Left = 57
-               Bottom = 206
-               Right = 334
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
-      End
-   End
-   Begin SQLPane = 
-   End
-   Begin DataPane = 
-      Begin ParameterDefaults = ""
-      End
-      Begin ColumnWidths = 9
-         Width = 284
-         Width = 1000
-         Width = 1000
-         Width = 1000
-         Width = 1000
-         Width = 1000
-         Width = 1000
-         Width = 1000
-         Width = 1000
-      End
-   End
-   Begin CriteriaPane = 
-      Begin ColumnWidths = 12
-         Column = 1440
-         Alias = 900
-         Table = 1170
-         Output = 720
-         Append = 1400
-         NewValue = 1170
-         SortType = 1350
-         SortOrder = 1410
-         GroupBy = 1350
-         Filter = 1350
-         Or = 1350
-         Or = 1350
-         Or = 1350
-      End
-   End
-End
-' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'v_teams_results'
-GO
-EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=1 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'v_teams_results'
 GO
 USE [master]
 GO
