@@ -9,42 +9,89 @@
 ### Datenbank
 
 
+
+## Einweisung
+
+Alle Änderungen sind direkte Datenbankänderungen, kein extra Abfragebox oder Bestätigung!
+
+* SI-Chip Änderung direkt im Hauptfenster
+  * Unbekannt Chip-Nummer nach dem Auslese, wird abgefragt, wird aber nicht automatisch in die Datenbank übernommen
+  * TODO: Abfrage, den SI-Chip zu übernehmen hinzufügen?
+
+* TODO: Teamname Änderung direkt im Hauptfenster? Könnte man dort auch verriegel, wenn es im Meldungsfenster geht?
+* TODO: Läufennamen Ändern direkt im Hauptfenter? Könnte man dort auch verriegel, wenn es im Meldungsfenster geht?
+* TODO: Läuferreihenfolge mit Pfeiltasten hoch und runter ( zur eigenen Sicherheit, nur Meldungsfenster!)
+* TODO: Jahrgangs Anzeige und Änderung nur im Meldungsfenster
+
+* TODO: Splittime Fester - Anzeige per click auf die Auslese-Zeil in der Tabelle
+
+* **Bahnzuordnung erfolgt automatsch muss aber kontrolliert werden**
+   * Läufer ist zum Beispiel einen andern Läufer vollständig angelaufen, dann hat er automatisch ein gültige Bahnzuordnung
+     aber nicht sein!
+* FIXME: **SI-Chip nur einmal pro Lauf auslesen!**
+
 ## Daten-Import
 
 ### Meldungen
 
-* Encoding der Meldung nach UTF8 Konvertieren
+* CSV-Datei
+  * Manuelle Startnummern Vorgabe ist dort viel einfacher möglich 
+* CSV Speichern und Encoding nach UTF8 with BOM Konvertieren (mit VS code)
+  * "with BOM" damit die Datei mit Excelt erneut richtig geöffnet werden kann
+  * ohne BOM wird CSV-Datei mit Ansi kodiierung geöffnet
+* Import
+  * Spalten werden über den Name angesprochen
+  * weitere Spalten oder Spaltenreinfolge ist egal
 
-### Bahndatean
+### Bahndaten
 
-* OCAD 8
+* OCAD 8 Export
+
+
+## Anzeige
+
+### Courses Info vs. Import
+
+  * Welche Bahnen gelaufen sind gehört in Hauptfenster +  Anzahl der Wechsel
+  * File / Print Open Courses... (Wenn offene Bahnen direkt im Hauptfenster angezeigt werden verwirrt das zu sehr!)
+    * Drucken Vorschauen:.. startnummer Eingabe, nächste Startnummern Butten. Print All von bis
+    * ... nächte Startnumemrauswhl.. Filter kathorgie, Print, Print All
+    (Anzeige welche Bahnen ein Team schon gelaufen ist)
+    * Anzeige welche Bahnen ein Team noch nicht gelaufen ist
+      * Überschrift: "Open Courses"  + Kathegorie
+      * Team-Nr, Team-Name
+      * alle Bahnen untereinander, so kann man was dainter vermerken oder abhanken.
+        * Gruppung nach Day, Night, Final
+      * Anzahl:
+      * Druckzeitpunkt
+      (könnte man zur Not auch json Ausgeben)
+      
+   * welche aktuell möglich sind (für eine Vorstart-Lösung) 
+        * Kartenausgaben am Sonntag, nach Zielschluss: Team x Bahn Matrix.. Restbahnen pro Team oder Bahnen mit Teamnummern (ausdruck)
+
+
+  *  TODO: Prüfen, ob mehrfach gelaufe Bahnen nur einmal gezählt werden. 
+
 
 ## TODO
 * Windows XP Nutzbar?
 * geht es auch ohne ODBC?
 
-* Encoding der Meldung nach UTF8 Konvertieren
+* TODO: Rename: "Courses" in "Import Courses..."
+* TODO: Überall wo ein neues Fenster aufgeht "..." ergänzen.
 
-* TODO: Import phone_number from csv Meldung -> Spaltenummer an Anke senden.
 * TODO: Hauptanzeige: die automatisch zugeordnete Bahn anzeigen
 
 * TODO: Startbahn-Zuorder, über eine Vorauswahl oder Nachprüfung und neu Zuordnung wie "Change Course"
         * aktuelle Bahnzuordnung pro Team
         * für eine Vorstartlösung: noch eine nächste Bahnzuorndung, die dann automatisch zur akuellen wird
 
-* TODO: File / export winner list (2023 als test exporieren)
+* TODO: ExportWinnerList aus Datenbank füllen (2023 als test exporieren)
 
 * Datenbank Diagramm erstellen, ausdrucken
 
 * FIXME: Teamnamen nicht änderbar, von der Oberfläche!
 * FIXME: Jahrgang beim Team mit Anzeigen unänderbar
-
-* TODO: Anzeige welche Bahnen ein Team schon gelaufen ist
-* TODO: Anzeige welche Bahnen ein Team noch nicht gelaufen ist
-        * welche akutell möglich sind (für eine Vorstart-Lösung) 
-        * Kartenausgaben am Sonntag, nach Zielschluss: Team x Bahn Matrix.. Restbahnen pro Team oder Bahnen mit Teamnummern (ausdruck)
-* TODO: Prüfen, ob mehrfach gelaufe Bahnen nur einmal gezählt werden. 
-
 
 * TODO: Buttons umbennen, was sie machen
    * "Change Course"

@@ -1461,12 +1461,14 @@ namespace h24
                 var winObjs = new List<WinnerEntries>() {
                     new WinnerEntries {
                         Platz = 1,
-                        Wechsel = 39,
-                        Zeit = "21:14:06",
-                        StartNr = 42,
-                        Name = "Sommernachtstraum",
-                        Klasse = "24h - Hauptlauf",
-                        Name1 = "Müller, Philipp",
+                        Wechsel = 39, // dbo.v_teams_results.legs_count
+                        Zeit = "21:14:06", // dbo.v_teams_results.race_time
+                        StartNr = 42,  //  dbo.v_teams_results.team_nr
+                        Name = "Sommernachtstraum", // dbo.v_teams_results.team_name
+                        Klasse = "24h - Hauptlauf", // dbo.v_teams_results.cat_name
+
+                        // über dbo.v_teams_results.team_id sollte ich dann die Name rausbekommen.
+                        Name1 = "Müller, Philipp", // competitors.comp_name 
                         Name2="Bader, Leif",
                         Name3="Döllgast, Moritz",
                         Name4="Bader, Anne",
