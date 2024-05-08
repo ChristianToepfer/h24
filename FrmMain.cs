@@ -23,6 +23,9 @@ using System.Configuration;
 using System.Collections.Specialized;
 using Timer = System.Threading.Timer;
 using Serilog;
+using CsvHelper;
+using System.Globalization;
+using CsvHelper.Configuration;
 
 namespace h24
 {
@@ -1417,6 +1420,70 @@ namespace h24
 
         }
 
+        class WinnerEntries
+        {
+            public int Platz { get; set; }
+            public int Wechsel { get; set; }
+            public string Zeit { get; set; }
+            public int StartNr { get; set; }
+            public string Name { get; set; }
+            public string Klasse { get; set; }
+            public string Name1 { get; set; }
+            public string Name2 { get; set; }
+            public string Name3 { get; set; }
+            public string Name4 { get; set; }
+            public string Name5 { get; set; }
+            public string Name6 { get; set; }
+        }
+
+        private void exportWinnerMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFile = new SaveFileDialog
+            {
+                Title = "Winner Export List",
+                DefaultExt = "csv",
+                Filter = "txt files (*.csv)|*.csv",
+                RestoreDirectory = true,
+            };
+
+            if (saveFile.ShowDialog() == DialogResult.OK)
+            {
+                var config = new CsvConfiguration(CultureInfo.InvariantCulture)
+                {
+                    PrepareHeaderForMatch = args => args.Header.ToLower(),
+                    Delimiter = ";",
+                    Encoding = Encoding.UTF8,
+                    HeaderValidated = null,
+                    MissingFieldFound = null,
+                };
+
+                // Platz;Wechsel;Zeit;StartNr;Name;Klasse;Name1;Name2;Name3;Name4;Name5;Name6
+                var winObjs = new List<WinnerEntries>() {
+                    new WinnerEntries {
+                        Platz = 1,
+                        Wechsel = 39,
+                        Zeit = "21:14:06",
+                        StartNr = 42,
+                        Name = "Sommernachtstraum",
+                        Klasse = "24h - Hauptlauf",
+                        Name1 = "Müller, Philipp",
+                        Name2="Bader, Leif",
+                        Name3="Döllgast, Moritz",
+                        Name4="Bader, Anne",
+                        Name5="Kretzschmar, Matthias",
+                        Name6="Schubert, Helene"
+                    }
+                };
+
+                // UTF8 with BOM, that Excel handle it correct. CT_08Mai24
+                var writer = new StreamWriter(saveFile.FileName, false, new UTF8Encoding(true));
+
+                using (var csv = new CsvWriter(writer, config))
+                {
+                    csv.WriteRecords(winObjs);
+                }
+            }
+        }
 
 
         /*
