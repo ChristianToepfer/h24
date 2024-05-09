@@ -1457,26 +1457,39 @@ namespace h24
                     MissingFieldFound = null,
                 };
 
-                // Platz;Wechsel;Zeit;StartNr;Name;Klasse;Name1;Name2;Name3;Name4;Name5;Name6
-                var winObjs = new List<WinnerEntries>() {
-                    new WinnerEntries {
-                        Platz = 1,
-                        Wechsel = 39, // dbo.v_teams_results.legs_count
-                        Zeit = "21:14:06", // dbo.v_teams_results.race_time
-                        StartNr = 42,  //  dbo.v_teams_results.team_nr
-                        Name = "Sommernachtstraum", // dbo.v_teams_results.team_name
-                        Klasse = "24h - Hauptlauf", // dbo.v_teams_results.cat_name
+                var winObjs = new List<WinnerEntries>();
+                using (var db = new klc01())
+                {
+                    // BUG: Return the first row again for each row
+                    var team_res = db.v_teams_results.Where(b => b.res_pos <7).ToList();
+                    foreach (var tr in team_res)
+                    {
+                        // Platz;Wechsel;Zeit;StartNr;Name;Klasse;Name1;Name2;Name3;Name4;Name5;Name6
+                        WinnerEntries obj = new WinnerEntries
+                        {
+                            Platz = (int)tr.res_pos.Value,
+                            Wechsel = tr.legs_count.Value,
+                            StartNr = tr.team_nr.Value,
+                            Name = tr.team_name,
+                            Klasse = tr.cat_name,
+                        };
 
-                        // über dbo.v_teams_results.team_id sollte ich dann die Name rausbekommen.
-                        Name1 = "Müller, Philipp", // competitors.comp_name 
-                        Name2="Bader, Leif",
-                        Name3="Döllgast, Moritz",
-                        Name4="Bader, Anne",
-                        Name5="Kretzschmar, Matthias",
-                        Name6="Schubert, Helene"
+                        var category = db.categories.Where(b => b.cat_name == tr.cat_name).FirstOrDefault();
+                        obj.Zeit = (tr.race_time - category.cat_start_time).ToString();
+
+                        List<string> Team;
+                        Team = db.competitors.Where(b => b.team_id == tr.team_id).Select(s => s.comp_name).ToList();
+
+                        obj.Name1 = Team[0];
+                        obj.Name2 = Team[1];
+                        if (Team.Count > 2) obj.Name3 = Team[2];
+                        if (Team.Count > 3) obj.Name4 = Team[3];
+                        if (Team.Count > 4) obj.Name5 = Team[4];
+                        if (Team.Count > 5) obj.Name6 = Team[5];
+                        winObjs.Add(obj);
                     }
-                };
-
+                }
+                
                 // UTF8 with BOM, that Excel handle it correct. CT_08Mai24
                 var writer = new StreamWriter(saveFile.FileName, false, new UTF8Encoding(true));
 
