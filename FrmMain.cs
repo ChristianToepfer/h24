@@ -1500,6 +1500,89 @@ namespace h24
             }
         }
 
+        class OpenCoursesEntries
+        {
+            public int TNr { get; set; }
+            public string TeamName { get; set; }
+            public int Cnt { get; set; }
+            public string OpenCourses { get; set; }            
+        }
+
+        private void exportOpenCoursesMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFile = new SaveFileDialog
+            {
+                Title = "Open Courses List",
+                DefaultExt = "csv",                
+                Filter = "txt files (*.csv)|*.csv",
+                RestoreDirectory = true,
+            };
+
+            // default name with time version
+            saveFile.FileName = "open_courses_" + DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
+
+            if (saveFile.ShowDialog() == DialogResult.OK)
+            {
+                var config = new CsvConfiguration(CultureInfo.InvariantCulture)
+                {
+                    PrepareHeaderForMatch = args => args.Header.ToLower(),
+                    Delimiter = ";",
+                    Encoding = Encoding.UTF8,
+                    HeaderValidated = null,
+                    MissingFieldFound = null,
+                };
+
+                var openObjs = new List<OpenCoursesEntries>();
+
+                using (var db = new klc01())
+                {
+                    List<teams> AllTeams = db.teams.ToList();
+                    foreach (var team in AllTeams)
+                    {
+                        var category = db.categories.Where(b => b.cat_id == team.cat_id).FirstOrDefault();
+                        OpenCoursesEntries ocobj = new OpenCoursesEntries
+                        {
+                            TNr = team.team_nr.Value,
+                            TeamName = team.team_name
+                        };
+
+                        List<string> OpenCoures = new List<string>();
+                        List<courses> AllCourses = db.courses.ToList();
+                        foreach (var course in AllCourses)
+                        {
+                            // HACK: Feste Kategorie Bahnzuordnung hart über den Bahnnamen
+                            //   TODO: course.time_limit  und 6,12 oder 24 * 60 importieren
+                            if (course.course_name.Left(2) == "SF") // Startbahnen
+                                continue;
+                            if (course.course_name == "WDRN") // duStartbahnen
+                                continue;
+                            if (course.course_name.Contains("C") && (category.cat_time_limit > 360)) // Kinderbahn, > 6h, 360min
+                                continue;
+                            if (course.course_name.Contains("N") && (category.cat_time_limit != 1440)) // nur 24h Bahnen
+                                continue;
+                            if ((course.course_name == "FF") && (category.cat_time_limit != 1440)) // nur 24h Bahnen
+                                continue;
+
+                            var slip = db.slips.Where(c => c.course_id == course.course_id && c.team_id == team.team_id).FirstOrDefault();
+                            if (slip == null)
+                                OpenCoures.Add(course.course_name);
+                        }
+
+                        ocobj.Cnt = OpenCoures.Count();
+                        ocobj.OpenCourses = string.Join(" -  ", OpenCoures);
+                        openObjs.Add(ocobj);
+                    }
+                }
+
+                // UTF8 with BOM, that Excel handle it correct. CT_08Mai24
+                var writer = new StreamWriter(saveFile.FileName, false, new UTF8Encoding(true));
+
+                using (var csv = new CsvWriter(writer, config))
+                {
+                    csv.WriteRecords(openObjs);
+                }
+            }
+        }
 
         /*
     private void Refresh_Readout(Object sender, EventArgs e)
