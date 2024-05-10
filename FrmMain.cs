@@ -1556,16 +1556,27 @@ namespace h24
                                 continue;
                             if (course.course_name == "WDRN") // duStartbahnen
                                 continue;
-                            if (course.course_name.Contains("C") && (category.cat_time_limit > 360)) // Kinderbahn, > 6h, 360min
-                                continue;
-                            if (course.course_name.Contains("N") && (category.cat_time_limit != 1440)) // nur 24h Bahnen
-                                continue;
-                            if ((course.course_name == "FF") && (category.cat_time_limit != 1440)) // nur 24h Bahnen
-                                continue;
-
-                            var slip = db.slips.Where(c => c.course_id == course.course_id && c.team_id == team.team_id).FirstOrDefault();
-                            if (slip == null)
-                                OpenCoures.Add(course.course_name);
+                            if (category.cat_time_limit == 360) // Kinderbahn, > 6h, 360min
+                            {
+                                if (course.course_name.Contains("C"))
+                                {
+                                    var slip = db.slips.Where(c => c.course_id == course.course_id && c.team_id == team.team_id).FirstOrDefault();
+                                    if (slip == null)
+                                        OpenCoures.Add(course.course_name);
+                                }
+                            }
+                            else
+                            {
+                                if (course.course_name.Contains("C"))
+                                    continue;
+                                if (course.course_name.Contains("N") && (category.cat_time_limit != 1440)) // nur 24h Bahnen
+                                    continue;
+                                if ((course.course_name == "FF") && (category.cat_time_limit != 1440)) // nur 24h Bahnen
+                                    continue;
+                                var slip = db.slips.Where(c => c.course_id == course.course_id && c.team_id == team.team_id).FirstOrDefault();
+                                if (slip == null)
+                                    OpenCoures.Add(course.course_name);
+                            }
                         }
 
                         ocobj.Cnt = OpenCoures.Count();
