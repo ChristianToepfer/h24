@@ -705,7 +705,7 @@ namespace h24
                 sStamp.chip_id = Int32.Parse(card.Siid);
                 sStamp.control_code = punchData.CodeNumber.ToString();
                 sStamp.control_mode = 2;
-                sStamp.punch_datetime = punchData.PunchDateTime;
+                sStamp.punch_datetime = punchData.PunchDateTime < DateTime.Parse("01/01/1900") ? DateTime.Parse("01/01/1900") : punchData.PunchDateTime;
                 sStamp.punch_wday = punchData.DayOfWeek.ToString();
                 sStamp.punch_index = i;
                 sStamp.as_of_date = DateTime.Now;
