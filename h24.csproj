@@ -163,6 +163,7 @@
     <Compile Include="controls.cs">
       <DependentUpon>klc01.tt</DependentUpon>
     </Compile>
+    <Compile Include="ControlsExtensions.cs" />
     <Compile Include="courses.cs">
       <DependentUpon>klc01.tt</DependentUpon>
     </Compile>
@@ -340,10 +341,16 @@
     <Compile Include="v_comp_teams.cs">
       <DependentUpon>klc01.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_iof_results.cs">
+      <DependentUpon>klc01.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_new_roc_punches.cs">
       <DependentUpon>klc01.tt</DependentUpon>
     </Compile>
     <Compile Include="v_readout_legs.cs">
+      <DependentUpon>klc01.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_rpt_results.cs">
       <DependentUpon>klc01.tt</DependentUpon>
     </Compile>
     <Compile Include="v_teams_results.cs">
@@ -351,6 +358,7 @@
     </Compile>
     <EmbeddedResource Include="frmApiQueue.resx">
       <DependentUpon>frmApiQueue.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmChipNotFound.resx">
       <DependentUpon>frmChipNotFound.cs</DependentUpon>
@@ -401,10 +409,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="rptSlip1.rdlc">
+    <EmbeddedResource Include="rptResults.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="rpt_results.rdlc">
+    <EmbeddedResource Include="rptSlip1.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <None Include="app.config" />

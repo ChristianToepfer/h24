@@ -26,6 +26,7 @@ using Serilog;
 using CsvHelper;
 using System.Globalization;
 using CsvHelper.Configuration;
+using System.Data.Entity.SqlServer;
 
 namespace h24
 {
@@ -486,8 +487,9 @@ namespace h24
             newDevice = new ReaderDeviceInfo(ReaderDeviceType.Textfile, string.Empty);
             newDevice.ListFormat = ListFormat.SiConfigReadout;
 
+            string json_log_path = NewCard.get_config_item("json_log_path") == "" ? @"c:\temp\" : NewCard.get_config_item("json_log_path");
             //var filePath = ConfigurationManager.AppSettings["folderLocation"];
-            newDevice.FilePath = "c:\\Temp\\event.csv";
+            newDevice.FilePath = json_log_path + "event.csv";
 
             try
             {
@@ -539,7 +541,7 @@ namespace h24
         private void Form1_Load(object sender, EventArgs e)
         {
             db = new klc01();
-            dgTeams.DataSource = db.teams.ToList();
+            dgTeams.DataSource = db.teams.OrderBy(c => c.team_nr).ToList();
 
             dgTeams.Columns[1].Width = Properties.Settings.Default.dgTeams_Column1;
             dgTeams.Columns[2].Width = Properties.Settings.Default.dgTeams_Column2;
@@ -599,12 +601,13 @@ namespace h24
         /// <param name="resultId">The new computed resultId</param>
         private async Task NewResultAvailable(SportidentCard card)
         {
+            string json_log_path = NewCard.get_config_item("json_log_path") == "" ? @"c:\temp\" : NewCard.get_config_item("json_log_path");
             try
             {
                 int readout_id = 0;
                 //write punch log
-                string filename = @"c:\temp\card_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".json";
-                string filename_p = @"c:\temp\card_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + "_punches.json";
+                string filename = json_log_path + @"card_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".json";
+                string filename_p = json_log_path + @"card_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + "_punches.json";
                 File.WriteAllText(filename, JsonConvert.SerializeObject(card));
                 File.WriteAllText(filename_p, JsonConvert.SerializeObject(card.ControlPunchList));
                 DateTime cardReadout = card.ReadoutDateTime;
@@ -616,7 +619,6 @@ namespace h24
                 using (var db = new klc01())
                 {
                     //save readout and stamps
-
                     var newReadout = new si_readout
                     {
                         chip_id = card.Siid,
@@ -640,6 +642,8 @@ namespace h24
                         NewCard.HandleNewCard(readout_id);
                         InvokeMethod(() => SetLastBib(readout_id));
 
+                        InvokeMethod(RefreshLegs);
+
                         //print slip
                         if (this.chbPrint.Checked)
                         {
@@ -655,9 +659,6 @@ namespace h24
                                 this.txtInfo.AppendText(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + result.ToString());
                             });
                         }
-
-                        InvokeMethod(RefreshLegs);
-
                     }
                     catch (DbEntityValidationException ex)
                     {
@@ -780,9 +781,6 @@ namespace h24
             {
                 this.LbPenal.ForeColor = System.Drawing.Color.Black;
             }
-
-
-
         }
 
         private void SlipCurrentRow_Click(object sender, EventArgs e)
@@ -830,7 +828,7 @@ namespace h24
             List<slips> slip = null;
             using (var db = new klc01())
             {
-                slip = db.slips.Where(a => a.readout_id == readout_id).ToList();
+                slip = db.slips.Where(a => a.readout_id == readout_id).OrderBy(a => a.punch_index).ToList();
 
                 LocalReport report = new LocalReport();
                 report.ReportPath = @"rptSlip1.rdlc";
@@ -843,17 +841,57 @@ namespace h24
         {
 
             long r;
-            int curRow = dgLegs.CurrentRow.Index;
-            if (curRow > -1)
+            int i = 0;
+
+            List<DataGridViewRow> selectedRows = GetSelectedRows();
+
+            int first_row = selectedRows.LastOrDefault().Index;
+
+            foreach (DataGridViewRow row in selectedRows)
             {
-                int readout_id = Convert.ToInt32(dgLegs.Rows[curRow].Cells["readout_id"].Value);
-                //int leg_id = Convert.ToInt32(dgLegs.Rows[curRow].Cells["leg_id"].Value);
+                // Process each selected row
+                int readout_id = Convert.ToInt32(row.Cells["readout_id"].Value);
+
                 NewCard NewCard = new NewCard();
                 //tady budu muset udelat novou funkci UpdateLeg(leg_id), aby se nepridaval novy leg, ale upravoval ten stavajici...
                 r = NewCard.UpdateLeg(readout_id);
             }
-            RefreshLegs();
-            dgLegs.CurrentCell = dgLegs.Rows[curRow].Cells[1];
+            if (tbSearchReadout.Text.Length > 0)
+            {
+                string search_string = tbSearchReadout.Text;
+                RefreshLegsFiltered(search_string);
+            }
+            else
+            {
+                RefreshLegs();
+            }
+                
+            dgLegs.CurrentCell = dgLegs.Rows[first_row].Cells[1];
+        }
+
+        private List<DataGridViewRow> GetSelectedRows()
+        {
+            List<DataGridViewRow> selectedRows = new List<DataGridViewRow>();
+
+            // Check if there are any selected rows
+            if (dgLegs.SelectedRows.Count > 0)
+            {
+                selectedRows =
+                    (from DataGridViewRow row in dgLegs.SelectedRows
+                     where !row.IsNewRow
+                     orderby row.Index descending
+                     select row).ToList<DataGridViewRow>();
+            }
+            else
+            {
+                // If no row is selected, use the current row (if any)
+                if (dgLegs.CurrentRow != null)
+                {
+                    selectedRows.Add(dgLegs.CurrentRow);
+                }
+            }
+
+            return selectedRows;
         }
 
         private void btnReloadReadoutSelection_Click(object sender, EventArgs e)
@@ -892,7 +930,7 @@ namespace h24
         private void resultsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmResults f = new FrmResults();
-            f.ShowDialog();
+            f.Show();
         }
 
 
@@ -902,7 +940,7 @@ namespace h24
             if (curRow > -1)
             {
                 int readout_id = Convert.ToInt32(dgLegs.Rows[curRow].Cells["readout_id"].Value);
-                string printerName = this.cbPrinter.Text; //"Microsoft Print to PDF";
+                //string printerName = this.cbPrinter.Text; //"Microsoft Print to PDF";
                 this.PrintSlip(readout_id);
             }
         }
@@ -957,21 +995,35 @@ namespace h24
             using (var db = new klc01())
             {
                 tx = txSearch.Text;
-                string q = "SELECT DISTINCT t.* FROM teams AS t " +
-        "INNER JOIN competitors AS c ON t.team_id = c.team_id " +
-         " WHERE t.team_name LIKE '%" + tx + "%'" +
-        " OR c.comp_name LIKE '%" + tx + "%'" +
-        " OR c.bib LIKE '%" + tx + "%'" +
-        " OR cast(c.comp_chip_id as varchar(10)) LIKE '%" + tx + "%'";
-                var tms = db.teams.SqlQuery(q).ToList();
+                //TODO change to linq
+                var query = (
+                        from t in db.teams
+                        join c in db.competitors on t.team_id equals c.team_id
+                        where c.comp_name.Contains(tx)
+                            || t.team_name.Contains(tx)
+                            || c.bib.Contains(tx)
+                            || SqlFunctions.StringConvert((double)c.comp_chip_id).Contains(tx)
+                        select new
+                        {
+                            t.team_id,
+                            t.team_name,
+                            t.team_nr,
+                            t.team_status,
+                            t.team_did_start,
+                            t.race_end
+                        });
+
+                var orderedTeams = query
+                    .Distinct()
+                    .OrderBy(t=> t.team_nr)
+                    .ToList();
+
+                var tms = orderedTeams;
 
                 dgTeams.DataSource = tms;
                 dgTeams.Refresh();
-
             }
-
         }
-
 
         private void txSearch_TextChanged(object sender, EventArgs e)
         {
@@ -990,12 +1042,12 @@ namespace h24
         }
 
 
-        private void button3_Click(object sender, EventArgs e)
+/*        private void button3_Click(object sender, EventArgs e)
         {
             int readout_id = 80;
-            string printerName = this.cbPrinter.Text; //"Microsoft Print to PDF";
+            //string printerName = this.cbPrinter.Text; //"Microsoft Print to PDF";
             this.PrintSlip(readout_id);
-        }
+        }*/
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -1057,6 +1109,8 @@ namespace h24
         {
             long r;
             int curRow = dgLegs.CurrentRow.Index;
+            string wdrn_course = NewCard.get_config_item("wdrn_course");
+            int wdrn_course_id = db.courses.Where(b => b.course_name == wdrn_course).Select(b => b.course_id).First();
             if (curRow > -1)
             {
                 int comp_id = Convert.ToInt32(dgLegs.Rows[curRow].Cells["comp_id"].Value);
@@ -1069,6 +1123,7 @@ namespace h24
                         join ct in db.competitors on c.team_id equals ct.team_id
                         join l in db.legs on ct.comp_id equals l.comp_id
                         where c.comp_id == comp_id
+                            && l.course_id != wdrn_course_id
                         select new
                         {
                             readout_id = l.readout_id != null ? l.readout_id : 0,
@@ -1087,22 +1142,75 @@ namespace h24
                         }
                     }
                 }
-                RefreshLegs();
+                if (tbSearchReadout.Text.Length > 0)
+                {
+                    string search_string = tbSearchReadout.Text;
+                    RefreshLegsFiltered(search_string);
+                }
+                else
+                {
+                    RefreshLegs();
+                }
+
+                dgLegs.CurrentCell = dgLegs.Rows[curRow].Cells[1];
+
             }
         }
 
         private async void btnPostSlip_Click(object sender, EventArgs e)
         {
+            Log.Information("btnPostSlip_Click");
             int curRow = dgLegs.CurrentRow.Index;
             if (curRow > -1)
             {
                 int readout_id = Convert.ToInt32(dgLegs.Rows[curRow].Cells["readout_id"].Value);
 
                 NewCard NewCard = new NewCard();
+Log.Information("pred PostSlip");
+                //var result = await NewCard.PostSlip2(readout_id);
                 var result = await NewCard.PostSlip(readout_id);
                 this.txtInfo.AppendText(Environment.NewLine);
                 this.txtInfo.AppendText(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + result.ToString());
             }
+        }
+
+        private async void btPostTeam_Click(object sender, EventArgs e)
+        {
+            Log.Information("btnPostSlip_Click");
+            int curRow = dgLegs.CurrentRow.Index;
+            if (curRow > -1)
+            {
+                int comp_id = Convert.ToInt32(dgLegs.Rows[curRow].Cells["comp_id"].Value);
+
+                var query = (
+                    from c in db.competitors
+                    join co in db.competitors on c.team_id equals co.team_id
+                    join l in db.legs on co.comp_id equals l.comp_id
+                    where c.comp_id == comp_id
+                    select new
+                    {
+                        readout_id = l.readout_id != null ? l.readout_id : 0,
+                        l.finish_dtime
+                    } into selection
+                    orderby selection.finish_dtime
+                    select new { selection.readout_id, selection.finish_dtime });
+                var readout_ids = query.ToList();
+                int i = 0;
+                //var timeout = DateTime.Now.AddHours(-11);
+
+                foreach (var readout in readout_ids)
+                {
+                    if ((readout.readout_id ?? 0) == 0) continue;
+                    NewCard NewCard = new NewCard();
+                    var result = await NewCard.PostSlip(readout.readout_id.Value);
+                    this.txtInfo.AppendText(Environment.NewLine);
+                    this.txtInfo.AppendText(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + result.ToString());
+                    i++;
+                    System.Threading.Thread.Sleep(500);
+                }
+                MessageBox.Show("Sent " + i + " legs");
+            }
+
         }
 
         private void btn_change_competitor_Click(object sender, EventArgs e)
@@ -1130,8 +1238,12 @@ namespace h24
             int curRowComp = dgCompetitors.CurrentRow.Index;
             int comp_id = Convert.ToInt32(dgCompetitors.Rows[curRowComp].Cells["competitor_id"].Value);
             db.SaveChanges();
-            _ = NewCard.PostEntries(team_id);
-            _ = NewCard.PostCompetitors(comp_id);
+            if (cbPost_Slips.Checked)
+            {
+                NewCard NewCard = new NewCard();
+                _ = NewCard.PostEntries(team_id);
+                _ = NewCard.PostCompetitors(comp_id);
+            }
         }
 
         private void btnResults_Click(object sender, EventArgs e)
@@ -1142,6 +1254,7 @@ namespace h24
 
         private void btnWithdrawn_Click(object sender, EventArgs e)
         {
+            string wdrn_course = NewCard.get_config_item("wdrn_course");
             int curRow = dgCompetitors.CurrentRow.Index;
             if (curRow > -1)
             {
@@ -1178,7 +1291,7 @@ namespace h24
                             //insert fake leg with 0 time and 30' penalty
                             int dsk_penalty_min = 0;
 
-                            int course_id = db.courses.Where(b => b.course_name == "WDRN").Select(b => b.course_id).First();
+                            int course_id = db.courses.Where(b => b.course_name == wdrn_course).Select(b => b.course_id).First();
                             int team_id = (int)result.team_id;
                             if (db.competitors.Where(b => b.team_id == team_id && b.comp_withdrawn == true).Count() > 1)
                             {
@@ -1216,7 +1329,7 @@ namespace h24
                             db.SaveChanges();
 
                             //remove fake slip
-                            int course_id = db.courses.Where(b => b.course_name == "WDRN").Select(b => b.course_id).First();
+                            int course_id = db.courses.Where(b => b.course_name == wdrn_course).Select(b => b.course_id).First();
                             slips oldSlip = db.slips.Where(b => b.comp_id == comp_id && b.course_id == course_id).First();
                             int leg_id = oldSlip.leg_id;
                             int readout_id = oldSlip.readout_id;
@@ -1261,7 +1374,11 @@ namespace h24
                 m.MenuItems.Add(new MenuItem("Delete", new System.EventHandler(this.btn_delete_leg_Click)));
                 m.MenuItems.Add(new MenuItem("Reload All", new System.EventHandler(this.btReloadAll_Click)));
                 m.MenuItems.Add(new MenuItem("Change Status", new System.EventHandler(this.btChangeStatus_Click)));
-
+                m.MenuItems.Add(new MenuItem("Post All", new System.EventHandler(this.BtnPostAll_Click)));
+                m.MenuItems.Add(new MenuItem("Post Team", new System.EventHandler(this.btPostTeam_Click)));
+                m.MenuItems.Add(new MenuItem("Post Slip", new System.EventHandler(this.btnPostSlip_Click)));
+                
+                
                 /*
                                 int currentMouseOverRow = dgLegs.HitTest(e.X, e.Y).RowIndex;
 
@@ -1284,8 +1401,12 @@ namespace h24
 
         private async void BtnPostAll_Click(object sender, EventArgs e)
         {
+            int i = 0;
 
-            var query = (
+            DialogResult dResult = MessageBox.Show("Really send ALL slips?", "Send All", MessageBoxButtons.YesNo);
+            if (dResult == DialogResult.Yes)
+            {
+                var query = (
                 from l in db.legs
                 select new
                 {
@@ -1294,21 +1415,22 @@ namespace h24
                 } into selection
                 orderby selection.finish_dtime
                 select new { selection.readout_id, selection.finish_dtime });
-            var readout_ids = query.ToList();
-            int i = 0;
-            var timeout = DateTime.Now.AddHours(-11);
+                var readout_ids = query.ToList();
 
-            foreach (var readout in readout_ids)
-            {
-                if ((readout.readout_id ?? 0) == 0) continue;
-                NewCard NewCard = new NewCard();
-                var result = await NewCard.PostSlip(readout.readout_id.Value);
-                this.txtInfo.AppendText(Environment.NewLine);
-                this.txtInfo.AppendText(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + result.ToString());
-                i++;
-                System.Threading.Thread.Sleep(500);
-            }
+                var timeout = DateTime.Now.AddHours(-11);
+
+                foreach (var readout in readout_ids)
+                {
+                    if ((readout.readout_id ?? 0) == 0) continue;
+                    NewCard NewCard = new NewCard();
+                    var result = await NewCard.PostSlip(readout.readout_id.Value);
+                    this.txtInfo.AppendText(Environment.NewLine);
+                    this.txtInfo.AppendText(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + result.ToString());
+                    i++;
+                    System.Threading.Thread.Sleep(500);
+                }
             MessageBox.Show("Sent " + i + " legs");
+            }
         }
 
         private void FrmMain_Resize(object sender, EventArgs e)
@@ -1373,7 +1495,11 @@ namespace h24
             int curRow = dgTeams.CurrentRow.Index;
             int team_id = Convert.ToInt32(dgTeams.Rows[curRow].Cells["team_id"].Value);
             db.SaveChanges();
-            _ = NewCard.PostEntries(team_id);
+            if (cbPost_Slips.Checked)
+            {
+                NewCard NewCard = new NewCard();
+                _ = NewCard.PostEntries(team_id);
+            }
         }
 
         private void tbSearchReadout_TextChanged(object sender, EventArgs e)
@@ -1382,22 +1508,28 @@ namespace h24
             if (tbSearchReadout.Text.Length > 0)
             {
                 search_string = tbSearchReadout.Text;
-                using (var db = new klc01())
-                {
-                    var query = db.v_readout_legs.OrderByDescending(x => x.readout_id).Where(
-                        x=> x.team.Contains(search_string)
-                    || x.comp_name.Contains(search_string)
-                    || x.bib.Contains(search_string)
-                    || x.chip_id.ToString().Contains(search_string)
-                    || x.course_name.Contains(search_string))
-                        .ToList();
-                    dgLegs.DataSource = query;
-                    dgLegs.Update();
-                    dgLegs.Refresh();
-                    dgLegs.Columns["card_readout_datetime"].DefaultCellStyle.Format = "dd. MM. yyyy HH:mm:ss";
-                }
+                RefreshLegsFiltered(search_string);
             }
         }
+
+        private void RefreshLegsFiltered(string search_string)
+        {
+            using (var db = new klc01())
+            {
+                var query = db.v_readout_legs.OrderByDescending(x => x.readout_id).Where(
+                    x => x.team.Contains(search_string)
+                || x.comp_name.Contains(search_string)
+                || x.bib.Contains(search_string)
+                || x.chip_id.ToString().Contains(search_string)
+                || x.course_name.Contains(search_string))
+                    .ToList();
+                dgLegs.DataSource = query;
+                dgLegs.Update();
+                dgLegs.Refresh();
+                dgLegs.Columns["card_readout_datetime"].DefaultCellStyle.Format = "dd. MM. yyyy HH:mm:ss";
+            }
+        }
+
 
         private void btReadot_cancel_Click(object sender, EventArgs e)
         {
@@ -1435,6 +1567,32 @@ namespace h24
             public string Name5 { get; set; }
             public string Name6 { get; set; }
         }
+        private void btnTopSearchBottom_Click(object sender, EventArgs e)
+        {
+            if(txSearch.Text.Length > 0)
+            {
+                tbSearchReadout.Text = txSearch.Text;
+                RefreshLegsFiltered(tbSearchReadout.Text);
+            }
+        }
+
+        private void btFilterReadout_Click(object sender, EventArgs e)
+        {
+            int curRow = dgTeams.CurrentRow.Index;
+            int team_id = Convert.ToInt32(dgTeams.Rows[curRow].Cells["team_id"].Value);
+            using (var db = new klc01())
+            {
+                var query = db.v_readout_legs.OrderByDescending(x => x.readout_id).Where(
+                    x => x.team_id == team_id)
+                    .ToList();
+                dgLegs.DataSource = query;
+                dgLegs.Update();
+                dgLegs.Refresh();
+            }
+        }
+
+
+
 
         private void exportWinnerMenuItem_Click(object sender, EventArgs e)
         {

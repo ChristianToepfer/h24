@@ -60,7 +60,8 @@
             this.entriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.legsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aPIRequestsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.resultsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.afterRaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resultsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.dgCompetitors = new System.Windows.Forms.DataGridView();
             this.comp_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comp_chip_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,8 +71,6 @@
             this.dgTeams = new System.Windows.Forms.DataGridView();
             this.phone_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtDisplaySlip = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.dgLegs = new System.Windows.Forms.DataGridView();
             this.chip_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.card_readout_datetime = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -97,6 +96,8 @@
             this.btnWithdrawn = new System.Windows.Forms.Button();
             this.btnRefreshLegs = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnTopSearchBottom = new System.Windows.Forms.Button();
+            this.btFilterReadout = new System.Windows.Forms.Button();
             this.BtnPostAll = new System.Windows.Forms.Button();
             this.LbLastBib = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -109,6 +110,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btReadot_cancel = new System.Windows.Forms.Button();
             this.btChangeStatus = new System.Windows.Forms.Button();
+            this.btPostTeam = new System.Windows.Forms.Button();
             this.readout_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.start_time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.leg_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -194,6 +196,8 @@
             // chbPrint
             // 
             this.chbPrint.AutoSize = true;
+            this.chbPrint.Checked = true;
+            this.chbPrint.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chbPrint.Location = new System.Drawing.Point(15, 103);
             this.chbPrint.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chbPrint.Name = "chbPrint";
@@ -253,7 +257,8 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 598);
+            this.panel2.Location = new System.Drawing.Point(0, 920);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1155, 42);
             this.panel2.TabIndex = 101;
@@ -263,9 +268,11 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.txtInfo);
-            this.groupBox1.Location = new System.Drawing.Point(70, 499);
+            this.groupBox1.Location = new System.Drawing.Point(14, 768);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1072, 93);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox1.Size = new System.Drawing.Size(1700, 143);
             this.groupBox1.TabIndex = 102;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Info box";
@@ -287,7 +294,8 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.courseSetupToolStripMenuItem});
+            this.courseSetupToolStripMenuItem,
+            this.afterRaceToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
@@ -326,8 +334,7 @@
             this.coursesToolStripMenuItem,
             this.entriesToolStripMenuItem,
             this.legsToolStripMenuItem,
-            this.aPIRequestsToolStripMenuItem,
-            this.resultsToolStripMenuItem});
+            this.aPIRequestsToolStripMenuItem});
             this.courseSetupToolStripMenuItem.Name = "courseSetupToolStripMenuItem";
             this.courseSetupToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
             this.courseSetupToolStripMenuItem.Text = "Race Setup";
@@ -374,12 +381,20 @@
             this.aPIRequestsToolStripMenuItem.Text = "API Requests";
             this.aPIRequestsToolStripMenuItem.Click += new System.EventHandler(this.aPIRequestsToolStripMenuItem_Click);
             // 
-            // resultsToolStripMenuItem
+            // afterRaceToolStripMenuItem
             // 
-            this.resultsToolStripMenuItem.Name = "resultsToolStripMenuItem";
-            this.resultsToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
-            this.resultsToolStripMenuItem.Text = "Results";
-            this.resultsToolStripMenuItem.Click += new System.EventHandler(this.resultsToolStripMenuItem_Click);
+            this.afterRaceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.resultsToolStripMenuItem1});
+            this.afterRaceToolStripMenuItem.Name = "afterRaceToolStripMenuItem";
+            this.afterRaceToolStripMenuItem.Size = new System.Drawing.Size(109, 30);
+            this.afterRaceToolStripMenuItem.Text = "After Race";
+            // 
+            // resultsToolStripMenuItem1
+            // 
+            this.resultsToolStripMenuItem1.Name = "resultsToolStripMenuItem1";
+            this.resultsToolStripMenuItem1.Size = new System.Drawing.Size(169, 34);
+            this.resultsToolStripMenuItem1.Text = "Results";
+            this.resultsToolStripMenuItem1.Click += new System.EventHandler(this.resultsToolStripMenuItem_Click);
             // 
             // dgCompetitors
             // 
@@ -538,7 +553,7 @@
             this.phone_number.HeaderText = "phone_number";
             this.phone_number.MinimumWidth = 8;
             this.phone_number.Name = "phone_number";
-            this.phone_number.Width = 103;
+            this.phone_number.Width = 153;
             // 
             // BtDisplaySlip
             // 
@@ -778,7 +793,6 @@
             this.btnPrintSlip.Text = "Print";
             this.toolTip1.SetToolTip(this.btnPrintSlip, "Print Slip on Printer");
             this.btnPrintSlip.UseVisualStyleBackColor = true;
-            this.btnPrintSlip.Visible = false;
             this.btnPrintSlip.Click += new System.EventHandler(this.btnPrintSlip_Click);
             // 
             // txSearch
@@ -822,7 +836,7 @@
             this.btReloadAll.Name = "btReloadAll";
             this.btReloadAll.Size = new System.Drawing.Size(44, 19);
             this.btReloadAll.TabIndex = 114;
-            this.btReloadAll.Text = "R All";
+            this.btReloadAll.Text = "R Team";
             this.toolTip1.SetToolTip(this.btReloadAll, "Reload whole Team");
             this.btReloadAll.UseVisualStyleBackColor = true;
             this.btReloadAll.Click += new System.EventHandler(this.btReloadAll_Click);
@@ -886,6 +900,28 @@
             this.btnRefreshLegs.Text = "Refresh";
             this.btnRefreshLegs.UseVisualStyleBackColor = true;
             this.btnRefreshLegs.Click += new System.EventHandler(this.btnRefreshLegs_Click);
+            // 
+            // btnTopSearchBottom
+            // 
+            this.btnTopSearchBottom.Location = new System.Drawing.Point(387, 655);
+            this.btnTopSearchBottom.Name = "btnTopSearchBottom";
+            this.btnTopSearchBottom.Size = new System.Drawing.Size(34, 48);
+            this.btnTopSearchBottom.TabIndex = 132;
+            this.btnTopSearchBottom.Text = " |\r\nV";
+            this.toolTip1.SetToolTip(this.btnTopSearchBottom, "Copy Search text to Search Readout");
+            this.btnTopSearchBottom.UseVisualStyleBackColor = true;
+            this.btnTopSearchBottom.Click += new System.EventHandler(this.btnTopSearchBottom_Click);
+            // 
+            // btFilterReadout
+            // 
+            this.btFilterReadout.Location = new System.Drawing.Point(532, 655);
+            this.btFilterReadout.Name = "btFilterReadout";
+            this.btFilterReadout.Size = new System.Drawing.Size(54, 38);
+            this.btFilterReadout.TabIndex = 133;
+            this.btFilterReadout.Text = "-->";
+            this.toolTip1.SetToolTip(this.btFilterReadout, "Filters Readout list by team selected on TopLeft");
+            this.btFilterReadout.UseVisualStyleBackColor = true;
+            this.btFilterReadout.Click += new System.EventHandler(this.btFilterReadout_Click);
             // 
             // BtnPostAll
             // 
@@ -1019,7 +1055,7 @@
             this.btReadot_cancel.Name = "btReadot_cancel";
             this.btReadot_cancel.Size = new System.Drawing.Size(18, 18);
             this.btReadot_cancel.TabIndex = 130;
-            this.btReadot_cancel.Text = "x";
+            this.btReadot_cancel.Text = "X";
             this.btReadot_cancel.UseVisualStyleBackColor = true;
             this.btReadot_cancel.Click += new System.EventHandler(this.btReadot_cancel_Click);
             // 
@@ -1034,6 +1070,17 @@
             this.btChangeStatus.Text = "Status";
             this.btChangeStatus.UseVisualStyleBackColor = true;
             this.btChangeStatus.Click += new System.EventHandler(this.btChangeStatus_Click);
+            // 
+            // btPostTeam
+            // 
+            this.btPostTeam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btPostTeam.Location = new System.Drawing.Point(855, 428);
+            this.btPostTeam.Name = "btPostTeam";
+            this.btPostTeam.Size = new System.Drawing.Size(102, 29);
+            this.btPostTeam.TabIndex = 134;
+            this.btPostTeam.Text = "Post Team";
+            this.btPostTeam.UseVisualStyleBackColor = true;
+            this.btPostTeam.Click += new System.EventHandler(this.btPostTeam_Click);
             // 
             // readout_id
             // 
@@ -1276,7 +1323,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1155, 640);
+            this.ClientSize = new System.Drawing.Size(1732, 985);
+            this.Controls.Add(this.btPostTeam);
+            this.Controls.Add(this.btFilterReadout);
+            this.Controls.Add(this.btnTopSearchBottom);
             this.Controls.Add(this.btChangeStatus);
             this.Controls.Add(this.btReadot_cancel);
             this.Controls.Add(this.label1);
@@ -1298,8 +1348,6 @@
             this.Controls.Add(this.btnPrintSlip);
             this.Controls.Add(this.btnReloadReadout);
             this.Controls.Add(this.dgLegs);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.BtDisplaySlip);
             this.Controls.Add(this.dgTeams);
             this.Controls.Add(this.dgCompetitors);
@@ -1308,7 +1356,8 @@
             this.Controls.Add(this.grpInputDevice);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.MinimumSize = new System.Drawing.Size(606, 499);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MinimumSize = new System.Drawing.Size(898, 668);
             this.Name = "FrmMain";
             this.Text = "h24";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -1356,8 +1405,6 @@
         private System.Windows.Forms.Button BtDisplaySlip;
         private System.Windows.Forms.CheckBox chbPrint;
         public System.Windows.Forms.ComboBox cbPrinter;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dgLegs;
         private System.Windows.Forms.BindingSource legsBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
@@ -1403,7 +1450,6 @@
         private System.Windows.Forms.Label LbPenal;
         private System.Windows.Forms.Label LbStatus;
         private System.Windows.Forms.Button btnClearSearch;
-        private System.Windows.Forms.ToolStripMenuItem resultsToolStripMenuItem;
         private System.Windows.Forms.CheckBox cbQueueProcess;
         private System.Windows.Forms.ToolStripMenuItem aPIRequestsToolStripMenuItem;
         private System.Windows.Forms.Button button2;
@@ -1434,6 +1480,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn phone_number;
         private System.Windows.Forms.ToolStripMenuItem exportWinnerMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportOpenCoursesMenuItem;
+        private System.Windows.Forms.Button btnTopSearchBottom;
+        private System.Windows.Forms.Button btFilterReadout;
+        private System.Windows.Forms.Button btPostTeam;
+        private System.Windows.Forms.ToolStripMenuItem afterRaceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem resultsToolStripMenuItem1;
     }
 }
 

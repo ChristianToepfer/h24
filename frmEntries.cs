@@ -323,9 +323,10 @@ namespace h24
                              ca.cat_name,
                              ca.cat_start_time,
                              ca.cat_time_limit
-                         }).OrderBy(x => x.team_id).ToList();
+                         }).OrderBy(x => x.team_id);
 
-            dgEntries.DataSource = db.v_comp_teams.ToList();
+            //dgEntries.DataSource = db.v_comp_teams.ToList();
+            dgEntries.DataSource = query.ToList();
             dgEntries.Refresh();
 
         }
@@ -367,12 +368,13 @@ namespace h24
             string token = await getAccessToken;
             MessageBox.Show("response:" + token);
             */
+            NewCard NewCard = new NewCard();
             if (this.ChbTruncate.Checked)
             {
                 _ = NewCard.TruncateEntries();
                 _ = NewCard.TruncateCompetitors();
             }
-                
+
             _ = NewCard.PostEntries();
             _ = NewCard.PostCompetitors();
         }
@@ -708,6 +710,7 @@ namespace h24
             MessageBox.Show("Inserted: " + a.ToString());
 
             db.Database.ExecuteSqlCommand("TRUNCATE TABLE entry_xml");
+            dgEntries_refresh();
         }
 
         private void BtInsertCatagories_Click(object sender, EventArgs e)

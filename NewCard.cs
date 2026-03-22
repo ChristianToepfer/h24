@@ -12,6 +12,12 @@ using System.IO;
 using System.Net.Http.Headers;
 using System.Xml.Linq;
 using Serilog;
+using System.Data.Entity;
+using System.Runtime.Remoting.Contexts;
+using System.Reflection;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
+using System.Security.Policy;
+using Microsoft.Reporting.WebForms;
 
 namespace h24
 {
@@ -44,7 +50,7 @@ namespace h24
             {
                 //chip not found
                 frmChipNotFound f2 = new frmChipNotFound(chip_id_s);
-                f2.ShowDialog();
+                f2.ShowDialogOnTop();
                 competitor_id = this.GetRunnerByCardId(chip_id_s);
             }
             //insert leg
@@ -83,7 +89,7 @@ namespace h24
                     action = "I";
 
                 if (query.comp_id == 0)
-                    competitor_id = db.competitors.First(a => a.comp_chip_id == chip_id).comp_id;
+                    competitor_id = db.competitors.First(x => x.comp_chip_id == chip_id).comp_id;
                 else
                     competitor_id = query.comp_id;
 
@@ -96,13 +102,14 @@ namespace h24
                 //TODO - tohle nejak nefunguje
                 //var aaa = db.sp_upsert_legs(readout_id, competitor_id, course_id, guessed_course, action);
                 leg_id = int.Parse(db.sp_upsert_legs(readout_id, competitor_id, course_id, guessed_course, action).FirstOrDefault().ToString());
+                int a = ApplyLegException(leg_id);
                 int y = UpdateTeamRaceEnd(competitor_id);
             }
 
             int slip_id = this.InsertSlip(leg_id);
 
             //
-            //_ = PostSlip(readout_id);
+            _ = PostSlip(readout_id);
             return 0; //processedResult;
         }
 
@@ -127,10 +134,54 @@ namespace h24
 
         }
 
+        /*public static bool IsASubsequenceOfB(List<int> A, List<int> B)
+        {
+            int aIndex = 0;
+            int bIndex = 0;
+
+            while (aIndex < A.Count && bIndex < B.Count)
+            {
+                if (A[aIndex] == B[bIndex])
+                {
+                    aIndex++;
+                    bIndex++;
+                }
+                else
+                {
+                    bIndex++;
+                }
+            }
+
+            return aIndex == A.Count;
+        }
+
+        public static bool IsBInCorrectOrder(List<int> A, List<int> B)
+        {
+            int aIndex = 0;
+            int bIndex = 0;
+
+            while (bIndex < B.Count)
+            {
+                if (aIndex < A.Count && A[aIndex] == B[bIndex])
+                {
+                    aIndex++;
+                    bIndex++;
+                }
+                else
+                {
+                    bIndex++;
+                }
+            }
+
+            return aIndex == A.Count;
+        }
+        */
+
         public List<int> GuessCourse(int readout_id)
         {
             using (var db = new klc01())
             {
+                //TODO rewwrite here
                 var a = db.sp_guess_course(readout_id);//.FirstOrDefault();
                 return a.Where(x => x != null).Cast<int>().ToList();
                 //return b;
@@ -173,7 +224,7 @@ namespace h24
                             int course_id_from_slips = db.slips.Where(b => b.readout_id == readout_id).Select(s => s.course_id).FirstOrDefault();
                             //unknown course
                             frmCourseNotFound frm = new frmCourseNotFound(competitor_id, readout_id, course_id_from_slips);
-                            frm.ShowDialog();
+                            frm.ShowDialogOnTop();
                             course_id = frm.course;
                             frm.course = 0;
                         }
@@ -203,6 +254,58 @@ namespace h24
 
         }
 
+        public int UpsertLeg( int readout_id, int competitor_id, int course_id, int guessed_course, string action)
+        {
+            int dsk_penalty = int.Parse(get_config_item("dsk_penalty"));
+
+            using (var db = new klc01())
+            {
+                //
+                var query = from co in db.competitors
+                             join t in db.teams on co.team_id equals t.team_id
+                             join ca in db.categories on t.cat_id equals ca.cat_id
+                             where co.comp_id == competitor_id
+                             select new {
+                                 ca.force_order,
+                                 ca.cat_start_time,
+                                 t.team_id
+                             };
+                var result = query.FirstOrDefault();
+                bool force_order = (bool)result.force_order;
+                DateTime start_time = (DateTime)result.cat_start_time;
+                int team_id = (int)result.team_id;
+
+                //previous finish + previous competitor
+                /*var query_legs_teams = from l in db.legs
+                                       join co in db.competitors on l.comp_id equals co.comp_id
+                                       where co.team_id == team_id;
+                //if force_order
+                */
+
+
+                /*
+                 			INSERT INTO dbo.legs
+			(
+                INSERT INTO dbo.legs
+			(
+				comp_id,
+				course_id,
+				readout_id,
+				start_dtime,
+				start_time,
+				finish_dtime,
+				finish_time,
+				leg_status,
+				dsk_penalty,
+				valid_flag
+			)
+                 */
+
+            }
+            int leg_id = 0;
+
+            return leg_id;
+        }
 
         public int InsertLeg(int readout_id, int competitor_id, out int guessed_course)
         {
@@ -236,6 +339,30 @@ namespace h24
             }
         }
 
+        public static int ApplyLegException(int leg_id)
+        {
+            int i = 0;
+            using (var db = new klc01())
+            {
+                //legs leg = db.legs.Where(x => x.leg_id == leg_id).FirstOrDefault();
+                var legsUpdate = from l in db.legs
+                                 join le in db.leg_exceptions
+                                 on l.leg_id equals le.leg_id
+                                 where l.leg_id == leg_id
+                                 select new { Legs = l, ex_leg_status = le.ex_leg_status, ex_dsk_penalty = le.ex_dsk_penalty, ex_valid_flag = le.ex_valid_flag };
+            
+                foreach(var item in legsUpdate)
+                {
+                    item.Legs.leg_status = item.ex_leg_status;
+                    item.Legs.dsk_penalty = item.ex_dsk_penalty;
+                    item.Legs.valid_flag = item.ex_valid_flag;
+                    i++;
+                }
+                db.SaveChanges();
+            }
+            return i;
+        }
+
         public static int UpdateTeamRaceEnd(int competitor_id)
         {
             using (var db = new klc01())
@@ -243,6 +370,7 @@ namespace h24
                 try
                 {
                     int cnt = int.Parse(db.update_team_race_end(competitor_id).ToString());
+                    //int cnt = int.Parse(db.update_team_race_end_increment(competitor_id).ToString());
                     return cnt;
                 }
                 catch (Exception ex)
@@ -355,14 +483,16 @@ namespace h24
 
         }
 
-        public static async Task TruncateEntries()
+        public async Task TruncateEntries()
         {
             using (var db = new klc01())
             {
                 HttpClient client = new HttpClient();
-                string live_entries = get_config_item("live_entries_truncate");
+                string live_entries_truncate = get_config_item("live_entries_truncate");
                 string live_urls = get_config_item("live_url");
                 string pwd = get_config_item("live_password");
+                string q_status_in_progress = get_config_item("q_status_in_progress");
+                string q_status_failed = get_config_item("q_status_failed");
 
                 string[] urls = live_urls.Split(';');
                 string json = "{\"truncate\":\"yes\"," +
@@ -370,31 +500,28 @@ namespace h24
 
                 foreach (string oneUrl in urls)
                 {
-                    string url_truncate = oneUrl + live_entries;
+                    int q_id = Insert_api_queue(oneUrl + live_entries_truncate, json, q_status_in_progress, null);
 
-                    //make request
-                    StringContent httpContent = new StringContent(json, Encoding.UTF8, "application/json");
-
-                    HttpResponseMessage response = await client.PostAsync(url_truncate, httpContent);
                     try
                     {
-                        response.EnsureSuccessStatusCode();
+                        api_queue api_queue_request = db.api_queue.FirstOrDefault(a => a.q_id == q_id);
+                        //fire queue processing
+                        bool success = await SendApiRequest(api_queue_request);
                     }
-                    catch
+                    catch (Exception e)
                     {
-                        MessageBox.Show("ERR EnsureSuccessStatusCode truncate");
-                        return;
+                        UpdateApiRequestStatus(q_id, q_status_failed);
                     }
-
-                    string info = await response.Content.ReadAsStringAsync();
-                    MessageBox.Show("API response: " + info);
                 }
             }
         }
 
-        public static async Task PostEntries(int team = -1)
+        public async Task PostEntries(int team = -1)
         {
             int i = 0;
+            //int q_id = 0;
+
+            string json_log_path = get_config_item("json_log_path") == "" ? @"c:\temp\" : get_config_item("json_log_path");
             using (var db = new klc01())
             {
                 List<int> AllTeams;
@@ -412,9 +539,10 @@ namespace h24
                 if (AllTeams.Count > 0)
                 {
                     //send all entries
-                    HttpClient client = new HttpClient();
                     string live_urls = get_config_item("live_url");
                     string live_entries = get_config_item("live_entries");
+                    string q_status_in_progress = get_config_item("q_status_in_progress");
+                    string q_status_failed = get_config_item("q_status_failed");
 
                     string[] urls = live_urls.Split(';');
                     string entry;
@@ -423,47 +551,42 @@ namespace h24
                     {
                         entry = db.get_one_entry_json(team_id).FirstOrDefault();
 
-                        string filename = @"c:\temp\entry_post_" + team_id + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".json";
+                        string filename = json_log_path + @"entry_post_" + team_id + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".json";
                         File.WriteAllText(filename, entry);
 
                         foreach (string oneUrl in urls)
                         {
-                            string url_entries = oneUrl + live_entries;
+                            int q_id = Insert_api_queue(oneUrl + live_entries, entry != null ? entry : "", q_status_in_progress, null);
+                            Insert_api_queue_link(q_id, "entry", team_id);
 
-                            //var data = new FormUrlEncodedContent(entry);
-                            var entry_content = new StringContent(
-                                entry,
-                                System.Text.Encoding.UTF8,
-                                "application/json"
-                                );
-                            HttpResponseMessage response = await client.PostAsync(url_entries, entry_content);
                             try
                             {
-                                response.EnsureSuccessStatusCode();
+                                api_queue api_queue_request = db.api_queue.FirstOrDefault(a => a.q_id == q_id);
+                                //fire queue processing
+                                bool success = await SendApiRequest(api_queue_request);
                             }
-                            catch
+                            catch (Exception e)
                             {
-                                MessageBox.Show("ERR EnsureSuccessStatusCode post");
-                                return;
+                                UpdateApiRequestStatus(q_id, q_status_failed);
                             }
-
-                            var result = await response.Content.ReadAsStringAsync();
-                            i++;
                         }
+
                     }
                 }
             }
             //return i;
         }
 
-        public static async Task TruncateCompetitors()
+        public async Task TruncateCompetitors()
         {
             using (var db = new klc01())
             {
                 HttpClient client = new HttpClient();
-                string live_competitors = get_config_item("live_competitors_truncate");
+                string live_competitors_truncate = get_config_item("live_competitors_truncate");
                 string live_urls = get_config_item("live_url");
                 string pwd = get_config_item("live_password");
+                string q_status_in_progress = get_config_item("q_status_in_progress");
+                string q_status_failed = get_config_item("q_status_failed");
 
                 string[] urls = live_urls.Split(';');
                 string json = "{\"truncate\":\"yes\"," +
@@ -471,31 +594,28 @@ namespace h24
 
                 foreach (string oneUrl in urls)
                 {
-                    string url_truncate = oneUrl + live_competitors;
+                    int q_id = Insert_api_queue(oneUrl + live_competitors_truncate, json, q_status_in_progress, null);
 
-                    //make request
-                    StringContent httpContent = new StringContent(json, Encoding.UTF8, "application/json");
-
-                    HttpResponseMessage response = await client.PostAsync(url_truncate, httpContent);
                     try
                     {
-                        response.EnsureSuccessStatusCode();
+                        api_queue api_queue_request = db.api_queue.FirstOrDefault(a => a.q_id == q_id);
+                        //fire queue processing
+                        bool success = await SendApiRequest(api_queue_request);
                     }
-                    catch
+                    catch (Exception e)
                     {
-                        MessageBox.Show("ERR EnsureSuccessStatusCode truncate");
-                        return;
+                        UpdateApiRequestStatus(q_id, q_status_failed);
                     }
-
-                    string info = await response.Content.ReadAsStringAsync();
-                    MessageBox.Show("API response: " + info);
                 }
             }
         }
 
-        public static async Task PostCompetitors(int comp = -1)
+        public async Task PostCompetitors(int comp = -1)
         {
             int i = 0;
+            //int q_id = 0;
+
+            string json_log_path = get_config_item("json_log_path") == "" ? @"c:\temp\" : get_config_item("json_log_path");
             using (var db = new klc01())
             {
                 List<int> AllTeams;
@@ -513,9 +633,10 @@ namespace h24
                 if (AllTeams.Count > 0)
                 {
                     //send all entries
-                    HttpClient client = new HttpClient();
                     string live_urls = get_config_item("live_url");
                     string live_competitors = get_config_item("live_competitors");
+                    string q_status_in_progress = get_config_item("q_status_in_progress");
+                    string q_status_failed = get_config_item("q_status_failed");
 
                     string[] urls = live_urls.Split(';');
                     string entry;
@@ -524,32 +645,24 @@ namespace h24
                     {
                         entry = db.get_one_competitor_json(comp_id).FirstOrDefault();
 
-                        string filename = @"c:\temp\comp_post_" + comp_id + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".json";
+                        string filename = json_log_path + @"comp_post_" + comp_id + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".json";
                         File.WriteAllText(filename, entry);
 
                         foreach (string oneUrl in urls)
                         {
-                            string url_competitors = oneUrl + live_competitors;
+                            int q_id = Insert_api_queue(oneUrl + live_competitors, entry != null ? entry : "", q_status_in_progress, null);
+                            Insert_api_queue_link(q_id, "competitors", comp_id);
 
-                            //var data = new FormUrlEncodedContent(entry);
-                            var entry_content = new StringContent(
-                                entry,
-                                System.Text.Encoding.UTF8,
-                                "application/json"
-                                );
-                            HttpResponseMessage response = await client.PostAsync(url_competitors, entry_content);
                             try
                             {
-                                response.EnsureSuccessStatusCode();
+                                api_queue api_queue_request = db.api_queue.FirstOrDefault(a => a.q_id == q_id);
+                                //fire queue processing
+                                bool success = await SendApiRequest(api_queue_request);
                             }
-                            catch
+                            catch (Exception e)
                             {
-                                MessageBox.Show("ERR EnsureSuccessStatusCode post");
-                                return;
+                                UpdateApiRequestStatus(q_id, q_status_failed);
                             }
-
-                            var result = await response.Content.ReadAsStringAsync();
-                            i++;
                         }
                     }
                 }
@@ -561,6 +674,7 @@ namespace h24
         public async static Task<string> OrisGetEntries()
         {
             string result;
+            string json_log_path = get_config_item("json_log_path") == "" ? @"c:\temp\" : get_config_item("json_log_path");
             using (var db = new klc01())
             {
                 //get entries from Oris
@@ -581,7 +695,7 @@ namespace h24
 
                 result = await response.Content.ReadAsStringAsync();
 
-                string filename = @"c:\temp\oris_entries_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".xml";
+                string filename = json_log_path + @"oris_entries_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".xml";
                 File.WriteAllText(filename, result);
 
             }
@@ -674,6 +788,12 @@ namespace h24
 
             Log.Information("request "+ request.q_content);
             //send
+            //HttpClientHandler _httpHandler = new HttpClientHandler();
+            //var _httpHandler = new HttpClientHandler();
+            /*_httpHandler.Proxy = null;
+            _httpHandler.UseProxy = false;
+            _httpHandler.AutomaticDecompression = System.Net.DecompressionMethods.GZip;*/
+            //HttpClient client = new HttpClient(_httpHandler);
             HttpClient client = new HttpClient();
             HttpContent content = new StringContent(
             request.q_content,
@@ -753,6 +873,7 @@ namespace h24
         public async Task<string> PostSlip(int readout_id)
         {
             Log.Information("PostSlip " + readout_id);
+            string json_log_path = get_config_item("json_log_path") == "" ? @"c:\temp\" : get_config_item("json_log_path");
             //insert record to queue
             using (var db = new klc01())
             {
@@ -762,7 +883,7 @@ namespace h24
                 OneSlip = db.get_slip_json(readout_id).FirstOrDefault();
 
                 //write punch log
-                string filename = @"c:\temp\slip_post_" + readout_id + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".json";
+                string filename = json_log_path + @"slip_post_" + readout_id + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".json";
                 File.WriteAllText(filename, OneSlip);
 
                 string live_urls = get_config_item("live_url");
@@ -794,6 +915,7 @@ namespace h24
         public string CheckNewROC()
         {
             Log.Information("CheckNewROC");
+            string json_log_path = get_config_item("json_log_path") == "" ? @"c:\temp\" : get_config_item("json_log_path");
             //insert record to queue
             using (var db = new klc01())
             {
@@ -807,6 +929,28 @@ namespace h24
                 string q_status_new = get_config_item("q_status_new");
 
                 var new_punches = db.v_new_roc_punches.ToList();
+                /* TODO: this query works, but I don't know how to pass the result to Insert_queue_SMS
+                 * var query = from p in db.roc_punches
+                                join c in db.competitors on p.ChipNr equals c.comp_chip_id
+                                join t in db.teams on c.team_id equals t.team_id
+                                join ca in db.categories on t.cat_id equals ca.cat_id
+                             where p.status == null && DbFunctions.AddMinutes(p.as_of_date, 5) > DateTime.Now
+                             select new
+                             {
+                                 record_id = p.p_id,
+                                 control_code = p.CodeNr,
+                                 chip_id = p.ChipNr,
+                                 punch_date = p.PunchTime,
+                                 ca.cat_name,
+                                 t.team_nr,
+                                 t.team_name,
+                                 c.comp_name,
+                                 c.bib,
+                                 t.phone_number
+                             };
+                var resultList = query.ToList();*/
+
+
                 int i = 0;
                 foreach (var punch in new_punches)
                 {
@@ -827,9 +971,9 @@ namespace h24
                         "\", \"comp_name\":\"" + punch.comp_name +
                         "\", \"comp_bib\":\"" + punch.bib + "\"}";
 
-                    filename = @"c:\temp\roc_post_" + i + "_" + punch.chip_id + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".json";
+                    filename = json_log_path + @"roc_post_" + i + "_" + punch.chip_id + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".json";
                     if (File.Exists(filename))
-                        filename = @"c:\temp\roc_post_" + i + "_" + punch.chip_id + "a_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".json";
+                        filename = json_log_path + @"roc_post_" + i + "_" + punch.chip_id + "a_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".json";
                     //File.Delete(filename);
                     try
                     {
@@ -838,7 +982,7 @@ namespace h24
                     catch (Exception e)
                     {
                         Log.Error("ERROR: CheckNewROC " + e.Message);
-                        MessageBox.Show("CheckNewROC " + e.Message);
+                        //MessageBox.Show("CheckNewROC " + e.Message);
                     }
 
                     //different servers
@@ -1106,13 +1250,16 @@ namespace h24
                 }
         */
 
-        public static async Task TruncateLegs()
+        public async Task TruncateLegs()
         {
             using (var db = new klc01())
             {
                 HttpClient client = new HttpClient();
-                string live_legs = get_config_item("live_legs_truncate");
+                string live_legs_truncate = get_config_item("live_legs_truncate");
                 string live_urls = get_config_item("live_url");
+                string q_status_in_progress = get_config_item("q_status_in_progress");
+                string q_status_failed = get_config_item("q_status_failed");
+
                 string[] urls = live_urls.Split(';');
                 string pwd = get_config_item("live_password");
                 string json = "{\"truncate\":\"yes\"," +
@@ -1120,24 +1267,18 @@ namespace h24
 
                 foreach (string oneUrl in urls)
                 {
-                    string url_truncate = oneUrl + live_legs;
+                    int q_id = Insert_api_queue(oneUrl + live_legs_truncate, json, q_status_in_progress, null);
 
-                    //make request
-                    StringContent httpContent = new StringContent(json, Encoding.UTF8, "application/json");
-
-                    HttpResponseMessage response = await client.PostAsync(url_truncate, httpContent);
                     try
                     {
-                        response.EnsureSuccessStatusCode();
+                        api_queue api_queue_request = db.api_queue.FirstOrDefault(a => a.q_id == q_id);
+                        //fire queue processing
+                        bool success = await SendApiRequest(api_queue_request);
                     }
-                    catch
+                    catch (Exception e)
                     {
-                        MessageBox.Show("ERR EnsureSuccessStatusCode truncate");
-                        return;
+                        UpdateApiRequestStatus(q_id, q_status_failed);
                     }
-
-                    string info = await response.Content.ReadAsStringAsync();
-                    MessageBox.Show("API response: " + info);
                 }
             }
         }
@@ -1208,5 +1349,84 @@ namespace h24
                 }
             }
         }
+
+
+
+
+
+        public async Task<string> PostSlip2(int readout_id)
+        {
+            Log.Information("PostSlip " + readout_id);
+            string json_log_path = get_config_item("json_log_path") == "" ? @"c:\temp\" : get_config_item("json_log_path");
+            //insert record to queue
+            using (var db = new klc01())
+            {
+                string OneSlip;
+                int q_id = 0;
+
+                OneSlip = db.get_slip_json(readout_id).FirstOrDefault();
+
+                //write punch log
+                string filename = json_log_path + @"slip_post_" + readout_id + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".json";
+                File.WriteAllText(filename, OneSlip);
+
+                string live_urls = get_config_item("live_url");
+                string url_slips = get_config_item("live_slips");
+                string q_status_failed = get_config_item("q_status_failed");
+
+                string[] urls = live_urls.Split(';');
+                foreach (string oneUrl in urls)
+                {
+                    try
+                    {
+                        //fire queue processing
+                        bool success = await SendApiRequest2(readout_id, oneUrl + url_slips, OneSlip != null ? OneSlip : "");
+                    }
+                    catch (Exception e)
+                    {
+                        Log.Error(q_id.ToString() + " " + q_status_failed + "; " + $"Sending error: {e.Message}");
+                    }
+                }
+                return "";
+            }
+        }
+
+
+        public async Task<bool> SendApiRequest2(int readout_id, string url, string slip_json)
+        {
+            Log.Information("SendApiRequest2 " + readout_id);
+            Log.Information("request " + slip_json);
+            //send
+            /*HttpClientHandler _httpHandler = new HttpClientHandler();
+            _httpHandler.Proxy = null;
+            _httpHandler.UseProxy = false;
+            _httpHandler.AutomaticDecompression = System.Net.DecompressionMethods.GZip;
+            HttpClient client = new HttpClient(_httpHandler);*/
+            HttpClient client = new HttpClient();
+            HttpContent content = new StringContent(
+            slip_json,
+            System.Text.Encoding.UTF8,
+            "application/json"
+            );
+            string oneResponse = "";
+
+            Log.Information("before PostAsync");
+            var response = await client.PostAsync(url, content);
+            try
+            {
+                response.EnsureSuccessStatusCode();
+                oneResponse = await response.Content.ReadAsStringAsync();
+                Log.Information(readout_id + ": response= " + oneResponse);
+                return true;
+            }
+            catch (Exception e)
+            {
+
+                oneResponse = response.Content.ReadAsStringAsync().Result;
+                Log.Error(url + " " + response.Content.ReadAsStringAsync().Result + "; " + $"Sending error: {e.Message}");
+                return false;
+            }
+        }
+
     }
 }

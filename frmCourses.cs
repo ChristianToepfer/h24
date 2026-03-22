@@ -83,6 +83,7 @@ namespace h24
                     int k = 0;
                     string courseName = "";
                     float courseLength = 0;
+                    int courseClimb = 0;
 
                     List<course_codes> controlCodes = new List<course_codes>();
 
@@ -102,12 +103,22 @@ namespace h24
                             {
                                 courseLength = float.Parse(control) * 1000;
                             }
-                            else if (i > 2)
+                            else if (i == 4)
                             {
-                                cCode.control_id = control;
-                                cCode.position = k;
-                                cCode.as_of_date = DateTime.Now;
-                                controlCodes.Add(cCode);
+                                courseClimb = int.Parse(control, CultureInfo.InvariantCulture.NumberFormat);
+                            }
+                            else if ((i > 4) && (i % 2 == 1))
+                            {
+                                //List<string> lst = new List<string>() { "31", "32", "33", "34", "35" };
+                                List<string> lst = new List<string>() { };
+                                if (!lst.Contains(control))
+                                {
+                                    cCode.control_id = control;
+                                    cCode.position = k;
+                                    cCode.as_of_date = DateTime.Now;
+                                    controlCodes.Add(cCode);
+                                    k++;
+                                }
 
                                 Cnt.control_id = control;
                                 if (control == "Z1")
@@ -122,7 +133,6 @@ namespace h24
                                     db.controls.Add(Cnt);
                                     db.SaveChanges();
                                 }
-                                k++;
                             }
                             i++;
                         }
@@ -133,6 +143,7 @@ namespace h24
                             course_name = courseName,
                             course_length = Convert.ToInt32(courseLength),
                             control_count = k,
+                            course_climb = courseClimb,
                             as_of_date = DateTime.Now,
                             course_codes = controlCodes
                         };
@@ -158,7 +169,7 @@ namespace h24
 
             courses newCourse = new courses
             {
-                course_name = "WDRN",
+                course_name = wdrn_course,
                 as_of_date = DateTime.Now
             };
 
@@ -220,6 +231,23 @@ namespace h24
                 }*/
             }
 
+        }
+
+        private void btDeleteCourses_Click(object sender, EventArgs e)
+        {
+            if (this.cbDelete.Checked)
+            {
+                using (var db = new klc01())
+                {
+                    db.Database.ExecuteSqlCommand("truncate table dbo.course_codes");
+                    db.Database.ExecuteSqlCommand("delete FROM dbo.courses");
+                    this.dgCourses.Refresh();
+                }
+            }
+            else
+            {
+                MessageBox.Show("No checkbox checked!");
+            }
         }
     }
 }
