@@ -1,10 +1,45 @@
 # h24
 
+## TODO 2026
+* Git abgleich
+* Läuferreihenfolge, mit erstem Durchlauf definieren? Machbar
+
+* Sytemzeit der verschieden Rechner abgleichen. Datenbankzeit abrufbar?
+
+* Läuferlisten für Johannes, dir Bug das immer alles ausgeben wurde.
+### Sicherung der DB während des Wettkampfes
+Mach wohl keinen Sinn..
+besser wäre es die Datenbank einmal mit dem Start zu sichern.
+dann sollten einträge in ein Logfile, auf extra Platte, wieviel ist das etwa?
+dann diese einträge Importieren
+Jeder rechner selbst.
+
+### Auslesefenster erweitern: Fehler anzeige, Laufzeit anzeigen, Gelochte Posten vs. Zu lochende Posten, manuelle Bahnzuordnung ermöglichen
+### Dokumentation von Läuferausfällen und Bahnkorrekturen mit Zeitstempel und Bearbeiter
+* Logbuch
+
+## Sprechersoftware
+* Mit dem Posten 100 könnte der Läufer angesagt werden, aber nicht die Zeit oder irgendwas mehr.
+  * Die Bahn müsste am Start schon zugeordnet werden.
+* Zugriff auf Liveergebnisse, das was der Läufer nicht bekommen sollte
+
+# Läuferanzeige
+* Líve Zuggriff kümmert sich Jürgen
+* Fehlt nur noch den Läufer aus der Datenbank rauszusuchen
+   * mit Python oder Java-Script, dirket die Datenbank abfragen.
+
+## Checkliste
+* USV + Kabel
+* Switch + Kabel
+* Netzwerk Kabeltrommel
+* Rechner
+
 ## Aufbau
 
 * Server ohne Auslesen, nur für Netzwerkausfall im Ziel.
 
 ## Installation
+
 
 ### Datenbank
 
@@ -52,6 +87,7 @@ Alle Änderungen sind direkte Datenbankänderungen, kein extra Abfragebox oder B
 
 ### Courses Info vs. Import
 
+* TODO: weclche ZeEinheit hat.... cat_time_limit
   * Welche Bahnen gelaufen sind gehört in Hauptfenster +  Anzahl der Wechsel
   * File / Print Open Courses... (Wenn offene Bahnen direkt im Hauptfenster angezeigt werden verwirrt das zu sehr!)
     * Drucken Vorschauen:.. startnummer Eingabe, nächste Startnummern Butten. Print All von bis
@@ -74,6 +110,9 @@ Alle Änderungen sind direkte Datenbankänderungen, kein extra Abfragebox oder B
 
 
 ## TODO
+
+* Meldeliste
+
 * Windows XP Nutzbar?
 * geht es auch ohne ODBC?
 
@@ -86,7 +125,8 @@ Alle Änderungen sind direkte Datenbankänderungen, kein extra Abfragebox oder B
         * aktuelle Bahnzuordnung pro Team
         * für eine Vorstartlösung: noch eine nächste Bahnzuorndung, die dann automatisch zur akuellen wird
 
-* TODO: ExportWinnerList aus Datenbank füllen (2023 als test exporieren)
+* FIXME: ExportWinnerList wiederholt immer die erste spalter
+* TODO: Gesamtstreckenlänge sollte doch mit auf der Urkunde stehen?
 
 * Datenbank Diagramm erstellen, ausdrucken
 
