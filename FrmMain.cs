@@ -1659,11 +1659,12 @@ Log.Information("pred PostSlip");
         }
 
         class OpenCoursesEntries
-        {
+        {            
             public int TNr { get; set; }
+            public string Finish { get; set; }
             public string TeamName { get; set; }
             public int Cnt { get; set; }
-            public string OpenCourses { get; set; }            
+            public string OpenCourses { get; set; }
         }
 
         private void exportOpenCoursesMenuItem_Click(object sender, EventArgs e)
@@ -1676,11 +1677,33 @@ Log.Information("pred PostSlip");
                 RestoreDirectory = true,
             };
 
+            var hgone = 6;
+            var dura = DateTime.Now.Subtract((DateTime)db.categories.FirstOrDefault().cat_start_time).TotalMinutes;
+            if (dura > 1440)
+                hgone = 24;
+            else
+                if (dura > 720)
+                    hgone = 12;
+             
             // default name with time version
-            saveFile.FileName = "open_courses_" + DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
+            var oc_name = "open_courses_";                    
+            saveFile.FileName = oc_name + hgone + "h_" + DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
 
             if (saveFile.ShowDialog() == DialogResult.OK)
             {
+                var time_limit = 0; // export all
+                int i1 = saveFile.FileName.IndexOf(oc_name) + oc_name.Length;
+                int i2 = saveFile.FileName.IndexOf("h_",i1);
+                try
+                {   if (i2>i1)
+                        time_limit = Int32.Parse(saveFile.FileName.Substring(i1, i2 - i1)) * 60;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);                    
+                }
+                
+              
                 var config = new CsvConfiguration(CultureInfo.InvariantCulture)
                 {
                     PrepareHeaderForMatch = args => args.Header.ToLower(),
@@ -1698,6 +1721,9 @@ Log.Information("pred PostSlip");
                     foreach (var team in AllTeams)
                     {
                         var category = db.categories.Where(b => b.cat_id == team.cat_id).FirstOrDefault();
+                        if ((time_limit !=0) && (category.cat_time_limit != time_limit))
+                            continue;
+                        DateTime ftime = (DateTime)category.cat_start_time;
                         OpenCoursesEntries ocobj = new OpenCoursesEntries
                         {
                             TNr = team.team_nr.Value,
@@ -1708,8 +1734,12 @@ Log.Information("pred PostSlip");
                         List<courses> AllCourses = db.courses.ToList();
                         foreach (var course in AllCourses)
                         {
-                            // HACK: Feste Kategorie Bahnzuordnung hart über den Bahnnamen
-                            //   TODO: course.time_limit  und 6,12 oder 24 * 60 importieren
+                            // Feste Kategorie Bahnzuordnung hart über den Bahnnamen
+                            // Mit einer time_limit Angabe pro Bahn: 360, 720+ und nur 1440
+                            // könnte man es mit einer Zahl ausdrücken, was aber erst noch eingeplegt
+                            // werden müsste, nicht nur in die Datenbank sondern auch beim Import
+                            // Was aber eine neue Fehlerquelle hervorbringt, also lieber bei der
+                            // Namenslogik bleiben, die sich hoffentlich nicht ändert. CT_07Apr26
                             if (course.course_name.Left(2) == "SF") // Startbahnen
                                 continue;
                             if (course.course_name == "WDRN") // duStartbahnen
@@ -1721,11 +1751,16 @@ Log.Information("pred PostSlip");
                                     var slip = db.slips.Where(c => c.course_id == course.course_id && c.team_id == team.team_id).FirstOrDefault();
                                     if (slip == null)
                                         OpenCoures.Add(course.course_name);
+                                    else
+                                    {
+                                        if (slip.finish_dtime > ftime)
+                                            ftime = (DateTime)slip.finish_dtime;
+                                    }
                                 }
                             }
-                            else
+                            else // 12 oder 24h 
                             {
-                                if (course.course_name.Contains("C"))
+                                if (course.course_name.Contains("C"))  // Kinderbahnen hier überspringen
                                     continue;
                                 if (course.course_name.Contains("N") && (category.cat_time_limit != 1440)) // nur 24h Bahnen
                                     continue;
@@ -1734,15 +1769,21 @@ Log.Information("pred PostSlip");
                                 var slip = db.slips.Where(c => c.course_id == course.course_id && c.team_id == team.team_id).FirstOrDefault();
                                 if (slip == null)
                                     OpenCoures.Add(course.course_name);
+                                else
+                                {
+                                    if (slip.finish_dtime > ftime)
+                                        ftime = (DateTime)slip.finish_dtime;
+                                }                                                        
                             }
                         }
 
                         ocobj.Cnt = OpenCoures.Count();
+                        ocobj.Finish = ftime.ToShortTimeString();
                         ocobj.OpenCourses = string.Join(" -  ", OpenCoures);
                         openObjs.Add(ocobj);
                     }
                 }
-
+                
                 // UTF8 with BOM, that Excel handle it correct. CT_08Mai24
                 var writer = new StreamWriter(saveFile.FileName, false, new UTF8Encoding(true));
 
