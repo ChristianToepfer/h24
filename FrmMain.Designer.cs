@@ -57,6 +57,8 @@
             this.coursesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.entriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.legsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.afterRaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resultsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aPIRequestsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dgCompetitors = new System.Windows.Forms.DataGridView();
             this.competitor_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -134,33 +136,6 @@
             this.tbSearchReadout = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btReadot_cancel = new System.Windows.Forms.Button();
-            this.readout_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.start_time = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.leg_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dsk_penalty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comp_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.leg_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.legsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.team_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.teamsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.competitor_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bibDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.compvalidflagDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.compstatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.teamidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.compclubDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rankorderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.compregDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.compcountryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.compbirthdayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.asofdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.teamsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.legsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.competitorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.grpInputDevice.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -1514,13 +1489,6 @@
             this.afterRaceToolStripMenuItem.Name = "afterRaceToolStripMenuItem";
             this.afterRaceToolStripMenuItem.Size = new System.Drawing.Size(109, 29);
             this.afterRaceToolStripMenuItem.Text = "After Race";
-            // 
-            // resultsToolStripMenuItem1
-            // 
-            this.resultsToolStripMenuItem1.Name = "resultsToolStripMenuItem1";
-            this.resultsToolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
-            this.resultsToolStripMenuItem1.Text = "Results";
-            this.resultsToolStripMenuItem1.Click += new System.EventHandler(this.resultsToolStripMenuItem_Click);
             // 
             // FrmMain
             // 
