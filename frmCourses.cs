@@ -73,6 +73,14 @@ namespace h24
                 // Read a text file line by line.  
                 string[] lines = File.ReadAllLines(textFile);
 
+                // Parse excluded controls from tbExcludedControls only if cbExclude is checked
+                List<string> excludedControls = this.cbExclude.Checked
+                    ? this.tbExcludedControls.Text
+                        .Split(new string[] { ";" }, StringSplitOptions.RemoveEmptyEntries)
+                        .Select(c => c.Trim())
+                        .ToList()
+                    : new List<string>();
+
                 foreach (string line in lines)
                 {
                     string[] controls = line.Split(new string[] { ";" }, StringSplitOptions.None);
@@ -109,9 +117,7 @@ namespace h24
                             }
                             else if ((i > 4) && (i % 2 == 1))
                             {
-                                //List<string> lst = new List<string>() { "31", "32", "33", "34", "35" };
-                                List<string> lst = new List<string>() { };
-                                if (!lst.Contains(control))
+                                if (!excludedControls.Contains(control))
                                 {
                                     cCode.control_id = control;
                                     cCode.position = k;
@@ -239,6 +245,7 @@ namespace h24
             {
                 using (var db = new klc01())
                 {
+                    db.Database.ExecuteSqlCommand("truncate table dbo.legs");
                     db.Database.ExecuteSqlCommand("truncate table dbo.course_codes");
                     db.Database.ExecuteSqlCommand("delete FROM dbo.courses");
                     this.dgCourses.Refresh();
@@ -249,5 +256,6 @@ namespace h24
                 MessageBox.Show("No checkbox checked!");
             }
         }
+
     }
 }

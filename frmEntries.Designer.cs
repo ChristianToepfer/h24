@@ -32,6 +32,7 @@ namespace h24
             this.components = new System.ComponentModel.Container();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btMapXls = new System.Windows.Forms.Button();
             this.BtnUploadFileXml = new System.Windows.Forms.Button();
             this.BtEntryRefresh = new System.Windows.Forms.Button();
             this.BtInsertCatagories = new System.Windows.Forms.Button();
@@ -110,6 +111,7 @@ namespace h24
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btMapXls);
             this.groupBox1.Controls.Add(this.BtnUploadFileXml);
             this.groupBox1.Controls.Add(this.BtEntryRefresh);
             this.groupBox1.Controls.Add(this.BtInsertCatagories);
@@ -132,6 +134,17 @@ namespace h24
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Upload Entries";
+            // 
+            // btMapXls
+            // 
+            this.btMapXls.Location = new System.Drawing.Point(635, 31);
+            this.btMapXls.Name = "btMapXls";
+            this.btMapXls.Size = new System.Drawing.Size(116, 34);
+            this.btMapXls.TabIndex = 22;
+            this.btMapXls.Text = "Map XLS";
+            this.btMapXls.UseVisualStyleBackColor = true;
+            this.btMapXls.Visible = false;
+            this.btMapXls.Click += new System.EventHandler(this.btMapXls_Click);
             // 
             // BtnUploadFileXml
             // 
@@ -346,7 +359,7 @@ namespace h24
             // 
             // TbOrisId
             // 
-            this.TbOrisId.Location = new System.Drawing.Point(954, 38);
+            this.TbOrisId.Location = new System.Drawing.Point(954, 31);
             this.TbOrisId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TbOrisId.Name = "TbOrisId";
             this.TbOrisId.Size = new System.Drawing.Size(130, 26);
@@ -357,7 +370,7 @@ namespace h24
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(859, 41);
+            this.label2.Location = new System.Drawing.Point(859, 34);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 20);
             this.label2.TabIndex = 15;
@@ -366,7 +379,7 @@ namespace h24
             // 
             // BtnFetchOrisXML
             // 
-            this.BtnFetchOrisXML.Location = new System.Drawing.Point(1125, 36);
+            this.BtnFetchOrisXML.Location = new System.Drawing.Point(1125, 29);
             this.BtnFetchOrisXML.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BtnFetchOrisXML.Name = "BtnFetchOrisXML";
             this.BtnFetchOrisXML.Size = new System.Drawing.Size(141, 29);
@@ -832,5 +845,6 @@ namespace h24
         private System.Windows.Forms.DataGridViewTextBoxColumn cat_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn cat_start_time;
         private System.Windows.Forms.DataGridViewTextBoxColumn cat_time_limit;
+        private System.Windows.Forms.Button btMapXls;
     }
 }

@@ -32,7 +32,26 @@ namespace h24
             this.components = new System.ComponentModel.Container();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.dgCourses = new System.Windows.Forms.DataGridView();
+            this.course_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coursenameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.courselengthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.courseclimbDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coursetypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.controlcountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.asofdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coursecodesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.legsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coursesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgControlCodes = new System.Windows.Forms.DataGridView();
+            this.ccidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.courseidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.controlidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.positionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ccstatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.asofdateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.controlsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coursesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coursecodesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnUpload = new System.Windows.Forms.Button();
             this.tbCourses = new System.Windows.Forms.TextBox();
@@ -48,32 +67,14 @@ namespace h24
             this.course_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbDelete = new System.Windows.Forms.CheckBox();
             this.btDeleteCourses = new System.Windows.Forms.Button();
-            this.ccidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.courseidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.controlidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.positionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ccstatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.asofdateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.controlsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coursesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coursecodesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.course_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coursenameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.courselengthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.courseclimbDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coursetypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.controlcountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.asofdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coursecodesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.legsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coursesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tbExclude = new System.Windows.Forms.TextBox();
+            this.tbExcludedControls = new System.Windows.Forms.TextBox();
+            this.cbExclude = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgCourses)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coursesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgControlCodes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coursecodesBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgSameCourses)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.coursecodesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.coursesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -108,6 +109,94 @@ namespace h24
             this.dgCourses.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCourses_CellEndEdit);
             this.dgCourses.SelectionChanged += new System.EventHandler(this.dgCourses_SelectionChanged);
             // 
+            // course_id
+            // 
+            this.course_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.course_id.DataPropertyName = "course_id";
+            this.course_id.HeaderText = "course_id";
+            this.course_id.MinimumWidth = 6;
+            this.course_id.Name = "course_id";
+            this.course_id.Visible = false;
+            this.course_id.Width = 150;
+            // 
+            // coursenameDataGridViewTextBoxColumn
+            // 
+            this.coursenameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.coursenameDataGridViewTextBoxColumn.DataPropertyName = "course_name";
+            this.coursenameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.coursenameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.coursenameDataGridViewTextBoxColumn.Name = "coursenameDataGridViewTextBoxColumn";
+            this.coursenameDataGridViewTextBoxColumn.Width = 87;
+            // 
+            // courselengthDataGridViewTextBoxColumn
+            // 
+            this.courselengthDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.courselengthDataGridViewTextBoxColumn.DataPropertyName = "course_length";
+            this.courselengthDataGridViewTextBoxColumn.HeaderText = "Length";
+            this.courselengthDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.courselengthDataGridViewTextBoxColumn.Name = "courselengthDataGridViewTextBoxColumn";
+            this.courselengthDataGridViewTextBoxColumn.Width = 95;
+            // 
+            // courseclimbDataGridViewTextBoxColumn
+            // 
+            this.courseclimbDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.courseclimbDataGridViewTextBoxColumn.DataPropertyName = "course_climb";
+            this.courseclimbDataGridViewTextBoxColumn.HeaderText = "Climb";
+            this.courseclimbDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.courseclimbDataGridViewTextBoxColumn.Name = "courseclimbDataGridViewTextBoxColumn";
+            this.courseclimbDataGridViewTextBoxColumn.Width = 84;
+            // 
+            // coursetypeDataGridViewTextBoxColumn
+            // 
+            this.coursetypeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.coursetypeDataGridViewTextBoxColumn.DataPropertyName = "course_type";
+            this.coursetypeDataGridViewTextBoxColumn.HeaderText = "course_type";
+            this.coursetypeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.coursetypeDataGridViewTextBoxColumn.Name = "coursetypeDataGridViewTextBoxColumn";
+            this.coursetypeDataGridViewTextBoxColumn.Visible = false;
+            this.coursetypeDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // controlcountDataGridViewTextBoxColumn
+            // 
+            this.controlcountDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.controlcountDataGridViewTextBoxColumn.DataPropertyName = "control_count";
+            this.controlcountDataGridViewTextBoxColumn.HeaderText = "Controls";
+            this.controlcountDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.controlcountDataGridViewTextBoxColumn.Name = "controlcountDataGridViewTextBoxColumn";
+            this.controlcountDataGridViewTextBoxColumn.Width = 104;
+            // 
+            // asofdateDataGridViewTextBoxColumn
+            // 
+            this.asofdateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.asofdateDataGridViewTextBoxColumn.DataPropertyName = "as_of_date";
+            this.asofdateDataGridViewTextBoxColumn.HeaderText = "as_of_date";
+            this.asofdateDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.asofdateDataGridViewTextBoxColumn.Name = "asofdateDataGridViewTextBoxColumn";
+            this.asofdateDataGridViewTextBoxColumn.Visible = false;
+            this.asofdateDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // coursecodesDataGridViewTextBoxColumn
+            // 
+            this.coursecodesDataGridViewTextBoxColumn.DataPropertyName = "course_codes";
+            this.coursecodesDataGridViewTextBoxColumn.HeaderText = "course_codes";
+            this.coursecodesDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.coursecodesDataGridViewTextBoxColumn.Name = "coursecodesDataGridViewTextBoxColumn";
+            this.coursecodesDataGridViewTextBoxColumn.Visible = false;
+            this.coursecodesDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // legsDataGridViewTextBoxColumn
+            // 
+            this.legsDataGridViewTextBoxColumn.DataPropertyName = "legs";
+            this.legsDataGridViewTextBoxColumn.HeaderText = "legs";
+            this.legsDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.legsDataGridViewTextBoxColumn.Name = "legsDataGridViewTextBoxColumn";
+            this.legsDataGridViewTextBoxColumn.Visible = false;
+            this.legsDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // coursesBindingSource
+            // 
+            this.coursesBindingSource.DataSource = typeof(h24.courses);
+            // 
             // dgControlCodes
             // 
             this.dgControlCodes.AutoGenerateColumns = false;
@@ -130,6 +219,83 @@ namespace h24
             this.dgControlCodes.Size = new System.Drawing.Size(562, 322);
             this.dgControlCodes.TabIndex = 7;
             this.dgControlCodes.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgControlCodes_CellEndEdit);
+            // 
+            // ccidDataGridViewTextBoxColumn
+            // 
+            this.ccidDataGridViewTextBoxColumn.DataPropertyName = "cc_id";
+            this.ccidDataGridViewTextBoxColumn.HeaderText = "cc_id";
+            this.ccidDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.ccidDataGridViewTextBoxColumn.Name = "ccidDataGridViewTextBoxColumn";
+            this.ccidDataGridViewTextBoxColumn.Visible = false;
+            this.ccidDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // courseidDataGridViewTextBoxColumn1
+            // 
+            this.courseidDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.courseidDataGridViewTextBoxColumn1.DataPropertyName = "course_id";
+            this.courseidDataGridViewTextBoxColumn1.HeaderText = "course_id";
+            this.courseidDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.courseidDataGridViewTextBoxColumn1.Name = "courseidDataGridViewTextBoxColumn1";
+            this.courseidDataGridViewTextBoxColumn1.Visible = false;
+            this.courseidDataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // controlidDataGridViewTextBoxColumn
+            // 
+            this.controlidDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.controlidDataGridViewTextBoxColumn.DataPropertyName = "control_id";
+            this.controlidDataGridViewTextBoxColumn.HeaderText = "Control ID";
+            this.controlidDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.controlidDataGridViewTextBoxColumn.Name = "controlidDataGridViewTextBoxColumn";
+            this.controlidDataGridViewTextBoxColumn.Width = 117;
+            // 
+            // positionDataGridViewTextBoxColumn
+            // 
+            this.positionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.positionDataGridViewTextBoxColumn.DataPropertyName = "position";
+            this.positionDataGridViewTextBoxColumn.HeaderText = "Position";
+            this.positionDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.positionDataGridViewTextBoxColumn.Name = "positionDataGridViewTextBoxColumn";
+            this.positionDataGridViewTextBoxColumn.Width = 101;
+            // 
+            // ccstatusDataGridViewTextBoxColumn
+            // 
+            this.ccstatusDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ccstatusDataGridViewTextBoxColumn.DataPropertyName = "cc_status";
+            this.ccstatusDataGridViewTextBoxColumn.HeaderText = "Status";
+            this.ccstatusDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.ccstatusDataGridViewTextBoxColumn.Name = "ccstatusDataGridViewTextBoxColumn";
+            this.ccstatusDataGridViewTextBoxColumn.Width = 92;
+            // 
+            // asofdateDataGridViewTextBoxColumn1
+            // 
+            this.asofdateDataGridViewTextBoxColumn1.DataPropertyName = "as_of_date";
+            this.asofdateDataGridViewTextBoxColumn1.HeaderText = "as_of_date";
+            this.asofdateDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.asofdateDataGridViewTextBoxColumn1.Name = "asofdateDataGridViewTextBoxColumn1";
+            this.asofdateDataGridViewTextBoxColumn1.Visible = false;
+            this.asofdateDataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // controlsDataGridViewTextBoxColumn
+            // 
+            this.controlsDataGridViewTextBoxColumn.DataPropertyName = "controls";
+            this.controlsDataGridViewTextBoxColumn.HeaderText = "controls";
+            this.controlsDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.controlsDataGridViewTextBoxColumn.Name = "controlsDataGridViewTextBoxColumn";
+            this.controlsDataGridViewTextBoxColumn.Visible = false;
+            this.controlsDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // coursesDataGridViewTextBoxColumn
+            // 
+            this.coursesDataGridViewTextBoxColumn.DataPropertyName = "courses";
+            this.coursesDataGridViewTextBoxColumn.HeaderText = "courses";
+            this.coursesDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.coursesDataGridViewTextBoxColumn.Name = "coursesDataGridViewTextBoxColumn";
+            this.coursesDataGridViewTextBoxColumn.Visible = false;
+            this.coursesDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // coursecodesBindingSource
+            // 
+            this.coursecodesBindingSource.DataSource = typeof(h24.course_codes);
             // 
             // groupBox1
             // 
@@ -288,185 +454,31 @@ namespace h24
             this.btDeleteCourses.UseVisualStyleBackColor = true;
             this.btDeleteCourses.Click += new System.EventHandler(this.btDeleteCourses_Click);
             // 
-            // ccidDataGridViewTextBoxColumn
+            // tbExcludedControls
             // 
-            this.ccidDataGridViewTextBoxColumn.DataPropertyName = "cc_id";
-            this.ccidDataGridViewTextBoxColumn.HeaderText = "cc_id";
-            this.ccidDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.ccidDataGridViewTextBoxColumn.Name = "ccidDataGridViewTextBoxColumn";
-            this.ccidDataGridViewTextBoxColumn.Visible = false;
-            this.ccidDataGridViewTextBoxColumn.Width = 125;
+            this.tbExcludedControls.Location = new System.Drawing.Point(717, 91);
+            this.tbExcludedControls.Name = "tbExcludedControls";
+            this.tbExcludedControls.Size = new System.Drawing.Size(184, 26);
+            this.tbExcludedControls.TabIndex = 15;
+            this.tbExcludedControls.Text = "31; 32; 33; 34; 35";
             // 
-            // courseidDataGridViewTextBoxColumn1
+            // cbExclude
             // 
-            this.courseidDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.courseidDataGridViewTextBoxColumn1.DataPropertyName = "course_id";
-            this.courseidDataGridViewTextBoxColumn1.HeaderText = "course_id";
-            this.courseidDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.courseidDataGridViewTextBoxColumn1.Name = "courseidDataGridViewTextBoxColumn1";
-            this.courseidDataGridViewTextBoxColumn1.Visible = false;
-            this.courseidDataGridViewTextBoxColumn1.Width = 114;
-            // 
-            // controlidDataGridViewTextBoxColumn
-            // 
-            this.controlidDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.controlidDataGridViewTextBoxColumn.DataPropertyName = "control_id";
-            this.controlidDataGridViewTextBoxColumn.HeaderText = "Control ID";
-            this.controlidDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.controlidDataGridViewTextBoxColumn.Name = "controlidDataGridViewTextBoxColumn";
-            this.controlidDataGridViewTextBoxColumn.Width = 117;
-            // 
-            // positionDataGridViewTextBoxColumn
-            // 
-            this.positionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.positionDataGridViewTextBoxColumn.DataPropertyName = "position";
-            this.positionDataGridViewTextBoxColumn.HeaderText = "Position";
-            this.positionDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.positionDataGridViewTextBoxColumn.Name = "positionDataGridViewTextBoxColumn";
-            this.positionDataGridViewTextBoxColumn.Width = 101;
-            // 
-            // ccstatusDataGridViewTextBoxColumn
-            // 
-            this.ccstatusDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ccstatusDataGridViewTextBoxColumn.DataPropertyName = "cc_status";
-            this.ccstatusDataGridViewTextBoxColumn.HeaderText = "Status";
-            this.ccstatusDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.ccstatusDataGridViewTextBoxColumn.Name = "ccstatusDataGridViewTextBoxColumn";
-            this.ccstatusDataGridViewTextBoxColumn.Width = 92;
-            // 
-            // asofdateDataGridViewTextBoxColumn1
-            // 
-            this.asofdateDataGridViewTextBoxColumn1.DataPropertyName = "as_of_date";
-            this.asofdateDataGridViewTextBoxColumn1.HeaderText = "as_of_date";
-            this.asofdateDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.asofdateDataGridViewTextBoxColumn1.Name = "asofdateDataGridViewTextBoxColumn1";
-            this.asofdateDataGridViewTextBoxColumn1.Visible = false;
-            this.asofdateDataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // controlsDataGridViewTextBoxColumn
-            // 
-            this.controlsDataGridViewTextBoxColumn.DataPropertyName = "controls";
-            this.controlsDataGridViewTextBoxColumn.HeaderText = "controls";
-            this.controlsDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.controlsDataGridViewTextBoxColumn.Name = "controlsDataGridViewTextBoxColumn";
-            this.controlsDataGridViewTextBoxColumn.Visible = false;
-            this.controlsDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // coursesDataGridViewTextBoxColumn
-            // 
-            this.coursesDataGridViewTextBoxColumn.DataPropertyName = "courses";
-            this.coursesDataGridViewTextBoxColumn.HeaderText = "courses";
-            this.coursesDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.coursesDataGridViewTextBoxColumn.Name = "coursesDataGridViewTextBoxColumn";
-            this.coursesDataGridViewTextBoxColumn.Visible = false;
-            this.coursesDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // coursecodesBindingSource
-            // 
-            this.coursecodesBindingSource.DataSource = typeof(h24.course_codes);
-            // 
-            // course_id
-            // 
-            this.course_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.course_id.DataPropertyName = "course_id";
-            this.course_id.HeaderText = "course_id";
-            this.course_id.MinimumWidth = 6;
-            this.course_id.Name = "course_id";
-            this.course_id.Visible = false;
-            this.course_id.Width = 114;
-            // 
-            // coursenameDataGridViewTextBoxColumn
-            // 
-            this.coursenameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.coursenameDataGridViewTextBoxColumn.DataPropertyName = "course_name";
-            this.coursenameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.coursenameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.coursenameDataGridViewTextBoxColumn.Name = "coursenameDataGridViewTextBoxColumn";
-            this.coursenameDataGridViewTextBoxColumn.Width = 87;
-            // 
-            // courselengthDataGridViewTextBoxColumn
-            // 
-            this.courselengthDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.courselengthDataGridViewTextBoxColumn.DataPropertyName = "course_length";
-            this.courselengthDataGridViewTextBoxColumn.HeaderText = "Length";
-            this.courselengthDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.courselengthDataGridViewTextBoxColumn.Name = "courselengthDataGridViewTextBoxColumn";
-            this.courselengthDataGridViewTextBoxColumn.Width = 95;
-            // 
-            // courseclimbDataGridViewTextBoxColumn
-            // 
-            this.courseclimbDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.courseclimbDataGridViewTextBoxColumn.DataPropertyName = "course_climb";
-            this.courseclimbDataGridViewTextBoxColumn.HeaderText = "Climb";
-            this.courseclimbDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.courseclimbDataGridViewTextBoxColumn.Name = "courseclimbDataGridViewTextBoxColumn";
-            this.courseclimbDataGridViewTextBoxColumn.Width = 84;
-            // 
-            // coursetypeDataGridViewTextBoxColumn
-            // 
-            this.coursetypeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.coursetypeDataGridViewTextBoxColumn.DataPropertyName = "course_type";
-            this.coursetypeDataGridViewTextBoxColumn.HeaderText = "course_type";
-            this.coursetypeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.coursetypeDataGridViewTextBoxColumn.Name = "coursetypeDataGridViewTextBoxColumn";
-            this.coursetypeDataGridViewTextBoxColumn.Visible = false;
-            this.coursetypeDataGridViewTextBoxColumn.Width = 132;
-            // 
-            // controlcountDataGridViewTextBoxColumn
-            // 
-            this.controlcountDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.controlcountDataGridViewTextBoxColumn.DataPropertyName = "control_count";
-            this.controlcountDataGridViewTextBoxColumn.HeaderText = "Controls";
-            this.controlcountDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.controlcountDataGridViewTextBoxColumn.Name = "controlcountDataGridViewTextBoxColumn";
-            this.controlcountDataGridViewTextBoxColumn.Width = 104;
-            // 
-            // asofdateDataGridViewTextBoxColumn
-            // 
-            this.asofdateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.asofdateDataGridViewTextBoxColumn.DataPropertyName = "as_of_date";
-            this.asofdateDataGridViewTextBoxColumn.HeaderText = "as_of_date";
-            this.asofdateDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.asofdateDataGridViewTextBoxColumn.Name = "asofdateDataGridViewTextBoxColumn";
-            this.asofdateDataGridViewTextBoxColumn.Visible = false;
-            this.asofdateDataGridViewTextBoxColumn.Width = 126;
-            // 
-            // coursecodesDataGridViewTextBoxColumn
-            // 
-            this.coursecodesDataGridViewTextBoxColumn.DataPropertyName = "course_codes";
-            this.coursecodesDataGridViewTextBoxColumn.HeaderText = "course_codes";
-            this.coursecodesDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.coursecodesDataGridViewTextBoxColumn.Name = "coursecodesDataGridViewTextBoxColumn";
-            this.coursecodesDataGridViewTextBoxColumn.Visible = false;
-            this.coursecodesDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // legsDataGridViewTextBoxColumn
-            // 
-            this.legsDataGridViewTextBoxColumn.DataPropertyName = "legs";
-            this.legsDataGridViewTextBoxColumn.HeaderText = "legs";
-            this.legsDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.legsDataGridViewTextBoxColumn.Name = "legsDataGridViewTextBoxColumn";
-            this.legsDataGridViewTextBoxColumn.Visible = false;
-            this.legsDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // coursesBindingSource
-            // 
-            this.coursesBindingSource.DataSource = typeof(h24.courses);
-            // 
-            // tbExclude
-            // 
-            this.tbExclude.Location = new System.Drawing.Point(738, 105);
-            this.tbExclude.Name = "tbExclude";
-            this.tbExclude.Size = new System.Drawing.Size(184, 26);
-            this.tbExclude.TabIndex = 15;
-            this.tbExclude.Text = "31, 32, 33, 34, 35";
+            this.cbExclude.AutoSize = true;
+            this.cbExclude.Location = new System.Drawing.Point(721, 51);
+            this.cbExclude.Name = "cbExclude";
+            this.cbExclude.Size = new System.Drawing.Size(154, 24);
+            this.cbExclude.TabIndex = 16;
+            this.cbExclude.Text = "Exclude Controls";
+            this.cbExclude.UseVisualStyleBackColor = true;
             // 
             // frmCourses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1568, 960);
-            this.Controls.Add(this.tbExclude);
+            this.Controls.Add(this.cbExclude);
+            this.Controls.Add(this.tbExcludedControls);
             this.Controls.Add(this.btDeleteCourses);
             this.Controls.Add(this.cbDelete);
             this.Controls.Add(this.dgSameCourses);
@@ -481,12 +493,12 @@ namespace h24
             this.Text = "Courses";
             this.Load += new System.EventHandler(this.frmCourses_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgCourses)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coursesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgControlCodes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coursecodesBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgSameCourses)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.coursecodesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.coursesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -531,6 +543,7 @@ namespace h24
         private System.Windows.Forms.DataGridViewTextBoxColumn coursesDataGridViewTextBoxColumn;
         private System.Windows.Forms.CheckBox cbDelete;
         private System.Windows.Forms.Button btDeleteCourses;
-        private System.Windows.Forms.TextBox tbExclude;
+        private System.Windows.Forms.TextBox tbExcludedControls;
+        private System.Windows.Forms.CheckBox cbExclude;
     }
 }
