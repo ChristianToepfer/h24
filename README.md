@@ -1,12 +1,12 @@
 # h24
 
 ## TODO 2026
-* Git abgleich
+
+
 * Läuferreihenfolge, mit erstem Durchlauf definieren? Machbar
+* Alle Button abschaffen.
+* Edit Menu...
 
-* Sytemzeit der verschieden Rechner abgleichen. Datenbankzeit abrufbar?
-
-* Läuferlisten für Johannes, dir Bug das immer alles ausgeben wurde.
 ### Sicherung der DB während des Wettkampfes
 Mach wohl keinen Sinn..
 besser wäre es die Datenbank einmal mit dem Start zu sichern.

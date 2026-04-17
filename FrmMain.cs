@@ -44,7 +44,7 @@ namespace h24
         public FrmMain()
         {
             InitializeComponent();
-
+                                      
             _reader = new Reader
             {
                 WriteBackupFile = true,
@@ -541,6 +541,18 @@ namespace h24
         private void Form1_Load(object sender, EventArgs e)
         {
             db = new klc01();
+
+            // first database connection
+            DateTime servertime = db.Database.SqlQuery<DateTime>("SELECT SYSDATETIME()").FirstOrDefault();
+            var dtime = DateTime.Now - servertime;            
+            if (Math.Abs(dtime.TotalSeconds) > 0.3)
+                // Die Zeitmessung erfolgt Grundsätzlich über die SI-Stadionen,
+                // aber bei Fehlstempel, Krankmeldung oder allgemein bei jeder
+                // Aktion wird ein Zeitstempel hinterlassen, wo es sehr verwirrend ist,
+                // wenn die Zeit des Rechners nicht zur Serverzeit passt. CT_17April2026
+                MessageBox.Show("Server: " + servertime + "\nTime difference: " + dtime.TotalSeconds.ToString("0.00") + " sec's",
+                       "Server Time", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
             dgTeams.DataSource = db.teams.OrderBy(c => c.team_nr).ToList();
 
             dgTeams.Columns[1].Width = Properties.Settings.Default.dgTeams_Column1;
