@@ -17,6 +17,7 @@ namespace h24
         public int id { get; set; }
         public string class_name { get; set; }
         public string team_name { get; set; }
+        public string phone { get; set; }
         public Nullable<int> team_bib { get; set; }
         public string family1 { get; set; }
         public string given1 { get; set; }
