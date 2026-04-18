@@ -31,16 +31,11 @@ namespace h24
         {
             this.components = new System.ComponentModel.Container();
             this.dgLegs = new System.Windows.Forms.DataGridView();
+            this.competitorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.coursesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.legsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnGenerateLegs = new System.Windows.Forms.Button();
             this.dgCourses = new System.Windows.Forms.DataGridView();
-            this.txPrefix = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.CbDeleteLegs = new System.Windows.Forms.CheckBox();
-            this.btDeleteLegs = new System.Windows.Forms.Button();
-            this.btAssignFirstLeg = new System.Windows.Forms.Button();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.label2 = new System.Windows.Forms.Label();
-            this.cbCategory = new System.Windows.Forms.ComboBox();
             this.courseidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.coursenameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.courselengthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,23 +46,29 @@ namespace h24
             this.coursecodesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.legsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.coursesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.txPrefix = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.CbDeleteLegs = new System.Windows.Forms.CheckBox();
+            this.btDeleteLegs = new System.Windows.Forms.Button();
+            this.btAssignFirstLeg = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.cbCategory = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.leg_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.compidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.competitorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.course_id = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.coursesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.readoutidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.startdtimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.starttimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.finishdtimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.finishtimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.legsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgLegs)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgCourses)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.coursesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.competitorsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coursesBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.legsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgCourses)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coursesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dgLegs
@@ -95,6 +96,18 @@ namespace h24
             this.dgLegs.TabIndex = 0;
             this.dgLegs.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgLegs_CellEndEdit);
             this.dgLegs.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgLegs_DataError);
+            // 
+            // competitorsBindingSource
+            // 
+            this.competitorsBindingSource.DataSource = typeof(h24.competitors);
+            // 
+            // coursesBindingSource1
+            // 
+            this.coursesBindingSource1.DataSource = typeof(h24.courses);
+            // 
+            // legsBindingSource
+            // 
+            this.legsBindingSource.DataSource = typeof(h24.legs);
             // 
             // btnGenerateLegs
             // 
@@ -132,81 +145,6 @@ namespace h24
             this.dgCourses.RowTemplate.Height = 24;
             this.dgCourses.Size = new System.Drawing.Size(732, 250);
             this.dgCourses.TabIndex = 2;
-            // 
-            // txPrefix
-            // 
-            this.txPrefix.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txPrefix.Location = new System.Drawing.Point(934, 67);
-            this.txPrefix.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txPrefix.Name = "txPrefix";
-            this.txPrefix.Size = new System.Drawing.Size(175, 26);
-            this.txPrefix.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(857, 73);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 20);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Prefix:";
-            // 
-            // CbDeleteLegs
-            // 
-            this.CbDeleteLegs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.CbDeleteLegs.AutoSize = true;
-            this.CbDeleteLegs.Location = new System.Drawing.Point(914, 549);
-            this.CbDeleteLegs.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.CbDeleteLegs.Name = "CbDeleteLegs";
-            this.CbDeleteLegs.Size = new System.Drawing.Size(121, 24);
-            this.CbDeleteLegs.TabIndex = 5;
-            this.CbDeleteLegs.Text = "Delete Legs";
-            this.CbDeleteLegs.UseVisualStyleBackColor = true;
-            // 
-            // btDeleteLegs
-            // 
-            this.btDeleteLegs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btDeleteLegs.Location = new System.Drawing.Point(1079, 541);
-            this.btDeleteLegs.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btDeleteLegs.Name = "btDeleteLegs";
-            this.btDeleteLegs.Size = new System.Drawing.Size(122, 34);
-            this.btDeleteLegs.TabIndex = 6;
-            this.btDeleteLegs.Text = "Online Delete";
-            this.btDeleteLegs.UseVisualStyleBackColor = true;
-            this.btDeleteLegs.Click += new System.EventHandler(this.btDeleteLegs_Click);
-            // 
-            // btAssignFirstLeg
-            // 
-            this.btAssignFirstLeg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btAssignFirstLeg.Location = new System.Drawing.Point(861, 392);
-            this.btAssignFirstLeg.Name = "btAssignFirstLeg";
-            this.btAssignFirstLeg.Size = new System.Drawing.Size(248, 42);
-            this.btAssignFirstLeg.TabIndex = 7;
-            this.btAssignFirstLeg.Text = "1 leg assign - a-h";
-            this.toolTip1.SetToolTip(this.btAssignFirstLeg, "This assigns correct course to 1st leg of relay based on first number of each cat" +
-        "egory");
-            this.btAssignFirstLeg.UseVisualStyleBackColor = true;
-            this.btAssignFirstLeg.Click += new System.EventHandler(this.btAssignFirstLeg_Click);
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(855, 341);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 20);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Category";
-            // 
-            // cbCategory
-            // 
-            this.cbCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbCategory.FormattingEnabled = true;
-            this.cbCategory.Location = new System.Drawing.Point(934, 338);
-            this.cbCategory.Name = "cbCategory";
-            this.cbCategory.Size = new System.Drawing.Size(176, 28);
-            this.cbCategory.TabIndex = 9;
             // 
             // courseidDataGridViewTextBoxColumn1
             // 
@@ -293,6 +231,90 @@ namespace h24
             // 
             this.coursesBindingSource.DataSource = typeof(h24.courses);
             // 
+            // txPrefix
+            // 
+            this.txPrefix.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txPrefix.Location = new System.Drawing.Point(934, 67);
+            this.txPrefix.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txPrefix.Name = "txPrefix";
+            this.txPrefix.Size = new System.Drawing.Size(175, 26);
+            this.txPrefix.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(857, 73);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(52, 20);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Prefix:";
+            // 
+            // CbDeleteLegs
+            // 
+            this.CbDeleteLegs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.CbDeleteLegs.AutoSize = true;
+            this.CbDeleteLegs.Location = new System.Drawing.Point(914, 549);
+            this.CbDeleteLegs.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.CbDeleteLegs.Name = "CbDeleteLegs";
+            this.CbDeleteLegs.Size = new System.Drawing.Size(121, 24);
+            this.CbDeleteLegs.TabIndex = 5;
+            this.CbDeleteLegs.Text = "Delete Legs";
+            this.CbDeleteLegs.UseVisualStyleBackColor = true;
+            // 
+            // btDeleteLegs
+            // 
+            this.btDeleteLegs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btDeleteLegs.Location = new System.Drawing.Point(1079, 541);
+            this.btDeleteLegs.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btDeleteLegs.Name = "btDeleteLegs";
+            this.btDeleteLegs.Size = new System.Drawing.Size(122, 34);
+            this.btDeleteLegs.TabIndex = 6;
+            this.btDeleteLegs.Text = "Online Delete";
+            this.btDeleteLegs.UseVisualStyleBackColor = true;
+            this.btDeleteLegs.Click += new System.EventHandler(this.btDeleteLegs_Click);
+            // 
+            // btAssignFirstLeg
+            // 
+            this.btAssignFirstLeg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btAssignFirstLeg.Location = new System.Drawing.Point(861, 392);
+            this.btAssignFirstLeg.Name = "btAssignFirstLeg";
+            this.btAssignFirstLeg.Size = new System.Drawing.Size(248, 42);
+            this.btAssignFirstLeg.TabIndex = 7;
+            this.btAssignFirstLeg.Text = "1 leg assign - a-h";
+            this.toolTip1.SetToolTip(this.btAssignFirstLeg, "This assigns correct course to 1st leg of relay based on first number of each cat" +
+        "egory");
+            this.btAssignFirstLeg.UseVisualStyleBackColor = true;
+            this.btAssignFirstLeg.Click += new System.EventHandler(this.btAssignFirstLeg_Click);
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(855, 341);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 20);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Category";
+            // 
+            // cbCategory
+            // 
+            this.cbCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbCategory.FormattingEnabled = true;
+            this.cbCategory.Location = new System.Drawing.Point(934, 338);
+            this.cbCategory.Name = "cbCategory";
+            this.cbCategory.Size = new System.Drawing.Size(176, 28);
+            this.cbCategory.TabIndex = 9;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(940, 21);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(140, 20);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Prefix is usually SF";
+            // 
             // leg_id
             // 
             this.leg_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -316,10 +338,6 @@ namespace h24
             this.compidDataGridViewTextBoxColumn.ValueMember = "comp_id";
             this.compidDataGridViewTextBoxColumn.Width = 105;
             // 
-            // competitorsBindingSource
-            // 
-            this.competitorsBindingSource.DataSource = typeof(h24.competitors);
-            // 
             // course_id
             // 
             this.course_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -333,10 +351,6 @@ namespace h24
             this.course_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.course_id.ValueMember = "course_id";
             this.course_id.Width = 114;
-            // 
-            // coursesBindingSource1
-            // 
-            this.coursesBindingSource1.DataSource = typeof(h24.courses);
             // 
             // readoutidDataGridViewTextBoxColumn
             // 
@@ -383,15 +397,12 @@ namespace h24
             this.finishtimeDataGridViewTextBoxColumn.Name = "finishtimeDataGridViewTextBoxColumn";
             this.finishtimeDataGridViewTextBoxColumn.Width = 121;
             // 
-            // legsBindingSource
-            // 
-            this.legsBindingSource.DataSource = typeof(h24.legs);
-            // 
             // frmLegs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1225, 640);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.cbCategory);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btAssignFirstLeg);
@@ -407,11 +418,11 @@ namespace h24
             this.Text = "frmLegs";
             this.Load += new System.EventHandler(this.frmLegs_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgLegs)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgCourses)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.coursesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.competitorsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.coursesBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.legsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgCourses)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coursesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -443,6 +454,7 @@ namespace h24
         private System.Windows.Forms.DataGridViewTextBoxColumn asofdateDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn coursecodesDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn legsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewTextBoxColumn leg_id;
         private System.Windows.Forms.DataGridViewComboBoxColumn compidDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn course_id;

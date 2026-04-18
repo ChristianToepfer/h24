@@ -98,6 +98,64 @@
           <Property Name="control_count" Type="int" />
           <Property Name="as_of_date" Type="datetime" Nullable="false" />
         </EntityType>
+        <EntityType Name="entries">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="class_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="team_name" Type="nvarchar" MaxLength="255" />
+          <Property Name="team_bib" Type="int" />
+          <Property Name="family1" Type="nvarchar" MaxLength="50" />
+          <Property Name="given1" Type="nvarchar" MaxLength="50" />
+          <Property Name="gender1" Type="char" MaxLength="3" />
+          <Property Name="country1" Type="char" MaxLength="3" />
+          <Property Name="birth_year1" Type="char" MaxLength="4" />
+          <Property Name="si_chip1" Type="varchar" MaxLength="10" />
+          <Property Name="family2" Type="nvarchar" MaxLength="50" />
+          <Property Name="given2" Type="nvarchar" MaxLength="50" />
+          <Property Name="gender2" Type="char" MaxLength="3" />
+          <Property Name="country2" Type="char" MaxLength="3" />
+          <Property Name="birth_year2" Type="char" MaxLength="4" />
+          <Property Name="si_chip2" Type="varchar" MaxLength="10" />
+          <Property Name="family3" Type="nvarchar" MaxLength="50" />
+          <Property Name="given3" Type="nvarchar" MaxLength="50" />
+          <Property Name="gender3" Type="char" MaxLength="3" />
+          <Property Name="country3" Type="char" MaxLength="3" />
+          <Property Name="birth_year3" Type="char" MaxLength="4" />
+          <Property Name="si_chip3" Type="varchar" MaxLength="10" />
+          <Property Name="family4" Type="nvarchar" MaxLength="50" />
+          <Property Name="given4" Type="nvarchar" MaxLength="50" />
+          <Property Name="gender4" Type="char" MaxLength="3" />
+          <Property Name="country4" Type="char" MaxLength="3" />
+          <Property Name="birth_year4" Type="char" MaxLength="4" />
+          <Property Name="si_chip4" Type="varchar" MaxLength="10" />
+          <Property Name="family5" Type="nvarchar" MaxLength="50" />
+          <Property Name="given5" Type="nvarchar" MaxLength="50" />
+          <Property Name="gender5" Type="char" MaxLength="3" />
+          <Property Name="country5" Type="char" MaxLength="3" />
+          <Property Name="birth_year5" Type="char" MaxLength="4" />
+          <Property Name="si_chip5" Type="varchar" MaxLength="10" />
+          <Property Name="family6" Type="nvarchar" MaxLength="50" />
+          <Property Name="given6" Type="nvarchar" MaxLength="50" />
+          <Property Name="gender6" Type="char" MaxLength="3" />
+          <Property Name="country6" Type="char" MaxLength="3" />
+          <Property Name="birth_year6" Type="char" MaxLength="4" />
+          <Property Name="si_chip6" Type="varchar" MaxLength="10" />
+          <Property Name="family7" Type="nvarchar" MaxLength="50" />
+          <Property Name="given7" Type="nvarchar" MaxLength="50" />
+          <Property Name="gender7" Type="char" MaxLength="3" />
+          <Property Name="country7" Type="char" MaxLength="3" />
+          <Property Name="birth_year7" Type="char" MaxLength="4" />
+          <Property Name="si_chip7" Type="varchar" MaxLength="10" />
+          <Property Name="family8" Type="nvarchar" MaxLength="50" />
+          <Property Name="given8" Type="nvarchar" MaxLength="50" />
+          <Property Name="gender8" Type="char" MaxLength="3" />
+          <Property Name="country8" Type="char" MaxLength="3" />
+          <Property Name="birth_year8" Type="char" MaxLength="4" />
+          <Property Name="si_chip8" Type="varchar" MaxLength="10" />
+          <Property Name="note" Type="nvarchar" MaxLength="500" />
+        </EntityType>
         <EntityType Name="entry_xml">
           <Key>
             <PropertyRef Name="id" />
@@ -289,7 +347,7 @@
           <Property Name="as_of_date" Type="datetime" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'klc01_25vel.dbo.v_comp_teams' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'klc01_26.dbo.v_comp_teams' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_comp_teams">
           <Key>
             
@@ -325,17 +383,18 @@ warning 6002: The table/view 'klc01_25vel.dbo.v_comp_teams' does not have a prim
           <Property Name="cat_time_limit" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'klc01_25vel.dbo.v_iof_results' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'klc01_26.dbo.v_iof_results' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_iof_results">
           <Key>
             <PropertyRef Name="slip_id" />
             
             
             
+            
           </Key>
           <Property Name="slip_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="course_id" Type="int" Nullable="false" />
-          <Property Name="course_name" Type="nvarchar" MaxLength="4000" />
+          <Property Name="course_name" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="course_length" Type="int" />
           <Property Name="course_climb" Type="int" />
           <Property Name="comp_id" Type="int" Nullable="false" />
@@ -353,7 +412,7 @@ warning 6002: The table/view 'klc01_25vel.dbo.v_iof_results' does not have a pri
           <Property Name="position" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'klc01_25vel.dbo.v_new_roc_punches' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'klc01_26.dbo.v_new_roc_punches' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_new_roc_punches">
           <Key>
             <PropertyRef Name="record_id" />
@@ -374,7 +433,7 @@ warning 6002: The table/view 'klc01_25vel.dbo.v_new_roc_punches' does not have a
           <Property Name="phone_number" Type="nvarchar" MaxLength="20" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'klc01_25vel.dbo.v_readout_legs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'klc01_26.dbo.v_readout_legs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_readout_legs">
           <Key>
             <PropertyRef Name="readout_id" />
@@ -401,7 +460,7 @@ warning 6002: The table/view 'klc01_25vel.dbo.v_readout_legs' does not have a pr
           <Property Name="team_id" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'klc01_25vel.dbo.v_rpt_results' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'klc01_26.dbo.v_rpt_results' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_rpt_results">
           <Key>
             <PropertyRef Name="cat_name" />
@@ -415,10 +474,10 @@ warning 6002: The table/view 'klc01_25vel.dbo.v_rpt_results' does not have a pri
           <Property Name="team_id" Type="int" Nullable="false" />
           <Property Name="race_end" Type="datetime" />
           <Property Name="sum_legs" Type="int" />
-          <Property Name="max_finish" Type="varchar" MaxLength="20" />
+          <Property Name="max_finish" Type="varchar" MaxLength="8" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'klc01_25vel.dbo.v_teams_results' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'klc01_26.dbo.v_teams_results' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_teams_results">
           <Key>
             <PropertyRef Name="cat_name" />
@@ -580,6 +639,7 @@ warning 6002: The table/view 'klc01_25vel.dbo.v_teams_results' does not have a p
           <EntitySet Name="controls" EntityType="Self.controls" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="course_codes" EntityType="Self.course_codes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="courses" EntityType="Self.courses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="entries" EntityType="Self.entries" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="entry_xml" EntityType="Self.entry_xml" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="leg_exceptions" EntityType="Self.leg_exceptions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="legs" EntityType="Self.legs" Schema="dbo" store:Type="Tables" />
@@ -1184,6 +1244,7 @@ warning 6002: The table/view 'klc01_25vel.dbo.v_teams_results' does not have a p
           <EntitySet Name="leg_exceptions" EntityType="klc01Model.leg_exceptions" />
           <EntitySet Name="v_iof_results" EntityType="klc01Model.v_iof_results" />
           <EntitySet Name="v_rpt_results" EntityType="klc01Model.v_rpt_results" />
+          <EntitySet Name="entries" EntityType="klc01Model.entries" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -1411,7 +1472,7 @@ warning 6002: The table/view 'klc01_25vel.dbo.v_teams_results' does not have a p
             <PropertyRef Name="slip_id" />
           </Key>
           <Property Name="course_id" Type="Int32" Nullable="false" />
-          <Property Name="course_name" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="course_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="course_length" Type="Int32" />
           <Property Name="course_climb" Type="Int32" />
           <Property Name="comp_id" Type="Int32" Nullable="false" />
@@ -1442,7 +1503,65 @@ warning 6002: The table/view 'klc01_25vel.dbo.v_teams_results' does not have a p
           <Property Name="team_id" Type="Int32" Nullable="false" />
           <Property Name="race_end" Type="DateTime" Precision="3" />
           <Property Name="sum_legs" Type="Int32" />
-          <Property Name="max_finish" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="max_finish" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="entries">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="class_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="team_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="team_bib" Type="Int32" />
+          <Property Name="family1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="given1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="gender1" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="country1" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="birth_year1" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="si_chip1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="family2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="given2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="gender2" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="country2" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="birth_year2" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="si_chip2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="family3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="given3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="gender3" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="country3" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="birth_year3" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="si_chip3" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="family4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="given4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="gender4" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="country4" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="birth_year4" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="si_chip4" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="family5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="given5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="gender5" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="country5" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="birth_year5" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="si_chip5" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="family6" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="given6" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="gender6" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="country6" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="birth_year6" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="si_chip6" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="family7" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="given7" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="gender7" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="country7" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="birth_year7" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="si_chip7" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="family8" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="given8" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="gender8" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="country8" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="birth_year8" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="si_chip8" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1931,6 +2050,65 @@ warning 6002: The table/view 'klc01_25vel.dbo.v_teams_results' does not have a p
                 <ScalarProperty Name="cat_name" ColumnName="cat_name" />
                 <ScalarProperty Name="cat_id" ColumnName="cat_id" />
                 <ScalarProperty Name="rnk" ColumnName="rnk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="entries">
+            <EntityTypeMapping TypeName="klc01Model.entries">
+              <MappingFragment StoreEntitySet="entries">
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="si_chip8" ColumnName="si_chip8" />
+                <ScalarProperty Name="birth_year8" ColumnName="birth_year8" />
+                <ScalarProperty Name="country8" ColumnName="country8" />
+                <ScalarProperty Name="gender8" ColumnName="gender8" />
+                <ScalarProperty Name="given8" ColumnName="given8" />
+                <ScalarProperty Name="family8" ColumnName="family8" />
+                <ScalarProperty Name="si_chip7" ColumnName="si_chip7" />
+                <ScalarProperty Name="birth_year7" ColumnName="birth_year7" />
+                <ScalarProperty Name="country7" ColumnName="country7" />
+                <ScalarProperty Name="gender7" ColumnName="gender7" />
+                <ScalarProperty Name="given7" ColumnName="given7" />
+                <ScalarProperty Name="family7" ColumnName="family7" />
+                <ScalarProperty Name="si_chip6" ColumnName="si_chip6" />
+                <ScalarProperty Name="birth_year6" ColumnName="birth_year6" />
+                <ScalarProperty Name="country6" ColumnName="country6" />
+                <ScalarProperty Name="gender6" ColumnName="gender6" />
+                <ScalarProperty Name="given6" ColumnName="given6" />
+                <ScalarProperty Name="family6" ColumnName="family6" />
+                <ScalarProperty Name="si_chip5" ColumnName="si_chip5" />
+                <ScalarProperty Name="birth_year5" ColumnName="birth_year5" />
+                <ScalarProperty Name="country5" ColumnName="country5" />
+                <ScalarProperty Name="gender5" ColumnName="gender5" />
+                <ScalarProperty Name="given5" ColumnName="given5" />
+                <ScalarProperty Name="family5" ColumnName="family5" />
+                <ScalarProperty Name="si_chip4" ColumnName="si_chip4" />
+                <ScalarProperty Name="birth_year4" ColumnName="birth_year4" />
+                <ScalarProperty Name="country4" ColumnName="country4" />
+                <ScalarProperty Name="gender4" ColumnName="gender4" />
+                <ScalarProperty Name="given4" ColumnName="given4" />
+                <ScalarProperty Name="family4" ColumnName="family4" />
+                <ScalarProperty Name="si_chip3" ColumnName="si_chip3" />
+                <ScalarProperty Name="birth_year3" ColumnName="birth_year3" />
+                <ScalarProperty Name="country3" ColumnName="country3" />
+                <ScalarProperty Name="gender3" ColumnName="gender3" />
+                <ScalarProperty Name="given3" ColumnName="given3" />
+                <ScalarProperty Name="family3" ColumnName="family3" />
+                <ScalarProperty Name="si_chip2" ColumnName="si_chip2" />
+                <ScalarProperty Name="birth_year2" ColumnName="birth_year2" />
+                <ScalarProperty Name="country2" ColumnName="country2" />
+                <ScalarProperty Name="gender2" ColumnName="gender2" />
+                <ScalarProperty Name="given2" ColumnName="given2" />
+                <ScalarProperty Name="family2" ColumnName="family2" />
+                <ScalarProperty Name="si_chip1" ColumnName="si_chip1" />
+                <ScalarProperty Name="birth_year1" ColumnName="birth_year1" />
+                <ScalarProperty Name="country1" ColumnName="country1" />
+                <ScalarProperty Name="gender1" ColumnName="gender1" />
+                <ScalarProperty Name="given1" ColumnName="given1" />
+                <ScalarProperty Name="family1" ColumnName="family1" />
+                <ScalarProperty Name="team_bib" ColumnName="team_bib" />
+                <ScalarProperty Name="team_name" ColumnName="team_name" />
+                <ScalarProperty Name="class_name" ColumnName="class_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

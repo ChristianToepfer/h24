@@ -72,7 +72,7 @@ namespace h24
                 string cat = cbCategory.Text== "All" ? "" : cbCategory.Text;
                 stringToInsert = db.get_results_json(cat).FirstOrDefault();
             }
-            save_json(stringToInsert);
+            save_json(stringToInsert, "Team Results");
         }
 
         private void BtnCourseResults_Click(object sender, EventArgs e)
@@ -85,14 +85,14 @@ namespace h24
                 db.Database.CommandTimeout = 360;
                 stringToInsert = db.get_course_results_json("").FirstOrDefault();
             }
-            save_json(stringToInsert);
+            save_json(stringToInsert, "Course Results");
         }
 
-        public void save_json(string stringToInsert)
+        public void save_json(string stringToInsert, string result_type)
         { 
             OpenFileDialog openFileDialog1 = new OpenFileDialog
             {
-                Title = "Browse Template File - ; html",
+                Title = "Browse " + result_type + " Template File - ; html",
 
                 CheckFileExists = true,
                 CheckPathExists = true,

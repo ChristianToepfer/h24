@@ -133,12 +133,12 @@ namespace h24
                     using (var reader = new StreamReader(textFile))
                     using (var csv = new CsvReader(reader, config))
                     {
-                        var records = csv.GetRecords<Entries>();
+                        var records = csv.GetRecords<entries>();
                         using (var db = new klc01())
                         {
                             foreach (var record in records)
                             {
-                                var category = db.categories.Where(b => b.cat_name == record.kat).FirstOrDefault();
+                                var category = db.categories.Where(b => b.cat_name == record.class_name).FirstOrDefault();
                                 //DateTime race_end;
                                 if (category == null)
                                 {
@@ -147,7 +147,7 @@ namespace h24
 
                                     var newCategory = new categories
                                     {
-                                        cat_name = record.kat,
+                                        cat_name = record.class_name,
                                         cat_start_time = DateTime.ParseExact(start_time, "yyyy-MM-dd HH:mm:ss.fff", null),
                                         cat_time_limit = int.Parse(time_limit),
                                         as_of_date = DateTime.Now,
@@ -156,7 +156,7 @@ namespace h24
 
                                     db.categories.Add(newCategory);
                                     db.SaveChanges();
-                                    category = db.categories.Where(b => b.cat_name == record.kat).FirstOrDefault();
+                                    category = db.categories.Where(b => b.cat_name == record.class_name).FirstOrDefault();
                                 }
 
                                 int cat_id = category.cat_id;
@@ -166,89 +166,88 @@ namespace h24
                                 List<competitors> Competitor = new List<competitors>();
                                 competitors comp1 = new competitors();
                                 comp1.bib = record.id.ToString() + "A";
-                                comp1.comp_name = record.jmeno1 + " " + record.prijmeni1;
-                                comp1.comp_chip_id = record.chip1;
-                                comp1.rented_chip = record.rented1;
+                                comp1.comp_name = record.given1 + " " + record.family1;
+                                comp1.comp_chip_id = string.IsNullOrWhiteSpace(record.si_chip1) ? (int?)null : int.Parse(record.si_chip1);
                                 comp1.rank_order = 1;
                                 comp1.comp_country = record.country1;
-                                comp1.comp_birthday = DateTime.ParseExact(record.nar1, "yyyy", null);
+                                comp1.comp_birthday = DateTime.ParseExact(record.birth_year1, "yyyy", null);
                                 comp1.comp_valid_flag = true;
                                 comp1.as_of_date = DateTime.Now;
                                 Competitor.Add(comp1);
 
-                                if (record.prijmeni2.Length > 0)
+                                if (record.family2.Length > 0)
                                 {
                                     competitors comp2 = new competitors();
                                     comp2.bib = record.id.ToString() + "B";
-                                    comp2.comp_name = record.jmeno2 + " " + record.prijmeni2;
-                                    comp2.comp_chip_id = record.chip2;
-                                    comp2.rented_chip = record.rented2;
+                                    comp2.comp_name = record.given2 + " " + record.family2;
+                                    comp2.comp_chip_id = string.IsNullOrWhiteSpace(record.si_chip2) ? (int?)null : int.Parse(record.si_chip2);
+                                    //comp2.rented_chip = record.rented2;
                                     comp2.rank_order = 2;
                                     comp2.comp_country = record.country2;
-                                    if (!String.IsNullOrEmpty(record.nar2))
-                                        comp2.comp_birthday = DateTime.ParseExact(record.nar2, "yyyy", null);
+                                    if (!String.IsNullOrEmpty(record.birth_year2))
+                                        comp2.comp_birthday = DateTime.ParseExact(record.birth_year2, "yyyy", null);
                                     comp2.comp_valid_flag = true;
                                     comp2.as_of_date = DateTime.Now;
                                     Competitor.Add(comp2);
                                 }
 
-                                if (record.prijmeni3.Length > 0)
+                                if (record.family3.Length > 0)
                                 {
                                     competitors comp3 = new competitors();
                                     comp3.bib = record.id.ToString() + "C";
-                                    comp3.comp_name = record.jmeno3 + " " + record.prijmeni3;
-                                    comp3.comp_chip_id = record.chip3;
-                                    comp3.rented_chip = record.rented3;
+                                    comp3.comp_name = record.given3 + " " + record.family3;
+                                    comp3.comp_chip_id = string.IsNullOrWhiteSpace(record.si_chip3) ? (int?)null : int.Parse(record.si_chip3);
+                                    //comp3.rented_chip = record.rented3;
                                     comp3.rank_order = 3;
                                     comp3.comp_country = record.country3;
-                                    if (!String.IsNullOrEmpty(record.nar3))
-                                        comp3.comp_birthday = DateTime.ParseExact(record.nar3, "yyyy", null);
+                                    if (!String.IsNullOrEmpty(record.birth_year3))
+                                        comp3.comp_birthday = DateTime.ParseExact(record.birth_year3, "yyyy", null);
                                     comp3.comp_valid_flag = true;
                                     comp3.as_of_date = DateTime.Now;
                                     Competitor.Add(comp3);
                                 }
 
-                                if (record.prijmeni4.Length > 0)
+                                if (record.family4.Length > 0)
                                 {
                                     competitors comp4 = new competitors();
                                     comp4.bib = record.id.ToString() + "D";
-                                    comp4.comp_name = record.jmeno4 + " " + record.prijmeni4;
-                                    comp4.comp_chip_id = record.chip4;
-                                    comp4.rented_chip = record.rented4;
+                                    comp4.comp_name = record.given4 + " " + record.family4;
+                                    comp4.comp_chip_id = string.IsNullOrWhiteSpace(record.si_chip4) ? (int?)null : int.Parse(record.si_chip4);
+                                    //comp4.rented_chip = record.rented4;
                                     comp4.rank_order = 4;
                                     comp4.comp_country = record.country4;
-                                    if (!String.IsNullOrEmpty(record.nar4))
-                                        comp4.comp_birthday = DateTime.ParseExact(record.nar4, "yyyy", null);
+                                    if (!String.IsNullOrEmpty(record.birth_year4))
+                                        comp4.comp_birthday = DateTime.ParseExact(record.birth_year4, "yyyy", null);
                                     comp4.comp_valid_flag = true;
                                     comp4.as_of_date = DateTime.Now;
                                     Competitor.Add(comp4);
                                 }
 
-                                if (record.prijmeni5.Length > 0)
+                                if (record.family5.Length > 0)
                                 {
                                     competitors comp5 = new competitors();
                                     comp5.bib = record.id.ToString() + "E";
-                                    comp5.comp_name = record.jmeno5 + " " + record.prijmeni5;
-                                    comp5.comp_chip_id = record.chip5;
-                                    comp5.rented_chip = record.rented5;
+                                    comp5.comp_name = record.given5 + " " + record.family5;
+                                    comp5.comp_chip_id = string.IsNullOrWhiteSpace(record.si_chip5) ? (int?)null : int.Parse(record.si_chip5);
+                                    //comp5.rented_chip = record.rented5;
                                     comp5.rank_order = 5;
                                     comp5.comp_country = record.country5;
-                                    comp5.comp_birthday = DateTime.ParseExact(record.nar5, "yyyy", null);
+                                    comp5.comp_birthday = DateTime.ParseExact(record.birth_year5, "yyyy", null);
                                     comp5.comp_valid_flag = true;
                                     comp5.as_of_date = DateTime.Now;
                                     Competitor.Add(comp5);
                                 }
 
-                                if (record.prijmeni6.Length > 0)
+                                if (record.family6.Length > 0)
                                 {
                                     competitors comp6 = new competitors();
                                     comp6.bib = record.id.ToString() + "F";
-                                    comp6.comp_name = record.jmeno6 + " " + record.prijmeni6;
-                                    comp6.comp_chip_id = record.chip6;
-                                    comp6.rented_chip = record.rented6;
+                                    comp6.comp_name = record.given6 + " " + record.family6;
+                                    comp6.comp_chip_id = string.IsNullOrWhiteSpace(record.si_chip6) ? (int?)null : int.Parse(record.si_chip6);
+                                    //comp6.rented_chip = record.rented6;
                                     comp6.rank_order = 6;
                                     comp6.comp_country = record.country6;
-                                    comp6.comp_birthday = DateTime.ParseExact(record.nar6, "yyyy", null);
+                                    comp6.comp_birthday = DateTime.ParseExact(record.birth_year6, "yyyy", null);
                                     comp6.comp_valid_flag = true;
                                     comp6.as_of_date = DateTime.Now;
                                     Competitor.Add(comp6);
@@ -257,7 +256,7 @@ namespace h24
                                 var newTeam = new teams
                                 {
                                     team_nr = record.id,
-                                    team_name = record.team,
+                                    team_name = record.team_name,
                                     phone_number = record.phone,
                                     team_did_start = true,
                                     cat_id = cat_id,
@@ -789,6 +788,12 @@ namespace h24
                 MessageBox.Show("Error: " + ex.Message, ex.Message);
             }
 
+        }
+
+        private void btMapXls_Click(object sender, EventArgs e)
+        {
+            FrmMapExcel f2 = new FrmMapExcel();
+            f2.ShowDialog();
         }
     }
 }

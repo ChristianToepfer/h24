@@ -690,7 +690,7 @@ namespace h24
             }
             catch (Exception e)
             {
-                MessageBox.Show($"Not caught exceptions:\n{e.Message}\n{e.StackTrace}");
+                MessageBox.Show($"Undefined error:\n{e.Message}\n{e.StackTrace}");
             }
         }
 

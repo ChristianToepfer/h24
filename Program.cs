@@ -30,7 +30,7 @@ namespace h24
 
     private static void HandleUnhandledException(object sender, ThreadExceptionEventArgs e)
     {
-      MessageBox.Show($"Not caught exceptions:\n{e.Exception.Message}\n{e.Exception.StackTrace}");
+      MessageBox.Show($"Undefined error:\n{e.Exception.Message}\n{e.Exception.StackTrace}");
     }
   }
 }
