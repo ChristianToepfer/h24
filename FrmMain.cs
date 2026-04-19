@@ -1758,7 +1758,7 @@ Log.Information("pred PostSlip");
                                 continue;
                             if (category.cat_time_limit == 360) // Kinderbahn, > 6h, 360min
                             {
-                                if (course.course_name.Contains("C"))
+                                if (course.course_name.Contains("C") || course.course_name.Contains("Y"))
                                 {
                                     var slip = db.slips.Where(c => c.course_id == course.course_id && c.team_id == team.team_id).FirstOrDefault();
                                     if (slip == null)
@@ -1772,7 +1772,7 @@ Log.Information("pred PostSlip");
                             }
                             else // 12 oder 24h 
                             {
-                                if (course.course_name.Contains("C"))  // Kinderbahnen hier überspringen
+                                if (course.course_name.Contains("C") || course.course_name.Contains("Y"))  // Kinderbahnen hier überspringen
                                     continue;
                                 if (course.course_name.Contains("N") && (category.cat_time_limit != 1440)) // nur 24h Bahnen
                                     continue;

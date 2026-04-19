@@ -7,6 +7,7 @@ All notable changes to **h24** will be documented in this file.
 
 ## 2026-04-17
 
+* update identify 6h courses with `Y`
 * add check server time with program start
 * update export open courses for 6h, 12h, 24h and add finish time column
 
