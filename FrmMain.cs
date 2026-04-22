@@ -37,6 +37,7 @@ namespace h24
         private const string SerialPortSettingsName = "SerialPort";
 
         private bool _connected;
+        private bool skipTextChange;
         private Dictionary<int, DeviceInfo> _deviceInfoList;
 
         private Timer apiRequestTimer;
@@ -1002,32 +1003,34 @@ namespace h24
 
         }
 
-        private void SearchComp(string tx)
+        private void UpdateComp(int team_nr)
         {
             using (var db = new klc01())
             {
-                tx = txSearch.Text;
-                //TODO change to linq
+                string tx = txSearch.Text;
                 var query = (
                         from t in db.teams
                         join c in db.competitors on t.team_id equals c.team_id
-                        where c.comp_name.Contains(tx)
+                            where ((team_nr > 0) && (t.team_nr == team_nr))
+                               || ((team_nr < 0) && (
+                            c.comp_name.Contains(tx)
                             || t.team_name.Contains(tx)
                             || c.bib.Contains(tx)
-                            || SqlFunctions.StringConvert((double)c.comp_chip_id).Contains(tx)
+                                || SqlFunctions.StringConvert((double)c.comp_chip_id).Contains(tx)))
                         select new
                         {
                             t.team_id,
                             t.team_name,
                             t.team_nr,
                             t.team_status,
+                                t.phone_number,
                             t.team_did_start,
                             t.race_end
                         });
 
                 var orderedTeams = query
                     .Distinct()
-                    .OrderBy(t=> t.team_nr)
+                    .OrderBy(t => t.team_nr)
                     .ToList();
 
                 var tms = orderedTeams;
@@ -1039,17 +1042,23 @@ namespace h24
 
         private void txSearch_TextChanged(object sender, EventArgs e)
         {
-            if (txSearch.Text.Length > 0)
+            if (this.skipTextChange) {  return; }
+            int team_nr = -1;
+            if ((!checkBoxSearch.Checked) && (txSearch.Text.Length > 0))
             {
-                SearchComp(txSearch.Text);
-
-                RefreshDgCompetitors();
+                string tx = txSearch.Text;
+                if (!int.TryParse(tx, out team_nr))
+                {
+                    this.skipTextChange = true;
+                    // Remove the last character as it wasn't a number
+                    txSearch.Text = txSearch.Text.Remove((txSearch.Text.Length - 1));
+                    this.skipTextChange = false;
+                    // Move the cursor to the end of text
+                    txSearch.SelectionStart = txSearch.Text.Length;
+                    return;
+                }
             }
-        }
-
-        private void btSearch_Click(object sender, EventArgs e)
-        {
-            SearchComp(txSearch.Text);
+            UpdateComp(team_nr);
             RefreshDgCompetitors();
         }
 
@@ -1450,12 +1459,6 @@ Log.Information("pred PostSlip");
             //LbLastBib.Size = new Size(this.ClientSize.Width / 8, this.ClientSize.Height / 8);
             if (this.WindowState != FormWindowState.Minimized)
                 LbLastBib.Font = new Font("Microsoft Sans Serif", this.ClientSize.Height / 8);
-        }
-
-        private void btnClearSearch_Click(object sender, EventArgs e)
-        {
-            txSearch.Text = "";
-            SearchComp("");
         }
 
         private void cmbSerialPort_SelectedIndexChanged(object sender, EventArgs e)

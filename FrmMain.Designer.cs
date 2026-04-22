@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.rdoInputSerialPort = new System.Windows.Forms.RadioButton();
             this.grpInputDevice = new System.Windows.Forms.GroupBox();
             this.cbPost_Slips = new System.Windows.Forms.CheckBox();
@@ -59,9 +59,9 @@
             this.coursesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.entriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.legsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aPIRequestsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.afterRaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resultsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.aPIRequestsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dgCompetitors = new System.Windows.Forms.DataGridView();
             this.competitor_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bibDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -84,11 +84,11 @@
             this.competitorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgTeams = new System.Windows.Forms.DataGridView();
             this.team_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phone_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataColumnTeamStarted = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataColumnTeamNr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataColumnTeamName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataColumnPhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataColumnTeamStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.teamsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.BtDisplaySlip = new System.Windows.Forms.Button();
             this.dgLegs = new System.Windows.Forms.DataGridView();
@@ -113,8 +113,6 @@
             this.btnReloadReadout = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnPrintSlip = new System.Windows.Forms.Button();
-            this.txSearch = new System.Windows.Forms.TextBox();
-            this.btSearch = new System.Windows.Forms.Button();
             this.btn_delete_leg = new System.Windows.Forms.Button();
             this.btReloadAll = new System.Windows.Forms.Button();
             this.btnPostSlip = new System.Windows.Forms.Button();
@@ -132,12 +130,14 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.LbPenal = new System.Windows.Forms.Label();
             this.LbStatus = new System.Windows.Forms.Label();
-            this.btnClearSearch = new System.Windows.Forms.Button();
             this.cbQueueProcess = new System.Windows.Forms.CheckBox();
             this.button2 = new System.Windows.Forms.Button();
             this.tbSearchReadout = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btReadot_cancel = new System.Windows.Forms.Button();
+            this.txSearch = new System.Windows.Forms.TextBox();
+            this.checkBoxSearch = new System.Windows.Forms.CheckBox();
+            this.labelTeamNr = new System.Windows.Forms.Label();
             this.grpInputDevice.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -212,7 +212,7 @@
             this.cbPrinter.FormattingEnabled = true;
             this.cbPrinter.Location = new System.Drawing.Point(166, 158);
             this.cbPrinter.Name = "cbPrinter";
-            this.cbPrinter.Size = new System.Drawing.Size(208, 28);
+            this.cbPrinter.Size = new System.Drawing.Size(140, 21);
             this.cbPrinter.TabIndex = 103;
             this.cbPrinter.SelectedValueChanged += new System.EventHandler(this.cbPrinter_SelectedValueChanged);
             // 
@@ -339,48 +339,48 @@
             this.legsToolStripMenuItem,
             this.aPIRequestsToolStripMenuItem});
             this.courseSetupToolStripMenuItem.Name = "courseSetupToolStripMenuItem";
-            this.courseSetupToolStripMenuItem.Size = new System.Drawing.Size(116, 29);
+            this.courseSetupToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
             this.courseSetupToolStripMenuItem.Text = "Race Setup";
             // 
             // setupToolStripMenuItem
             // 
             this.setupToolStripMenuItem.Name = "setupToolStripMenuItem";
-            this.setupToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.setupToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.setupToolStripMenuItem.Text = "Settings";
             this.setupToolStripMenuItem.Click += new System.EventHandler(this.setupToolStripMenuItem_Click);
             // 
             // clasesToolStripMenuItem
             // 
             this.clasesToolStripMenuItem.Name = "clasesToolStripMenuItem";
-            this.clasesToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.clasesToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.clasesToolStripMenuItem.Text = "Categories";
             this.clasesToolStripMenuItem.Click += new System.EventHandler(this.clasesToolStripMenuItem_Click);
             // 
             // coursesToolStripMenuItem
             // 
             this.coursesToolStripMenuItem.Name = "coursesToolStripMenuItem";
-            this.coursesToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.coursesToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.coursesToolStripMenuItem.Text = "Courses";
             this.coursesToolStripMenuItem.Click += new System.EventHandler(this.coursesToolStripMenuItem_Click);
             // 
             // entriesToolStripMenuItem
             // 
             this.entriesToolStripMenuItem.Name = "entriesToolStripMenuItem";
-            this.entriesToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.entriesToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.entriesToolStripMenuItem.Text = "Entries";
             this.entriesToolStripMenuItem.Click += new System.EventHandler(this.entriesToolStripMenuItem_Click);
             // 
             // legsToolStripMenuItem
             // 
             this.legsToolStripMenuItem.Name = "legsToolStripMenuItem";
-            this.legsToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.legsToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.legsToolStripMenuItem.Text = "Legs";
             this.legsToolStripMenuItem.Click += new System.EventHandler(this.legsToolStripMenuItem_Click);
             // 
             // aPIRequestsToolStripMenuItem
             // 
             this.aPIRequestsToolStripMenuItem.Name = "aPIRequestsToolStripMenuItem";
-            this.aPIRequestsToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.aPIRequestsToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.aPIRequestsToolStripMenuItem.Text = "API Requests";
             this.aPIRequestsToolStripMenuItem.Click += new System.EventHandler(this.aPIRequestsToolStripMenuItem_Click);
             // 
@@ -389,27 +389,27 @@
             this.afterRaceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.resultsToolStripMenuItem1});
             this.afterRaceToolStripMenuItem.Name = "afterRaceToolStripMenuItem";
-            this.afterRaceToolStripMenuItem.Size = new System.Drawing.Size(109, 48);
+            this.afterRaceToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
             this.afterRaceToolStripMenuItem.Text = "After Race";
             // 
             // resultsToolStripMenuItem1
             // 
             this.resultsToolStripMenuItem1.Name = "resultsToolStripMenuItem1";
-            this.resultsToolStripMenuItem1.Size = new System.Drawing.Size(169, 34);
+            this.resultsToolStripMenuItem1.Size = new System.Drawing.Size(111, 22);
             this.resultsToolStripMenuItem1.Text = "Results";
             this.resultsToolStripMenuItem1.Click += new System.EventHandler(this.resultsToolStripMenuItem_Click);
             // 
             // dgCompetitors
             // 
             this.dgCompetitors.AutoGenerateColumns = false;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgCompetitors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgCompetitors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgCompetitors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgCompetitors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.competitor_id,
@@ -431,27 +431,28 @@
             this.teamsDataGridViewTextBoxColumn,
             this.legsDataGridViewTextBoxColumn});
             this.dgCompetitors.DataSource = this.competitorsBindingSource;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgCompetitors.DefaultCellStyle = dataGridViewCellStyle20;
-            this.dgCompetitors.Location = new System.Drawing.Point(14, 354);
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgCompetitors.DefaultCellStyle = dataGridViewCellStyle11;
+            this.dgCompetitors.Location = new System.Drawing.Point(9, 216);
+            this.dgCompetitors.Margin = new System.Windows.Forms.Padding(2);
             this.dgCompetitors.Name = "dgCompetitors";
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgCompetitors.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgCompetitors.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgCompetitors.RowHeadersWidth = 30;
             this.dgCompetitors.RowTemplate.Height = 24;
-            this.dgCompetitors.Size = new System.Drawing.Size(591, 289);
+            this.dgCompetitors.Size = new System.Drawing.Size(394, 188);
             this.dgCompetitors.TabIndex = 103;
             this.dgCompetitors.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCompetitors_CellEndEdit);
             // 
@@ -463,7 +464,6 @@
             this.competitor_id.MinimumWidth = 6;
             this.competitor_id.Name = "competitor_id";
             this.competitor_id.Visible = false;
-            this.competitor_id.Width = 150;
             // 
             // bibDataGridViewTextBoxColumn
             // 
@@ -472,7 +472,7 @@
             this.bibDataGridViewTextBoxColumn.HeaderText = "Bib";
             this.bibDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.bibDataGridViewTextBoxColumn.Name = "bibDataGridViewTextBoxColumn";
-            this.bibDataGridViewTextBoxColumn.Width = 68;
+            this.bibDataGridViewTextBoxColumn.Width = 47;
             // 
             // comp_name
             // 
@@ -481,7 +481,7 @@
             this.comp_name.HeaderText = "Name";
             this.comp_name.MinimumWidth = 6;
             this.comp_name.Name = "comp_name";
-            this.comp_name.Width = 87;
+            this.comp_name.Width = 60;
             // 
             // comp_chip_id
             // 
@@ -490,7 +490,7 @@
             this.comp_chip_id.HeaderText = "SI";
             this.comp_chip_id.MinimumWidth = 6;
             this.comp_chip_id.Name = "comp_chip_id";
-            this.comp_chip_id.Width = 61;
+            this.comp_chip_id.Width = 42;
             // 
             // compvalidflagDataGridViewTextBoxColumn
             // 
@@ -501,7 +501,7 @@
             this.compvalidflagDataGridViewTextBoxColumn.Name = "compvalidflagDataGridViewTextBoxColumn";
             this.compvalidflagDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.compvalidflagDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.compvalidflagDataGridViewTextBoxColumn.Width = 95;
+            this.compvalidflagDataGridViewTextBoxColumn.Width = 65;
             // 
             // compstatusDataGridViewTextBoxColumn
             // 
@@ -510,7 +510,7 @@
             this.compstatusDataGridViewTextBoxColumn.HeaderText = "C status";
             this.compstatusDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.compstatusDataGridViewTextBoxColumn.Name = "compstatusDataGridViewTextBoxColumn";
-            this.compstatusDataGridViewTextBoxColumn.Width = 104;
+            this.compstatusDataGridViewTextBoxColumn.Width = 70;
             // 
             // comp_withdrawn
             // 
@@ -519,7 +519,7 @@
             this.comp_withdrawn.HeaderText = "Withdrawn";
             this.comp_withdrawn.MinimumWidth = 6;
             this.comp_withdrawn.Name = "comp_withdrawn";
-            this.comp_withdrawn.Width = 90;
+            this.comp_withdrawn.Width = 64;
             // 
             // withdrawn_datetime
             // 
@@ -528,7 +528,7 @@
             this.withdrawn_datetime.HeaderText = "Wdrn at";
             this.withdrawn_datetime.MinimumWidth = 6;
             this.withdrawn_datetime.Name = "withdrawn_datetime";
-            this.withdrawn_datetime.Width = 101;
+            this.withdrawn_datetime.Width = 70;
             // 
             // rented_chip
             // 
@@ -539,7 +539,7 @@
             this.rented_chip.Name = "rented_chip";
             this.rented_chip.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.rented_chip.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.rented_chip.Width = 98;
+            this.rented_chip.Width = 67;
             // 
             // teamidDataGridViewTextBoxColumn
             // 
@@ -628,44 +628,45 @@
             // dgTeams
             // 
             this.dgTeams.AutoGenerateColumns = false;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgTeams.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgTeams.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dgTeams.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgTeams.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.team_id,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.phone_number});
+            this.dataColumnTeamStarted,
+            this.dataColumnTeamNr,
+            this.dataColumnTeamName,
+            this.dataColumnPhoneNumber,
+            this.dataColumnTeamStatus});
             this.dgTeams.DataSource = this.teamsBindingSource;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgTeams.DefaultCellStyle = dataGridViewCellStyle23;
-            this.dgTeams.Location = new System.Drawing.Point(14, 89);
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgTeams.DefaultCellStyle = dataGridViewCellStyle14;
+            this.dgTeams.Location = new System.Drawing.Point(9, 51);
+            this.dgTeams.Margin = new System.Windows.Forms.Padding(2);
             this.dgTeams.Name = "dgTeams";
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgTeams.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgTeams.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dgTeams.RowHeadersWidth = 30;
             this.dgTeams.RowTemplate.Height = 24;
-            this.dgTeams.Size = new System.Drawing.Size(591, 248);
+            this.dgTeams.Size = new System.Drawing.Size(394, 161);
             this.dgTeams.TabIndex = 103;
             this.dgTeams.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgTeams_CellEndEdit);
             this.dgTeams.SelectionChanged += new System.EventHandler(this.dgTeams_SelectionChanged);
@@ -679,51 +680,51 @@
             this.team_id.Visible = false;
             this.team_id.Width = 125;
             // 
-            // dataGridViewTextBoxColumn4
+            // dataColumnTeamStarted
             // 
-            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "team_nr";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Nr.";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 65;
+            this.dataColumnTeamStarted.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataColumnTeamStarted.DataPropertyName = "team_did_start";
+            this.dataColumnTeamStarted.HeaderText = "Did start";
+            this.dataColumnTeamStarted.MinimumWidth = 6;
+            this.dataColumnTeamStarted.Name = "dataColumnTeamStarted";
+            this.dataColumnTeamStarted.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataColumnTeamStarted.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataColumnTeamStarted.Visible = false;
             // 
-            // dataGridViewTextBoxColumn5
+            // dataColumnTeamNr
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "team_name";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 125;
+            this.dataColumnTeamNr.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataColumnTeamNr.DataPropertyName = "team_nr";
+            this.dataColumnTeamNr.HeaderText = "Nr.";
+            this.dataColumnTeamNr.MinimumWidth = 6;
+            this.dataColumnTeamNr.Name = "dataColumnTeamNr";
+            this.dataColumnTeamNr.ReadOnly = true;
+            this.dataColumnTeamNr.Width = 46;
             // 
-            // dataGridViewTextBoxColumn8
+            // dataColumnTeamName
             // 
-            this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "team_did_start";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Did start";
-            this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewTextBoxColumn8.Width = 105;
+            this.dataColumnTeamName.DataPropertyName = "team_name";
+            this.dataColumnTeamName.HeaderText = "Team Name";
+            this.dataColumnTeamName.MinimumWidth = 6;
+            this.dataColumnTeamName.Name = "dataColumnTeamName";
+            this.dataColumnTeamName.Width = 200;
             // 
-            // dataGridViewTextBoxColumn9
+            // dataColumnPhoneNumber
             // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "team_status";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Status";
-            this.dataGridViewTextBoxColumn9.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.Width = 125;
+            this.dataColumnPhoneNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataColumnPhoneNumber.DataPropertyName = "phone_number";
+            this.dataColumnPhoneNumber.HeaderText = "Phone Number";
+            this.dataColumnPhoneNumber.MinimumWidth = 8;
+            this.dataColumnPhoneNumber.Name = "dataColumnPhoneNumber";
+            this.dataColumnPhoneNumber.Width = 95;
             // 
-            // phone_number
+            // dataColumnTeamStatus
             // 
-            this.phone_number.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.phone_number.DataPropertyName = "phone_number";
-            this.phone_number.HeaderText = "phone_number";
-            this.phone_number.MinimumWidth = 8;
-            this.phone_number.Name = "phone_number";
-            this.phone_number.Width = 153;
+            this.dataColumnTeamStatus.DataPropertyName = "team_status";
+            this.dataColumnTeamStatus.HeaderText = "Free Text";
+            this.dataColumnTeamStatus.MinimumWidth = 6;
+            this.dataColumnTeamStatus.Name = "dataColumnTeamStatus";
+            this.dataColumnTeamStatus.Width = 125;
             // 
             // teamsBindingSource
             // 
@@ -732,9 +733,10 @@
             // BtDisplaySlip
             // 
             this.BtDisplaySlip.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtDisplaySlip.Location = new System.Drawing.Point(1635, 654);
+            this.BtDisplaySlip.Location = new System.Drawing.Point(1090, 425);
+            this.BtDisplaySlip.Margin = new System.Windows.Forms.Padding(2);
             this.BtDisplaySlip.Name = "BtDisplaySlip";
-            this.BtDisplaySlip.Size = new System.Drawing.Size(86, 29);
+            this.BtDisplaySlip.Size = new System.Drawing.Size(57, 19);
             this.BtDisplaySlip.TabIndex = 104;
             this.BtDisplaySlip.Text = "Slip";
             this.toolTip1.SetToolTip(this.BtDisplaySlip, "Display Slip\r\ndisplays slip of current leg");
@@ -749,14 +751,14 @@
             this.dgLegs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgLegs.AutoGenerateColumns = false;
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgLegs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgLegs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.dgLegs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgLegs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.readout_id,
@@ -775,28 +777,29 @@
             this.valid_flag,
             this.leg_id});
             this.dgLegs.DataSource = this.legsBindingSource;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgLegs.DefaultCellStyle = dataGridViewCellStyle26;
-            this.dgLegs.Location = new System.Drawing.Point(636, 465);
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgLegs.DefaultCellStyle = dataGridViewCellStyle17;
+            this.dgLegs.Location = new System.Drawing.Point(424, 302);
+            this.dgLegs.Margin = new System.Windows.Forms.Padding(2);
             this.dgLegs.Name = "dgLegs";
             this.dgLegs.ReadOnly = true;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgLegs.RowHeadersDefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgLegs.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.dgLegs.RowHeadersWidth = 30;
             this.dgLegs.RowTemplate.Height = 24;
-            this.dgLegs.Size = new System.Drawing.Size(990, 289);
+            this.dgLegs.Size = new System.Drawing.Size(660, 188);
             this.dgLegs.TabIndex = 107;
             this.dgLegs.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgLegs_CellFormatting);
             this.dgLegs.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgLegs_CellPainting);
@@ -810,7 +813,7 @@
             this.readout_id.MinimumWidth = 6;
             this.readout_id.Name = "readout_id";
             this.readout_id.ReadOnly = true;
-            this.readout_id.Width = 59;
+            this.readout_id.Width = 41;
             // 
             // chip_id
             // 
@@ -820,7 +823,7 @@
             this.chip_id.MinimumWidth = 6;
             this.chip_id.Name = "chip_id";
             this.chip_id.ReadOnly = true;
-            this.chip_id.Width = 61;
+            this.chip_id.Width = 42;
             // 
             // card_readout_datetime
             // 
@@ -830,7 +833,7 @@
             this.card_readout_datetime.MinimumWidth = 6;
             this.card_readout_datetime.Name = "card_readout_datetime";
             this.card_readout_datetime.ReadOnly = true;
-            this.card_readout_datetime.Width = 104;
+            this.card_readout_datetime.Width = 71;
             // 
             // name_comp
             // 
@@ -849,7 +852,7 @@
             this.bib.MinimumWidth = 6;
             this.bib.Name = "bib";
             this.bib.ReadOnly = true;
-            this.bib.Width = 68;
+            this.bib.Width = 47;
             // 
             // start_time
             // 
@@ -859,7 +862,7 @@
             this.start_time.MinimumWidth = 6;
             this.start_time.Name = "start_time";
             this.start_time.ReadOnly = true;
-            this.start_time.Width = 80;
+            this.start_time.Width = 54;
             // 
             // leg_time
             // 
@@ -869,7 +872,7 @@
             this.leg_time.MinimumWidth = 6;
             this.leg_time.Name = "leg_time";
             this.leg_time.ReadOnly = true;
-            this.leg_time.Width = 110;
+            this.leg_time.Width = 76;
             // 
             // finish_time
             // 
@@ -879,7 +882,7 @@
             this.finish_time.MinimumWidth = 6;
             this.finish_time.Name = "finish_time";
             this.finish_time.ReadOnly = true;
-            this.finish_time.Width = 125;
+            this.finish_time.Width = 85;
             // 
             // course
             // 
@@ -889,7 +892,7 @@
             this.course.MinimumWidth = 6;
             this.course.Name = "course";
             this.course.ReadOnly = true;
-            this.course.Width = 96;
+            this.course.Width = 65;
             // 
             // leg_status
             // 
@@ -899,7 +902,7 @@
             this.leg_status.MinimumWidth = 6;
             this.leg_status.Name = "leg_status";
             this.leg_status.ReadOnly = true;
-            this.leg_status.Width = 92;
+            this.leg_status.Width = 62;
             // 
             // dsk_penalty
             // 
@@ -909,7 +912,7 @@
             this.dsk_penalty.MinimumWidth = 6;
             this.dsk_penalty.Name = "dsk_penalty";
             this.dsk_penalty.ReadOnly = true;
-            this.dsk_penalty.Width = 130;
+            this.dsk_penalty.Width = 89;
             // 
             // comp_id
             // 
@@ -930,7 +933,7 @@
             this.race_valid.Name = "race_valid";
             this.race_valid.ReadOnly = true;
             this.race_valid.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.race_valid.Width = 122;
+            this.race_valid.Width = 84;
             // 
             // valid_flag
             // 
@@ -940,7 +943,7 @@
             this.valid_flag.MinimumWidth = 6;
             this.valid_flag.Name = "valid_flag";
             this.valid_flag.ReadOnly = true;
-            this.valid_flag.Width = 146;
+            this.valid_flag.Width = 99;
             // 
             // leg_id
             // 
@@ -950,7 +953,7 @@
             this.leg_id.MinimumWidth = 6;
             this.leg_id.Name = "leg_id";
             this.leg_id.ReadOnly = true;
-            this.leg_id.Width = 87;
+            this.leg_id.Width = 60;
             // 
             // legsBindingSource
             // 
@@ -975,9 +978,10 @@
             // btnReloadReadout
             // 
             this.btnReloadReadout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnReloadReadout.Location = new System.Drawing.Point(1635, 498);
+            this.btnReloadReadout.Location = new System.Drawing.Point(1090, 324);
+            this.btnReloadReadout.Margin = new System.Windows.Forms.Padding(2);
             this.btnReloadReadout.Name = "btnReloadReadout";
-            this.btnReloadReadout.Size = new System.Drawing.Size(86, 29);
+            this.btnReloadReadout.Size = new System.Drawing.Size(57, 19);
             this.btnReloadReadout.TabIndex = 108;
             this.btnReloadReadout.Text = "Reload";
             this.toolTip1.SetToolTip(this.btnReloadReadout, "Reload Readout - this will reload punches for selected competitor");
@@ -996,39 +1000,23 @@
             // btnPrintSlip
             // 
             this.btnPrintSlip.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPrintSlip.Location = new System.Drawing.Point(1635, 692);
+            this.btnPrintSlip.Location = new System.Drawing.Point(1090, 450);
+            this.btnPrintSlip.Margin = new System.Windows.Forms.Padding(2);
             this.btnPrintSlip.Name = "btnPrintSlip";
-            this.btnPrintSlip.Size = new System.Drawing.Size(86, 29);
+            this.btnPrintSlip.Size = new System.Drawing.Size(57, 19);
             this.btnPrintSlip.TabIndex = 109;
             this.btnPrintSlip.Text = "Print";
             this.toolTip1.SetToolTip(this.btnPrintSlip, "Print Slip on Printer");
             this.btnPrintSlip.UseVisualStyleBackColor = true;
             this.btnPrintSlip.Click += new System.EventHandler(this.btnPrintSlip_Click);
             // 
-            // txSearch
-            // 
-            this.txSearch.Location = new System.Drawing.Point(14, 42);
-            this.txSearch.Name = "txSearch";
-            this.txSearch.Size = new System.Drawing.Size(304, 26);
-            this.txSearch.TabIndex = 111;
-            this.txSearch.TextChanged += new System.EventHandler(this.txSearch_TextChanged);
-            // 
-            // btSearch
-            // 
-            this.btSearch.Location = new System.Drawing.Point(338, 42);
-            this.btSearch.Name = "btSearch";
-            this.btSearch.Size = new System.Drawing.Size(84, 29);
-            this.btSearch.TabIndex = 112;
-            this.btSearch.Text = "Search";
-            this.btSearch.UseVisualStyleBackColor = true;
-            this.btSearch.Click += new System.EventHandler(this.btSearch_Click);
-            // 
             // btn_delete_leg
             // 
             this.btn_delete_leg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_delete_leg.Location = new System.Drawing.Point(1635, 575);
+            this.btn_delete_leg.Location = new System.Drawing.Point(1090, 374);
+            this.btn_delete_leg.Margin = new System.Windows.Forms.Padding(2);
             this.btn_delete_leg.Name = "btn_delete_leg";
-            this.btn_delete_leg.Size = new System.Drawing.Size(86, 29);
+            this.btn_delete_leg.Size = new System.Drawing.Size(57, 19);
             this.btn_delete_leg.TabIndex = 113;
             this.btn_delete_leg.Text = "Delete";
             this.toolTip1.SetToolTip(this.btn_delete_leg, "Delete Leg - this will make selected readout INACTIVE, will be still displayed");
@@ -1038,9 +1026,10 @@
             // btReloadAll
             // 
             this.btReloadAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btReloadAll.Location = new System.Drawing.Point(1635, 615);
+            this.btReloadAll.Location = new System.Drawing.Point(1090, 400);
+            this.btReloadAll.Margin = new System.Windows.Forms.Padding(2);
             this.btReloadAll.Name = "btReloadAll";
-            this.btReloadAll.Size = new System.Drawing.Size(86, 29);
+            this.btReloadAll.Size = new System.Drawing.Size(57, 19);
             this.btReloadAll.TabIndex = 114;
             this.btReloadAll.Text = "R Team";
             this.toolTip1.SetToolTip(this.btReloadAll, "Reload whole Team\r\nWill relaod punches of all competitors of current team");
@@ -1050,9 +1039,10 @@
             // btnPostSlip
             // 
             this.btnPostSlip.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnPostSlip.Location = new System.Drawing.Point(729, 428);
+            this.btnPostSlip.Location = new System.Drawing.Point(486, 278);
+            this.btnPostSlip.Margin = new System.Windows.Forms.Padding(2);
             this.btnPostSlip.Name = "btnPostSlip";
-            this.btnPostSlip.Size = new System.Drawing.Size(84, 29);
+            this.btnPostSlip.Size = new System.Drawing.Size(56, 19);
             this.btnPostSlip.TabIndex = 115;
             this.btnPostSlip.Text = "Post Slip";
             this.toolTip1.SetToolTip(this.btnPostSlip, "Sends current leg to Live Results");
@@ -1062,9 +1052,10 @@
             // btn_change_competitor
             // 
             this.btn_change_competitor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_change_competitor.Location = new System.Drawing.Point(1635, 537);
+            this.btn_change_competitor.Location = new System.Drawing.Point(1090, 349);
+            this.btn_change_competitor.Margin = new System.Windows.Forms.Padding(2);
             this.btn_change_competitor.Name = "btn_change_competitor";
-            this.btn_change_competitor.Size = new System.Drawing.Size(86, 29);
+            this.btn_change_competitor.Size = new System.Drawing.Size(57, 19);
             this.btn_change_competitor.TabIndex = 116;
             this.btn_change_competitor.Text = "Ch comp";
             this.toolTip1.SetToolTip(this.btn_change_competitor, "Change competitor \r\nwill open new form so you can reassign punches to another com" +
@@ -1074,9 +1065,10 @@
             // 
             // btnResults
             // 
-            this.btnResults.Location = new System.Drawing.Point(1326, 308);
+            this.btnResults.Location = new System.Drawing.Point(884, 200);
+            this.btnResults.Margin = new System.Windows.Forms.Padding(2);
             this.btnResults.Name = "btnResults";
-            this.btnResults.Size = new System.Drawing.Size(84, 29);
+            this.btnResults.Size = new System.Drawing.Size(56, 19);
             this.btnResults.TabIndex = 117;
             this.btnResults.Text = "Results";
             this.btnResults.UseVisualStyleBackColor = true;
@@ -1085,9 +1077,10 @@
             // 
             // btnWithdrawn
             // 
-            this.btnWithdrawn.Location = new System.Drawing.Point(14, 649);
+            this.btnWithdrawn.Location = new System.Drawing.Point(9, 469);
+            this.btnWithdrawn.Margin = new System.Windows.Forms.Padding(2);
             this.btnWithdrawn.Name = "btnWithdrawn";
-            this.btnWithdrawn.Size = new System.Drawing.Size(84, 29);
+            this.btnWithdrawn.Size = new System.Drawing.Size(56, 19);
             this.btnWithdrawn.TabIndex = 118;
             this.btnWithdrawn.Text = "Wdrn";
             this.btnWithdrawn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -1097,9 +1090,10 @@
             // btnRefreshLegs
             // 
             this.btnRefreshLegs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRefreshLegs.Location = new System.Drawing.Point(1635, 458);
+            this.btnRefreshLegs.Location = new System.Drawing.Point(1090, 298);
+            this.btnRefreshLegs.Margin = new System.Windows.Forms.Padding(2);
             this.btnRefreshLegs.Name = "btnRefreshLegs";
-            this.btnRefreshLegs.Size = new System.Drawing.Size(86, 29);
+            this.btnRefreshLegs.Size = new System.Drawing.Size(57, 19);
             this.btnRefreshLegs.TabIndex = 119;
             this.btnRefreshLegs.Text = "Refresh";
             this.toolTip1.SetToolTip(this.btnRefreshLegs, "Refreshes Readout grid");
@@ -1108,9 +1102,10 @@
             // 
             // btnTopSearchBottom
             // 
-            this.btnTopSearchBottom.Location = new System.Drawing.Point(387, 655);
+            this.btnTopSearchBottom.Location = new System.Drawing.Point(258, 444);
+            this.btnTopSearchBottom.Margin = new System.Windows.Forms.Padding(2);
             this.btnTopSearchBottom.Name = "btnTopSearchBottom";
-            this.btnTopSearchBottom.Size = new System.Drawing.Size(34, 48);
+            this.btnTopSearchBottom.Size = new System.Drawing.Size(23, 31);
             this.btnTopSearchBottom.TabIndex = 132;
             this.btnTopSearchBottom.Text = " |\r\nV";
             this.toolTip1.SetToolTip(this.btnTopSearchBottom, "Copy Search text to Search Readout");
@@ -1119,9 +1114,10 @@
             // 
             // btFilterReadout
             // 
-            this.btFilterReadout.Location = new System.Drawing.Point(532, 655);
+            this.btFilterReadout.Location = new System.Drawing.Point(355, 444);
+            this.btFilterReadout.Margin = new System.Windows.Forms.Padding(2);
             this.btFilterReadout.Name = "btFilterReadout";
-            this.btFilterReadout.Size = new System.Drawing.Size(54, 38);
+            this.btFilterReadout.Size = new System.Drawing.Size(36, 25);
             this.btFilterReadout.TabIndex = 133;
             this.btFilterReadout.Text = "-->";
             this.toolTip1.SetToolTip(this.btFilterReadout, "Filters Readout list by team selected on TopLeft");
@@ -1131,9 +1127,10 @@
             // BtnPostAll
             // 
             this.BtnPostAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.BtnPostAll.Location = new System.Drawing.Point(639, 428);
+            this.BtnPostAll.Location = new System.Drawing.Point(426, 278);
+            this.BtnPostAll.Margin = new System.Windows.Forms.Padding(2);
             this.BtnPostAll.Name = "BtnPostAll";
-            this.BtnPostAll.Size = new System.Drawing.Size(84, 29);
+            this.BtnPostAll.Size = new System.Drawing.Size(56, 19);
             this.BtnPostAll.TabIndex = 121;
             this.BtnPostAll.Text = "Post All Slips";
             this.toolTip1.SetToolTip(this.BtnPostAll, "Posts all punches to Live Results\r\nWARNING: Could take long time!");
@@ -1143,9 +1140,10 @@
             // btChangeStatus
             // 
             this.btChangeStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btChangeStatus.Location = new System.Drawing.Point(1635, 729);
+            this.btChangeStatus.Location = new System.Drawing.Point(1090, 474);
+            this.btChangeStatus.Margin = new System.Windows.Forms.Padding(2);
             this.btChangeStatus.Name = "btChangeStatus";
-            this.btChangeStatus.Size = new System.Drawing.Size(86, 29);
+            this.btChangeStatus.Size = new System.Drawing.Size(57, 19);
             this.btChangeStatus.TabIndex = 131;
             this.btChangeStatus.Text = "Status";
             this.toolTip1.SetToolTip(this.btChangeStatus, "Cange Status of current leg");
@@ -1155,9 +1153,10 @@
             // btPostTeam
             // 
             this.btPostTeam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btPostTeam.Location = new System.Drawing.Point(855, 428);
+            this.btPostTeam.Location = new System.Drawing.Point(570, 278);
+            this.btPostTeam.Margin = new System.Windows.Forms.Padding(2);
             this.btPostTeam.Name = "btPostTeam";
-            this.btPostTeam.Size = new System.Drawing.Size(102, 29);
+            this.btPostTeam.Size = new System.Drawing.Size(68, 19);
             this.btPostTeam.TabIndex = 134;
             this.btPostTeam.Text = "Post Team";
             this.toolTip1.SetToolTip(this.btPostTeam, "Sends all legs of current Team to Live Results");
@@ -1169,9 +1168,10 @@
             this.LbLastBib.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LbLastBib.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LbLastBib.Font = new System.Drawing.Font("Microsoft Sans Serif", 60F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LbLastBib.Location = new System.Drawing.Point(3, 22);
+            this.LbLastBib.Location = new System.Drawing.Point(2, 15);
+            this.LbLastBib.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LbLastBib.Name = "LbLastBib";
-            this.LbLastBib.Size = new System.Drawing.Size(651, 344);
+            this.LbLastBib.Size = new System.Drawing.Size(434, 223);
             this.LbLastBib.TabIndex = 122;
             this.LbLastBib.Text = "0X";
             this.LbLastBib.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1185,9 +1185,11 @@
             this.groupBox2.Controls.Add(this.LbPenal);
             this.groupBox2.Controls.Add(this.LbStatus);
             this.groupBox2.Controls.Add(this.LbLastBib);
-            this.groupBox2.Location = new System.Drawing.Point(636, 42);
+            this.groupBox2.Location = new System.Drawing.Point(424, 27);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(657, 369);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Size = new System.Drawing.Size(438, 240);
             this.groupBox2.TabIndex = 123;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Last Readout";
@@ -1197,9 +1199,10 @@
             this.LbPenal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.LbPenal.AutoSize = true;
             this.LbPenal.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LbPenal.Location = new System.Drawing.Point(429, 302);
+            this.LbPenal.Location = new System.Drawing.Point(286, 196);
+            this.LbPenal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LbPenal.Name = "LbPenal";
-            this.LbPenal.Size = new System.Drawing.Size(221, 58);
+            this.LbPenal.Size = new System.Drawing.Size(149, 39);
             this.LbPenal.TabIndex = 124;
             this.LbPenal.Text = "00:00:00";
             // 
@@ -1208,21 +1211,12 @@
             this.LbStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.LbStatus.AutoSize = true;
             this.LbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LbStatus.Location = new System.Drawing.Point(33, 302);
+            this.LbStatus.Location = new System.Drawing.Point(22, 196);
+            this.LbStatus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LbStatus.Name = "LbStatus";
-            this.LbStatus.Size = new System.Drawing.Size(97, 58);
+            this.LbStatus.Size = new System.Drawing.Size(66, 39);
             this.LbStatus.TabIndex = 123;
             this.LbStatus.Text = "OK";
-            // 
-            // btnClearSearch
-            // 
-            this.btnClearSearch.Location = new System.Drawing.Point(452, 42);
-            this.btnClearSearch.Name = "btnClearSearch";
-            this.btnClearSearch.Size = new System.Drawing.Size(40, 29);
-            this.btnClearSearch.TabIndex = 124;
-            this.btnClearSearch.Text = "X";
-            this.btnClearSearch.UseVisualStyleBackColor = true;
-            this.btnClearSearch.Click += new System.EventHandler(this.btnClearSearch_Click);
             // 
             // cbQueueProcess
             // 
@@ -1230,9 +1224,10 @@
             this.cbQueueProcess.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbQueueProcess.Appearance = System.Windows.Forms.Appearance.Button;
             this.cbQueueProcess.AutoSize = true;
-            this.cbQueueProcess.Location = new System.Drawing.Point(1649, 282);
+            this.cbQueueProcess.Location = new System.Drawing.Point(1095, 183);
+            this.cbQueueProcess.Margin = new System.Windows.Forms.Padding(2);
             this.cbQueueProcess.Name = "cbQueueProcess";
-            this.cbQueueProcess.Size = new System.Drawing.Size(67, 30);
+            this.cbQueueProcess.Size = new System.Drawing.Size(49, 23);
             this.cbQueueProcess.TabIndex = 126;
             this.cbQueueProcess.Text = "Queue";
             this.cbQueueProcess.UseVisualStyleBackColor = true;
@@ -1241,9 +1236,10 @@
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(1552, 392);
+            this.button2.Location = new System.Drawing.Point(1035, 255);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 28);
+            this.button2.Size = new System.Drawing.Size(50, 18);
             this.button2.TabIndex = 127;
             this.button2.Text = "Q one time";
             this.button2.UseVisualStyleBackColor = false;
@@ -1252,268 +1248,73 @@
             // 
             // tbSearchReadout
             // 
-            this.tbSearchReadout.Location = new System.Drawing.Point(368, 728);
+            this.tbSearchReadout.Location = new System.Drawing.Point(245, 473);
+            this.tbSearchReadout.Margin = new System.Windows.Forms.Padding(2);
             this.tbSearchReadout.Name = "tbSearchReadout";
-            this.tbSearchReadout.Size = new System.Drawing.Size(220, 26);
+            this.tbSearchReadout.Size = new System.Drawing.Size(148, 20);
             this.tbSearchReadout.TabIndex = 128;
             this.tbSearchReadout.TextChanged += new System.EventHandler(this.tbSearchReadout_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(212, 732);
+            this.label1.Location = new System.Drawing.Point(141, 476);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 20);
+            this.label1.Size = new System.Drawing.Size(85, 13);
             this.label1.TabIndex = 129;
             this.label1.Text = "Search Readout";
             // 
             // btReadot_cancel
             // 
-            this.btReadot_cancel.Location = new System.Drawing.Point(592, 722);
+            this.btReadot_cancel.Location = new System.Drawing.Point(395, 469);
+            this.btReadot_cancel.Margin = new System.Windows.Forms.Padding(2);
             this.btReadot_cancel.Name = "btReadot_cancel";
-            this.btReadot_cancel.Size = new System.Drawing.Size(34, 35);
+            this.btReadot_cancel.Size = new System.Drawing.Size(23, 23);
             this.btReadot_cancel.TabIndex = 130;
             this.btReadot_cancel.Text = "X";
             this.btReadot_cancel.UseVisualStyleBackColor = true;
             this.btReadot_cancel.Click += new System.EventHandler(this.btReadot_cancel_Click);
             // 
-            // readout_id
+            // txSearch
             // 
-            this.readout_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.readout_id.DataPropertyName = "readout_id";
-            this.readout_id.HeaderText = "Id";
-            this.readout_id.MinimumWidth = 6;
-            this.readout_id.Name = "readout_id";
-            this.readout_id.ReadOnly = true;
-            this.readout_id.Width = 59;
+            this.txSearch.Location = new System.Drawing.Point(69, 25);
+            this.txSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.txSearch.Name = "txSearch";
+            this.txSearch.Size = new System.Drawing.Size(199, 20);
+            this.txSearch.TabIndex = 111;           
+            this.txSearch.TextChanged += new System.EventHandler(this.txSearch_TextChanged);
             // 
-            // start_time
+            // checkBoxSearch
             // 
-            this.start_time.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.start_time.DataPropertyName = "start_time";
-            this.start_time.HeaderText = "Start";
-            this.start_time.MinimumWidth = 6;
-            this.start_time.Name = "start_time";
-            this.start_time.ReadOnly = true;
-            this.start_time.Width = 80;
+            this.checkBoxSearch.AutoSize = true;
+            this.checkBoxSearch.Location = new System.Drawing.Point(272, 27);
+            this.checkBoxSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.checkBoxSearch.Name = "checkBoxSearch";
+            this.checkBoxSearch.Size = new System.Drawing.Size(60, 17);
+            this.checkBoxSearch.TabIndex = 107;
+            this.checkBoxSearch.Text = "Search";
+            this.checkBoxSearch.UseVisualStyleBackColor = true;
+            this.checkBoxSearch.CheckedChanged += new System.EventHandler(this.checkBoxSearch_CheckedChanged);
             // 
-            // leg_status
+            // labelTeamNr
             // 
-            this.leg_status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.leg_status.DataPropertyName = "leg_status";
-            this.leg_status.HeaderText = "Status";
-            this.leg_status.MinimumWidth = 6;
-            this.leg_status.Name = "leg_status";
-            this.leg_status.ReadOnly = true;
-            this.leg_status.Width = 92;
-            // 
-            // dsk_penalty
-            // 
-            this.dsk_penalty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dsk_penalty.DataPropertyName = "dsk_penalty";
-            this.dsk_penalty.HeaderText = "dsk_penalty";
-            this.dsk_penalty.MinimumWidth = 6;
-            this.dsk_penalty.Name = "dsk_penalty";
-            this.dsk_penalty.ReadOnly = true;
-            this.dsk_penalty.Width = 130;
-            // 
-            // comp_id
-            // 
-            this.comp_id.DataPropertyName = "comp_id";
-            this.comp_id.HeaderText = "comp_id";
-            this.comp_id.MinimumWidth = 6;
-            this.comp_id.Name = "comp_id";
-            this.comp_id.ReadOnly = true;
-            this.comp_id.Visible = false;
-            this.comp_id.Width = 125;
-            // 
-            // leg_id
-            // 
-            this.leg_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.leg_id.DataPropertyName = "leg_id";
-            this.leg_id.HeaderText = "leg_id";
-            this.leg_id.MinimumWidth = 6;
-            this.leg_id.Name = "leg_id";
-            this.leg_id.ReadOnly = true;
-            this.leg_id.Width = 87;
-            // 
-            // legsBindingSource
-            // 
-            this.legsBindingSource.DataSource = typeof(h24.legs);
-            // 
-            // team_id
-            // 
-            this.team_id.DataPropertyName = "team_id";
-            this.team_id.HeaderText = "team_id";
-            this.team_id.MinimumWidth = 6;
-            this.team_id.Name = "team_id";
-            this.team_id.Visible = false;
-            this.team_id.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "team_nr";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Nr.";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 65;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "team_name";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "team_did_start";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Did start";
-            this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewTextBoxColumn8.Width = 105;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "team_status";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Status";
-            this.dataGridViewTextBoxColumn9.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.Width = 125;
-            // 
-            // teamsBindingSource
-            // 
-            this.teamsBindingSource.DataSource = typeof(h24.teams);
-            // 
-            // competitor_id
-            // 
-            this.competitor_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.competitor_id.DataPropertyName = "comp_id";
-            this.competitor_id.HeaderText = "comp_id";
-            this.competitor_id.MinimumWidth = 6;
-            this.competitor_id.Name = "competitor_id";
-            this.competitor_id.Visible = false;
-            this.competitor_id.Width = 105;
-            // 
-            // bibDataGridViewTextBoxColumn
-            // 
-            this.bibDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.bibDataGridViewTextBoxColumn.DataPropertyName = "bib";
-            this.bibDataGridViewTextBoxColumn.HeaderText = "Bib";
-            this.bibDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.bibDataGridViewTextBoxColumn.Name = "bibDataGridViewTextBoxColumn";
-            this.bibDataGridViewTextBoxColumn.Width = 68;
-            // 
-            // compvalidflagDataGridViewTextBoxColumn
-            // 
-            this.compvalidflagDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.compvalidflagDataGridViewTextBoxColumn.DataPropertyName = "comp_valid_flag";
-            this.compvalidflagDataGridViewTextBoxColumn.HeaderText = "C Valid";
-            this.compvalidflagDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.compvalidflagDataGridViewTextBoxColumn.Name = "compvalidflagDataGridViewTextBoxColumn";
-            this.compvalidflagDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.compvalidflagDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.compvalidflagDataGridViewTextBoxColumn.Width = 95;
-            // 
-            // compstatusDataGridViewTextBoxColumn
-            // 
-            this.compstatusDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.compstatusDataGridViewTextBoxColumn.DataPropertyName = "comp_status";
-            this.compstatusDataGridViewTextBoxColumn.HeaderText = "C status";
-            this.compstatusDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.compstatusDataGridViewTextBoxColumn.Name = "compstatusDataGridViewTextBoxColumn";
-            this.compstatusDataGridViewTextBoxColumn.Width = 104;
-            // 
-            // teamidDataGridViewTextBoxColumn
-            // 
-            this.teamidDataGridViewTextBoxColumn.DataPropertyName = "team_id";
-            this.teamidDataGridViewTextBoxColumn.HeaderText = "team_id";
-            this.teamidDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.teamidDataGridViewTextBoxColumn.Name = "teamidDataGridViewTextBoxColumn";
-            this.teamidDataGridViewTextBoxColumn.Visible = false;
-            this.teamidDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // compclubDataGridViewTextBoxColumn
-            // 
-            this.compclubDataGridViewTextBoxColumn.DataPropertyName = "comp_club";
-            this.compclubDataGridViewTextBoxColumn.HeaderText = "comp_club";
-            this.compclubDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.compclubDataGridViewTextBoxColumn.Name = "compclubDataGridViewTextBoxColumn";
-            this.compclubDataGridViewTextBoxColumn.Visible = false;
-            this.compclubDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // rankorderDataGridViewTextBoxColumn
-            // 
-            this.rankorderDataGridViewTextBoxColumn.DataPropertyName = "rank_order";
-            this.rankorderDataGridViewTextBoxColumn.HeaderText = "rank_order";
-            this.rankorderDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.rankorderDataGridViewTextBoxColumn.Name = "rankorderDataGridViewTextBoxColumn";
-            this.rankorderDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // compregDataGridViewTextBoxColumn
-            // 
-            this.compregDataGridViewTextBoxColumn.DataPropertyName = "comp_reg";
-            this.compregDataGridViewTextBoxColumn.HeaderText = "comp_reg";
-            this.compregDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.compregDataGridViewTextBoxColumn.Name = "compregDataGridViewTextBoxColumn";
-            this.compregDataGridViewTextBoxColumn.Visible = false;
-            this.compregDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // compcountryDataGridViewTextBoxColumn
-            // 
-            this.compcountryDataGridViewTextBoxColumn.DataPropertyName = "comp_country";
-            this.compcountryDataGridViewTextBoxColumn.HeaderText = "comp_country";
-            this.compcountryDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.compcountryDataGridViewTextBoxColumn.Name = "compcountryDataGridViewTextBoxColumn";
-            this.compcountryDataGridViewTextBoxColumn.Visible = false;
-            this.compcountryDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // compbirthdayDataGridViewTextBoxColumn
-            // 
-            this.compbirthdayDataGridViewTextBoxColumn.DataPropertyName = "comp_birthday";
-            this.compbirthdayDataGridViewTextBoxColumn.HeaderText = "comp_birthday";
-            this.compbirthdayDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.compbirthdayDataGridViewTextBoxColumn.Name = "compbirthdayDataGridViewTextBoxColumn";
-            this.compbirthdayDataGridViewTextBoxColumn.Visible = false;
-            this.compbirthdayDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // asofdateDataGridViewTextBoxColumn
-            // 
-            this.asofdateDataGridViewTextBoxColumn.DataPropertyName = "as_of_date";
-            this.asofdateDataGridViewTextBoxColumn.HeaderText = "as_of_date";
-            this.asofdateDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.asofdateDataGridViewTextBoxColumn.Name = "asofdateDataGridViewTextBoxColumn";
-            this.asofdateDataGridViewTextBoxColumn.Visible = false;
-            this.asofdateDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // teamsDataGridViewTextBoxColumn
-            // 
-            this.teamsDataGridViewTextBoxColumn.DataPropertyName = "teams";
-            this.teamsDataGridViewTextBoxColumn.HeaderText = "teams";
-            this.teamsDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.teamsDataGridViewTextBoxColumn.Name = "teamsDataGridViewTextBoxColumn";
-            this.teamsDataGridViewTextBoxColumn.Visible = false;
-            this.teamsDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // legsDataGridViewTextBoxColumn
-            // 
-            this.afterRaceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.resultsToolStripMenuItem1});
-            this.afterRaceToolStripMenuItem.Name = "afterRaceToolStripMenuItem";
-            this.afterRaceToolStripMenuItem.Size = new System.Drawing.Size(109, 29);
-            this.afterRaceToolStripMenuItem.Text = "After Race";
+            this.labelTeamNr.AutoSize = true;
+            this.labelTeamNr.Location = new System.Drawing.Point(14, 27);
+            this.labelTeamNr.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelTeamNr.Name = "labelTeamNr";
+            this.labelTeamNr.Size = new System.Drawing.Size(51, 13);
+            this.labelTeamNr.TabIndex = 135;
+            this.labelTeamNr.Text = "Team Nr.";
             // 
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1732, 985);
+            this.ClientSize = new System.Drawing.Size(1155, 640);
+            this.Controls.Add(this.labelTeamNr);
+            this.Controls.Add(this.checkBoxSearch);
+            this.Controls.Add(this.txSearch);
             this.Controls.Add(this.btPostTeam);
             this.Controls.Add(this.btFilterReadout);
             this.Controls.Add(this.btnTopSearchBottom);
@@ -1523,7 +1324,6 @@
             this.Controls.Add(this.tbSearchReadout);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.cbQueueProcess);
-            this.Controls.Add(this.btnClearSearch);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.BtnPostAll);
             this.Controls.Add(this.btnRefreshLegs);
@@ -1533,8 +1333,6 @@
             this.Controls.Add(this.btnPostSlip);
             this.Controls.Add(this.btReloadAll);
             this.Controls.Add(this.btn_delete_leg);
-            this.Controls.Add(this.btSearch);
-            this.Controls.Add(this.txSearch);
             this.Controls.Add(this.btnPrintSlip);
             this.Controls.Add(this.btnReloadReadout);
             this.Controls.Add(this.dgLegs);
@@ -1546,8 +1344,7 @@
             this.Controls.Add(this.grpInputDevice);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.MinimumSize = new System.Drawing.Size(898, 668);
+            this.MinimumSize = new System.Drawing.Size(604, 448);
             this.Name = "FrmMain";
             this.Text = "h24";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -1571,6 +1368,11 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void TxSearch_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            throw new System.NotImplementedException();
         }
 
         #endregion
@@ -1604,8 +1406,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.ToolStripMenuItem setupToolStripMenuItem;
         private System.Windows.Forms.Button btnPrintSlip;
-        private System.Windows.Forms.TextBox txSearch;
-        private System.Windows.Forms.Button btSearch;
         private System.Windows.Forms.Button btn_delete_leg;
         private System.Windows.Forms.Button btReloadAll;
         private System.Windows.Forms.Button btnPostSlip;
@@ -1639,7 +1439,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label LbPenal;
         private System.Windows.Forms.Label LbStatus;
-        private System.Windows.Forms.Button btnClearSearch;
         private System.Windows.Forms.CheckBox cbQueueProcess;
         private System.Windows.Forms.ToolStripMenuItem aPIRequestsToolStripMenuItem;
         private System.Windows.Forms.Button button2;
@@ -1662,12 +1461,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btReadot_cancel;
         private System.Windows.Forms.Button btChangeStatus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn team_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phone_number;
         private System.Windows.Forms.ToolStripMenuItem exportWinnerMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportOpenCoursesMenuItem;
         private System.Windows.Forms.Button btnTopSearchBottom;
@@ -1675,6 +1468,15 @@
         private System.Windows.Forms.Button btPostTeam;
         private System.Windows.Forms.ToolStripMenuItem afterRaceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem resultsToolStripMenuItem1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn team_id;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataColumnTeamStarted;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataColumnTeamNr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataColumnTeamName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataColumnPhoneNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataColumnTeamStatus;
+        private System.Windows.Forms.TextBox txSearch;
+        private System.Windows.Forms.CheckBox checkBoxSearch;
+        private System.Windows.Forms.Label labelTeamNr;
     }
 }
 
