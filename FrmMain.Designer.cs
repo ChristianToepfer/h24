@@ -155,10 +155,9 @@
             this.rdoInputSerialPort.BackColor = System.Drawing.SystemColors.Window;
             this.rdoInputSerialPort.Checked = true;
             this.rdoInputSerialPort.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.rdoInputSerialPort.Location = new System.Drawing.Point(22, 38);
-            this.rdoInputSerialPort.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rdoInputSerialPort.Location = new System.Drawing.Point(15, 25);
             this.rdoInputSerialPort.Name = "rdoInputSerialPort";
-            this.rdoInputSerialPort.Size = new System.Drawing.Size(226, 28);
+            this.rdoInputSerialPort.Size = new System.Drawing.Size(151, 18);
             this.rdoInputSerialPort.TabIndex = 92;
             this.rdoInputSerialPort.TabStop = true;
             this.rdoInputSerialPort.Text = "SPORTident device";
@@ -174,12 +173,9 @@
             this.grpInputDevice.Controls.Add(this.btnRefresh);
             this.grpInputDevice.Controls.Add(this.cmbSerialPort);
             this.grpInputDevice.Controls.Add(this.rdoInputSerialPort);
-            this.grpInputDevice.Location = new System.Drawing.Point(1326, 42);
-            this.grpInputDevice.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.grpInputDevice.Location = new System.Drawing.Point(884, 27);
             this.grpInputDevice.Name = "grpInputDevice";
-            this.grpInputDevice.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.grpInputDevice.Size = new System.Drawing.Size(390, 238);
-            this.grpInputDevice.TabIndex = 95;
+            this.grpInputDevice.Size = new System.Drawing.Size(260, 155);
             this.grpInputDevice.TabStop = false;
             this.grpInputDevice.Text = "Input device";
             // 
@@ -188,9 +184,10 @@
             this.cbPost_Slips.AutoSize = true;
             this.cbPost_Slips.Checked = true;
             this.cbPost_Slips.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbPost_Slips.Location = new System.Drawing.Point(22, 203);
+            this.cbPost_Slips.Location = new System.Drawing.Point(15, 132);
+            this.cbPost_Slips.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbPost_Slips.Name = "cbPost_Slips";
-            this.cbPost_Slips.Size = new System.Drawing.Size(157, 24);
+            this.cbPost_Slips.Size = new System.Drawing.Size(107, 17);
             this.cbPost_Slips.TabIndex = 106;
             this.cbPost_Slips.Text = "Post Slip On-Line";
             this.cbPost_Slips.UseVisualStyleBackColor = true;
@@ -198,9 +195,12 @@
             // chbPrint
             // 
             this.chbPrint.AutoSize = true;
-            this.chbPrint.Location = new System.Drawing.Point(22, 158);
+            this.chbPrint.Checked = true;
+            this.chbPrint.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chbPrint.Location = new System.Drawing.Point(15, 103);
+            this.chbPrint.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chbPrint.Name = "chbPrint";
-            this.chbPrint.Size = new System.Drawing.Size(67, 24);
+            this.chbPrint.Size = new System.Drawing.Size(47, 17);
             this.chbPrint.TabIndex = 105;
             this.chbPrint.Text = "Print";
             this.chbPrint.UseVisualStyleBackColor = true;
@@ -210,7 +210,8 @@
             // 
             this.cbPrinter.Enabled = false;
             this.cbPrinter.FormattingEnabled = true;
-            this.cbPrinter.Location = new System.Drawing.Point(166, 158);
+            this.cbPrinter.Location = new System.Drawing.Point(111, 103);
+            this.cbPrinter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbPrinter.Name = "cbPrinter";
             this.cbPrinter.Size = new System.Drawing.Size(140, 21);
             this.cbPrinter.TabIndex = 103;
@@ -219,22 +220,18 @@
             // btnOpen
             // 
             this.btnOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOpen.Location = new System.Drawing.Point(219, 97);
-            this.btnOpen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnOpen.Location = new System.Drawing.Point(146, 63);
             this.btnOpen.Name = "btnOpen";
-            this.btnOpen.Size = new System.Drawing.Size(160, 35);
-            this.btnOpen.TabIndex = 101;
+            this.btnOpen.Size = new System.Drawing.Size(107, 23);
             this.btnOpen.Text = "Open/Close";
             this.btnOpen.UseVisualStyleBackColor = true;
             this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(22, 97);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnRefresh.Location = new System.Drawing.Point(15, 63);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(112, 35);
-            this.btnRefresh.TabIndex = 100;
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
@@ -247,11 +244,9 @@
             this.cmbSerialPort.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cmbSerialPort.Font = new System.Drawing.Font("Tahoma", 8.25F);
             this.cmbSerialPort.FormattingEnabled = true;
-            this.cmbSerialPort.Location = new System.Drawing.Point(192, 37);
-            this.cmbSerialPort.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmbSerialPort.Location = new System.Drawing.Point(128, 24);
             this.cmbSerialPort.Name = "cmbSerialPort";
-            this.cmbSerialPort.Size = new System.Drawing.Size(187, 29);
-            this.cmbSerialPort.TabIndex = 96;
+            this.cmbSerialPort.Size = new System.Drawing.Size(126, 21);
             this.cmbSerialPort.SelectedIndexChanged += new System.EventHandler(this.cmbSerialPort_SelectedIndexChanged);
             // 
             // panel2
@@ -261,7 +256,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 920);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1732, 65);
+            this.panel2.Size = new System.Drawing.Size(1155, 42);
             this.panel2.TabIndex = 101;
             // 
             // groupBox1
@@ -282,18 +277,16 @@
             // 
             this.txtInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtInfo.Location = new System.Drawing.Point(18, 23);
-            this.txtInfo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtInfo.Location = new System.Drawing.Point(12, 15);
             this.txtInfo.Multiline = true;
             this.txtInfo.Name = "txtInfo";
             this.txtInfo.ReadOnly = true;
             this.txtInfo.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtInfo.Size = new System.Drawing.Size(1676, 115);
+            this.txtInfo.Size = new System.Drawing.Size(1058, 76);
             this.txtInfo.TabIndex = 1;
             // 
             // menuStrip1
             // 
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
@@ -301,8 +294,8 @@
             this.afterRaceToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(1732, 35);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1155, 24);
             this.menuStrip1.TabIndex = 103;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -312,7 +305,7 @@
             this.exportWinnerMenuItem,
             this.exportOpenCoursesMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(54, 29);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // exportWinnerMenuItem
@@ -389,13 +382,13 @@
             this.afterRaceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.resultsToolStripMenuItem1});
             this.afterRaceToolStripMenuItem.Name = "afterRaceToolStripMenuItem";
-            this.afterRaceToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
+            this.afterRaceToolStripMenuItem.Size = new System.Drawing.Size(109, 30);
             this.afterRaceToolStripMenuItem.Text = "After Race";
             // 
             // resultsToolStripMenuItem1
             // 
             this.resultsToolStripMenuItem1.Name = "resultsToolStripMenuItem1";
-            this.resultsToolStripMenuItem1.Size = new System.Drawing.Size(111, 22);
+            this.resultsToolStripMenuItem1.Size = new System.Drawing.Size(169, 34);
             this.resultsToolStripMenuItem1.Text = "Results";
             this.resultsToolStripMenuItem1.Click += new System.EventHandler(this.resultsToolStripMenuItem_Click);
             // 
@@ -1000,10 +993,10 @@
             // btnPrintSlip
             // 
             this.btnPrintSlip.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPrintSlip.Location = new System.Drawing.Point(1090, 450);
-            this.btnPrintSlip.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPrintSlip.Location = new System.Drawing.Point(900, 230);
+            this.btnPrintSlip.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnPrintSlip.Name = "btnPrintSlip";
-            this.btnPrintSlip.Size = new System.Drawing.Size(57, 19);
+            this.btnPrintSlip.Size = new System.Drawing.Size(46, 19);
             this.btnPrintSlip.TabIndex = 109;
             this.btnPrintSlip.Text = "Print";
             this.toolTip1.SetToolTip(this.btnPrintSlip, "Print Slip on Printer");
