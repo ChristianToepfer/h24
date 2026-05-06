@@ -546,7 +546,7 @@ namespace h24
             // first database connection
             DateTime servertime = db.Database.SqlQuery<DateTime>("SELECT SYSDATETIME()").FirstOrDefault();
             var dtime = DateTime.Now - servertime;            
-            if (Math.Abs(dtime.TotalSeconds) > 0.3)
+            if (Math.Abs(dtime.TotalSeconds) > 2)
                 // Die Zeitmessung erfolgt Grundsätzlich über die SI-Stadionen,
                 // aber bei Fehlstempel, Krankmeldung oder allgemein bei jeder
                 // Aktion wird ein Zeitstempel hinterlassen, wo es sehr verwirrend ist,
