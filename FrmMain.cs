@@ -1,32 +1,33 @@
-﻿using Microsoft.Reporting.WinForms;
+﻿using CsvHelper;
+using CsvHelper.Configuration;
+using h24;
+using Microsoft.Reporting.WinForms;
 using Microsoft.Win32;
 using Newtonsoft.Json;
+using Serilog;
 using SPORTident;
 using SPORTident.Common;
 using SPORTident.Communication;
 using SPORTident.Communication.UsbDevice;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Configuration;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.SqlServer;
 using System.Data.Entity.Validation;
 using System.Data.SqlTypes;
 using System.Drawing;
 using System.Drawing.Printing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Configuration;
-using System.Collections.Specialized;
 using Timer = System.Threading.Timer;
-using Serilog;
-using CsvHelper;
-using System.Globalization;
-using CsvHelper.Configuration;
-using System.Data.Entity.SqlServer;
 
 namespace h24
 {
@@ -45,7 +46,7 @@ namespace h24
         public FrmMain()
         {
             InitializeComponent();
-                                      
+
             _reader = new Reader
             {
                 WriteBackupFile = true,
@@ -149,7 +150,7 @@ namespace h24
             }
         }
 
-        private void RefreshLegs()
+        private void RefreshLegsAll()
         {
             //dataGridView1.Table.... Bind data here (this method would be executed on UI thread)
             /*          var query = (from r in db.si_readout
@@ -208,8 +209,7 @@ namespace h24
 
             using (var db = new klc01())
             {
-                var query = db.v_readout_legs.OrderByDescending(x => x.readout_id).ToList();
-                dgLegs.DataSource = query;
+                dgLegs.DataSource = db.v_readout_legs.OrderByDescending(x => x.readout_id).ToList(); 
                 dgLegs.Update();
                 dgLegs.Refresh();
                 dgLegs.Columns["card_readout_datetime"].DefaultCellStyle.Format = "dd. MM. yyyy HH:mm:ss";
@@ -605,7 +605,8 @@ namespace h24
         private void dgTeams_SelectionChanged(object sender, EventArgs e)
         {
             RefreshDgCompetitors();
-
+            if (radio_team.Checked)
+                RefreshLegsSelectedTeam();           
         }
 
         /// <summary>
@@ -852,7 +853,6 @@ namespace h24
 
         private void btnReloadReadout_Click(object sender, EventArgs e)
         {
-
             long r;
             int i = 0;
 
@@ -869,16 +869,10 @@ namespace h24
                 //tady budu muset udelat novou funkci UpdateLeg(leg_id), aby se nepridaval novy leg, ale upravoval ten stavajici...
                 r = NewCard.UpdateLeg(readout_id);
             }
-            if (tbSearchReadout.Text.Length > 0)
-            {
-                string search_string = tbSearchReadout.Text;
-                RefreshLegsFiltered(search_string);
-            }
-            else
-            {
-                RefreshLegs();
-            }
-                
+
+            // wenn bei mir ausgelesen könnte man die team anzeige optimieren.
+            // wenn nicht bei mir ausgelesen, könnte die device anzeige Optimiert werden .. CT_7May26 
+            RefreshLegs();
             dgLegs.CurrentCell = dgLegs.Rows[first_row].Cells[1];
         }
 
@@ -924,7 +918,8 @@ namespace h24
                 r = NewCard.UpdateLeg(readout_id);
                 //}
             }
-            RefreshLegs();
+
+            RefreshLegs();            
             //dgLegs.CurrentCell = dgLegs.Rows[curRow].Cells[1];
         }
 
@@ -1006,27 +1001,27 @@ namespace h24
         private void UpdateComp(int team_nr)
         {
             using (var db = new klc01())
-            {
+            {                
                 string tx = txSearch.Text;
                 var query = (
-                        from t in db.teams
-                        join c in db.competitors on t.team_id equals c.team_id
+                            from t in db.teams
+                            join c in db.competitors on t.team_id equals c.team_id
                             where ((team_nr > 0) && (t.team_nr == team_nr))
                                || ((team_nr < 0) && (
                             c.comp_name.Contains(tx)
-                            || t.team_name.Contains(tx)
-                            || c.bib.Contains(tx)
+                                || t.team_name.Contains(tx)
+                                || c.bib.Contains(tx)
                                 || SqlFunctions.StringConvert((double)c.comp_chip_id).Contains(tx)))
-                        select new
-                        {
-                            t.team_id,
-                            t.team_name,
-                            t.team_nr,
-                            t.team_status,
+                            select new
+                            {
+                                t.team_id,
+                                t.team_name,
+                                t.team_nr,                                
+                                t.team_status,
                                 t.phone_number,
-                            t.team_did_start,
-                            t.race_end
-                        });
+                                t.team_did_start,
+                                t.race_end
+                            });               
 
                 var orderedTeams = query
                     .Distinct()
@@ -1049,21 +1044,33 @@ namespace h24
                 string tx = txSearch.Text;
                 if (!int.TryParse(tx, out team_nr))
                 {
-                    this.skipTextChange = true;
-                    // Remove the last character as it wasn't a number
-                    txSearch.Text = txSearch.Text.Remove((txSearch.Text.Length - 1));
-                    this.skipTextChange = false;
-                    // Move the cursor to the end of text
-                    txSearch.SelectionStart = txSearch.Text.Length;
+                    if (sender != checkBoxSearch)                       
+                    {
+                        this.skipTextChange = true;
+                        // Remove the last character as it wasn't a number
+                        txSearch.Text = txSearch.Text.Remove((txSearch.Text.Length - 1));
+                        this.skipTextChange = false;
+                        // Move the cursor to the end of text
+                        txSearch.SelectionStart = txSearch.Text.Length;                        
+                    }
+                    else
+                        txSearch.Text = "";
                     return;
                 }
             }
             UpdateComp(team_nr);
             RefreshDgCompetitors();
+
+            if ((checkBoxSearch.Checked) && (radio_search.Checked))
+            {
+                if (txSearch.Text.Length > 0)
+                    RefreshLegsFiltered(txSearch.Text);
+                else
+                    RefreshLegsAll();
+            }                        
         }
 
-
-/*        private void button3_Click(object sender, EventArgs e)
+        /*        private void button3_Click(object sender, EventArgs e)
         {
             int readout_id = 80;
             //string printerName = this.cbPrinter.Text; //"Microsoft Print to PDF";
@@ -1163,16 +1170,8 @@ namespace h24
                         }
                     }
                 }
-                if (tbSearchReadout.Text.Length > 0)
-                {
-                    string search_string = tbSearchReadout.Text;
-                    RefreshLegsFiltered(search_string);
-                }
-                else
-                {
-                    RefreshLegs();
-                }
 
+                RefreshLegs();
                 dgLegs.CurrentCell = dgLegs.Rows[curRow].Cells[1];
 
             }
@@ -1273,7 +1272,7 @@ Log.Information("pred PostSlip");
             f2.ShowDialog();
         }
 
-        private void btnWithdrawn_Click(object sender, EventArgs e)
+        private void withdrawnToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string wdrn_course = NewCard.get_config_item("wdrn_course");
             int curRow = dgCompetitors.CurrentRow.Index;
@@ -1414,12 +1413,6 @@ Log.Information("pred PostSlip");
             }
         }
 
-        private void btnRefreshLegs_Click(object sender, EventArgs e)
-        {
-
-            RefreshLegs();
-        }
-
         private async void BtnPostAll_Click(object sender, EventArgs e)
         {
             int i = 0;
@@ -1517,16 +1510,29 @@ Log.Information("pred PostSlip");
             }
         }
 
-        private void tbSearchReadout_TextChanged(object sender, EventArgs e)
+        private void RefreshLegsSelectedTeam()
         {
-            string search_string;
-            if (tbSearchReadout.Text.Length > 0)
+            if (dgTeams.CurrentRow != null)
             {
-                search_string = tbSearchReadout.Text;
-                RefreshLegsFiltered(search_string);
+                int curRow = dgTeams.CurrentRow.Index;
+                int team_id = Convert.ToInt32(dgTeams.Rows[curRow].Cells["team_id"].Value);
+                using (var db = new klc01())
+                {
+                    var query = db.v_readout_legs.OrderByDescending(x => x.readout_id).Where(
+                        x => x.team_id == team_id)
+                        .ToList();
+                    dgLegs.DataSource = query;
+                    dgLegs.Update();
+                    dgLegs.Refresh();
+                }
+            }
+            else
+            {
+                dgLegs.DataSource = null;
+                dgLegs.Update();
+                dgLegs.Refresh();
             }
         }
-
         private void RefreshLegsFiltered(string search_string)
         {
             using (var db = new klc01())
@@ -1545,11 +1551,19 @@ Log.Information("pred PostSlip");
             }
         }
 
-
-        private void btReadot_cancel_Click(object sender, EventArgs e)
+        private void RefreshLegsDevice()
         {
-            tbSearchReadout.Text = "";
-            RefreshLegs();
+            // TODO: Device id
+            /*int device_id = 
+            using (var db = new klc01())
+            {
+                var query = db.v_readout_legs.OrderByDescending(x => x.readout_id).Where(
+                    x => x.device_id == device_id)
+                    .ToList();
+                dgLegs.DataSource = query;
+                dgLegs.Update();
+                dgLegs.Refresh();
+            }*/
         }
 
         private void btChangeStatus_Click(object sender, EventArgs e)
@@ -1563,8 +1577,9 @@ Log.Information("pred PostSlip");
                 FrmStatusChange f2 = new FrmStatusChange(leg_id, this.cbPost_Slips.Checked);
                 f2.ShowDialog();
             }
-            RefreshLegs();
 
+            // FIXME: doch  nur wenn sich was ändert? CT
+            RefreshLegs();         
         }
 
         class WinnerEntries
@@ -1582,33 +1597,7 @@ Log.Information("pred PostSlip");
             public string Name5 { get; set; }
             public string Name6 { get; set; }
         }
-        private void btnTopSearchBottom_Click(object sender, EventArgs e)
-        {
-            if(txSearch.Text.Length > 0)
-            {
-                tbSearchReadout.Text = txSearch.Text;
-                RefreshLegsFiltered(tbSearchReadout.Text);
-            }
-        }
-
-        private void btFilterReadout_Click(object sender, EventArgs e)
-        {
-            int curRow = dgTeams.CurrentRow.Index;
-            int team_id = Convert.ToInt32(dgTeams.Rows[curRow].Cells["team_id"].Value);
-            using (var db = new klc01())
-            {
-                var query = db.v_readout_legs.OrderByDescending(x => x.readout_id).Where(
-                    x => x.team_id == team_id)
-                    .ToList();
-                dgLegs.DataSource = query;
-                dgLegs.Update();
-                dgLegs.Refresh();
-            }
-        }
-
-
-
-
+       
         private void exportWinnerMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFile = new SaveFileDialog
@@ -1809,27 +1798,88 @@ Log.Information("pred PostSlip");
             }
         }
 
+        private void checkBoxSearch_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxSearch.Checked)
+            {
+                labelTeamNr.Visible = false;
+                radio_search.Enabled = true;
+                txSearch.Text = "";
+                UpdateComp(-1);
+            }
+            else
+            {
+                labelTeamNr.Visible = true;
+                radio_search.Enabled = false;
+                txSearch_TextChanged(sender, e);
+            }           
+        }
+
+        private void dgCompetitors_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            foreach (DataGridViewRow row in dgCompetitors.Rows)
+            {
+                if (row.Cells["comp_withdrawn"].Value is true)
+                    row.DefaultCellStyle.BackColor = Color.LightBlue;
+                else
+                    row.DefaultCellStyle.BackColor = Color.Empty;
+            }
+        }
+
+        private void radio_leg_changed(object sender, EventArgs e)
+        {
+            if ((sender is RadioButton) && (((RadioButton)sender).Checked == false))
+            {
+                dgLegs.DataSource = null;
+                dgLegs.Update();
+                dgLegs.Refresh();
+            }
+            else
+                RefreshLegs();
+        }
+        private void RefreshLegs()
+        {
+            if (radio_team.Checked)
+                RefreshLegsSelectedTeam();
+
+            if (radio_device.Checked)
+                RefreshLegsDevice();
+
+            if ((checkBoxSearch.Checked) && (radio_search.Checked))
+            {
+                if (txSearch.Text.Length > 0)
+                    RefreshLegsFiltered(txSearch.Text);
+                else
+                    RefreshLegsAll();
+            }
+
+            if (radio_all.Checked)
+                RefreshLegsAll();
+            
+        }
+
+      
         /*
-    private void Refresh_Readout(Object sender, EventArgs e)
-    {
-    if (this.dgLegs.GetCellCount(DataGridViewElementStates.Selected) > 0)
-    {
-       try
-       {
-           Clipboard.SetDataObject(this.dataGridView1.GetClipboardContent());
-       }
-       catch (System.Runtime.InteropServices.ExternalException)
-       {
-           MessageBox.Show("Clipboard could not be accessed. Please try again.");
-       }
-    }
+   private void Refresh_Readout(Object sender, EventArgs e)
+   {
+   if (this.dgLegs.GetCellCount(DataGridViewElementStates.Selected) > 0)
+   {
+      try
+      {
+          Clipboard.SetDataObject(this.dataGridView1.GetClipboardContent());
+      }
+      catch (System.Runtime.InteropServices.ExternalException)
+      {
+          MessageBox.Show("Clipboard could not be accessed. Please try again.");
+      }
+   }
 
-    if (this.dataGridView1.SelectedRows.Count > 0)
-    {
-       dataGridView1.Rows.RemoveAt(this.dataGridView1.SelectedRows[0].Index);
-    }
+   if (this.dataGridView1.SelectedRows.Count > 0)
+   {
+      dataGridView1.Rows.RemoveAt(this.dataGridView1.SelectedRows[0].Index);
+   }
 
-    }*/
+   }*/
 
 
 

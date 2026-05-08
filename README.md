@@ -1,11 +1,60 @@
 # h24
 
-## TODO 2026
+
+* Filter ist jetzt sehr sehe.... da stimmt was nicht!
+
+* Abfrage Box für Krankmeldung
+
+* edit mode mit roten Rahmen, dann kann man was ändern.
+* Device Filter in Datenbank ergänzen.... readout.
+
+* Automatische Läuferreinfolge!
+* bug: searach auf Team Filter zurückgestellt... wird nicht alles gelöscht, wenn es keine Zahl ist!
 
 
-* Läuferreihenfolge, mit erstem Durchlauf definieren? Machbar
-* Alle Button abschaffen.
+* Search Eingabe, bei voller Datenbank sehr zäh.. 2 sec warten und dann erst suchen?
+* Change Event kommt mehrfach?
+
+
+
+* Unterscheidung nur die von meinem REchner abzeigen (auch bei all)
+
+* Läufer Hinzufügen ?
+* Läufer Löschen in 12h oder 6h ?
+
+* keine Krankmeldung... erste Spalte Unsichtbar?... wennn einfach umsetztbar
+* Krankmeldung kann man nicht rückgängig machen ?
+
+
+
+
+# Logbuch in der Datenbank
+* Chip-Ummeldung
+* Krankmeldung, Wann, Wer und bei Whem
+
+
+* Laufer Read Only Mode , chip nummer nicht einfach so ändern.
+
+* Logging : Chip-Nummer Änderung, verfoglbar + Zeitstempel, auch in der Datenbank?
+
+* Zahllose Logging Meldung in der Datenbanken Wo sind die Entstanden? Suchen oder Kacel fragen...
+  normal Logging-Meludung sollten einfach nur ins Log-File aber nicht in die Datenbank
+
+
+* Läuferreihenfolge  mit erstem Durchlauf:
+
+* rank_order... sollte damit null haben. 
+* bib erstmal ohne Buchstabe.
+* 
+
+# Auslesen 
+* SI-TYPE ausgaben... also Info... wenn das kommisch ist.
+* Auslese: Info Chip wurde ausgelehen? chip geliehen, erst bei der Ausgaben des chip markieren.
+
+* Alle Button abschaffen.,m 
 * Edit Menu...
+* ? Hat jede Auslesestation seine ID in der Datenbank?
+ 
 
 ### Sicherung der DB während des Wettkampfes
 Mach wohl keinen Sinn..
@@ -19,12 +68,12 @@ Jeder rechner selbst.
 * Logbuch
 
 ## Sprechersoftware
+* Funkposten und Endposten
 * Mit dem Posten 100 könnte der Läufer angesagt werden, aber nicht die Zeit oder irgendwas mehr.
   * Die Bahn müsste am Start schon zugeordnet werden.
 * Zugriff auf Liveergebnisse, das was der Läufer nicht bekommen sollte
 
 # Läuferanzeige
-* Líve Zuggriff kümmert sich Jürgen
 * Fehlt nur noch den Läufer aus der Datenbank rauszusuchen
    * mit Python oder Java-Script, dirket die Datenbank abfragen.
 
@@ -33,6 +82,15 @@ Jeder rechner selbst.
 * Switch + Kabel
 * Netzwerk Kabeltrommel
 * Rechner
+
+### Bahn Statistik
+* Anzahl Staffeln, Anzahl Bahnenn, Anzahl Läufer
+* Wieviel gelaufene Bahnen pro Läufer und Insgesamt. 
+* Wie oft hat ein Läufer den selben Posten angelaufen
+  "= 0": Keiner ist die Bahn mit dem Posten gelaufen
+  = 1: Eine Bahn mit dem Posten, die auch gelaufen wurde
+  > 1: + min max, Posten wurde auf mehreren Bahn angelaufen. 
+
 
 ## Aufbau
 
