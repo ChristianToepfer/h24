@@ -138,6 +138,8 @@
             this.radio_team = new System.Windows.Forms.RadioButton();
             this.radio_search = new System.Windows.Forms.RadioButton();
             this.radio_device = new System.Windows.Forms.RadioButton();
+            this.radio_dsk = new System.Windows.Forms.RadioButton();
+            this.radio_wdrn = new System.Windows.Forms.RadioButton();
             this.grpInputDevice.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -1301,11 +1303,37 @@
             this.radio_device.UseVisualStyleBackColor = true;
             this.radio_device.CheckedChanged += new System.EventHandler(this.radio_leg_changed);
             // 
+            // radio_dsk
+            // 
+            this.radio_dsk.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.radio_dsk.AutoSize = true;
+            this.radio_dsk.Location = new System.Drawing.Point(612, 279);
+            this.radio_dsk.Name = "radio_dsk";
+            this.radio_dsk.Size = new System.Drawing.Size(44, 17);
+            this.radio_dsk.TabIndex = 142;
+            this.radio_dsk.Text = "Dsk";
+            this.radio_dsk.UseVisualStyleBackColor = true;
+            this.radio_dsk.CheckedChanged += new System.EventHandler(this.radio_leg_changed);
+            // 
+            // radio_wdrn
+            // 
+            this.radio_wdrn.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.radio_wdrn.AutoSize = true;
+            this.radio_wdrn.Location = new System.Drawing.Point(663, 280);
+            this.radio_wdrn.Name = "radio_wdrn";
+            this.radio_wdrn.Size = new System.Drawing.Size(51, 17);
+            this.radio_wdrn.TabIndex = 143;
+            this.radio_wdrn.Text = "Wdrn";
+            this.radio_wdrn.UseVisualStyleBackColor = true;
+            this.radio_wdrn.CheckedChanged += new System.EventHandler(this.radio_leg_changed);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1155, 640);
+            this.Controls.Add(this.radio_wdrn);
+            this.Controls.Add(this.radio_dsk);
             this.Controls.Add(this.radio_device);
             this.Controls.Add(this.radio_search);
             this.Controls.Add(this.radio_team);
@@ -1467,6 +1495,8 @@
         private System.Windows.Forms.RadioButton radio_device;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem withdrawnToolStripMenuItem;
+        private System.Windows.Forms.RadioButton radio_dsk;
+        private System.Windows.Forms.RadioButton radio_wdrn;
     }
 }
 

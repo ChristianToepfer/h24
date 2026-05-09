@@ -216,6 +216,17 @@ namespace h24
             }
         }
 
+        private void RefreshLegsWithStatus(string status)
+        {
+            using (var db = new klc01())
+            {               
+                dgLegs.DataSource = db.v_readout_legs.Where(b => b.leg_status == status).OrderByDescending(x => x.readout_id).ToList();
+                dgLegs.Update();
+                dgLegs.Refresh();
+                dgLegs.Columns["card_readout_datetime"].DefaultCellStyle.Format = "dd. MM. yyyy HH:mm:ss";
+            }
+        }
+
         /// <summary>Handles the event that is thrown when the reader class read an online stamp completely</summary>
         private void _reader_OnlineStampRead(object sender, SportidentDataEventArgs e)
         {
@@ -1853,12 +1864,16 @@ Log.Information("pred PostSlip");
                     RefreshLegsAll();
             }
 
-            if (radio_all.Checked)
-                RefreshLegsAll();
+            if (radio_wdrn.Checked)
+                RefreshLegsWithStatus("WDR");
             
+            if (radio_dsk.Checked)
+                RefreshLegsWithStatus("DSK");
+            
+            if (radio_all.Checked)
+                RefreshLegsAll();            
         }
 
-      
         /*
    private void Refresh_Readout(Object sender, EventArgs e)
    {
