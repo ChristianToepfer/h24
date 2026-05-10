@@ -1874,6 +1874,24 @@ Log.Information("pred PostSlip");
                 RefreshLegsAll();            
         }
 
+        private void check_editmode_CheckedChanged(object sender, EventArgs e)
+        { 
+            if (team_editmode.Checked)
+            {
+                dgTeams.ReadOnly = false;
+                dgCompetitors.ReadOnly = false;
+                editborder.BackColor = Color.Red;
+            }
+            else
+            {
+                dgTeams.ReadOnly = true;
+                dgCompetitors.ReadOnly = true;
+                editborder.BackColor = SystemColors.Control;
+            }
+        }
+
+
+
         /*
    private void Refresh_Readout(Object sender, EventArgs e)
    {
