@@ -209,7 +209,7 @@ namespace h24
 
             using (var db = new klc01())
             {
-                dgLegs.DataSource = db.v_readout_legs.OrderByDescending(x => x.readout_id).ToList(); 
+                dgLegs.DataSource = db.v_readout_legs.OrderByDescending(x => x.readout_id).Take(100).ToList(); 
                 dgLegs.Update();
                 dgLegs.Refresh();
                 dgLegs.Columns["card_readout_datetime"].DefaultCellStyle.Format = "dd. MM. yyyy HH:mm:ss";
@@ -1554,7 +1554,7 @@ Log.Information("pred PostSlip");
                 || x.bib.Contains(search_string)
                 || x.chip_id.ToString().Contains(search_string)
                 || x.course_name.Contains(search_string))
-                    .ToList();
+                    .Take(100).ToList();
                 dgLegs.DataSource = query;
                 dgLegs.Update();
                 dgLegs.Refresh();
