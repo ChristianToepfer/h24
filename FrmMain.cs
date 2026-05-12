@@ -810,6 +810,9 @@ namespace h24
 
         private void SlipCurrentRow_Click(object sender, EventArgs e)
         {
+            if (dgLegs.CurrentRow == null)
+                return;
+
             int curRow = dgLegs.CurrentRow.Index;
             if (curRow > -1)
             {
@@ -953,19 +956,25 @@ namespace h24
         }
 
 
-        private void btnPrintSlip_Click(object sender, EventArgs e)
+        private void printSlipToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (dgLegs.CurrentRow == null)
+                return;
+                       
             int curRow = dgLegs.CurrentRow.Index;
             if (curRow > -1)
             {
                 int readout_id = Convert.ToInt32(dgLegs.Rows[curRow].Cells["readout_id"].Value);
                 //string printerName = this.cbPrinter.Text; //"Microsoft Print to PDF";
                 this.PrintSlip(readout_id);
-            }
+            }            
         }
 
         private void btn_delete_leg_Click(object sender, EventArgs e)
         {
+            if (dgLegs.CurrentRow == null)
+                return;
+
             int curRow = dgLegs.CurrentRow.Index;
             if (curRow > -1)
             {
@@ -990,7 +999,6 @@ namespace h24
                     RefreshLegs();
                 }
             }
-
         }
 
         private void RefreshDgCompetitors()
@@ -1080,13 +1088,6 @@ namespace h24
                     RefreshLegsAll();
             }                        
         }
-
-        /*        private void button3_Click(object sender, EventArgs e)
-        {
-            int readout_id = 80;
-            //string printerName = this.cbPrinter.Text; //"Microsoft Print to PDF";
-            this.PrintSlip(readout_id);
-        }*/
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -1401,7 +1402,6 @@ Log.Information("pred PostSlip");
                 m.MenuItems.Add(new MenuItem("Reload Stamps", new System.EventHandler(this.btnReloadReadout_Click)));
                 m.MenuItems.Add(new MenuItem("Change Competitor", new System.EventHandler(this.btn_change_competitor_Click)));
                 m.MenuItems.Add(new MenuItem("Slip", new System.EventHandler(this.SlipCurrentRow_Click)));
-                m.MenuItems.Add(new MenuItem("Print", new System.EventHandler(this.btnPrintSlip_Click)));
                 m.MenuItems.Add(new MenuItem("Delete", new System.EventHandler(this.btn_delete_leg_Click)));
                 m.MenuItems.Add(new MenuItem("Reload All", new System.EventHandler(this.btReloadAll_Click)));
                 m.MenuItems.Add(new MenuItem("Change Status", new System.EventHandler(this.btChangeStatus_Click)));
@@ -1881,6 +1881,8 @@ Log.Information("pred PostSlip");
                 dgTeams.ReadOnly = false;
                 dgCompetitors.ReadOnly = false;
                 editborder.BackColor = Color.Red;
+                dataColumnTeamNr.ReadOnly = true;
+                withdrawn_datetime.ReadOnly = true;
             }
             else
             {
