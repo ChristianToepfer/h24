@@ -1810,20 +1810,10 @@ Log.Information("pred PostSlip");
         }
 
         private void checkBoxSearch_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBoxSearch.Checked)
-            {
-                labelTeamNr.Visible = false;
-                radio_search.Enabled = true;
-                txSearch.Text = "";
-                UpdateComp(-1);
-            }
-            else
-            {
-                labelTeamNr.Visible = true;
-                radio_search.Enabled = false;
-                txSearch_TextChanged(sender, e);
-            }           
+        {            
+            labelTeamNr.Visible = !checkBoxSearch.Checked;
+            radio_search.Enabled = checkBoxSearch.Checked;              
+            txSearch_TextChanged(sender, e);
         }
 
         private void dgCompetitors_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -1890,6 +1880,12 @@ Log.Information("pred PostSlip");
                 dgCompetitors.ReadOnly = true;
                 editborder.BackColor = SystemColors.Control;
             }
+        }
+
+        private void btClean_txSearch_Click(object sender, EventArgs e)
+        {
+            txSearch.Text = "";
+            UpdateComp(-1);
         }
 
 

@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.rdoInputSerialPort = new System.Windows.Forms.RadioButton();
             this.grpInputDevice = new System.Windows.Forms.GroupBox();
             this.cbPost_Slips = new System.Windows.Forms.CheckBox();
@@ -104,7 +104,14 @@
             this.dgTeams = new System.Windows.Forms.DataGridView();
             this.dataColumnPhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgCompetitors = new System.Windows.Forms.DataGridView();
+            this.withdrawn_datetime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comp_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comp_chip_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rented_chip = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.comp_withdrawn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.comp_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.editborder = new System.Windows.Forms.GroupBox();
+            this.btClean_txSearch = new System.Windows.Forms.Button();
             this.readout_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.start_time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.leg_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -112,6 +119,8 @@
             this.comp_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.leg_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.legsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.competitor_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.asofdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.competitorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.team_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataColumnTeamStarted = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -119,14 +128,6 @@
             this.dataColumnTeamName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataColumnTeamStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.teamsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.competitor_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.withdrawn_datetime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comp_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comp_chip_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rented_chip = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.comp_withdrawn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.comp_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.asofdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpInputDevice.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -329,28 +330,28 @@
             // withdrawnToolStripMenuItem
             // 
             this.withdrawnToolStripMenuItem.Name = "withdrawnToolStripMenuItem";
-            this.withdrawnToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.withdrawnToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.withdrawnToolStripMenuItem.Text = "Withdrawn";
             this.withdrawnToolStripMenuItem.Click += new System.EventHandler(this.withdrawnToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(171, 6);
             // 
             // splitToolStripMenuItem
             // 
             this.splitToolStripMenuItem.Name = "splitToolStripMenuItem";
             this.splitToolStripMenuItem.ShortcutKeyDisplayString = "";
             this.splitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.S)));
-            this.splitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.splitToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.splitToolStripMenuItem.Text = "Show Split...";
             this.splitToolStripMenuItem.Click += new System.EventHandler(this.SlipCurrentRow_Click);
             // 
             // printSlipToolStripMenuItem1
             // 
             this.printSlipToolStripMenuItem1.Name = "printSlipToolStripMenuItem1";
-            this.printSlipToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.printSlipToolStripMenuItem1.Size = new System.Drawing.Size(174, 22);
             this.printSlipToolStripMenuItem1.Text = "Print Slip";
             this.printSlipToolStripMenuItem1.Click += new System.EventHandler(this.printSlipToolStripMenuItem_Click);
             // 
@@ -432,14 +433,14 @@
             this.dgLegs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgLegs.AutoGenerateColumns = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgLegs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgLegs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgLegs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgLegs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.readout_id,
@@ -458,26 +459,26 @@
             this.valid_flag,
             this.leg_id});
             this.dgLegs.DataSource = this.legsBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgLegs.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgLegs.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgLegs.Location = new System.Drawing.Point(424, 302);
             this.dgLegs.Margin = new System.Windows.Forms.Padding(2);
             this.dgLegs.Name = "dgLegs";
             this.dgLegs.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgLegs.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgLegs.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgLegs.RowHeadersWidth = 30;
             this.dgLegs.RowTemplate.Height = 24;
             this.dgLegs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -982,6 +983,69 @@
             this.dgCompetitors.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCompetitors_CellEndEdit);
             this.dgCompetitors.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgCompetitors_CellFormatting);
             // 
+            // withdrawn_datetime
+            // 
+            this.withdrawn_datetime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.withdrawn_datetime.DataPropertyName = "withdrawn_datetime";
+            dataGridViewCellStyle8.Format = "T";
+            dataGridViewCellStyle8.NullValue = null;
+            this.withdrawn_datetime.DefaultCellStyle = dataGridViewCellStyle8;
+            this.withdrawn_datetime.HeaderText = "Cancel";
+            this.withdrawn_datetime.MinimumWidth = 6;
+            this.withdrawn_datetime.Name = "withdrawn_datetime";
+            this.withdrawn_datetime.ReadOnly = true;
+            this.withdrawn_datetime.ToolTipText = "Time of withdrawn";
+            this.withdrawn_datetime.Width = 65;
+            // 
+            // comp_name
+            // 
+            this.comp_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.comp_name.DataPropertyName = "comp_name";
+            this.comp_name.HeaderText = "Name";
+            this.comp_name.MinimumWidth = 6;
+            this.comp_name.Name = "comp_name";
+            this.comp_name.ReadOnly = true;
+            // 
+            // comp_chip_id
+            // 
+            this.comp_chip_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.comp_chip_id.DataPropertyName = "comp_chip_id";
+            this.comp_chip_id.HeaderText = "SI";
+            this.comp_chip_id.MinimumWidth = 6;
+            this.comp_chip_id.Name = "comp_chip_id";
+            this.comp_chip_id.ReadOnly = true;
+            this.comp_chip_id.Width = 42;
+            // 
+            // rented_chip
+            // 
+            this.rented_chip.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.rented_chip.DataPropertyName = "rented_chip";
+            this.rented_chip.HeaderText = "Rent";
+            this.rented_chip.MinimumWidth = 6;
+            this.rented_chip.Name = "rented_chip";
+            this.rented_chip.ReadOnly = true;
+            this.rented_chip.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.rented_chip.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.rented_chip.Width = 55;
+            // 
+            // comp_withdrawn
+            // 
+            this.comp_withdrawn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.comp_withdrawn.DataPropertyName = "comp_withdrawn";
+            this.comp_withdrawn.HeaderText = "Withdrawn";
+            this.comp_withdrawn.MinimumWidth = 6;
+            this.comp_withdrawn.Name = "comp_withdrawn";
+            this.comp_withdrawn.ReadOnly = true;
+            this.comp_withdrawn.Visible = false;
+            this.comp_withdrawn.Width = 64;
+            // 
+            // comp_status
+            // 
+            this.comp_status.DataPropertyName = "comp_status";
+            this.comp_status.HeaderText = "Free Text";
+            this.comp_status.Name = "comp_status";
+            this.comp_status.ReadOnly = true;
+            // 
             // editborder
             // 
             this.editborder.BackColor = System.Drawing.SystemColors.Control;
@@ -995,6 +1059,20 @@
             this.editborder.Size = new System.Drawing.Size(408, 430);
             this.editborder.TabIndex = 145;
             this.editborder.TabStop = false;
+            // 
+            // btClean_txSearch
+            // 
+            this.btClean_txSearch.AutoSize = true;
+            this.btClean_txSearch.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btClean_txSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btClean_txSearch.Location = new System.Drawing.Point(334, 22);
+            this.btClean_txSearch.Margin = new System.Windows.Forms.Padding(0);
+            this.btClean_txSearch.Name = "btClean_txSearch";
+            this.btClean_txSearch.Size = new System.Drawing.Size(25, 23);
+            this.btClean_txSearch.TabIndex = 146;
+            this.btClean_txSearch.Text = "X";
+            this.btClean_txSearch.UseVisualStyleBackColor = true;
+            this.btClean_txSearch.Click += new System.EventHandler(this.btClean_txSearch_Click);
             // 
             // readout_id
             // 
@@ -1060,6 +1138,27 @@
             // 
             this.legsBindingSource.DataSource = typeof(h24.legs);
             // 
+            // competitor_id
+            // 
+            this.competitor_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.competitor_id.DataPropertyName = "comp_id";
+            this.competitor_id.HeaderText = "comp_id";
+            this.competitor_id.MinimumWidth = 6;
+            this.competitor_id.Name = "competitor_id";
+            this.competitor_id.ReadOnly = true;
+            this.competitor_id.Visible = false;
+            this.competitor_id.Width = 72;
+            // 
+            // asofdateDataGridViewTextBoxColumn
+            // 
+            this.asofdateDataGridViewTextBoxColumn.DataPropertyName = "as_of_date";
+            this.asofdateDataGridViewTextBoxColumn.HeaderText = "as_of_date";
+            this.asofdateDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.asofdateDataGridViewTextBoxColumn.Name = "asofdateDataGridViewTextBoxColumn";
+            this.asofdateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.asofdateDataGridViewTextBoxColumn.Visible = false;
+            this.asofdateDataGridViewTextBoxColumn.Width = 125;
+            // 
             // competitorsBindingSource
             // 
             this.competitorsBindingSource.DataSource = typeof(h24.competitors);
@@ -1119,95 +1218,12 @@
             // 
             this.teamsBindingSource.DataSource = typeof(h24.teams);
             // 
-            // competitor_id
-            // 
-            this.competitor_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.competitor_id.DataPropertyName = "comp_id";
-            this.competitor_id.HeaderText = "comp_id";
-            this.competitor_id.MinimumWidth = 6;
-            this.competitor_id.Name = "competitor_id";
-            this.competitor_id.ReadOnly = true;
-            this.competitor_id.Visible = false;
-            this.competitor_id.Width = 72;
-            // 
-            // withdrawn_datetime
-            // 
-            this.withdrawn_datetime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.withdrawn_datetime.DataPropertyName = "withdrawn_datetime";
-            dataGridViewCellStyle4.Format = "T";
-            dataGridViewCellStyle4.NullValue = null;
-            this.withdrawn_datetime.DefaultCellStyle = dataGridViewCellStyle4;
-            this.withdrawn_datetime.HeaderText = "Cancel";
-            this.withdrawn_datetime.MinimumWidth = 6;
-            this.withdrawn_datetime.Name = "withdrawn_datetime";
-            this.withdrawn_datetime.ReadOnly = true;
-            this.withdrawn_datetime.ToolTipText = "Time of withdrawn";
-            this.withdrawn_datetime.Width = 65;
-            // 
-            // comp_name
-            // 
-            this.comp_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.comp_name.DataPropertyName = "comp_name";
-            this.comp_name.HeaderText = "Name";
-            this.comp_name.MinimumWidth = 6;
-            this.comp_name.Name = "comp_name";
-            this.comp_name.ReadOnly = true;
-            // 
-            // comp_chip_id
-            // 
-            this.comp_chip_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.comp_chip_id.DataPropertyName = "comp_chip_id";
-            this.comp_chip_id.HeaderText = "SI";
-            this.comp_chip_id.MinimumWidth = 6;
-            this.comp_chip_id.Name = "comp_chip_id";
-            this.comp_chip_id.ReadOnly = true;
-            this.comp_chip_id.Width = 42;
-            // 
-            // rented_chip
-            // 
-            this.rented_chip.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.rented_chip.DataPropertyName = "rented_chip";
-            this.rented_chip.HeaderText = "Rent";
-            this.rented_chip.MinimumWidth = 6;
-            this.rented_chip.Name = "rented_chip";
-            this.rented_chip.ReadOnly = true;
-            this.rented_chip.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.rented_chip.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.rented_chip.Width = 55;
-            // 
-            // comp_withdrawn
-            // 
-            this.comp_withdrawn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.comp_withdrawn.DataPropertyName = "comp_withdrawn";
-            this.comp_withdrawn.HeaderText = "Withdrawn";
-            this.comp_withdrawn.MinimumWidth = 6;
-            this.comp_withdrawn.Name = "comp_withdrawn";
-            this.comp_withdrawn.ReadOnly = true;
-            this.comp_withdrawn.Visible = false;
-            this.comp_withdrawn.Width = 64;
-            // 
-            // comp_status
-            // 
-            this.comp_status.DataPropertyName = "comp_status";
-            this.comp_status.HeaderText = "Free Text";
-            this.comp_status.Name = "comp_status";
-            this.comp_status.ReadOnly = true;
-            // 
-            // asofdateDataGridViewTextBoxColumn
-            // 
-            this.asofdateDataGridViewTextBoxColumn.DataPropertyName = "as_of_date";
-            this.asofdateDataGridViewTextBoxColumn.HeaderText = "as_of_date";
-            this.asofdateDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.asofdateDataGridViewTextBoxColumn.Name = "asofdateDataGridViewTextBoxColumn";
-            this.asofdateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.asofdateDataGridViewTextBoxColumn.Visible = false;
-            this.asofdateDataGridViewTextBoxColumn.Width = 125;
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1155, 640);
+            this.Controls.Add(this.btClean_txSearch);
             this.Controls.Add(this.radio_wdrn);
             this.Controls.Add(this.radio_dsk);
             this.Controls.Add(this.radio_device);
@@ -1365,6 +1381,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn comp_withdrawn;
         private System.Windows.Forms.DataGridViewTextBoxColumn comp_status;
         private System.Windows.Forms.DataGridViewTextBoxColumn asofdateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btClean_txSearch;
     }
 }
 
