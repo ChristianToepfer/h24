@@ -1013,8 +1013,26 @@ namespace h24
 
             db.Configuration.ProxyCreationEnabled = false;
             db.competitors.Load();
-            this.competitorsBindingSource.DataSource = db.competitors.Local.ToBindingList().Where(c => c.team_id == team_id).OrderBy(x=> x.rank_order);
+            this.competitorsBindingSource.DataSource = db.competitors.Local.ToBindingList().Where(c => c.team_id == team_id).OrderBy(x => x.rank_order);
 
+            // select cell from search text
+            if ((checkBoxSearch.Checked) && (txSearch.Text.Length > 0))
+            {
+                foreach (DataGridViewRow row in dgCompetitors.Rows)
+                {
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        if ((cell.Value != null) && (cell.Value.ToString().IndexOf(txSearch.Text, StringComparison.OrdinalIgnoreCase) != -1))
+                        {
+                            dgCompetitors.CurrentCell = cell;
+                            dgCompetitors.BeginEdit(false);
+                            cell.Selected = true;
+                            return;
+                        }
+                    }
+                }
+                
+            }
         }
 
         private void UpdateComp(int team_nr)
