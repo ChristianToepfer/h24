@@ -51,46 +51,55 @@
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.withdrawnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-            this.splitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changeCompetitorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reloadReadoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reloadTeamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.printSlipToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.splitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.discardLegToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changeLegStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.afterRaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.postSlipToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.postAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.postTeamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.resultsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.courseSetupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clasesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.coursesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.entriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.legsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.aPIRequestsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.afterRaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.resultsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkAPIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dgLegs = new System.Windows.Forms.DataGridView();
+            this.readout_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chip_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.card_readout_datetime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name_comp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bib = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.start_time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.leg_time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.finish_time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.course = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.leg_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dsk_penalty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comp_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.race_valid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valid_flag = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.leg_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.legsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnReloadReadout = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_delete_leg = new System.Windows.Forms.Button();
-            this.btReloadAll = new System.Windows.Forms.Button();
-            this.btnPostSlip = new System.Windows.Forms.Button();
-            this.btn_change_competitor = new System.Windows.Forms.Button();
-            this.btnResults = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.BtnPostAll = new System.Windows.Forms.Button();
-            this.btChangeStatus = new System.Windows.Forms.Button();
-            this.btPostTeam = new System.Windows.Forms.Button();
             this.LbLastBib = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.LbPenal = new System.Windows.Forms.Label();
             this.LbStatus = new System.Windows.Forms.Label();
             this.cbQueueProcess = new System.Windows.Forms.CheckBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.txSearch = new System.Windows.Forms.TextBox();
             this.checkBoxSearch = new System.Windows.Forms.CheckBox();
             this.labelTeamNr = new System.Windows.Forms.Label();
@@ -102,43 +111,36 @@
             this.radio_wdrn = new System.Windows.Forms.RadioButton();
             this.team_editmode = new System.Windows.Forms.CheckBox();
             this.dgTeams = new System.Windows.Forms.DataGridView();
+            this.team_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataColumnTeamStarted = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataColumnTeamNr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataColumnTeamName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataColumnPhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataColumnTeamStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.teamsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgCompetitors = new System.Windows.Forms.DataGridView();
+            this.competitor_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.withdrawn_datetime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comp_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comp_chip_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rented_chip = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.comp_withdrawn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.comp_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.editborder = new System.Windows.Forms.GroupBox();
-            this.btClean_txSearch = new System.Windows.Forms.Button();
-            this.readout_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.start_time = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.leg_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dsk_penalty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comp_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.leg_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.legsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.competitor_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.asofdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.competitorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.team_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataColumnTeamStarted = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataColumnTeamNr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataColumnTeamName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataColumnTeamStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.teamsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.editborder = new System.Windows.Forms.GroupBox();
+            this.btClean_txSearch = new System.Windows.Forms.Button();
             this.grpInputDevice.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgLegs)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.legsBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgTeams)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgCompetitors)).BeginInit();
-            this.editborder.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.legsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.competitorsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teamsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgCompetitors)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.competitorsBindingSource)).BeginInit();
+            this.editborder.SuspendLayout();
             this.SuspendLayout();
             // 
             // rdoInputSerialPort
@@ -284,8 +286,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.editToolStripMenuItem,
-            this.courseSetupToolStripMenuItem,
-            this.afterRaceToolStripMenuItem});
+            this.afterRaceToolStripMenuItem,
+            this.courseSetupToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
@@ -321,8 +323,14 @@
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.withdrawnToolStripMenuItem,
             this.toolStripMenuItem1,
+            this.changeCompetitorToolStripMenuItem,
+            this.reloadReadoutToolStripMenuItem,
+            this.reloadTeamToolStripMenuItem,
+            this.toolStripMenuItem3,
+            this.printSlipToolStripMenuItem1,
             this.splitToolStripMenuItem,
-            this.printSlipToolStripMenuItem1});
+            this.discardLegToolStripMenuItem,
+            this.changeLegStatusToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
             this.editToolStripMenuItem.Text = "Competitor";
@@ -330,30 +338,122 @@
             // withdrawnToolStripMenuItem
             // 
             this.withdrawnToolStripMenuItem.Name = "withdrawnToolStripMenuItem";
-            this.withdrawnToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.withdrawnToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.withdrawnToolStripMenuItem.Text = "Withdrawn";
             this.withdrawnToolStripMenuItem.Click += new System.EventHandler(this.withdrawnToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(171, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(185, 6);
+            // 
+            // changeCompetitorToolStripMenuItem
+            // 
+            this.changeCompetitorToolStripMenuItem.Name = "changeCompetitorToolStripMenuItem";
+            this.changeCompetitorToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.changeCompetitorToolStripMenuItem.Text = "Change Competitor...";
+            this.changeCompetitorToolStripMenuItem.ToolTipText = "Rreassign punches to another competitor (Usefull if chip is swapped.)";
+            this.changeCompetitorToolStripMenuItem.Click += new System.EventHandler(this.btn_change_competitor_Click);
+            // 
+            // reloadReadoutToolStripMenuItem
+            // 
+            this.reloadReadoutToolStripMenuItem.Name = "reloadReadoutToolStripMenuItem";
+            this.reloadReadoutToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.reloadReadoutToolStripMenuItem.Text = "Reload Readout";
+            this.reloadReadoutToolStripMenuItem.ToolTipText = "reload punches for selected competitor";
+            this.reloadReadoutToolStripMenuItem.Click += new System.EventHandler(this.btnReloadReadout_Click);
+            // 
+            // reloadTeamToolStripMenuItem
+            // 
+            this.reloadTeamToolStripMenuItem.Name = "reloadTeamToolStripMenuItem";
+            this.reloadTeamToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.reloadTeamToolStripMenuItem.Text = "Reload whole Team";
+            this.reloadTeamToolStripMenuItem.ToolTipText = "relaod punches of all competitors of current team";
+            this.reloadTeamToolStripMenuItem.Click += new System.EventHandler(this.btReloadAll_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(185, 6);
+            // 
+            // printSlipToolStripMenuItem1
+            // 
+            this.printSlipToolStripMenuItem1.Name = "printSlipToolStripMenuItem1";
+            this.printSlipToolStripMenuItem1.Size = new System.Drawing.Size(188, 22);
+            this.printSlipToolStripMenuItem1.Text = "Print Slip";
+            this.printSlipToolStripMenuItem1.Click += new System.EventHandler(this.printSlipToolStripMenuItem_Click);
             // 
             // splitToolStripMenuItem
             // 
             this.splitToolStripMenuItem.Name = "splitToolStripMenuItem";
             this.splitToolStripMenuItem.ShortcutKeyDisplayString = "";
-            this.splitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.S)));
-            this.splitToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.splitToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.splitToolStripMenuItem.Text = "Show Split...";
             this.splitToolStripMenuItem.Click += new System.EventHandler(this.SlipCurrentRow_Click);
             // 
-            // printSlipToolStripMenuItem1
+            // discardLegToolStripMenuItem
             // 
-            this.printSlipToolStripMenuItem1.Name = "printSlipToolStripMenuItem1";
-            this.printSlipToolStripMenuItem1.Size = new System.Drawing.Size(174, 22);
-            this.printSlipToolStripMenuItem1.Text = "Print Slip";
-            this.printSlipToolStripMenuItem1.Click += new System.EventHandler(this.printSlipToolStripMenuItem_Click);
+            this.discardLegToolStripMenuItem.Name = "discardLegToolStripMenuItem";
+            this.discardLegToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.discardLegToolStripMenuItem.Text = "Discard leg...";
+            this.discardLegToolStripMenuItem.ToolTipText = "Selected readout will be invalid and still displayed";
+            this.discardLegToolStripMenuItem.Click += new System.EventHandler(this.btn_delete_leg_Click);
+            // 
+            // changeLegStatusToolStripMenuItem
+            // 
+            this.changeLegStatusToolStripMenuItem.Name = "changeLegStatusToolStripMenuItem";
+            this.changeLegStatusToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.changeLegStatusToolStripMenuItem.Text = "Change Status...";
+            this.changeLegStatusToolStripMenuItem.ToolTipText = "Change Status of current leg";
+            this.changeLegStatusToolStripMenuItem.Click += new System.EventHandler(this.btChangeStatus_Click);
+            // 
+            // afterRaceToolStripMenuItem
+            // 
+            this.afterRaceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.postSlipToolStripMenuItem,
+            this.postAllToolStripMenuItem,
+            this.postTeamToolStripMenuItem,
+            this.toolStripMenuItem2,
+            this.resultsToolStripMenuItem1});
+            this.afterRaceToolStripMenuItem.Name = "afterRaceToolStripMenuItem";
+            this.afterRaceToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.afterRaceToolStripMenuItem.Text = "Results";
+            // 
+            // postSlipToolStripMenuItem
+            // 
+            this.postSlipToolStripMenuItem.Name = "postSlipToolStripMenuItem";
+            this.postSlipToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.postSlipToolStripMenuItem.Text = "Post Slip";
+            this.postSlipToolStripMenuItem.ToolTipText = "Sends current leg to Live Results";
+            this.postSlipToolStripMenuItem.Click += new System.EventHandler(this.btnPostSlip_Click);
+            // 
+            // postAllToolStripMenuItem
+            // 
+            this.postAllToolStripMenuItem.Name = "postAllToolStripMenuItem";
+            this.postAllToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.postAllToolStripMenuItem.Text = "Post All";
+            this.postAllToolStripMenuItem.ToolTipText = "Posts all punches to Live Results";
+            this.postAllToolStripMenuItem.Click += new System.EventHandler(this.BtnPostAll_Click);
+            // 
+            // postTeamToolStripMenuItem
+            // 
+            this.postTeamToolStripMenuItem.Name = "postTeamToolStripMenuItem";
+            this.postTeamToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.postTeamToolStripMenuItem.Text = "Post Team";
+            this.postTeamToolStripMenuItem.ToolTipText = "Sends all legs of current Team to Live Results";
+            this.postTeamToolStripMenuItem.Click += new System.EventHandler(this.btPostTeam_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(125, 6);
+            // 
+            // resultsToolStripMenuItem1
+            // 
+            this.resultsToolStripMenuItem1.Name = "resultsToolStripMenuItem1";
+            this.resultsToolStripMenuItem1.Size = new System.Drawing.Size(128, 22);
+            this.resultsToolStripMenuItem1.Text = "Results";
+            this.resultsToolStripMenuItem1.Click += new System.EventHandler(this.resultsToolStripMenuItem_Click);
             // 
             // courseSetupToolStripMenuItem
             // 
@@ -363,7 +463,9 @@
             this.coursesToolStripMenuItem,
             this.entriesToolStripMenuItem,
             this.legsToolStripMenuItem,
-            this.aPIRequestsToolStripMenuItem});
+            this.toolStripMenuItem4,
+            this.aPIRequestsToolStripMenuItem,
+            this.checkAPIToolStripMenuItem});
             this.courseSetupToolStripMenuItem.Name = "courseSetupToolStripMenuItem";
             this.courseSetupToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
             this.courseSetupToolStripMenuItem.Text = "Race Setup";
@@ -371,59 +473,57 @@
             // setupToolStripMenuItem
             // 
             this.setupToolStripMenuItem.Name = "setupToolStripMenuItem";
-            this.setupToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.setupToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.setupToolStripMenuItem.Text = "Settings";
             this.setupToolStripMenuItem.Click += new System.EventHandler(this.setupToolStripMenuItem_Click);
             // 
             // clasesToolStripMenuItem
             // 
             this.clasesToolStripMenuItem.Name = "clasesToolStripMenuItem";
-            this.clasesToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.clasesToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.clasesToolStripMenuItem.Text = "Categories";
             this.clasesToolStripMenuItem.Click += new System.EventHandler(this.clasesToolStripMenuItem_Click);
             // 
             // coursesToolStripMenuItem
             // 
             this.coursesToolStripMenuItem.Name = "coursesToolStripMenuItem";
-            this.coursesToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.coursesToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.coursesToolStripMenuItem.Text = "Courses";
             this.coursesToolStripMenuItem.Click += new System.EventHandler(this.coursesToolStripMenuItem_Click);
             // 
             // entriesToolStripMenuItem
             // 
             this.entriesToolStripMenuItem.Name = "entriesToolStripMenuItem";
-            this.entriesToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.entriesToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.entriesToolStripMenuItem.Text = "Entries";
             this.entriesToolStripMenuItem.Click += new System.EventHandler(this.entriesToolStripMenuItem_Click);
             // 
             // legsToolStripMenuItem
             // 
             this.legsToolStripMenuItem.Name = "legsToolStripMenuItem";
-            this.legsToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.legsToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.legsToolStripMenuItem.Text = "Legs";
             this.legsToolStripMenuItem.Click += new System.EventHandler(this.legsToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(170, 6);
             // 
             // aPIRequestsToolStripMenuItem
             // 
             this.aPIRequestsToolStripMenuItem.Name = "aPIRequestsToolStripMenuItem";
-            this.aPIRequestsToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.aPIRequestsToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.aPIRequestsToolStripMenuItem.Text = "API Requests";
             this.aPIRequestsToolStripMenuItem.Click += new System.EventHandler(this.aPIRequestsToolStripMenuItem_Click);
             // 
-            // afterRaceToolStripMenuItem
+            // checkAPIToolStripMenuItem
             // 
-            this.afterRaceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.resultsToolStripMenuItem1});
-            this.afterRaceToolStripMenuItem.Name = "afterRaceToolStripMenuItem";
-            this.afterRaceToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
-            this.afterRaceToolStripMenuItem.Text = "After Race";
-            // 
-            // resultsToolStripMenuItem1
-            // 
-            this.resultsToolStripMenuItem1.Name = "resultsToolStripMenuItem1";
-            this.resultsToolStripMenuItem1.Size = new System.Drawing.Size(111, 22);
-            this.resultsToolStripMenuItem1.Text = "Results";
-            this.resultsToolStripMenuItem1.Click += new System.EventHandler(this.resultsToolStripMenuItem_Click);
+            this.checkAPIToolStripMenuItem.Name = "checkAPIToolStripMenuItem";
+            this.checkAPIToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.checkAPIToolStripMenuItem.Text = "Check API Request";
+            this.checkAPIToolStripMenuItem.ToolTipText = "Q one time";
+            this.checkAPIToolStripMenuItem.Click += new System.EventHandler(this.checkAPIToolStripMenuItem_Click);
             // 
             // dgLegs
             // 
@@ -489,6 +589,16 @@
             this.dgLegs.DoubleClick += new System.EventHandler(this.SlipCurrentRow_Click);
             this.dgLegs.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dgLegs_MouseDown);
             // 
+            // readout_id
+            // 
+            this.readout_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.readout_id.DataPropertyName = "readout_id";
+            this.readout_id.HeaderText = "Id";
+            this.readout_id.MinimumWidth = 6;
+            this.readout_id.Name = "readout_id";
+            this.readout_id.ReadOnly = true;
+            this.readout_id.Width = 41;
+            // 
             // chip_id
             // 
             this.chip_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -528,6 +638,16 @@
             this.bib.ReadOnly = true;
             this.bib.Width = 47;
             // 
+            // start_time
+            // 
+            this.start_time.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.start_time.DataPropertyName = "start_time";
+            this.start_time.HeaderText = "Start";
+            this.start_time.MinimumWidth = 6;
+            this.start_time.Name = "start_time";
+            this.start_time.ReadOnly = true;
+            this.start_time.Width = 54;
+            // 
             // leg_time
             // 
             this.leg_time.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -558,6 +678,36 @@
             this.course.ReadOnly = true;
             this.course.Width = 65;
             // 
+            // leg_status
+            // 
+            this.leg_status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.leg_status.DataPropertyName = "leg_status";
+            this.leg_status.HeaderText = "Status";
+            this.leg_status.MinimumWidth = 6;
+            this.leg_status.Name = "leg_status";
+            this.leg_status.ReadOnly = true;
+            this.leg_status.Width = 62;
+            // 
+            // dsk_penalty
+            // 
+            this.dsk_penalty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dsk_penalty.DataPropertyName = "dsk_penalty";
+            this.dsk_penalty.HeaderText = "dsk_penalty";
+            this.dsk_penalty.MinimumWidth = 6;
+            this.dsk_penalty.Name = "dsk_penalty";
+            this.dsk_penalty.ReadOnly = true;
+            this.dsk_penalty.Width = 89;
+            // 
+            // comp_id
+            // 
+            this.comp_id.DataPropertyName = "comp_id";
+            this.comp_id.HeaderText = "comp_id";
+            this.comp_id.MinimumWidth = 6;
+            this.comp_id.Name = "comp_id";
+            this.comp_id.ReadOnly = true;
+            this.comp_id.Visible = false;
+            this.comp_id.Width = 125;
+            // 
             // race_valid
             // 
             this.race_valid.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -579,6 +729,20 @@
             this.valid_flag.ReadOnly = true;
             this.valid_flag.Width = 99;
             // 
+            // leg_id
+            // 
+            this.leg_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.leg_id.DataPropertyName = "leg_id";
+            this.leg_id.HeaderText = "leg_id";
+            this.leg_id.MinimumWidth = 6;
+            this.leg_id.Name = "leg_id";
+            this.leg_id.ReadOnly = true;
+            this.leg_id.Width = 60;
+            // 
+            // legsBindingSource
+            // 
+            this.legsBindingSource.DataSource = typeof(h24.legs);
+            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "competitors";
@@ -595,19 +759,6 @@
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.Width = 125;
             // 
-            // btnReloadReadout
-            // 
-            this.btnReloadReadout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnReloadReadout.Location = new System.Drawing.Point(1086, 382);
-            this.btnReloadReadout.Margin = new System.Windows.Forms.Padding(2);
-            this.btnReloadReadout.Name = "btnReloadReadout";
-            this.btnReloadReadout.Size = new System.Drawing.Size(57, 19);
-            this.btnReloadReadout.TabIndex = 108;
-            this.btnReloadReadout.Text = "Reload";
-            this.toolTip1.SetToolTip(this.btnReloadReadout, "Reload Readout - this will reload punches for selected competitor");
-            this.btnReloadReadout.UseVisualStyleBackColor = true;
-            this.btnReloadReadout.Click += new System.EventHandler(this.btnReloadReadout_Click);
-            // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "competitors";
@@ -616,110 +767,6 @@
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
             this.dataGridViewTextBoxColumn3.Width = 125;
-            // 
-            // btn_delete_leg
-            // 
-            this.btn_delete_leg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_delete_leg.Location = new System.Drawing.Point(1090, 428);
-            this.btn_delete_leg.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_delete_leg.Name = "btn_delete_leg";
-            this.btn_delete_leg.Size = new System.Drawing.Size(57, 19);
-            this.btn_delete_leg.TabIndex = 113;
-            this.btn_delete_leg.Text = "Delete";
-            this.toolTip1.SetToolTip(this.btn_delete_leg, "Delete Leg - this will make selected readout INACTIVE, will be still displayed");
-            this.btn_delete_leg.UseVisualStyleBackColor = true;
-            this.btn_delete_leg.Click += new System.EventHandler(this.btn_delete_leg_Click);
-            // 
-            // btReloadAll
-            // 
-            this.btReloadAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btReloadAll.Location = new System.Drawing.Point(1090, 451);
-            this.btReloadAll.Margin = new System.Windows.Forms.Padding(2);
-            this.btReloadAll.Name = "btReloadAll";
-            this.btReloadAll.Size = new System.Drawing.Size(57, 19);
-            this.btReloadAll.TabIndex = 114;
-            this.btReloadAll.Text = "R Team";
-            this.toolTip1.SetToolTip(this.btReloadAll, "Reload whole Team\r\nWill relaod punches of all competitors of current team");
-            this.btReloadAll.UseVisualStyleBackColor = true;
-            this.btReloadAll.Click += new System.EventHandler(this.btReloadAll_Click);
-            // 
-            // btnPostSlip
-            // 
-            this.btnPostSlip.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnPostSlip.Location = new System.Drawing.Point(1086, 333);
-            this.btnPostSlip.Margin = new System.Windows.Forms.Padding(2);
-            this.btnPostSlip.Name = "btnPostSlip";
-            this.btnPostSlip.Size = new System.Drawing.Size(56, 19);
-            this.btnPostSlip.TabIndex = 115;
-            this.btnPostSlip.Text = "Post Slip";
-            this.toolTip1.SetToolTip(this.btnPostSlip, "Sends current leg to Live Results");
-            this.btnPostSlip.UseVisualStyleBackColor = true;
-            this.btnPostSlip.Click += new System.EventHandler(this.btnPostSlip_Click);
-            // 
-            // btn_change_competitor
-            // 
-            this.btn_change_competitor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_change_competitor.Location = new System.Drawing.Point(1088, 405);
-            this.btn_change_competitor.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_change_competitor.Name = "btn_change_competitor";
-            this.btn_change_competitor.Size = new System.Drawing.Size(57, 19);
-            this.btn_change_competitor.TabIndex = 116;
-            this.btn_change_competitor.Text = "Ch comp";
-            this.toolTip1.SetToolTip(this.btn_change_competitor, "Change competitor \r\nwill open new form so you can reassign punches to another com" +
-        "petitor.\r\nUsefull if chip is swapped.");
-            this.btn_change_competitor.UseVisualStyleBackColor = true;
-            this.btn_change_competitor.Click += new System.EventHandler(this.btn_change_competitor_Click);
-            // 
-            // btnResults
-            // 
-            this.btnResults.Location = new System.Drawing.Point(961, 255);
-            this.btnResults.Margin = new System.Windows.Forms.Padding(2);
-            this.btnResults.Name = "btnResults";
-            this.btnResults.Size = new System.Drawing.Size(56, 19);
-            this.btnResults.TabIndex = 117;
-            this.btnResults.Text = "Results";
-            this.btnResults.UseVisualStyleBackColor = true;
-            this.btnResults.Visible = false;
-            this.btnResults.Click += new System.EventHandler(this.btnResults_Click);
-            // 
-            // BtnPostAll
-            // 
-            this.BtnPostAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.BtnPostAll.Location = new System.Drawing.Point(1087, 359);
-            this.BtnPostAll.Margin = new System.Windows.Forms.Padding(2);
-            this.BtnPostAll.Name = "BtnPostAll";
-            this.BtnPostAll.Size = new System.Drawing.Size(56, 19);
-            this.BtnPostAll.TabIndex = 121;
-            this.BtnPostAll.Text = "Post All Slips";
-            this.toolTip1.SetToolTip(this.BtnPostAll, "Posts all punches to Live Results\r\nWARNING: Could take long time!");
-            this.BtnPostAll.UseVisualStyleBackColor = true;
-            this.BtnPostAll.Click += new System.EventHandler(this.BtnPostAll_Click);
-            // 
-            // btChangeStatus
-            // 
-            this.btChangeStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btChangeStatus.Location = new System.Drawing.Point(1090, 474);
-            this.btChangeStatus.Margin = new System.Windows.Forms.Padding(2);
-            this.btChangeStatus.Name = "btChangeStatus";
-            this.btChangeStatus.Size = new System.Drawing.Size(57, 19);
-            this.btChangeStatus.TabIndex = 131;
-            this.btChangeStatus.Text = "Status";
-            this.toolTip1.SetToolTip(this.btChangeStatus, "Cange Status of current leg");
-            this.btChangeStatus.UseVisualStyleBackColor = true;
-            this.btChangeStatus.Click += new System.EventHandler(this.btChangeStatus_Click);
-            // 
-            // btPostTeam
-            // 
-            this.btPostTeam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btPostTeam.Location = new System.Drawing.Point(1079, 302);
-            this.btPostTeam.Margin = new System.Windows.Forms.Padding(2);
-            this.btPostTeam.Name = "btPostTeam";
-            this.btPostTeam.Size = new System.Drawing.Size(68, 19);
-            this.btPostTeam.TabIndex = 134;
-            this.btPostTeam.Text = "Post Team";
-            this.toolTip1.SetToolTip(this.btPostTeam, "Sends all legs of current Team to Live Results");
-            this.btPostTeam.UseVisualStyleBackColor = true;
-            this.btPostTeam.Click += new System.EventHandler(this.btPostTeam_Click);
             // 
             // LbLastBib
             // 
@@ -790,19 +837,6 @@
             this.cbQueueProcess.Text = "Queue";
             this.cbQueueProcess.UseVisualStyleBackColor = true;
             this.cbQueueProcess.CheckedChanged += new System.EventHandler(this.cbQueueProcess_CheckedChanged);
-            // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(1035, 255);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(50, 18);
-            this.button2.TabIndex = 127;
-            this.button2.Text = "Q one time";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Visible = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // txSearch
             // 
@@ -947,6 +981,47 @@
             this.dgTeams.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgTeams_CellEndEdit);
             this.dgTeams.SelectionChanged += new System.EventHandler(this.dgTeams_SelectionChanged);
             // 
+            // team_id
+            // 
+            this.team_id.DataPropertyName = "team_id";
+            this.team_id.HeaderText = "team_id";
+            this.team_id.MinimumWidth = 6;
+            this.team_id.Name = "team_id";
+            this.team_id.ReadOnly = true;
+            this.team_id.Visible = false;
+            this.team_id.Width = 125;
+            // 
+            // dataColumnTeamStarted
+            // 
+            this.dataColumnTeamStarted.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataColumnTeamStarted.DataPropertyName = "team_did_start";
+            this.dataColumnTeamStarted.HeaderText = "Did start";
+            this.dataColumnTeamStarted.MinimumWidth = 6;
+            this.dataColumnTeamStarted.Name = "dataColumnTeamStarted";
+            this.dataColumnTeamStarted.ReadOnly = true;
+            this.dataColumnTeamStarted.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataColumnTeamStarted.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataColumnTeamStarted.Visible = false;
+            // 
+            // dataColumnTeamNr
+            // 
+            this.dataColumnTeamNr.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataColumnTeamNr.DataPropertyName = "team_nr";
+            this.dataColumnTeamNr.HeaderText = "Nr.";
+            this.dataColumnTeamNr.MinimumWidth = 6;
+            this.dataColumnTeamNr.Name = "dataColumnTeamNr";
+            this.dataColumnTeamNr.ReadOnly = true;
+            this.dataColumnTeamNr.Width = 46;
+            // 
+            // dataColumnTeamName
+            // 
+            this.dataColumnTeamName.DataPropertyName = "team_name";
+            this.dataColumnTeamName.HeaderText = "Team Name";
+            this.dataColumnTeamName.MinimumWidth = 6;
+            this.dataColumnTeamName.Name = "dataColumnTeamName";
+            this.dataColumnTeamName.ReadOnly = true;
+            this.dataColumnTeamName.Width = 200;
+            // 
             // dataColumnPhoneNumber
             // 
             this.dataColumnPhoneNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -957,6 +1032,19 @@
             this.dataColumnPhoneNumber.ReadOnly = true;
             this.dataColumnPhoneNumber.ToolTipText = "Team phone number";
             this.dataColumnPhoneNumber.Width = 63;
+            // 
+            // dataColumnTeamStatus
+            // 
+            this.dataColumnTeamStatus.DataPropertyName = "team_status";
+            this.dataColumnTeamStatus.HeaderText = "Free Text";
+            this.dataColumnTeamStatus.MinimumWidth = 6;
+            this.dataColumnTeamStatus.Name = "dataColumnTeamStatus";
+            this.dataColumnTeamStatus.ReadOnly = true;
+            this.dataColumnTeamStatus.Width = 125;
+            // 
+            // teamsBindingSource
+            // 
+            this.teamsBindingSource.DataSource = typeof(h24.teams);
             // 
             // dgCompetitors
             // 
@@ -982,6 +1070,16 @@
             this.dgCompetitors.TabIndex = 103;
             this.dgCompetitors.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCompetitors_CellEndEdit);
             this.dgCompetitors.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgCompetitors_CellFormatting);
+            // 
+            // competitor_id
+            // 
+            this.competitor_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.competitor_id.DataPropertyName = "comp_id";
+            this.competitor_id.HeaderText = "comp_id";
+            this.competitor_id.MinimumWidth = 6;
+            this.competitor_id.Name = "competitor_id";
+            this.competitor_id.ReadOnly = true;
+            this.competitor_id.Visible = false;
             // 
             // withdrawn_datetime
             // 
@@ -1037,7 +1135,6 @@
             this.comp_withdrawn.Name = "comp_withdrawn";
             this.comp_withdrawn.ReadOnly = true;
             this.comp_withdrawn.Visible = false;
-            this.comp_withdrawn.Width = 64;
             // 
             // comp_status
             // 
@@ -1045,6 +1142,20 @@
             this.comp_status.HeaderText = "Free Text";
             this.comp_status.Name = "comp_status";
             this.comp_status.ReadOnly = true;
+            // 
+            // asofdateDataGridViewTextBoxColumn
+            // 
+            this.asofdateDataGridViewTextBoxColumn.DataPropertyName = "as_of_date";
+            this.asofdateDataGridViewTextBoxColumn.HeaderText = "as_of_date";
+            this.asofdateDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.asofdateDataGridViewTextBoxColumn.Name = "asofdateDataGridViewTextBoxColumn";
+            this.asofdateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.asofdateDataGridViewTextBoxColumn.Visible = false;
+            this.asofdateDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // competitorsBindingSource
+            // 
+            this.competitorsBindingSource.DataSource = typeof(h24.competitors);
             // 
             // editborder
             // 
@@ -1074,150 +1185,6 @@
             this.btClean_txSearch.UseVisualStyleBackColor = true;
             this.btClean_txSearch.Click += new System.EventHandler(this.btClean_txSearch_Click);
             // 
-            // readout_id
-            // 
-            this.readout_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.readout_id.DataPropertyName = "readout_id";
-            this.readout_id.HeaderText = "Id";
-            this.readout_id.MinimumWidth = 6;
-            this.readout_id.Name = "readout_id";
-            this.readout_id.ReadOnly = true;
-            this.readout_id.Width = 41;
-            // 
-            // start_time
-            // 
-            this.start_time.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.start_time.DataPropertyName = "start_time";
-            this.start_time.HeaderText = "Start";
-            this.start_time.MinimumWidth = 6;
-            this.start_time.Name = "start_time";
-            this.start_time.ReadOnly = true;
-            this.start_time.Width = 54;
-            // 
-            // leg_status
-            // 
-            this.leg_status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.leg_status.DataPropertyName = "leg_status";
-            this.leg_status.HeaderText = "Status";
-            this.leg_status.MinimumWidth = 6;
-            this.leg_status.Name = "leg_status";
-            this.leg_status.ReadOnly = true;
-            this.leg_status.Width = 62;
-            // 
-            // dsk_penalty
-            // 
-            this.dsk_penalty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dsk_penalty.DataPropertyName = "dsk_penalty";
-            this.dsk_penalty.HeaderText = "dsk_penalty";
-            this.dsk_penalty.MinimumWidth = 6;
-            this.dsk_penalty.Name = "dsk_penalty";
-            this.dsk_penalty.ReadOnly = true;
-            this.dsk_penalty.Width = 89;
-            // 
-            // comp_id
-            // 
-            this.comp_id.DataPropertyName = "comp_id";
-            this.comp_id.HeaderText = "comp_id";
-            this.comp_id.MinimumWidth = 6;
-            this.comp_id.Name = "comp_id";
-            this.comp_id.ReadOnly = true;
-            this.comp_id.Visible = false;
-            this.comp_id.Width = 125;
-            // 
-            // leg_id
-            // 
-            this.leg_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.leg_id.DataPropertyName = "leg_id";
-            this.leg_id.HeaderText = "leg_id";
-            this.leg_id.MinimumWidth = 6;
-            this.leg_id.Name = "leg_id";
-            this.leg_id.ReadOnly = true;
-            this.leg_id.Width = 60;
-            // 
-            // legsBindingSource
-            // 
-            this.legsBindingSource.DataSource = typeof(h24.legs);
-            // 
-            // competitor_id
-            // 
-            this.competitor_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.competitor_id.DataPropertyName = "comp_id";
-            this.competitor_id.HeaderText = "comp_id";
-            this.competitor_id.MinimumWidth = 6;
-            this.competitor_id.Name = "competitor_id";
-            this.competitor_id.ReadOnly = true;
-            this.competitor_id.Visible = false;
-            this.competitor_id.Width = 72;
-            // 
-            // asofdateDataGridViewTextBoxColumn
-            // 
-            this.asofdateDataGridViewTextBoxColumn.DataPropertyName = "as_of_date";
-            this.asofdateDataGridViewTextBoxColumn.HeaderText = "as_of_date";
-            this.asofdateDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.asofdateDataGridViewTextBoxColumn.Name = "asofdateDataGridViewTextBoxColumn";
-            this.asofdateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.asofdateDataGridViewTextBoxColumn.Visible = false;
-            this.asofdateDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // competitorsBindingSource
-            // 
-            this.competitorsBindingSource.DataSource = typeof(h24.competitors);
-            // 
-            // team_id
-            // 
-            this.team_id.DataPropertyName = "team_id";
-            this.team_id.HeaderText = "team_id";
-            this.team_id.MinimumWidth = 6;
-            this.team_id.Name = "team_id";
-            this.team_id.ReadOnly = true;
-            this.team_id.Visible = false;
-            this.team_id.Width = 125;
-            // 
-            // dataColumnTeamStarted
-            // 
-            this.dataColumnTeamStarted.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.dataColumnTeamStarted.DataPropertyName = "team_did_start";
-            this.dataColumnTeamStarted.HeaderText = "Did start";
-            this.dataColumnTeamStarted.MinimumWidth = 6;
-            this.dataColumnTeamStarted.Name = "dataColumnTeamStarted";
-            this.dataColumnTeamStarted.ReadOnly = true;
-            this.dataColumnTeamStarted.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataColumnTeamStarted.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataColumnTeamStarted.Visible = false;
-            this.dataColumnTeamStarted.Width = 71;
-            // 
-            // dataColumnTeamNr
-            // 
-            this.dataColumnTeamNr.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.dataColumnTeamNr.DataPropertyName = "team_nr";
-            this.dataColumnTeamNr.HeaderText = "Nr.";
-            this.dataColumnTeamNr.MinimumWidth = 6;
-            this.dataColumnTeamNr.Name = "dataColumnTeamNr";
-            this.dataColumnTeamNr.ReadOnly = true;
-            this.dataColumnTeamNr.Width = 46;
-            // 
-            // dataColumnTeamName
-            // 
-            this.dataColumnTeamName.DataPropertyName = "team_name";
-            this.dataColumnTeamName.HeaderText = "Team Name";
-            this.dataColumnTeamName.MinimumWidth = 6;
-            this.dataColumnTeamName.Name = "dataColumnTeamName";
-            this.dataColumnTeamName.ReadOnly = true;
-            this.dataColumnTeamName.Width = 200;
-            // 
-            // dataColumnTeamStatus
-            // 
-            this.dataColumnTeamStatus.DataPropertyName = "team_status";
-            this.dataColumnTeamStatus.HeaderText = "Free Text";
-            this.dataColumnTeamStatus.MinimumWidth = 6;
-            this.dataColumnTeamStatus.Name = "dataColumnTeamStatus";
-            this.dataColumnTeamStatus.ReadOnly = true;
-            this.dataColumnTeamStatus.Width = 125;
-            // 
-            // teamsBindingSource
-            // 
-            this.teamsBindingSource.DataSource = typeof(h24.teams);
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1233,18 +1200,8 @@
             this.Controls.Add(this.labelTeamNr);
             this.Controls.Add(this.checkBoxSearch);
             this.Controls.Add(this.txSearch);
-            this.Controls.Add(this.btPostTeam);
-            this.Controls.Add(this.btChangeStatus);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.cbQueueProcess);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.BtnPostAll);
-            this.Controls.Add(this.btnResults);
-            this.Controls.Add(this.btn_change_competitor);
-            this.Controls.Add(this.btnPostSlip);
-            this.Controls.Add(this.btReloadAll);
-            this.Controls.Add(this.btn_delete_leg);
-            this.Controls.Add(this.btnReloadReadout);
             this.Controls.Add(this.dgLegs);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel2);
@@ -1266,15 +1223,15 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgLegs)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.legsBindingSource)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgTeams)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teamsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgCompetitors)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.competitorsBindingSource)).EndInit();
             this.editborder.ResumeLayout(false);
             this.editborder.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.legsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.competitorsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.teamsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1308,18 +1265,11 @@
         private System.Windows.Forms.BindingSource legsBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.Button btnReloadReadout;
         private System.Windows.Forms.ToolStripMenuItem legsToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.ToolStripMenuItem setupToolStripMenuItem;
-        private System.Windows.Forms.Button btn_delete_leg;
-        private System.Windows.Forms.Button btReloadAll;
-        private System.Windows.Forms.Button btnPostSlip;
-        private System.Windows.Forms.Button btn_change_competitor;
         private System.Windows.Forms.CheckBox cbPost_Slips;
-        private System.Windows.Forms.Button btnResults;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.Button BtnPostAll;
         public System.Windows.Forms.TextBox txtInfo;
         private System.Windows.Forms.Label LbLastBib;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -1327,7 +1277,6 @@
         private System.Windows.Forms.Label LbStatus;
         private System.Windows.Forms.CheckBox cbQueueProcess;
         private System.Windows.Forms.ToolStripMenuItem aPIRequestsToolStripMenuItem;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridViewTextBoxColumn readout_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn chip_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn card_readout_datetime;
@@ -1343,10 +1292,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn race_valid;
         private System.Windows.Forms.DataGridViewTextBoxColumn valid_flag;
         private System.Windows.Forms.DataGridViewTextBoxColumn leg_id;
-        private System.Windows.Forms.Button btChangeStatus;
         private System.Windows.Forms.ToolStripMenuItem exportWinnerMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportOpenCoursesMenuItem;
-        private System.Windows.Forms.Button btPostTeam;
         private System.Windows.Forms.ToolStripMenuItem afterRaceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem resultsToolStripMenuItem1;
         private System.Windows.Forms.TextBox txSearch;
@@ -1382,6 +1329,18 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn comp_status;
         private System.Windows.Forms.DataGridViewTextBoxColumn asofdateDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button btClean_txSearch;
+        private System.Windows.Forms.ToolStripMenuItem postSlipToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem postAllToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem postTeamToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem reloadReadoutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem discardLegToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changeCompetitorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem reloadTeamToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changeLegStatusToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem checkAPIToolStripMenuItem;
     }
 }
 

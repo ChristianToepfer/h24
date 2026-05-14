@@ -952,7 +952,7 @@ namespace h24
         private void resultsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmResults f = new FrmResults();
-            f.Show();
+            f.Show();  // or ShowDialog(); ?           
         }
 
 
@@ -1417,15 +1417,9 @@ Log.Information("pred PostSlip");
             if (e.Button == MouseButtons.Right)
             {
                 ContextMenu m = new ContextMenu();
-                m.MenuItems.Add(new MenuItem("Reload Stamps", new System.EventHandler(this.btnReloadReadout_Click)));
-                m.MenuItems.Add(new MenuItem("Change Competitor", new System.EventHandler(this.btn_change_competitor_Click)));
-                m.MenuItems.Add(new MenuItem("Slip", new System.EventHandler(this.SlipCurrentRow_Click)));
-                m.MenuItems.Add(new MenuItem("Delete", new System.EventHandler(this.btn_delete_leg_Click)));
-                m.MenuItems.Add(new MenuItem("Reload All", new System.EventHandler(this.btReloadAll_Click)));
+                m.MenuItems.Add(new MenuItem("Show", new System.EventHandler(this.SlipCurrentRow_Click)));
                 m.MenuItems.Add(new MenuItem("Change Status", new System.EventHandler(this.btChangeStatus_Click)));
-                m.MenuItems.Add(new MenuItem("Post All", new System.EventHandler(this.BtnPostAll_Click)));
-                m.MenuItems.Add(new MenuItem("Post Team", new System.EventHandler(this.btPostTeam_Click)));
-                m.MenuItems.Add(new MenuItem("Post Slip", new System.EventHandler(this.btnPostSlip_Click)));
+               
                 
                 
                 /*
@@ -1502,14 +1496,14 @@ Log.Information("pred PostSlip");
                 Log.Information("QueueProcess Started");
                 // Start the timer with the desired interval (e.g., every 5 seconds)
                 apiRequestTimer.Change(TimeSpan.Zero, TimeSpan.FromSeconds(api_queue_timer));
-                cbQueueProcess.ForeColor = Color.Green;
+                cbQueueProcess.BackColor = Color.Green;
             }
             else
             {
                 Log.Information("QueueProcess STOP");
                 // Stop the timer
                 apiRequestTimer.Change(Timeout.Infinite, Timeout.Infinite);
-                cbQueueProcess.ForeColor = Color.Black;
+                cbQueueProcess.BackColor = Color.Red;
             }
         }
 
@@ -1521,7 +1515,7 @@ Log.Information("pred PostSlip");
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void checkAPIToolStripMenuItem_Click(object sender, EventArgs e)
         {
             NewCard NewCard = new NewCard();
             NewCard.CheckApiRequests(null);
@@ -1905,8 +1899,6 @@ Log.Information("pred PostSlip");
             txSearch.Text = "";
             UpdateComp(-1);
         }
-
-
 
         /*
    private void Refresh_Readout(Object sender, EventArgs e)
