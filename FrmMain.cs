@@ -777,9 +777,9 @@ namespace h24
             //string dsk_penalty = competitor.dsk_penalty.ToString();
 
             //this.LbLastBib.Text = bib;
-
+            
             //display competitor details
-            this.LbLastBib.Text = competitor.bib;
+            this.LbLastBib.Text = competitor.bib; 
             this.LbStatus.Text = competitor.leg_status;
             this.LbPenal.Text = competitor.dsk_penalty.ToString();
 
@@ -1886,6 +1886,7 @@ Log.Information("pred PostSlip");
                 editborder.BackColor = Color.Red;
                 dataColumnTeamNr.ReadOnly = true;
                 withdrawn_datetime.ReadOnly = true;
+                dataGridViewTextBoxColumn4.ReadOnly = true;
             }
             else
             {

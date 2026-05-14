@@ -119,17 +119,18 @@
             this.dataColumnTeamStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.teamsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgCompetitors = new System.Windows.Forms.DataGridView();
+            this.competitorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.editborder = new System.Windows.Forms.GroupBox();
+            this.btClean_txSearch = new System.Windows.Forms.Button();
             this.competitor_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.withdrawn_datetime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comp_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comp_chip_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rented_chip = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.comp_withdrawn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.comp_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.asofdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.competitorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.editborder = new System.Windows.Forms.GroupBox();
-            this.btClean_txSearch = new System.Windows.Forms.Button();
             this.grpInputDevice.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -1051,6 +1052,7 @@
             this.dgCompetitors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.competitor_id,
             this.withdrawn_datetime,
+            this.dataGridViewTextBoxColumn4,
             this.comp_name,
             this.comp_chip_id,
             this.rented_chip,
@@ -1068,6 +1070,38 @@
             this.dgCompetitors.TabIndex = 103;
             this.dgCompetitors.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCompetitors_CellEndEdit);
             this.dgCompetitors.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgCompetitors_CellFormatting);
+            // 
+            // competitorsBindingSource
+            // 
+            this.competitorsBindingSource.DataSource = typeof(h24.competitors);
+            // 
+            // editborder
+            // 
+            this.editborder.BackColor = System.Drawing.SystemColors.Control;
+            this.editborder.Controls.Add(this.team_editmode);
+            this.editborder.Controls.Add(this.dgCompetitors);
+            this.editborder.Controls.Add(this.dgTeams);
+            this.editborder.Location = new System.Drawing.Point(4, 47);
+            this.editborder.Margin = new System.Windows.Forms.Padding(0);
+            this.editborder.Name = "editborder";
+            this.editborder.Padding = new System.Windows.Forms.Padding(2);
+            this.editborder.Size = new System.Drawing.Size(408, 430);
+            this.editborder.TabIndex = 145;
+            this.editborder.TabStop = false;
+            // 
+            // btClean_txSearch
+            // 
+            this.btClean_txSearch.AutoSize = true;
+            this.btClean_txSearch.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btClean_txSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btClean_txSearch.Location = new System.Drawing.Point(334, 22);
+            this.btClean_txSearch.Margin = new System.Windows.Forms.Padding(0);
+            this.btClean_txSearch.Name = "btClean_txSearch";
+            this.btClean_txSearch.Size = new System.Drawing.Size(25, 23);
+            this.btClean_txSearch.TabIndex = 146;
+            this.btClean_txSearch.Text = "X";
+            this.btClean_txSearch.UseVisualStyleBackColor = true;
+            this.btClean_txSearch.Click += new System.EventHandler(this.btClean_txSearch_Click);
             // 
             // competitor_id
             // 
@@ -1092,6 +1126,13 @@
             this.withdrawn_datetime.ReadOnly = true;
             this.withdrawn_datetime.ToolTipText = "Time of withdrawn";
             this.withdrawn_datetime.Width = 65;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "bib";
+            this.dataGridViewTextBoxColumn4.HeaderText = "SNr";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // comp_name
             // 
@@ -1150,38 +1191,6 @@
             this.asofdateDataGridViewTextBoxColumn.ReadOnly = true;
             this.asofdateDataGridViewTextBoxColumn.Visible = false;
             this.asofdateDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // competitorsBindingSource
-            // 
-            this.competitorsBindingSource.DataSource = typeof(h24.competitors);
-            // 
-            // editborder
-            // 
-            this.editborder.BackColor = System.Drawing.SystemColors.Control;
-            this.editborder.Controls.Add(this.team_editmode);
-            this.editborder.Controls.Add(this.dgCompetitors);
-            this.editborder.Controls.Add(this.dgTeams);
-            this.editborder.Location = new System.Drawing.Point(4, 47);
-            this.editborder.Margin = new System.Windows.Forms.Padding(0);
-            this.editborder.Name = "editborder";
-            this.editborder.Padding = new System.Windows.Forms.Padding(2);
-            this.editborder.Size = new System.Drawing.Size(408, 430);
-            this.editborder.TabIndex = 145;
-            this.editborder.TabStop = false;
-            // 
-            // btClean_txSearch
-            // 
-            this.btClean_txSearch.AutoSize = true;
-            this.btClean_txSearch.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btClean_txSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btClean_txSearch.Location = new System.Drawing.Point(334, 22);
-            this.btClean_txSearch.Margin = new System.Windows.Forms.Padding(0);
-            this.btClean_txSearch.Name = "btClean_txSearch";
-            this.btClean_txSearch.Size = new System.Drawing.Size(25, 23);
-            this.btClean_txSearch.TabIndex = 146;
-            this.btClean_txSearch.Text = "X";
-            this.btClean_txSearch.UseVisualStyleBackColor = true;
-            this.btClean_txSearch.Click += new System.EventHandler(this.btClean_txSearch_Click);
             // 
             // FrmMain
             // 
@@ -1318,14 +1327,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem printSlipToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem splitToolStripMenuItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn competitor_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn withdrawn_datetime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn comp_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn comp_chip_id;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn rented_chip;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn comp_withdrawn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn comp_status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn asofdateDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button btClean_txSearch;
         private System.Windows.Forms.ToolStripMenuItem postSlipToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem postAllToolStripMenuItem;
@@ -1339,6 +1340,15 @@
         private System.Windows.Forms.ToolStripMenuItem changeLegStatusToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem checkAPIToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn competitor_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn withdrawn_datetime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn comp_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn comp_chip_id;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn rented_chip;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn comp_withdrawn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn comp_status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn asofdateDataGridViewTextBoxColumn;
     }
 }
 
