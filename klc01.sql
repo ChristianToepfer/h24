@@ -388,6 +388,7 @@ CREATE TABLE [dbo].[si_readout](
 	[finish_missing] [bit] NULL,
 	[punch_count] [int] NULL,
 	[as_of_date] [datetime] NOT NULL,
+	[dev_serial] [int] NOT NULL,
  CONSTRAINT [PK__si_reado__C71FE367F7D92631] PRIMARY KEY CLUSTERED 
 (
 	[readout_id] ASC
@@ -403,6 +404,7 @@ GO
 CREATE view [dbo].[v_readout_legs] as
 select 
     r.readout_id,
+	r.dev_serial,
     r.chip_id,
     r.card_readout_datetime,
     l.comp_id,
@@ -4765,6 +4767,8 @@ GO
 ALTER TABLE [dbo].[settings] ADD  CONSTRAINT [DF__settings__as_of___7F2BE32F]  DEFAULT (getdate()) FOR [as_of_date]
 GO
 ALTER TABLE [dbo].[si_readout] ADD  CONSTRAINT [DF__si_readou__as_of__00200768]  DEFAULT (getdate()) FOR [as_of_date]
+GO
+ALTER TABLE [dbo].[si_readout] ADD  CONSTRAINT [DF__si_readou__dev_serial]  DEFAULT ((0)) FOR [dev_serial]
 GO
 ALTER TABLE [dbo].[si_stamps] ADD  CONSTRAINT [DF__si_stamps__as_of__01142BA1]  DEFAULT (getdate()) FOR [as_of_date]
 GO

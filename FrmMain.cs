@@ -37,6 +37,7 @@ namespace h24
         private readonly Reader _reader;
         private const string SerialPortSettingsName = "SerialPort";
 
+        private int devserial;
         private bool _connected;
         private bool skipTextChange;
         private Dictionary<int, DeviceInfo> _deviceInfoList;
@@ -54,6 +55,7 @@ namespace h24
                 WriteLogFile = false
             };
 
+            devserial = 0;
             _reader.InputDeviceChanged += _reader_InputDeviceChanged;
             _reader.InputDeviceStateChanged += _reader_InputDeviceStateChanged;
             _reader.LogEvent += _reader_LogEvent;
@@ -377,6 +379,7 @@ namespace h24
                 return;
             }
 
+            devserial = Int32.Parse(e.Device.SerialNumber);
             txtInfo.Text = "Unknown device";
 
             var msg = "no description available";
@@ -654,7 +657,8 @@ namespace h24
                         finish_datetime = card.FinishPunch.IsMissingOrEmpty == true ? card.ReadoutDateTime : card.FinishPunch.PunchDateTime,
                         finish_missing = card.FinishPunch.IsMissingOrEmpty == true ? true : false,
                         as_of_date = DateTime.Now,
-                        si_stamps = Stamps
+                        si_stamps = Stamps,
+                        dev_serial = devserial
                     };
                    
                     try
@@ -1576,17 +1580,14 @@ Log.Information("pred PostSlip");
 
         private void RefreshLegsDevice()
         {
-            // TODO: Device id
-            /*int device_id = 
             using (var db = new klc01())
             {
-                var query = db.v_readout_legs.OrderByDescending(x => x.readout_id).Where(
-                    x => x.device_id == device_id)
-                    .ToList();
+                var query = db.v_readout_legs.Where(x => x.dev_serial == devserial).OrderByDescending(x => x.readout_id)
+                    .Take(100).ToList();               
                 dgLegs.DataSource = query;
                 dgLegs.Update();
                 dgLegs.Refresh();
-            }*/
+            }
         }
 
         private void btChangeStatus_Click(object sender, EventArgs e)
