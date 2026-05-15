@@ -223,7 +223,8 @@ namespace h24
                                     comp5.comp_name = record.given5 + " " + record.family5;
                                     comp5.comp_chip_id = string.IsNullOrWhiteSpace(record.si_chip5) ? (int?)null : int.Parse(record.si_chip5);
                                     comp5.comp_country = record.country5;
-                                    comp5.comp_birthday = DateTime.ParseExact(record.birth_year5, "yyyy", null);
+                                    if (!String.IsNullOrEmpty(record.birth_year5))
+                                        comp5.comp_birthday = DateTime.ParseExact(record.birth_year5, "yyyy", null);
                                     comp5.comp_valid_flag = true;
                                     comp5.as_of_date = DateTime.Now;
                                     Competitor.Add(comp5);
@@ -236,7 +237,8 @@ namespace h24
                                     comp6.comp_name = record.given6 + " " + record.family6;
                                     comp6.comp_chip_id = string.IsNullOrWhiteSpace(record.si_chip6) ? (int?)null : int.Parse(record.si_chip6);
                                     comp6.comp_country = record.country6;
-                                    comp6.comp_birthday = DateTime.ParseExact(record.birth_year6, "yyyy", null);
+                                    if (!String.IsNullOrEmpty(record.birth_year6))
+                                        comp6.comp_birthday = DateTime.ParseExact(record.birth_year6, "yyyy", null);
                                     comp6.comp_valid_flag = true;
                                     comp6.as_of_date = DateTime.Now;
                                     Competitor.Add(comp6);
@@ -247,7 +249,7 @@ namespace h24
                                     team_nr = record.id,
                                     team_name = record.team_name,
                                     phone_number = record.phone,
-                                    team_status = record.note,
+                                    //team_status = record.note, //aktuell nur 10 Zeichen erlaubt!
                                     team_did_start = true,
                                     cat_id = cat_id,
                                     competitors = Competitor,
@@ -256,7 +258,7 @@ namespace h24
                                 };
 
                                 db.teams.Add(newTeam);
-                                db.SaveChanges();
+                                db.SaveChanges();                               
                             }
                         }
                     }
