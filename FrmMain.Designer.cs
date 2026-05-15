@@ -111,17 +111,17 @@
             this.radio_wdrn = new System.Windows.Forms.RadioButton();
             this.team_editmode = new System.Windows.Forms.CheckBox();
             this.dgTeams = new System.Windows.Forms.DataGridView();
+            this.teamsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dgCompetitors = new System.Windows.Forms.DataGridView();
+            this.competitorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.editborder = new System.Windows.Forms.GroupBox();
+            this.btClean_txSearch = new System.Windows.Forms.Button();
             this.team_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataColumnTeamStarted = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataColumnTeamNr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataColumnTeamName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataColumnPhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataColumnTeamStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.teamsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dgCompetitors = new System.Windows.Forms.DataGridView();
-            this.competitorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.editborder = new System.Windows.Forms.GroupBox();
-            this.btClean_txSearch = new System.Windows.Forms.Button();
             this.competitor_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.withdrawn_datetime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -980,67 +980,6 @@
             this.dgTeams.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgTeams_CellEndEdit);
             this.dgTeams.SelectionChanged += new System.EventHandler(this.dgTeams_SelectionChanged);
             // 
-            // team_id
-            // 
-            this.team_id.DataPropertyName = "team_id";
-            this.team_id.HeaderText = "team_id";
-            this.team_id.MinimumWidth = 6;
-            this.team_id.Name = "team_id";
-            this.team_id.ReadOnly = true;
-            this.team_id.Visible = false;
-            this.team_id.Width = 125;
-            // 
-            // dataColumnTeamStarted
-            // 
-            this.dataColumnTeamStarted.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.dataColumnTeamStarted.DataPropertyName = "team_did_start";
-            this.dataColumnTeamStarted.HeaderText = "Did start";
-            this.dataColumnTeamStarted.MinimumWidth = 6;
-            this.dataColumnTeamStarted.Name = "dataColumnTeamStarted";
-            this.dataColumnTeamStarted.ReadOnly = true;
-            this.dataColumnTeamStarted.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataColumnTeamStarted.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataColumnTeamStarted.Visible = false;
-            // 
-            // dataColumnTeamNr
-            // 
-            this.dataColumnTeamNr.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.dataColumnTeamNr.DataPropertyName = "team_nr";
-            this.dataColumnTeamNr.HeaderText = "Nr.";
-            this.dataColumnTeamNr.MinimumWidth = 6;
-            this.dataColumnTeamNr.Name = "dataColumnTeamNr";
-            this.dataColumnTeamNr.ReadOnly = true;
-            this.dataColumnTeamNr.Width = 46;
-            // 
-            // dataColumnTeamName
-            // 
-            this.dataColumnTeamName.DataPropertyName = "team_name";
-            this.dataColumnTeamName.HeaderText = "Team Name";
-            this.dataColumnTeamName.MinimumWidth = 6;
-            this.dataColumnTeamName.Name = "dataColumnTeamName";
-            this.dataColumnTeamName.ReadOnly = true;
-            this.dataColumnTeamName.Width = 200;
-            // 
-            // dataColumnPhoneNumber
-            // 
-            this.dataColumnPhoneNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataColumnPhoneNumber.DataPropertyName = "phone_number";
-            this.dataColumnPhoneNumber.HeaderText = "Phone";
-            this.dataColumnPhoneNumber.MinimumWidth = 8;
-            this.dataColumnPhoneNumber.Name = "dataColumnPhoneNumber";
-            this.dataColumnPhoneNumber.ReadOnly = true;
-            this.dataColumnPhoneNumber.ToolTipText = "Team phone number";
-            this.dataColumnPhoneNumber.Width = 63;
-            // 
-            // dataColumnTeamStatus
-            // 
-            this.dataColumnTeamStatus.DataPropertyName = "team_status";
-            this.dataColumnTeamStatus.HeaderText = "Free Text";
-            this.dataColumnTeamStatus.MinimumWidth = 6;
-            this.dataColumnTeamStatus.Name = "dataColumnTeamStatus";
-            this.dataColumnTeamStatus.ReadOnly = true;
-            this.dataColumnTeamStatus.Width = 125;
-            // 
             // teamsBindingSource
             // 
             this.teamsBindingSource.DataSource = typeof(h24.teams);
@@ -1103,6 +1042,68 @@
             this.btClean_txSearch.UseVisualStyleBackColor = true;
             this.btClean_txSearch.Click += new System.EventHandler(this.btClean_txSearch_Click);
             // 
+            // team_id
+            // 
+            this.team_id.DataPropertyName = "team_id";
+            this.team_id.HeaderText = "team_id";
+            this.team_id.MinimumWidth = 6;
+            this.team_id.Name = "team_id";
+            this.team_id.ReadOnly = true;
+            this.team_id.Visible = false;
+            this.team_id.Width = 125;
+            // 
+            // dataColumnTeamStarted
+            // 
+            this.dataColumnTeamStarted.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataColumnTeamStarted.DataPropertyName = "team_did_start";
+            this.dataColumnTeamStarted.HeaderText = "Did start";
+            this.dataColumnTeamStarted.MinimumWidth = 6;
+            this.dataColumnTeamStarted.Name = "dataColumnTeamStarted";
+            this.dataColumnTeamStarted.ReadOnly = true;
+            this.dataColumnTeamStarted.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataColumnTeamStarted.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataColumnTeamStarted.Visible = false;
+            this.dataColumnTeamStarted.Width = 71;
+            // 
+            // dataColumnTeamNr
+            // 
+            this.dataColumnTeamNr.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataColumnTeamNr.DataPropertyName = "team_nr";
+            this.dataColumnTeamNr.HeaderText = "Nr.";
+            this.dataColumnTeamNr.MinimumWidth = 6;
+            this.dataColumnTeamNr.Name = "dataColumnTeamNr";
+            this.dataColumnTeamNr.ReadOnly = true;
+            this.dataColumnTeamNr.Width = 46;
+            // 
+            // dataColumnTeamName
+            // 
+            this.dataColumnTeamName.DataPropertyName = "team_name";
+            this.dataColumnTeamName.HeaderText = "Team Name";
+            this.dataColumnTeamName.MinimumWidth = 6;
+            this.dataColumnTeamName.Name = "dataColumnTeamName";
+            this.dataColumnTeamName.ReadOnly = true;
+            this.dataColumnTeamName.Width = 200;
+            // 
+            // dataColumnPhoneNumber
+            // 
+            this.dataColumnPhoneNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataColumnPhoneNumber.DataPropertyName = "phone_number";
+            this.dataColumnPhoneNumber.HeaderText = "Phone";
+            this.dataColumnPhoneNumber.MinimumWidth = 8;
+            this.dataColumnPhoneNumber.Name = "dataColumnPhoneNumber";
+            this.dataColumnPhoneNumber.ReadOnly = true;
+            this.dataColumnPhoneNumber.ToolTipText = "Team phone number";
+            this.dataColumnPhoneNumber.Width = 63;
+            // 
+            // dataColumnTeamStatus
+            // 
+            this.dataColumnTeamStatus.DataPropertyName = "team_status";
+            this.dataColumnTeamStatus.HeaderText = "Team Status";
+            this.dataColumnTeamStatus.MinimumWidth = 6;
+            this.dataColumnTeamStatus.Name = "dataColumnTeamStatus";
+            this.dataColumnTeamStatus.ReadOnly = true;
+            this.dataColumnTeamStatus.Width = 125;
+            // 
             // competitor_id
             // 
             this.competitor_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -1112,6 +1113,7 @@
             this.competitor_id.Name = "competitor_id";
             this.competitor_id.ReadOnly = true;
             this.competitor_id.Visible = false;
+            this.competitor_id.Width = 72;
             // 
             // withdrawn_datetime
             // 
@@ -1174,11 +1176,12 @@
             this.comp_withdrawn.Name = "comp_withdrawn";
             this.comp_withdrawn.ReadOnly = true;
             this.comp_withdrawn.Visible = false;
+            this.comp_withdrawn.Width = 64;
             // 
             // comp_status
             // 
             this.comp_status.DataPropertyName = "comp_status";
-            this.comp_status.HeaderText = "Free Text";
+            this.comp_status.HeaderText = "Status";
             this.comp_status.Name = "comp_status";
             this.comp_status.ReadOnly = true;
             // 
@@ -1316,12 +1319,6 @@
         private System.Windows.Forms.RadioButton radio_wdrn;
         private System.Windows.Forms.CheckBox team_editmode;
         private System.Windows.Forms.DataGridView dgTeams;
-        private System.Windows.Forms.DataGridViewTextBoxColumn team_id;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataColumnTeamStarted;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataColumnTeamNr;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataColumnTeamName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataColumnPhoneNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataColumnTeamStatus;
         private System.Windows.Forms.DataGridView dgCompetitors;
         private System.Windows.Forms.GroupBox editborder;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
@@ -1340,6 +1337,12 @@
         private System.Windows.Forms.ToolStripMenuItem changeLegStatusToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem checkAPIToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn team_id;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataColumnTeamStarted;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataColumnTeamNr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataColumnTeamName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataColumnPhoneNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataColumnTeamStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn competitor_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn withdrawn_datetime;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;

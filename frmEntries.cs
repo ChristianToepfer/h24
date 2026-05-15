@@ -247,6 +247,7 @@ namespace h24
                                     team_nr = record.id,
                                     team_name = record.team_name,
                                     phone_number = record.phone,
+                                    team_status = record.note,
                                     team_did_start = true,
                                     cat_id = cat_id,
                                     competitors = Competitor,
