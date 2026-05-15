@@ -60,6 +60,7 @@ namespace h24
             var competitor = db.competitors.SingleOrDefault(b => b.comp_id == competitor_id);
             if (competitor != null)
             {
+                string sb;
                 Int32 nr = 0;
                 string bib = competitor.bib;
                 if (Int32.TryParse(bib, out nr)) // first competitor readout
@@ -74,11 +75,22 @@ namespace h24
 
                     if (rankmax == 1) // nur hier die Startbahn zuordnung Möglich!
                     {
-                        // TOOD: Laufbahn zuordnen!
+                        // team_nr - ca.first_start_number
+                        if (nr > 400)
+                        {
+                            sb = "SFY" + (((nr - 1) % 2) + 1);
+                        }
+                        else
+                        {
+                            if (nr > 200)
+                                sb = "SF" + (((nr - 201) % 6) + 1);
+                            else
+                                sb = "SF" + (((nr - 1) % 6) + 1);
+                        }
+                        // TOOD: Startbahn noch zuweisen!
                     }
                 }
             }
-
             //insert leg
             int leg_id = this.InsertLeg(readout_id, competitor_id, out int guessed_course);
             int slip_id = this.InsertSlip(leg_id);
