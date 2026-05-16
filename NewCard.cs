@@ -57,6 +57,7 @@ namespace h24
             }
 
             // FIXME: GetRunnerByCardId könnte doch gleich competitor liefern!?
+            // var competitor = db.competitors.FirstOrDefault(c => c.comp_id == competitor_id);
             var competitor = db.competitors.SingleOrDefault(b => b.comp_id == competitor_id);
             if (competitor != null)
             {
@@ -87,7 +88,16 @@ namespace h24
                             else
                                 sb = "SF" + (((nr - 1) % 6) + 1);
                         }
-                        // TOOD: Startbahn noch zuweisen!
+                       
+                        int sf_id = db.courses.Where(b => b.course_name == sb).Select(b => b.course_id).First();
+                        var newLeg = new legs
+                        {
+                            comp_id = competitor_id,
+                            course_id = sf_id,
+                            valid_flag = true
+                        };
+                        db.legs.Add(newLeg);
+                        db.SaveChanges();                        
                     }
                 }
             }
